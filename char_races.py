@@ -1,43 +1,46 @@
 def races_base(race, rolls):
-    if race == "Dwarf":
+    if race.upper() == "Dwarf".upper() or "0" == race:
         race = "Dwarf"
         result = dwarf(rolls)
-    elif race == "Elf":
+    elif race.upper() == "Elf".upper() or "1" == race:
         race = "Elf"
         result = elf(rolls)
-    elif race == "Gnome":
+    elif race.upper() == "Gnome".upper() or "2" == race:
         race = "Gnome"
         result = gnome(rolls)
-    elif race == "Half-Elf":
+    elif race.upper() == "Half-Elf".upper() or "3" == race:
         race = "Half-Elf"
         result = half_elf(rolls)
-    elif race == "Half-Orc":
+    elif race.upper() == "Half-Orc".upper() or "4" == race:
         race = "Half-Orc"
         result = half_orc(rolls)
-    elif race == "Human":
+    elif race.upper() == "Human".upper() or "5" == race:
         race = "Human"
         result = human(rolls)
-
+    else:
+        print("Invalid race choice")
+        result = False
+    return result
 
 def minimums(rolls, strength, dexterity, constitution, intelligence, wisdom, charisma):
     result = False
     if rolls["STR"] < strength:
-        print("Insufficient minimum Strength", strength, "required")
+        print("Insufficient! Minimum Strength of", strength, "required")
         return result
     if rolls["INT"] < dexterity:
-        print("Insufficient minimum Intelligence", dexterity, "required")
+        print("Insufficient! Minimum Intelligence of", dexterity, "required")
         return result
-    if rolls["WIZ"] < constitution:
-        print("Insufficient minimum Wisdom", constitution, "required")
+    if rolls["WIS"] < constitution:
+        print("Insufficient! Minimum Wisdom of", constitution, "required")
         return result
     if rolls["DEX"] < intelligence:
-        print("Insufficient minimum Dexterity", intelligence, "required")
+        print("Insufficient! Minimum Dexterity of", intelligence, "required")
         return result
     if rolls["CON"] < wisdom:
-        print("Insufficient minimum Wisdom", wisdom, "required")
+        print("Insufficient! Minimum Wisdom of", wisdom, "required")
         return result
     if rolls["CHA"] < charisma:
-        print("Insufficient minimum Charisma", charisma, "required")
+        print("Insufficient! Minimum Charisma of", charisma, "required")
         return result
     result = True
     return result
