@@ -327,6 +327,78 @@ def race_classes(rolls, race):
     elif race == "Human":
         class_choices = ["Fighter", "Ranger", "Paladin", "Cleric", "Druid", "Thief", "Assassin", "Magic-User", "Illusionist"]
 
+    if "Cleric" in class_choices:
+        if rolls["WIS"] < 9:
+            print("Not enough WIS!")
+            quit()
+        else:
+            return class_choices
+    elif "Druid" in class_choices:
+        if rolls["WIS"] < 12:
+            print("Not enough WIS!")
+            quit()
+        if rolls["CHA"] < 15:
+            print("Not enough CHA!")
+            quit()
+        else:
+            return class_choices
+    elif "Fighter" in class_choices:
+        if rolls["STR"] < 9:
+            print("Not enough STR!")
+            quit()
+    elif "Paladin" in class_choices:
+        if rolls["STR"] < 12:
+            print("Not enough STR!")
+            quit()
+        if rolls["INT"] < 9:
+            print("Not enough INT!")
+            quit()
+        if rolls["WIS"] < 13:
+            print("Not enough WIS!")
+            quit()
+        if rolls["CON"] < 9:
+            print("Not enough CON!")
+            quit()
+        if rolls["CHA"] < 17:
+            print("Not enough CHA!")
+            quit()
+    elif "Ranger" in class_choices:
+        if rolls["STR"] < 13:
+            print("Not enough STR!")
+            quit()
+        if rolls["INT"] < 13:
+            print("Not enough INT!")
+            quit()
+        if rolls["WIS"] < 14:
+            print("Not enough WIS!")
+            quit()
+        if rolls["CON"] < 14:
+            print("Not enough CON!")
+            quit()
+    elif "Magic-User" in class_choices:
+        if rolls["INT"] < 9:
+            print("Not enough INT!")
+            quit()
+    elif "Illusionist" in class_choices:
+        if rolls["INT"] < 15:
+            print("Not enough INT!")
+            quit()
+        elif rolls["DEX"] < 16:
+            print("Not enough DEX!")
+            quit()
+    elif "Thief" in class_choices:
+        if rolls["STR"] < 12:
+            print("Not enough STR!")
+            quit()
+        if rolls["DEX"] < 12:
+            print("Not enough DEX!")
+            quit()
+        if rolls["INT"] < 11:
+            print("Not enough INT!")
+            quit()
+
+
+
 def base_bonuses(rolls, race, saves, race_abilities):
     if race == "Elf":
         rolls["DEX"] += 1
