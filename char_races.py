@@ -20,23 +20,23 @@ def races_base(race, rolls):
     else:
         print("Invalid race choice")
         result = False
-    return result
+    return race, result
 
 def minimums(rolls, strength, dexterity, constitution, intelligence, wisdom, charisma):
     result = False
     if rolls["STR"] < strength:
         print("Insufficient! Minimum Strength of", strength, "required")
         return result
-    if rolls["INT"] < dexterity:
+    if rolls["INT"] < intelligence:
         print("Insufficient! Minimum Intelligence of", dexterity, "required")
         return result
-    if rolls["WIS"] < constitution:
+    if rolls["WIS"] < wisdom:
         print("Insufficient! Minimum Wisdom of", constitution, "required")
         return result
-    if rolls["DEX"] < intelligence:
+    if rolls["DEX"] < dexterity:
         print("Insufficient! Minimum Dexterity of", intelligence, "required")
         return result
-    if rolls["CON"] < wisdom:
+    if rolls["CON"] < constitution:
         print("Insufficient! Minimum Wisdom of", wisdom, "required")
         return result
     if rolls["CHA"] < charisma:

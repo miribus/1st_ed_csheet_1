@@ -36,10 +36,15 @@ while not result:
           "4 Half-Orc",
           "5 Human",
           " ]")
-    race = char_races.races_base(input("Choose Race:"), name.char_abilities)
-    decision = input("Agreed? Y/N:")
-    if "y".upper() == decision.upper():
-        result = race
+    race, result = char_races.races_base(input("Choose Race:"), name.char_abilities)
+    if not result:
+        result = False
+    else:
+        decision = input("Agreed? Y/N:")
+        if "y".upper() == decision.upper():
+            result = result
+            name.char_race = race
+print(name.char_race)
 
 
 #name.char_saves = saving_throws.class_saves("thi")
