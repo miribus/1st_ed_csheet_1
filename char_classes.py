@@ -1,5 +1,4 @@
-def class_saves(char_class):
-    global saves
+'''
     if char_class == "asn":
         saves = assasin()
     elif char_class == "clr":
@@ -18,83 +17,53 @@ def class_saves(char_class):
         saves = illusionist()
     elif char_class == "thi":
         saves = thief()
-    return saves
+'''
 
-def assasin():
-    saves = {"Rods, Staves, Wands:": 14,
-             "Breath Weapon:": 16,
-             "Poison, Death Magic:": 13,
-             "Petrification, Polymorph:": 12,
-             "Spells:": 15}
-    return saves
+def races_base(race, rolls):
+    if race.upper() == "Dwarf".upper() or "0" == race:
+        race = "Dwarf"
+        result = dwarf(rolls)
+    elif race.upper() == "Elf".upper() or "1" == race:
+        race = "Elf"
+        result = elf(rolls)
+    elif race.upper() == "Gnome".upper() or "2" == race:
+        race = "Gnome"
+        result = gnome(rolls)
+    elif race.upper() == "Half-Elf".upper() or "3" == race:
+        race = "Half-Elf"
+        result = half_elf(rolls)
+    elif race.upper() == "Half-Orc".upper() or "4" == race:
+        race = "Half-Orc"
+        result = half_orc(rolls)
+    elif race.upper() == "Human".upper() or "5" == race:
+        race = "Human"
+        result = human(rolls)
+    else:
+        print("Invalid race choice")
+        result = False
+    return race, result
 
-def thief():
-    saves = {"Rods, Staves, Wands:": 14,
-             "Breath Weapon:": 16,
-             "Poison, Death Magic:": 13,
-             "Petrification, Polymorph:": 12,
-             "Spells:": 15}
-    return saves
+def class_min_abilities(rolls):
+    result = False
+    if rolls["STR"] < strength:
+        print("Insufficient! Minimum Strength of", strength, "required")
+        return result
+    if rolls["INT"] < intelligence:
+        print("Insufficient! Minimum Intelligence of", intelligence, "required")
+        return result
+    if rolls["WIS"] < wisdom:
+        print("Insufficient! Minimum Wisdom of", wisdom, "required")
+        return result
+    if rolls["DEX"] < dexterity:
+        print("Insufficient! Minimum Dexterity of", dexterity, "required")
+        return result
+    if rolls["CON"] < constitution:
+        print("Insufficient! Minimum Wisdom of", constitution, "required")
+        return result
+    if rolls["CHA"] < charisma:
+        print("Insufficient! Minimum Charisma of", charisma, "required")
+        return result
+    result = True
+    return result
 
-def cleric():
-    saves = {"Rods, Staves, Wands:": 14,
-             "Breath Weapon:": 16,
-             "Poison, Death Magic:": 10,
-             "Petrification, Polymorph:": 13,
-             "Spells:": 15}
-    return saves
-
-def druid():
-    saves = {"Rods, Staves, Wands:": 14,
-             "Breath Weapon:": 16,
-             "Poison, Death Magic:": 10,
-             "Petrification, Polymorph:": 13,
-             "Spells:":15}
-    return saves
-
-def fighter():
-    saves = {"Rods, Staves, Wands:": 18,
-             "Breath Weapon:": 20,
-             "Poison, Death Magic:": 16,
-             "Petrification, Polymorph:": 17,
-             "Spells:": 19}
-    return saves
-
-def paladin():
-    saves = {"Rods, Staves, Wands:": 14,
-             "Breath Weapon:": 15,
-             "Poison, Death Magic:": 12,
-             "Petrification, Polymorph:": 13,
-             "Spells:": 15}
-    return saves
-
-def ranger():
-    saves = {"Rods, Staves, Wands:": 16,
-             "Breath Weapon:": 17,
-             "Poison, Death Magic:": 14,
-             "Petrification, Polymorph:": 15,
-             "Spells:": 17}
-    return saves
-
-def illusionist():
-    saves = {"Rods, Staves, Wands:": 11,
-             "Breath Weapon:": 15,
-             "Poison, Death Magic:": 14,
-             "Petrification, Polymorph:": 13,
-             "Spells:": 12}
-    return saves
-
-def magic_user():
-    saves = {"Rods, Staves, Wands:": 11,
-             "Breath Weapon:": 15,
-             "Poison, Death Magic:": 14,
-             "Petrification, Polymorph:": 13,
-             "Spells:": 12}
-    return saves
-
-
-
-
-#5-8 12 15 12 11 13
-#9-12 10 14 11 10 11
-#13-15 8 13 10 9 9
+def dwarf(rolls):

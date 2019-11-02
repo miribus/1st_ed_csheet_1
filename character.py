@@ -9,6 +9,7 @@ class playerSheet:
         self.player_name = "todd"
         self.char_class = {"Class 1:":0}
         self.char_race = ""
+        self.char_gender = ""
         self.char_abilities = {"STR": dice.ability_roller(6, 5),
                                "INT": dice.ability_roller(6, 5),
                                "WIS": dice.ability_roller(6, 5),
@@ -20,8 +21,9 @@ class playerSheet:
         self.char_saves = ""
         self.char_armor = ""
         self.char_shield = ""
-        self.char_inventory = []
-        self.char_adjustments = []
+        self.char_inventory = {}
+        self.char_adjustments = {}
+        self.char_race_abilities = {}
 
 name = playerSheet(input("Character Name?:"))
 print(name.char_abilities)
@@ -35,8 +37,9 @@ while not result:
           "3 Half-Elf",
           "4 Half-Orc",
           "5 Human",
+          "6 Halfling",
           " ]")
-    race, result = char_races.races_base(input("Choose Race:"), name.char_abilities)
+    race, result, gender = char_races.races_base(input("Choose Race:"), name.char_abilities)
     if not result:
         result = False
     else:
@@ -44,8 +47,8 @@ while not result:
         if "y".upper() == decision.upper():
             result = result
             name.char_race = race
+            name.char_gender = gender
 print(name.char_race)
-
 
 #name.char_saves = saving_throws.class_saves("thi")
 #print(name.char_saves)

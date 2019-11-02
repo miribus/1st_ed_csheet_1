@@ -23,7 +23,8 @@ def class_saves(char_class):
 def assasin():
     saves = {"Rods, Staves, Wands:": 14,
              "Breath Weapon:": 16,
-             "Poison, Death Magic:": 13,
+             "Poison": 13,
+             "Death Magic:": 13,
              "Petrification, Polymorph:": 12,
              "Spells:": 15}
     return saves
@@ -31,7 +32,8 @@ def assasin():
 def thief():
     saves = {"Rods, Staves, Wands:": 14,
              "Breath Weapon:": 16,
-             "Poison, Death Magic:": 13,
+             "Poison": 13,
+             "Death Magic:": 13,
              "Petrification, Polymorph:": 12,
              "Spells:": 15}
     return saves
@@ -39,7 +41,8 @@ def thief():
 def cleric():
     saves = {"Rods, Staves, Wands:": 14,
              "Breath Weapon:": 16,
-             "Poison, Death Magic:": 10,
+             "Poison": 10,
+             "Death Magic:": 10,
              "Petrification, Polymorph:": 13,
              "Spells:": 15}
     return saves
@@ -47,31 +50,34 @@ def cleric():
 def druid():
     saves = {"Rods, Staves, Wands:": 14,
              "Breath Weapon:": 16,
-             "Poison, Death Magic:": 10,
+             "Poison": 10,
+             "Death Magic:": 10,
              "Petrification, Polymorph:": 13,
              "Spells:":15}
     return saves
 
 def fighter():
-    saves = {"Rods, Staves, Wands:": 18,
-             "Breath Weapon:": 20,
-             "Poison, Death Magic:": 16,
-             "Petrification, Polymorph:": 17,
-             "Spells:": 19}
+    saves = {"Rods, Staves, Wands:": 16,
+             "Breath Weapon:": 17,
+             "Poison": 14,
+             "Death Magic:": 14,
+             "Petrification, Polymorph:": 15,
+             "Spells:": 17}
     return saves
 
 def paladin():
-    saves = {"Rods, Staves, Wands:": 14,
-             "Breath Weapon:": 15,
-             "Poison, Death Magic:": 12,
-             "Petrification, Polymorph:": 13,
-             "Spells:": 15}
-    return saves
-
-def ranger():
     saves = {"Rods, Staves, Wands:": 16,
              "Breath Weapon:": 17,
-             "Poison, Death Magic:": 14,
+             "Poison": 14,
+             "Death Magic:": 14,
+             "Petrification, Polymorph:": 15,
+             "Spells:": 17}
+    return saves
+def ranger():
+    saves = {"Rods, Staves, Wands:": 16,
+             "Breath Weapon:": 27,
+             "Poison:": 14,
+             "Death Magic:": 14,
              "Petrification, Polymorph:": 15,
              "Spells:": 17}
     return saves
@@ -79,7 +85,8 @@ def ranger():
 def illusionist():
     saves = {"Rods, Staves, Wands:": 11,
              "Breath Weapon:": 15,
-             "Poison, Death Magic:": 14,
+             "Poison:": 14,
+             "Death Magic:": 14,
              "Petrification, Polymorph:": 13,
              "Spells:": 12}
     return saves
@@ -87,7 +94,8 @@ def illusionist():
 def magic_user():
     saves = {"Rods, Staves, Wands:": 11,
              "Breath Weapon:": 15,
-             "Poison, Death Magic:": 14,
+             "Poison:": 14,
+             "Death Magic:": 14,
              "Petrification, Polymorph:": 13,
              "Spells:": 12}
     return saves
