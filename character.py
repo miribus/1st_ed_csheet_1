@@ -48,9 +48,11 @@ while not result:
             if "y".upper() == decision.upper():
                 result = result
                 name.char_race = race
-                name.char_gender = gender
-                race_class_choices = char_classes.race_class_choices
-                name.char_class = char_classes.race_classes(name.char_abilities, name.char_race, race_class_choices)
+                if result:
+                    name.char_gender = gender
+                if result:
+                    race_class_choices = char_classes.race_class_choices
+                    name.char_class, result = char_classes.race_classes(name.char_abilities, name.char_race, race_class_choices)
 print(name.char_race)
 print(name.char_abilities)
 print(name.char_class)

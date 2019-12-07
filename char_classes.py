@@ -26,14 +26,18 @@ class race_class_choices(Enum):
     Ranger = 22
     RangerMagicUser = 23
     Paladin = 24
-    Thief = 25
-    Assassin = 26
-    MagicUser = 27
-    MagicUserThief = 28
-    MagicUserAssassin = 29
-    Illusionist = 30
-    IllusionistThief = 31
-    IllusionistAssassin = 32
+    UAPaladin = 35
+    Thief = 26
+    Assassin = 27
+    MagicUser = 28
+    MagicUserThief = 29
+    MagicUserAssassin = 30
+    Illusionist = 31
+    IllusionistThief = 32
+    IllusionistAssassin = 33
+    Monk = 34
+    Barbarian = 35
+    Cavalier = 36
 
 
 def race_classes(rolls, race, race_class_choices):
@@ -69,7 +73,8 @@ def race_classes(rolls, race, race_class_choices):
                          "Cleric/Fighter/Thief (UA)",
                          "Cleric/Magic-User/Thief (UA)"]
     elif race == "Human":
-        class_choices = ["Fighter", "Ranger", "Paladin", "Cleric", "Druid", "Thief", "Assassin", "Magic-User", "Illusionist"]
+        class_choices = ["Fighter", "Ranger", "Paladin", "Cleric", "Druid", "Thief", "Assassin", "Magic-User", "Illusionist",
+                         "Monk", "Barbarian", "UAPaladin"]
 
     result = False
     while not result:
@@ -81,16 +86,16 @@ def race_classes(rolls, race, race_class_choices):
 
         choices = input("Choose a Class NUMBER:")
         if choices.isdigit():
-            if int(choices) in range(1, 21):
+            if int(choices) in range(1, 37):
                 for rc in race_class_choices:
                     print(rc.name, rc.value)
                     if str(choices) == str(rc.value):
                         choices = str(rc.name)
-                        print(choices)
 
                 stop = False
                 classlist = []
                 while len(choices) > 0 and not stop:
+                    stop = False
                     for i in classlist:
                         print("Class: ", i, "selected.")
                     if "Cleric" in choices:
@@ -178,11 +183,60 @@ def race_classes(rolls, race, race_class_choices):
                         else:
                             choices = choices.replace("Assassin", "")
                             classlist.append("Assassin")
-                if len(choices) > 1 or stop:
+                    elif "Barbarian" in choices:
+                        if rolls["STR"] < 15:
+                            print("Not enough STR!")
+                        if rolls["CON"] < 15:
+                            print("Not enough CON!")
+                        if rolls["DEX"] < 14:
+                            print("Not enough DEX!")
+                        if rolls["WIS"] > 16:
+                            print("WIS TOO HIGH!")
+                            stop = True
+                        else:
+                            choices = choices.replace("Barbarian", "")
+                            classlist.append("Barbarian")
+                    elif "Cavalier" in choices:
+                        if rolls["STR"] < 15:
+                            print("Not enough STR!")
+                        if rolls["CON"] < 15:
+                            print("Not enough CON!")
+                        if rolls["DEX"] < 15:
+                            print("Not enough DEX!")
+                        if rolls["WIS"] < 10:
+                            print("Not enough WIS!")
+                            stop = True
+                        else:
+                            choices = choices.replace("Cavalier", "")
+                            classlist.append("Cavalier")
+                    elif "UAPaladin" in choices:
+                        if rolls["STR"] < 15:
+                            print("Not enough STR!")
+                        if rolls["CON"] < 15:
+                            print("Not enough CON!")
+                        if rolls["DEX"] < 15:
+                            print("Not enough DEX!")
+                        if rolls["WIS"] < 13:
+                            print("Not enough WIS!")
+                        if rolls["CHA"] < 13:
+                            print("Not enough CHA!")
+                            stop = True
+                        else:
+                            choices = choices.replace("UAPaladin", "")
+                            classlist.append("UAPaladin")
+                if len(choices) > 1:
                     print("This choice isn't valid, try again.")
                 else:
                     result = input("Agreed? Y/N")
                     if result.isalpha():
                         if "y".upper() == result.upper():
                             #result = True
-                            return classlist
+                            result = True
+                            return classlist, result
+        for c in class_choices:
+            class_ch = re.sub(r' \(UA\)|/|-', '', str(c))
+            for rc in race_class_choices:
+                if str(rc.name) == str(class_ch):
+                    print(rc.value, c)
+
+        choices = input("Choose a Class NUMBER:")
