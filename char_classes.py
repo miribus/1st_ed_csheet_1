@@ -52,18 +52,22 @@ def race_classes(rolls, race, race_class_choices):
         class_choices = ["Cleric", "Fighter", "Thief", "Assassin", "Cleric/Fighter",
                          "Cleric/Thief", "Cleric/Assassin", "Fighter/Thief", "Fighter/Assassin"]
     elif race == "Halfling":
-        class_choices = ["Cleric (UA)", "Druid (UA)", "Fighter", "Thief",  "Cleric/Fighter",
+        class_choices = ["Cleric (UA)", "Druid (UA)", "Fighter", "Thief",  "Cleric/Fighter (UA)",
                          "Cleric/Thief (UA)", "Fighter/Thief"]
     elif race == "Gnome":
         class_choices = ["Cleric (UA)", "Druid", "Fighter", "Magic-User", "Thief", "Assassin", "Ranger", "Illusionist",
-                         "Cleric/Fighter", "Cleric/Thief (UA)", "Cleric/Assassin (UA)", "Fighter/Illusionist",
-                         "Fighter/Thief", "Fighter/Assassin (UA)", "Illusionist/Thief"]
+                         "Cleric/Fighter (UA)", "Cleric/Thief (UA)", "Cleric/Assassin (UA)", "Fighter/Illusionist",
+                         "Fighter/Thief", "Fighter/Assassin (UA)", "Illusionist/Thief", "Cleric/Illusionist (UA)",
+                         "Illusionist/Assassin"]
     elif race == "Half-Elf":
         class_choices = ["Cleric (UA)", "Druid", "Fighter", "Magic-User", "Thief", "Assassin", "Ranger", "Illusionist",
-                         "Cleric/Fighter", "Cleric/Fighter/Magic-User", "Cleric/Ranger (UA)", "Cleric/Magic-User (UA)",
+                         "Cleric/Fighter (UA)", "Cleric/Fighter/Magic-User", "Cleric/Ranger (UA)",
+                         "Cleric/Magic-User (UA)",
                          "Cleric/Thief (UA)", "Cleric/Assassin (UA)", "Fighter/Magic-User", "Fighter/Illusionist (UA)",
                          "Fighter/Thief", "Fighter/Assassin (UA)", "Fighter/Magic-User/Thief", "Illusionist/Thief (UA)",
-                         "Magic-User/Thief"]
+                         "Magic-User/Thief", "Ranger/Magic-User (UA)", "Magic-User/Assassin (UA)",
+                         "Cleric/Fighter/Thief (UA)",
+                         "Cleric/Magic-User/Thief (UA)"]
     elif race == "Human":
         class_choices = ["Fighter", "Ranger", "Paladin", "Cleric", "Druid", "Thief", "Assassin", "Magic-User", "Illusionist"]
 
