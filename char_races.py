@@ -324,7 +324,7 @@ class race_class_choices(Enum):
     FighterAssassin = 9159
     FighterMagicUserThief = 9169
     IllusionistThief = 9179
-
+    MagicUserThief = 9189
 
 
 def race_classes(rolls, race, race_class_choices):
@@ -332,7 +332,8 @@ def race_classes(rolls, race, race_class_choices):
         class_choices = ["Cleric (UA)", "Druid", "Fighter", "Magic-User", "Thief", "Assassin", "Ranger", "Illusionist",
                          "Cleric/Fighter", "Cleric/Fighter/Magic-User", "Cleric/Ranger (UA)", "Cleric/Magic-User (UA)",
                          "Cleric/Thief (UA)", "Cleric/Assassin (UA)", "Fighter/Magic-User", "Fighter/Illusionist (UA)",
-                         "Fighter/Thief", "Fighter/Assassin (UA)", "Fighter/Magic-User/Thief", "Illusionist/Thief (UA)"]
+                         "Fighter/Thief", "Fighter/Assassin (UA)", "Fighter/Magic-User/Thief", "Illusionist/Thief (UA)",
+                         "Magic-User/Thief"]
     elif race == "Dwarf":
         class_choices = ["Cleric (UA)", "Fighter", "Thief", "Assassin", "Cleric/Fighter (UA)",
                          "Cleric/Thief (UA)", "Cleric/Assassin (UA)",
@@ -351,7 +352,8 @@ def race_classes(rolls, race, race_class_choices):
         class_choices = ["Cleric (UA)", "Druid", "Fighter", "Magic-User", "Thief", "Assassin", "Ranger", "Illusionist",
                          "Cleric/Fighter", "Cleric/Fighter/Magic-User", "Cleric/Ranger (UA)", "Cleric/Magic-User (UA)",
                          "Cleric/Thief (UA)", "Cleric/Assassin (UA)", "Fighter/Magic-User", "Fighter/Illusionist (UA)",
-                         "Fighter/Thief", "Fighter/Assassin (UA)", "Fighter/Magic-User/Thief", "Illusionist/Thief (UA)"]
+                         "Fighter/Thief", "Fighter/Assassin (UA)", "Fighter/Magic-User/Thief", "Illusionist/Thief (UA)",
+                         "Magic-User/Thief"]
     elif race == "Human":
         class_choices = ["Fighter", "Ranger", "Paladin", "Cleric", "Druid", "Thief", "Assassin", "Magic-User", "Illusionist"]
 
@@ -360,23 +362,37 @@ def race_classes(rolls, race, race_class_choices):
         for c in class_choices:
             class_ch = re.sub(r' \(UA\)|/|-', '', str(c))
             for rc in race_class_choices:
-                print(rc.value, c)
+                if str(rc.name) == str(class_ch):
+                    print(rc.value, c)
 
         choices = input("Choose a Class NUMBER:")
 
         for rc in race_class_choices:
-            if choices == rc.value:
+            #print(rc.value)
+            if str(choices) == str(rc.value):
+                print("yuh")
                 choices = str(rc.name)
+                print(choices)
 
         stop = False
-        remember_choice = choices
+        classlist = []
         while len(choices) > 0 and not stop:
+            print("uhuh")
+            print(choices)
             if "Cleric" in choices:
                 if rolls["WIS"] < 9:
                     print("Not enough WIS!")
                     stop = True
                 else:
-                    choices = choices.replace(str(choices), "")
+                    choices = choices.replace("Cleric", "")
+                    classlist.append("Cleric")
+            elif "Thief" in choices:
+                if rolls["DEX"] < 9:
+                    print("Not enough DEX!")
+                    stop = True
+                else:
+                    choices = choices.replace("Thief", "")
+                    classlist.append("Thief")
             elif "Druid" in choices:
                 if rolls["WIS"] < 12:
                     print("Not enough WIS!")
@@ -384,13 +400,15 @@ def race_classes(rolls, race, race_class_choices):
                     print("Not enough CHA!")
                     stop = True
                 else:
-                    choices = choices.replace(str(choices), "")
+                    choices = choices.replace("Druid", "")
+                    classlist.append("Druid")
             elif "Fighter" in choices:
                 if rolls["STR"] < 9:
                     print("Not enough STR!")
                     stop = True
                 else:
-                    choices = choices.replace(str(choices), "")
+                    choices = choices.replace("Fighter", "")
+                    classlist.append("Fighter")
             elif "Paladin" in choices:
                 if rolls["STR"] < 12:
                     print("Not enough STR!")
@@ -404,7 +422,8 @@ def race_classes(rolls, race, race_class_choices):
                     print("Not enough CHA!")
                     stop = True
                 else:
-                    choices = choices.replace(str(choices), "")
+                    choices = choices.replace("Paladin", "")
+                    classlist.append("Paladin")
             elif "Ranger" in choices:
                 if rolls["STR"] < 13:
                     print("Not enough STR!")
@@ -416,13 +435,15 @@ def race_classes(rolls, race, race_class_choices):
                     print("Not enough CON!")
                     stop = True
                 else:
-                    choices = choices.replace(str(choices), "")
-            elif "Magic-User" in choices:
+                    choices = choices.replace("Ranger", "")
+                    classlist.append("Ranger")
+            elif "MagicUser" in choices:
                 if rolls["INT"] < 9:
                     print("Not enough INT!")
                     stop = True
                 else:
-                    choices = choices.replace(str(choices), "")
+                    choices = choices.replace("MagicUser", "")
+                    classlist.append("MagicUser")
             elif "Illusionist" in choices:
                 if rolls["INT"] < 15:
                     print("Not enough INT!")
@@ -430,8 +451,9 @@ def race_classes(rolls, race, race_class_choices):
                     print("Not enough DEX!")
                     stop = True
                 else:
-                    choices = choices.replace(str(choices), "")
-            elif "Thief" in choices:
+                    choices = choices.replace("Illusionist", "")
+                    classlist.append("Illusionist")
+            elif "Assassin" in choices:
                 if rolls["STR"] < 12:
                     print("Not enough STR!")
                 if rolls["DEX"] < 12:
@@ -440,14 +462,15 @@ def race_classes(rolls, race, race_class_choices):
                     print("Not enough INT!")
                     stop = True
                 else:
-                    choices = choices.replace(str(choices), "")
+                    choices = choices.replace("Assassin", "")
+                    classlist.append("Assassin")
         if len(choices) > 1:
             print("This choice isn't valid, try again.")
         else:
             result = input("Agreed? Y/N")
             if "y".upper() == result.upper():
                 result = True
-
+    return classlist
 
 
 def base_bonuses(rolls, race, saves, race_abilities):

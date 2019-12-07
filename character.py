@@ -7,7 +7,7 @@ class playerSheet:
             charname = "Trololo"
         self.char_name = charname
         self.player_name = "todd"
-        self.char_class = {"Class 1:":0}
+        self.char_class = []
         self.char_race = ""
         self.char_gender = ""
         self.char_abilities = {"STR": dice.ability_roller(6, 5),
@@ -48,9 +48,11 @@ while not result:
             result = result
             name.char_race = race
             name.char_gender = gender
-            name.char_class
+            race_class_choices = char_races.race_class_choices
+            name.char_class = char_races.race_classes(name.char_abilities, name.char_race, race_class_choices)
 print(name.char_race)
 print(name.char_abilities)
+print(name.char_class)
 
 #name.char_saves = saving_throws.class_saves("thi")
 #print(name.char_saves)
