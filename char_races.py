@@ -1,8 +1,11 @@
 def races_base(race, rolls):
     print("What GENDER are you playing?")
-    gender = False
-    while gender != "M".upper() or gender != "F".upper():
+    result = False
+    while not result:
         gender = input("M or F?")
+        if gender.upper() == "M".upper() or gender.upper() == "F".upper():
+            result = True
+            print(gender)
     if race.upper() == "Dwarf".upper() or "0" == race:
         race = "Dwarf"
         result = dwarf(rolls, gender)
