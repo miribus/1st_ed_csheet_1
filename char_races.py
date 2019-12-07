@@ -1,3 +1,6 @@
+from enum import Enum
+import re
+
 def races_base(race, rolls):
     print("What GENDER are you playing?")
     result = False
@@ -302,7 +305,29 @@ def halfling(rolls, gender):
     else:
         return False
 
-def race_classes(rolls, race):
+class race_class_choices(Enum):
+    Cleric = 909
+    Druid = 919
+    Fighter = 929
+    Thief = 939
+    Assassin = 949
+    Ranger = 959
+    Illusionist = 969
+    ClericFighter = 979
+    ClericFighterMagicUser = 989
+    ClericRanger = 999
+    ClericThief = 9109
+    ClericAssassin = 9119
+    FighterMagicUser = 9129
+    FighterIllusionist = 9139
+    FighterThief = 9149
+    FighterAssassin = 9159
+    FighterMagicUserThief = 9169
+    IllusionistThief = 9179
+
+
+
+def race_classes(rolls, race, race_class_choices):
     if race == "Elf":
         class_choices = ["Cleric (UA)", "Druid", "Fighter", "Magic-User", "Thief", "Assassin", "Ranger", "Illusionist",
                          "Cleric/Fighter", "Cleric/Fighter/Magic-User", "Cleric/Ranger (UA)", "Cleric/Magic-User (UA)",
@@ -330,75 +355,98 @@ def race_classes(rolls, race):
     elif race == "Human":
         class_choices = ["Fighter", "Ranger", "Paladin", "Cleric", "Druid", "Thief", "Assassin", "Magic-User", "Illusionist"]
 
-    if "Cleric" in class_choices:
-        if rolls["WIS"] < 9:
-            print("Not enough WIS!")
-            quit()
+    result = False
+    while not result:
+        for c in class_choices:
+            class_ch = re.sub(r' \(UA\)|/|-', '', str(c))
+            for rc in race_class_choices:
+                print(rc.value, c)
+
+        choices = input("Choose a Class NUMBER:")
+
+        for rc in race_class_choices:
+            if choices == rc.value:
+                choices = str(rc.name)
+
+        stop = False
+        remember_choice = choices
+        while len(choices) > 0 and not stop:
+            if "Cleric" in choices:
+                if rolls["WIS"] < 9:
+                    print("Not enough WIS!")
+                    stop = True
+                else:
+                    choices = choices.replace(str(choices), "")
+            elif "Druid" in choices:
+                if rolls["WIS"] < 12:
+                    print("Not enough WIS!")
+                if rolls["CHA"] < 15:
+                    print("Not enough CHA!")
+                    stop = True
+                else:
+                    choices = choices.replace(str(choices), "")
+            elif "Fighter" in choices:
+                if rolls["STR"] < 9:
+                    print("Not enough STR!")
+                    stop = True
+                else:
+                    choices = choices.replace(str(choices), "")
+            elif "Paladin" in choices:
+                if rolls["STR"] < 12:
+                    print("Not enough STR!")
+                if rolls["INT"] < 9:
+                    print("Not enough INT!")
+                if rolls["WIS"] < 13:
+                    print("Not enough WIS!")
+                if rolls["CON"] < 9:
+                    print("Not enough CON!")
+                if rolls["CHA"] < 17:
+                    print("Not enough CHA!")
+                    stop = True
+                else:
+                    choices = choices.replace(str(choices), "")
+            elif "Ranger" in choices:
+                if rolls["STR"] < 13:
+                    print("Not enough STR!")
+                if rolls["INT"] < 13:
+                    print("Not enough INT!")
+                if rolls["WIS"] < 14:
+                    print("Not enough WIS!")
+                if rolls["CON"] < 14:
+                    print("Not enough CON!")
+                    stop = True
+                else:
+                    choices = choices.replace(str(choices), "")
+            elif "Magic-User" in choices:
+                if rolls["INT"] < 9:
+                    print("Not enough INT!")
+                    stop = True
+                else:
+                    choices = choices.replace(str(choices), "")
+            elif "Illusionist" in choices:
+                if rolls["INT"] < 15:
+                    print("Not enough INT!")
+                elif rolls["DEX"] < 16:
+                    print("Not enough DEX!")
+                    stop = True
+                else:
+                    choices = choices.replace(str(choices), "")
+            elif "Thief" in choices:
+                if rolls["STR"] < 12:
+                    print("Not enough STR!")
+                if rolls["DEX"] < 12:
+                    print("Not enough DEX!")
+                if rolls["INT"] < 11:
+                    print("Not enough INT!")
+                    stop = True
+                else:
+                    choices = choices.replace(str(choices), "")
+        if len(choices) > 1:
+            print("This choice isn't valid, try again.")
         else:
-            return class_choices
-    elif "Druid" in class_choices:
-        if rolls["WIS"] < 12:
-            print("Not enough WIS!")
-            quit()
-        if rolls["CHA"] < 15:
-            print("Not enough CHA!")
-            quit()
-        else:
-            return class_choices
-    elif "Fighter" in class_choices:
-        if rolls["STR"] < 9:
-            print("Not enough STR!")
-            quit()
-    elif "Paladin" in class_choices:
-        if rolls["STR"] < 12:
-            print("Not enough STR!")
-            quit()
-        if rolls["INT"] < 9:
-            print("Not enough INT!")
-            quit()
-        if rolls["WIS"] < 13:
-            print("Not enough WIS!")
-            quit()
-        if rolls["CON"] < 9:
-            print("Not enough CON!")
-            quit()
-        if rolls["CHA"] < 17:
-            print("Not enough CHA!")
-            quit()
-    elif "Ranger" in class_choices:
-        if rolls["STR"] < 13:
-            print("Not enough STR!")
-            quit()
-        if rolls["INT"] < 13:
-            print("Not enough INT!")
-            quit()
-        if rolls["WIS"] < 14:
-            print("Not enough WIS!")
-            quit()
-        if rolls["CON"] < 14:
-            print("Not enough CON!")
-            quit()
-    elif "Magic-User" in class_choices:
-        if rolls["INT"] < 9:
-            print("Not enough INT!")
-            quit()
-    elif "Illusionist" in class_choices:
-        if rolls["INT"] < 15:
-            print("Not enough INT!")
-            quit()
-        elif rolls["DEX"] < 16:
-            print("Not enough DEX!")
-            quit()
-    elif "Thief" in class_choices:
-        if rolls["STR"] < 12:
-            print("Not enough STR!")
-            quit()
-        if rolls["DEX"] < 12:
-            print("Not enough DEX!")
-            quit()
-        if rolls["INT"] < 11:
-            print("Not enough INT!")
-            quit()
+            result = input("Agreed? Y/N")
+            if "y".upper() == result.upper():
+                result = True
 
 
 

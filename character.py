@@ -48,7 +48,9 @@ while not result:
             result = result
             name.char_race = race
             name.char_gender = gender
+            name.char_class
 print(name.char_race)
+print(name.char_abilities)
 
 #name.char_saves = saving_throws.class_saves("thi")
 #print(name.char_saves)
