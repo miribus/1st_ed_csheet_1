@@ -57,5 +57,5 @@ print(name.char_race)
 print(name.char_abilities)
 print(name.char_class)
 
-#name.char_saves = saving_throws.class_saves("thi")
-#print(name.char_saves)
+name.char_saves = saving_throws.class_saves("thi")
+print(name.char_saves)

@@ -5,33 +5,34 @@ def races_base(race, rolls):
     print("What GENDER are you playing?")
     result = False
     if str(race).isdigit():
-        if int(race) in range(0, 7):
-            while not result:
-                gender = input("M or F?")
-                if gender.isalpha():
-                    if gender.upper() == "M".upper() or gender.upper() == "F".upper():
-                        print(gender)
-                        if race.upper() == "Dwarf".upper() or "0" == race:
-                            race = "Dwarf"
-                            result = dwarf(rolls, gender)
-                        elif race.upper() == "Elf".upper() or "1" == race:
-                            race = "Elf"
-                            result = elf(rolls, gender)
-                        elif race.upper() == "Gnome".upper() or "2" == race:
-                            race = "Gnome"
-                            result = gnome(rolls, gender)
-                        elif race.upper() == "Half-Elf".upper() or "3" == race:
-                            race = "Half-Elf"
-                            result = half_elf(rolls, gender)
-                        elif race.upper() == "Half-Orc".upper() or "4" == race:
-                            race = "Half-Orc"
-                            result = half_orc(rolls, gender)
-                        elif race.upper() == "Human".upper() or "5" == race:
-                            race = "Human"
-                            result = human(rolls, gender)
-                        elif race.upper() == "Halfling".upper() or "6" == race:
-                            race = "Halfling"
-                            result = halfling(rolls, gender)
+        while not result:
+            if int(race) in range(0, 7):
+                while not result:
+                    gender = input("M or F?")
+                    if gender.isalpha():
+                        if gender.upper() == "M".upper() or gender.upper() == "F".upper():
+                            print(gender)
+                            if race.upper() == "Dwarf".upper() or "0" == race:
+                                race = "Dwarf"
+                                result = dwarf(rolls, gender)
+                            elif race.upper() == "Elf".upper() or "1" == race:
+                                race = "Elf"
+                                result = elf(rolls, gender)
+                            elif race.upper() == "Gnome".upper() or "2" == race:
+                                race = "Gnome"
+                                result = gnome(rolls, gender)
+                            elif race.upper() == "Half-Elf".upper() or "3" == race:
+                                race = "Half-Elf"
+                                result = half_elf(rolls, gender)
+                            elif race.upper() == "Half-Orc".upper() or "4" == race:
+                                race = "Half-Orc"
+                                result = half_orc(rolls, gender)
+                            elif race.upper() == "Human".upper() or "5" == race:
+                                race = "Human"
+                                result = human(rolls, gender)
+                            elif race.upper() == "Halfling".upper() or "6" == race:
+                                race = "Halfling"
+                                result = halfling(rolls, gender)
     gender = "M"
     return race, result, gender
 
@@ -44,13 +45,14 @@ def minimums(rolls, strength, dexterity, constitution, intelligence, wisdom, cha
         print("Insufficient! Minimum Intelligence of", intelligence, "required")
         return result
     if rolls["WIS"] < wisdom:
+        print(wisdom, rolls["WIS"])
         print("Insufficient! Minimum Wisdom of", wisdom, "required")
         return result
     if rolls["DEX"] < dexterity:
         print("Insufficient! Minimum Dexterity of", dexterity, "required")
         return result
     if rolls["CON"] < constitution:
-        print("Insufficient! Minimum Wisdom of", constitution, "required")
+        print("Insufficient! Minimum Constitution of", constitution, "required")
         return result
     if rolls["CHA"] < charisma:
         print("Insufficient! Minimum Charisma of", charisma, "required")
