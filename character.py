@@ -20,7 +20,12 @@ class playerSheet:
                                "CMS": dice.ability_roller(6, 3)}
         self.char_HP = 0
         self.char_AC = {"Base AC:":10, "Shield AC:":0, "Rear AC:":0}
-        self.char_saves = ""
+        self.char_saves = {}
+        self.char_saves["Poison"] = 21
+        self.char_saves["Petrification"] = 21
+        self.char_saves["Rods, Staves, Wands"] = 21
+        self.char_saves["Breath Weapon"] = 21
+        self.char_saves["Spells"] = 21
         self.char_armor = ""
         self.char_shield = ""
         self.char_inventory = {}
@@ -57,10 +62,9 @@ while not result:
                     race_class_choices = char_classes.race_class_choices
                     name.char_class, result = char_classes.race_classes(name.char_abilities, name.char_race,
                                                                         race_class_choices, soclass_limit)
+                    name.char_saves = char_classes.class_saving_throws(name.char_class, name.char_saves)
 print(name.char_race)
 print(name.char_social_class)
 print(name.char_abilities)
 print(name.char_class)
-
-name.char_saves = saving_throws.class_saves("thi")
 print(name.char_saves)

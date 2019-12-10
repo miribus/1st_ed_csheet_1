@@ -307,9 +307,6 @@ def halfling(rolls, gender):
     else:
         return False
 
-
-
-
 def base_bonuses(rolls, race, saves, race_abilities):
     if race == "Elf":
         rolls["DEX"] += 1
@@ -373,3 +370,4 @@ def base_bonuses(rolls, race, saves, race_abilities):
         race_abilities["Infravision"] = "60'"
         race_abilities["Detect Secret Doors"] = ["Concealed: d6, Score 1 (Detect: 1-2)",
                                                  "Secret: d6, Score 1-2 (Detect: 1-3)"]
+    return rolls, saves, race_abilities
