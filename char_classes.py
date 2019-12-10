@@ -1,5 +1,5 @@
 from enum import Enum
-import re
+import re, social_class
 
 class race_class_choices(Enum):
     Cleric = 1
@@ -40,7 +40,8 @@ class race_class_choices(Enum):
     Cavalier = 36
 
 
-def race_classes(rolls, race, race_class_choices):
+def race_classes(rolls, race, race_class_choices, soclass_limit):
+    print(soclass_limit)
     if race == "Elf":
         class_choices = ["Cleric (UA)", "Druid", "Fighter", "Magic-User", "Thief", "Assassin", "Ranger", "Illusionist",
                          "Cleric/Fighter (UA)", "Cleric/Fighter/Magic-User", "Cleric/Ranger (UA)", "Cleric/Magic-User (UA)",
@@ -81,7 +82,7 @@ def race_classes(rolls, race, race_class_choices):
         for c in class_choices:
             class_ch = re.sub(r' \(UA\)|/|-', '', str(c))
             for rc in race_class_choices:
-                if str(rc.name) == str(class_ch):
+                if str(rc.name) == str(class_ch) and str(rc.name) in soclass_limit:
                     print(rc.value, c)
 
         choices = input("Choose a Class NUMBER:")

@@ -1,4 +1,4 @@
-import dice, saving_throws, char_races, char_classes
+import dice, saving_throws, char_races, char_classes, social_class
 
 class playerSheet:
     def __init__(self, charname):
@@ -6,6 +6,7 @@ class playerSheet:
         if len(charname) == 0:
             charname = "Trololo"
         self.char_name = charname
+        self.char_social_class = ""
         self.player_name = "todd"
         self.char_class = []
         self.char_race = ""
@@ -15,7 +16,8 @@ class playerSheet:
                                "WIS": dice.ability_roller(6, 5),
                                "DEX": dice.ability_roller(6, 5),
                                "CON": dice.ability_roller(6, 5),
-                               "CHA": dice.ability_roller(6, 5)}
+                               "CHA": dice.ability_roller(6, 5),
+                               "CMS": dice.ability_roller(6, 3)}
         self.char_HP = 0
         self.char_AC = {"Base AC:":10, "Shield AC:":0, "Rear AC:":0}
         self.char_saves = ""
@@ -27,6 +29,7 @@ class playerSheet:
 
 name = playerSheet(input("Character Name?:"))
 print(name.char_abilities)
+name.char_social_class, soclass_limit =  social_class.social_class()
 result = False
 while not result:
     print("Choose a race:",
@@ -52,8 +55,10 @@ while not result:
                     name.char_gender = gender
                 if result:
                     race_class_choices = char_classes.race_class_choices
-                    name.char_class, result = char_classes.race_classes(name.char_abilities, name.char_race, race_class_choices)
+                    name.char_class, result = char_classes.race_classes(name.char_abilities, name.char_race,
+                                                                        race_class_choices, soclass_limit)
 print(name.char_race)
+print(name.char_social_class)
 print(name.char_abilities)
 print(name.char_class)
 

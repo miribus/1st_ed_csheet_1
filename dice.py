@@ -13,3 +13,7 @@ def ability_roller(sides, qty):
 
     print(result)
     return result
+
+def soclass():
+    result = random.randrange(1, 101)
+    return result
