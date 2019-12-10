@@ -75,7 +75,7 @@ def race_classes(rolls, race, race_class_choices, soclass_limit):
                          "Cleric/Magic-User/Thief (UA)"]
     elif race == "Human":
         class_choices = ["Fighter", "Ranger", "Paladin", "Cleric", "Druid", "Thief", "Assassin", "Magic-User", "Illusionist",
-                         "Monk", "Barbarian", "UAPaladin", "Cavalier"]
+                         "Monk", "Barbarian", "UAPaladin  (UA)", "Cavalier (UA)"]
 
     result = False
     while not result:
