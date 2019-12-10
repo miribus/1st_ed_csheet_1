@@ -74,7 +74,7 @@ def race_classes(rolls, race, race_class_choices):
                          "Cleric/Magic-User/Thief (UA)"]
     elif race == "Human":
         class_choices = ["Fighter", "Ranger", "Paladin", "Cleric", "Druid", "Thief", "Assassin", "Magic-User", "Illusionist",
-                         "Monk", "Barbarian", "UAPaladin"]
+                         "Monk", "Barbarian", "UAPaladin", "Cavalier"]
 
     result = False
     while not result:
@@ -88,7 +88,7 @@ def race_classes(rolls, race, race_class_choices):
         if choices.isdigit():
             if int(choices) in range(1, 37):
                 for rc in race_class_choices:
-                    print(rc.name, rc.value)
+                    #print(rc.name, rc.value)
                     if str(choices) == str(rc.value):
                         choices = str(rc.name)
 
@@ -224,7 +224,7 @@ def race_classes(rolls, race, race_class_choices):
                         else:
                             choices = choices.replace("UAPaladin", "")
                             classlist.append("UAPaladin")
-                if len(choices) > 1:
+                if stop:
                     print("This choice isn't valid, try again.")
                 else:
                     result = input("Agreed? Y/N")
