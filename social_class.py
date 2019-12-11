@@ -49,6 +49,30 @@ soclasslimit = {"LLC": ["Monk", "Thief", "Assassin", "Barbarian"],
                         "MagicUserThief", "RangerMagicUser", "MagicUserThief", "MagicUserAssassin", "IllusionistThief",
                         "IllusionistAssassin", "Paladin", "Cavalier", "UAPaladin"]}
 
+soclass_definition = {"LLC": "Lower Lower Class:\n"
+                             "You can be: Monk, Thief, Assassin, Barbarian",
+                      "MLC": "Middle Lower Class:\n"
+                             "You can be: Monk, Thief, Assassin, Barbarian, Fighter",
+                      "ULC": "Upper Lower Class:\n"
+                             "You can be: Monk, Thief, Assassin, Barbarian, Fighter, Ranger, Druid",
+                      "LMC": "Lower Middle Class:\n"
+                             "You can be: Monk, Thief, Assassin, Barbarian, Fighter, Ranger, Druid, Cleric",
+                      "MMC": "Middle Middle Class:\n"
+                             "You can be: Monk, Thief, Assassin, Barbarian, Fighter, Ranger, Druid, Cleric\n"
+                             "            Illusionist, Magic-User",
+                      "UMC": "Upper Middle Class:\n"
+                             "You can be: Monk, Thief, Assassin, Barbarian, Fighter, Ranger, Druid, Cleric\n"
+                             "            Illusionist, Magic-User",
+                      "LUC": "Lower Upper Class:\n"
+                             "You can be: Monk, Thief, Assassin, Barbarian, Fighter, Ranger, Druid, Cleric\n"
+                             "            Illusionist, Magic-User, Paladin, UAPaladin, Cavalier",
+                      "MUC": "Middle Upper Class:\n"
+                             "You can be: Monk, Thief, Assassin, Barbarian, Fighter, Ranger, Druid, Cleric\n"
+                             "            Illusionist, Magic-User, Paladin, UAPaladin, Cavalier",
+                      "UUC": "Upper Upper Class:\n"
+                             "You can be: Monk, Thief, Assassin, Barbarian, Fighter, Ranger, Druid, Cleric\n"
+                             "            Illusionist, Magic-User, Paladin, UAPaladin, Cavalier"}
+
 def social_class():
     global soclasslimit
     print("Roll social class or ignore it?")
@@ -78,5 +102,5 @@ def social_class():
         elif int(classroll) in range(100, 101):
             soclass = "UUC"
 
-        print("You are:", soclass, "You can be the following:", soclasslimit[soclass])
+        print("You are:", soclass, soclass_definition[soclass])
     return soclass, soclasslimit[soclass]
