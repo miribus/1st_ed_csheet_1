@@ -48,26 +48,27 @@ while not result:
           "6 Halfling",
           " ]")
     race, result, gender = char_races.races_base(input("Choose Race:"), name.char_abilities)
-    if not result:
+decision = input("Agreed? Y/N:")
+
+if decision.isalpha():
+    if "y".upper() == decision.upper():
+        result = result
+        name.char_race = race
+        name.char_gender = gender
+        race_class_choices = char_classes.race_class_choices
         result = False
-    else:
-        decision = input("Agreed? Y/N:")
-        if decision.isalpha():
-            if "y".upper() == decision.upper():
-                result = result
-                name.char_race = race
-                if result:
-                    name.char_gender = gender
-                if result:
-                    race_class_choices = char_classes.race_class_choices
-                    name.char_class, result = char_classes.race_classes(name.char_abilities, name.char_race,
-                                                                        race_class_choices, soclass_limit)
-                    name.char_saves = char_classes.class_saving_throws(name.char_class, name.char_saves)
-                    name.char_race_abilities, name.char_race_abilities = char_races.base_bonuses(
-                        name.char_abilities, name.char_race, name.char_class
-                    )
+        while not result:
+            name.char_class, result = char_classes.race_classes(name.char_abilities, name.char_race,
+                                                            race_class_choices, soclass_limit)
+        name.char_saves = char_classes.class_saving_throws(name.char_class, name.char_saves)
+        name.char_race_abilities, name.char_race_abilities = char_races.base_bonuses(
+            name.char_abilities, name.char_race, name.char_class
+            )
 print(name.char_race)
 print(name.char_social_class)
 print(name.char_abilities)
 print(name.char_class)
 print(name.char_saves)
+#print(name.char_race_abilities)
+for a in name.char_race_abilities:
+    print(a, name.char_race_abilities[a])

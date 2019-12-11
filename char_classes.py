@@ -83,12 +83,10 @@ def race_classes(rolls, race, race_class_choices, soclass_limit):
         for c in class_choices:
             class_ch = re.sub(r' \(UA\)|/|-', '', str(c))
             for rc in race_class_choices:
-                if str(rc.name) == str(class_ch) and str(rc.name):
-                    for s in soclass_limit:
-                        if s in str(rc.name):
-                            if str(rc.name) not in classes:
-                                print(rc.value, c)
-                                classes.append(str(rc.name))
+                if str(rc.name) == str(class_ch) and str(rc.name) in soclass_limit:
+                    if str(rc.name) not in classes:
+                        print(rc.value, c)
+                        classes.append(str(rc.name))
 
         choices = input("Choose a Class NUMBER:")
         if choices.isdigit():
