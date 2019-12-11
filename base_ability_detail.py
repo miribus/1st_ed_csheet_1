@@ -1,4 +1,4 @@
-def define_abilities(rolls, classlist)
+def define_abilities(rolls, classlist):
     define_abilities = {}
     if rolls["STR"] in range(3, 4):
         define_abilities["STR"]["HIT"] = "-3"
@@ -410,3 +410,4 @@ def define_abilities(rolls, classlist)
             define_abilities["DEX"]["Find/Remove Traps"] = "+5%"
             define_abilities["DEX"]["Move Silent"] = "+10%"
             define_abilities["DEX"]["Hide In Shadows"] = "+10%"
+    return define_abilities
