@@ -26,17 +26,17 @@ class race_class_choices(Enum):
     Ranger = 22
     RangerMagicUser = 23
     Paladin = 24
+    Thief = 25
+    Assassin = 26
+    MagicUser = 27
+    MagicUserThief = 28
+    MagicUserAssassin = 29
+    Illusionist = 30
+    IllusionistThief = 31
+    IllusionistAssassin = 32
+    Monk = 33
+    Barbarian = 34
     UAPaladin = 35
-    Thief = 26
-    Assassin = 27
-    MagicUser = 28
-    MagicUserThief = 29
-    MagicUserAssassin = 30
-    Illusionist = 31
-    IllusionistThief = 32
-    IllusionistAssassin = 33
-    Monk = 34
-    Barbarian = 35
     Cavalier = 36
 
 

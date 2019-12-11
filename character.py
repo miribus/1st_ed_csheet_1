@@ -63,6 +63,9 @@ while not result:
                     name.char_class, result = char_classes.race_classes(name.char_abilities, name.char_race,
                                                                         race_class_choices, soclass_limit)
                     name.char_saves = char_classes.class_saving_throws(name.char_class, name.char_saves)
+                    name.char_race_abilities, name.char_race_abilities = char_races.base_bonuses(
+                        name.char_abilities, name.char_race, name.char_class
+                    )
 print(name.char_race)
 print(name.char_social_class)
 print(name.char_abilities)

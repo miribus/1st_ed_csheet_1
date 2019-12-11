@@ -17,3 +17,7 @@ def ability_roller(sides, qty):
 def soclass():
     result = random.randrange(1, 101)
     return result
+
+def exceptional_strength():
+    result = random.randrange(1, 101)
+    return result

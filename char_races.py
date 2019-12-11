@@ -1,5 +1,5 @@
 from enum import Enum
-import re
+import re, dice
 
 def races_base(race, rolls):
     print("What GENDER are you playing?")
@@ -307,7 +307,9 @@ def halfling(rolls, gender):
     else:
         return False
 
-def base_bonuses(rolls, race, saves, race_abilities):
+def base_bonuses(rolls, race, classlist):
+    race_abilities ={}
+    race_abilities["Save Bonus:"] = {}
     if race == "Elf":
         rolls["DEX"] += 1
         rolls["CON"] -= 1
@@ -321,9 +323,9 @@ def base_bonuses(rolls, race, saves, race_abilities):
     elif race == "Dwarf":
         rolls["CON"] += 1
         rolls["CHA"] -= 1
-        saves["Rods, Staves, Wands:"] -= int(str(round(rolls["CON"] / 3.5))[0])
-        saves["Poison:"] -= int(str(round(rolls["CON"] / 3.5))[0])
-        saves["Spells:"] -= int(str(round(rolls["CON"] / 3.5))[0])
+        race_abilities["Save Bonus:"]["Rods, Staves, Wands:"] -= int(str(round(rolls["CON"] / 3.5))[0])
+        race_abilities["Save Bonus:"]["Poison:"] -= int(str(round(rolls["CON"] / 3.5))[0])
+        race_abilities["Save Bonus:"]["Spells:"] -= int(str(round(rolls["CON"] / 3.5))[0])
         race_abilities["Detect Grade Underground"] = "d4, score 1-3"
         race_abilities["Detect New Construction Underground"] = "d4, score 1-3"
         race_abilities["Detect Sliding/Shifting Construction Underground"] = "d6, score 1-4"
@@ -342,9 +344,9 @@ def base_bonuses(rolls, race, saves, race_abilities):
     elif race == "Halfling":
         rolls["STR"] -= 1
         rolls["DEX"] += 1
-        saves["Poison:"] -= int(str(round(rolls["CON"] / 3.5))[0])
-        saves["Spells:"] -= int(str(round(rolls["CON"] / 3.5))[0])
-        saves["Rods, Staves, Wands:"] -= int(str(round(rolls["CON"] / 3.5))[0])
+        race_abilities["Save Bonus:"]["Poison:"] -= int(str(round(rolls["CON"] / 3.5))[0])
+        race_abilities["Save Bonus:"]["Spells:"] -= int(str(round(rolls["CON"] / 3.5))[0])
+        race_abilities["Save Bonus:"]["Rods, Staves, Wands:"] -= int(str(round(rolls["CON"] / 3.5))[0])
         race_abilities["Infravision"] = "30' (Or 60' if Stoutish)"
         race_abilities["Racial Languages"] = ["Elvish", "Gnome", "Halfling", "Goblin", "Dwarven", "Orcish",
                                               "Common", "+{} more".format(rolls["INT"]-16)]
@@ -352,8 +354,8 @@ def base_bonuses(rolls, race, saves, race_abilities):
         race_abilities["Detect Grade Underground"] = "d4, score 1-3"
         race_abilities["Determine Direction Underground"] = "d10, score 1-5"
     elif race == "Gnome":
-        saves["Rods, Staves, Wands:"] -= int(str(round(rolls["CON"] / 3.5))[0])
-        saves["Spells:"] -= int(str(round(rolls["CON"] / 3.5))[0])
+        race_abilities["Save Bonus:"]["Rods, Staves, Wands:"] -= int(str(round(rolls["CON"] / 3.5))[0])
+        race_abilities["Save Bonus:"]["Spells:"] -= int(str(round(rolls["CON"] / 3.5))[0])
         race_abilities["Racial Languages"] = ["Dwarven", "Gnome", "Goblin", "Kobold", "Orcish", "Common",
                                               "Burrowing Mammal"]
         race_abilities["Infravision"] = "60'"
@@ -370,4 +372,10 @@ def base_bonuses(rolls, race, saves, race_abilities):
         race_abilities["Infravision"] = "60'"
         race_abilities["Detect Secret Doors"] = ["Concealed: d6, Score 1 (Detect: 1-2)",
                                                  "Secret: d6, Score 1-2 (Detect: 1-3)"]
-    return rolls, saves, race_abilities
+    fighters = ["Fighter", "Barbarian", "Cavalier", "Paladin", "UAPaladin", "Ranger"]
+    if rolls["STR"] == 18:
+        for c in classlist:
+            if str(c) in fighters:
+                rolls["EX_STR"] = dice.exceptional_strength()
+
+    return rolls, race_abilities
