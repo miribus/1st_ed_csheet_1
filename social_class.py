@@ -73,7 +73,7 @@ soclass_definition = {"LLC": "Lower Lower Class:\n"
                              "You can be: Monk, Thief, Assassin, Barbarian, Fighter, Ranger, Druid, Cleric\n"
                              "            Illusionist, Magic-User, Paladin, UAPaladin, Cavalier"}
 
-def social_class():
+def social_class(name):
     global soclasslimit
     print("Roll social class or ignore it?")
     choice = input("Y to roll, N to ignore.")
@@ -84,23 +84,23 @@ def social_class():
         classroll = dice.soclass()
         print("You rolled: ", str(classroll), "for social class")
         if int(classroll) in range(1, 5):
-            soclass = "LLC"
+            name.soclass = "LLC"
         elif int(classroll) in range(5, 11):
-            soclass = "MLC"
+            name.soclass = "MLC"
         elif int(classroll) in range(11, 21):
-            soclass = "ULC"
+            name.soclass = "ULC"
         elif int(classroll) in range(22, 36):
-            soclass = "LMC"
+            name.soclass = "LMC"
         elif int(classroll) in range(36, 56):
-            soclass = "MMC"
+            name.soclass = "MMC"
         elif int(classroll) in range(57, 88):
-            soclass = "UMC"
+            name.soclass = "UMC"
         elif int(classroll) in range(88, 97):
-            soclass = "LUC"
+            name.soclass = "LUC"
         elif int(classroll) in range(98, 100):
-            soclass = "MUC"
+            name.soclass = "MUC"
         elif int(classroll) in range(100, 101):
-            soclass = "UUC"
-
-        print("You are:", soclass, soclass_definition[soclass])
-    return soclass, soclasslimit[soclass]
+            name.soclass = "UUC"
+        name.soclass_limit = soclasslimit[name.soclass]
+        print("You are:", name.social_class, soclass_definition[name.soclass])
+    return name

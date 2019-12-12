@@ -31,10 +31,12 @@ class playerSheet:
         self.char_inventory = {}
         self.char_adjustments = {}
         self.char_race_abilities = {}
+        self.soclass_limit = []
+        self.social_class = ""
 
 name = playerSheet(input("Character Name?:"))
 print(name.char_abilities)
-name.char_social_class, soclass_limit =  social_class.social_class()
+name = social_class.social_class(name)
 result = False
 while not result:
     print("Choose a race:",
@@ -47,19 +49,18 @@ while not result:
           "5 Human",
           "6 Halfling",
           " ]")
-    race, result, gender = char_races.races_base(input("Choose Race:"), name.char_abilities)
+    name, result = char_races.races_base(input("Choose Race:"), name)
 decision = input("Agreed? Y/N:")
 
 if decision.isalpha():
     if "y".upper() == decision.upper():
         result = result
-        name.char_race = race
-        name.char_gender = gender
+        #name.char_race = race
+        #name.char_gender = gender
         race_class_choices = char_classes.race_class_choices
         result = False
         while not result:
-            name.char_class, result = char_classes.race_classes(name.char_abilities, name.char_race,
-                                                            race_class_choices, soclass_limit)
+            name, result = char_classes.race_classes(name)
         name.char_saves = char_classes.class_saving_throws(name.char_class, name.char_saves)
         name.char_race_abilities, name.char_race_abilities = char_races.base_bonuses(
             name.char_abilities, name.char_race, name.char_class

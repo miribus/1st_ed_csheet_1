@@ -40,31 +40,32 @@ class race_class_choices(Enum):
     Cavalier = 36
 
 
-def race_classes(rolls, race, race_class_choices, soclass_limit):
-    print(soclass_limit)
-    if race == "Elf":
+def race_classes(name):
+    #print(name.soclass_limit)
+    #print(name.char_race)
+    if name.char_race == "Elf":
         class_choices = ["Cleric (UA)", "Druid", "Fighter", "Magic-User", "Thief", "Assassin", "Ranger", "Illusionist",
                          "Cleric/Fighter (UA)", "Cleric/Fighter/Magic-User", "Cleric/Ranger (UA)", "Cleric/Magic-User (UA)",
                          "Cleric/Thief (UA)", "Cleric/Assassin (UA)", "Fighter/Magic-User", "Fighter/Illusionist (UA)",
                          "Fighter/Thief", "Fighter/Assassin (UA)", "Fighter/Magic-User/Thief", "Illusionist/Thief (UA)",
                          "Magic-User/Thief", "Ranger/Magic-User (UA)", "Magic-User/Assassin (UA)", "Cleric/Fighter/Thief (UA)",
                          "Cleric/Magic-User/Thief (UA)"]
-    elif race == "Dwarf":
+    elif name.char_race == "Dwarf":
         class_choices = ["Cleric (UA)", "Fighter", "Thief", "Assassin", "Cleric/Fighter (UA)",
                          "Cleric/Thief (UA)", "Cleric/Assassin (UA)",
                          "Fighter/Thief", "Fighter/Assassin (UA)"]
-    elif race == "Half-Orc":
+    elif name.char_race == "Half-Orc":
         class_choices = ["Cleric", "Fighter", "Thief", "Assassin", "Cleric/Fighter",
                          "Cleric/Thief", "Cleric/Assassin", "Fighter/Thief", "Fighter/Assassin"]
-    elif race == "Halfling":
+    elif name.char_race == "Halfling":
         class_choices = ["Cleric (UA)", "Druid (UA)", "Fighter", "Thief",  "Cleric/Fighter (UA)",
                          "Cleric/Thief (UA)", "Fighter/Thief"]
-    elif race == "Gnome":
+    elif name.char_race == "Gnome":
         class_choices = ["Cleric (UA)", "Druid", "Fighter", "Magic-User", "Thief", "Assassin", "Ranger", "Illusionist",
                          "Cleric/Fighter (UA)", "Cleric/Thief (UA)", "Cleric/Assassin (UA)", "Fighter/Illusionist",
                          "Fighter/Thief", "Fighter/Assassin (UA)", "Illusionist/Thief", "Cleric/Illusionist (UA)",
                          "Illusionist/Assassin"]
-    elif race == "Half-Elf":
+    elif name.char_race == "Half-Elf":
         class_choices = ["Cleric (UA)", "Druid", "Fighter", "Magic-User", "Thief", "Assassin", "Ranger", "Illusionist",
                          "Cleric/Fighter (UA)", "Cleric/Fighter/Magic-User", "Cleric/Ranger (UA)",
                          "Cleric/Magic-User (UA)",
@@ -73,7 +74,7 @@ def race_classes(rolls, race, race_class_choices, soclass_limit):
                          "Magic-User/Thief", "Ranger/Magic-User (UA)", "Magic-User/Assassin (UA)",
                          "Cleric/Fighter/Thief (UA)",
                          "Cleric/Magic-User/Thief (UA)"]
-    elif race == "Human":
+    elif name.char_race == "Human":
         class_choices = ["Fighter", "Ranger", "Paladin", "Cleric", "Druid", "Thief", "Assassin", "Magic-User", "Illusionist",
                          "Monk", "Barbarian", "UAPaladin  (UA)", "Cavalier (UA)"]
 
@@ -83,7 +84,7 @@ def race_classes(rolls, race, race_class_choices, soclass_limit):
         for c in class_choices:
             class_ch = re.sub(r' \(UA\)|/|-', '', str(c))
             for rc in race_class_choices:
-                if str(rc.name) == str(class_ch) and str(rc.name) in soclass_limit:
+                if str(rc.name) == str(class_ch) and str(rc.name) in name.soclass_limit:
                     if str(rc.name) not in classes:
                         print(rc.value, c)
                         classes.append(str(rc.name))
@@ -97,164 +98,164 @@ def race_classes(rolls, race, race_class_choices, soclass_limit):
                         choices = str(rc.name)
 
                 stop = False
-                classlist = []
+                name.classlist = []
                 while len(choices) > 0 and not stop:
                     stop = False
-                    for c in classlist:
-                        print("Class: ", classlist[-1], "Valid.")
+                    for c in name.classlist:
+                        print("Class: ", name.classlist[-1], "Valid.")
                         break
                     if "Cleric" in choices:
-                        if rolls["WIS"] < 9:
+                        if name.char_abilities["WIS"] < 9:
                             print("Not enough WIS!")
                             stop = True
                         else:
                             choices = choices.replace("Cleric", "")
-                            classlist.append("Cleric")
+                            name.char_class.append("Cleric")
                     elif "Thief" in choices:
-                        if rolls["DEX"] < 9:
+                        if name.char_abilities["DEX"] < 9:
                             print("Not enough DEX!")
                             stop = True
                         else:
                             choices = choices.replace("Thief", "")
-                            classlist.append("Thief")
+                            name.char_class.append("Thief")
                     elif "Druid" in choices:
-                        if rolls["WIS"] < 12:
+                        if name.char_abilities["WIS"] < 12:
                             print("Not enough WIS!")
-                        if rolls["CHA"] < 15:
+                        if name.char_abilities["CHA"] < 15:
                             print("Not enough CHA!")
                             stop = True
                         else:
                             choices = choices.replace("Druid", "")
-                            classlist.append("Druid")
+                            name.char_class.append("Druid")
                     elif "Fighter" in choices:
-                        if rolls["STR"] < 9:
+                        if name.char_abilities["STR"] < 9:
                             print("Not enough STR!")
                             stop = True
                         else:
                             choices = choices.replace("Fighter", "")
-                            classlist.append("Fighter")
+                            name.char_class.append("Fighter")
                     elif "Paladin" in choices:
-                        if rolls["STR"] < 12:
+                        if name.char_abilities["STR"] < 12:
                             print("Not enough STR!")
-                        if rolls["INT"] < 9:
+                        if name.char_abilities["INT"] < 9:
                             print("Not enough INT!")
-                        if rolls["WIS"] < 13:
+                        if name.char_abilities["WIS"] < 13:
                             print("Not enough WIS!")
-                        if rolls["CON"] < 9:
+                        if name.char_abilities["CON"] < 9:
                             print("Not enough CON!")
-                        if rolls["CHA"] < 17:
+                        if name.char_abilities["CHA"] < 17:
                             print("Not enough CHA!")
                             stop = True
                         else:
                             choices = choices.replace("Paladin", "")
-                            classlist.append("Paladin")
+                            name.char_class.append("Paladin")
                     elif "Ranger" in choices:
-                        if rolls["STR"] < 13:
+                        if name.char_abilities["STR"] < 13:
                             print("Not enough STR!")
-                        if rolls["INT"] < 13:
+                        if name.char_abilities["INT"] < 13:
                             print("Not enough INT!")
-                        if rolls["WIS"] < 14:
+                        if name.char_abilities["WIS"] < 14:
                             print("Not enough WIS!")
-                        if rolls["CON"] < 14:
+                        if name.char_abilities["CON"] < 14:
                             print("Not enough CON!")
                             stop = True
                         else:
                             choices = choices.replace("Ranger", "")
-                            classlist.append("Ranger")
+                            name.char_class.append("Ranger")
                     elif "MagicUser" in choices:
-                        if rolls["INT"] < 9:
+                        if name.char_abilities["INT"] < 9:
                             print("Not enough INT!")
                             stop = True
                         else:
                             choices = choices.replace("MagicUser", "")
-                            classlist.append("MagicUser")
+                            name.char_class.append("MagicUser")
                     elif "Illusionist" in choices:
-                        if rolls["INT"] < 15:
+                        if name.char_abilities["INT"] < 15:
                             print("Not enough INT!")
-                        elif rolls["DEX"] < 16:
+                        elif name.char_abilities["DEX"] < 16:
                             print("Not enough DEX!")
                             stop = True
                         else:
                             choices = choices.replace("Illusionist", "")
-                            classlist.append("Illusionist")
+                            name.char_class.append("Illusionist")
                     elif "Assassin" in choices:
-                        if rolls["STR"] < 12:
+                        if name.char_abilities["STR"] < 12:
                             print("Not enough STR!")
-                        if rolls["DEX"] < 12:
+                        if name.char_abilities["DEX"] < 12:
                             print("Not enough DEX!")
-                        if rolls["INT"] < 11:
+                        if name.char_abilities["INT"] < 11:
                             print("Not enough INT!")
                             stop = True
                         else:
                             choices = choices.replace("Assassin", "")
-                            classlist.append("Assassin")
+                            name.char_class.append("Assassin")
                     elif "Barbarian" in choices:
-                        if rolls["STR"] < 15:
+                        if name.char_abilities["STR"] < 15:
                             print("Not enough STR!")
-                        if rolls["CON"] < 15:
+                        if name.char_abilities["CON"] < 15:
                             print("Not enough CON!")
-                        if rolls["DEX"] < 14:
+                        if name.char_abilities["DEX"] < 14:
                             print("Not enough DEX!")
-                        if rolls["WIS"] > 16:
+                        if name.char_abilities["WIS"] > 16:
                             print("WIS TOO HIGH!")
                             stop = True
                         else:
                             choices = choices.replace("Barbarian", "")
-                            classlist.append("Barbarian")
+                            name.char_class.append("Barbarian")
                     elif "Cavalier" in choices:
-                        if rolls["STR"] < 15:
+                        if name.char_abilities["STR"] < 15:
                             print("Not enough STR!")
-                        if rolls["CON"] < 15:
+                        if name.char_abilities["CON"] < 15:
                             print("Not enough CON!")
-                        if rolls["DEX"] < 15:
+                        if name.char_abilities["DEX"] < 15:
                             print("Not enough DEX!")
-                        if rolls["WIS"] < 10:
+                        if name.char_abilities["WIS"] < 10:
                             print("Not enough WIS!")
                             stop = True
                         else:
                             choices = choices.replace("Cavalier", "")
-                            classlist.append("Cavalier")
+                            name.char_class.append("Cavalier")
                     elif "UAPaladin" in choices:
-                        if rolls["STR"] < 15:
+                        if name.char_abilities["STR"] < 15:
                             print("Not enough STR!")
-                        if rolls["CON"] < 15:
+                        if name.char_abilities["CON"] < 15:
                             print("Not enough CON!")
-                        if rolls["DEX"] < 15:
+                        if name.char_abilities["DEX"] < 15:
                             print("Not enough DEX!")
-                        if rolls["WIS"] < 13:
+                        if name.char_abilities["WIS"] < 13:
                             print("Not enough WIS!")
-                        if rolls["CHA"] < 13:
+                        if name.char_abilities["CHA"] < 13:
                             print("Not enough CHA!")
                             stop = True
                         else:
                             choices = choices.replace("UAPaladin", "")
-                            classlist.append("UAPaladin")
+                            name.char_class.append("UAPaladin")
                     elif "UAPaladin" in choices:
-                        if rolls["STR"] < 15:
+                        if name.char_abilities["STR"] < 15:
                             print("Not enough STR!")
-                        if rolls["CON"] < 11:
+                        if name.char_abilities["CON"] < 11:
                             print("Not enough CON!")
-                        if rolls["DEX"] < 15:
+                        if name.char_abilities["DEX"] < 15:
                             print("Not enough DEX!")
-                        if rolls["WIS"] < 15:
+                        if name.char_abilities["WIS"] < 15:
                             print("Not enough WIS!")
 
                             stop = True
                         else:
                             choices = choices.replace("Monk", "")
-                            classlist.append("Monk")
+                            name.char_class.append("Monk")
                 if stop:
                     print("This choice isn't valid, try again.")
                 else:
                     print("-------------")
-                    for i in classlist:
+                    for i in name.char_class:
                         print("Class: ", i, "selected.")
                     result = input("Agreed? Y/N")
                     if result.isalpha():
                         if "y".upper() == result.upper():
                             #result = True
                             result = True
-                            return classlist, result
+                            return name, result
 
 
 
@@ -306,4 +307,58 @@ def class_saving_throws(classlist, saves):
     return saves
 
 
-
+def thief_adjustment(race, race_abilities):
+    if race == "Dwarf":
+        race_abilities["Thief"]["Pick Pockets"] = "0%"
+        race_abilities["Thief"]["Open Locks"] = "+10%"
+        race_abilities["Thief"]["Find/Remove Traps"] = "+15%"
+        race_abilities["Thief"]["Move Silent"] = "0%"
+        race_abilities["Thief"]["Hide In Shadows"] = "0%"
+        race_abilities["Thief"]["Hear Noise"] = "0%"
+        race_abilities["Thief"]["Climb Walls"] = "-10%"
+        race_abilities["Thief"]["Read Languages"] = "-5%"
+    elif race == "Elf":
+        race_abilities["Thief"]["Pick Pockets"] = "+5%"
+        race_abilities["Thief"]["Open Locks"] = "-5%"
+        race_abilities["Thief"]["Find/Remove Traps"] = "0%"
+        race_abilities["Thief"]["Move Silent"] = "+5%"
+        race_abilities["Thief"]["Hide In Shadows"] = "+10%"
+        race_abilities["Thief"]["Hear Noise"] = "+5%"
+        race_abilities["Thief"]["Climb Walls"] = "0%"
+        race_abilities["Thief"]["Read Languages"] = "0%"
+    elif race == "Gnome":
+        race_abilities["Thief"]["Pick Pockets"] = "0%"
+        race_abilities["Thief"]["Open Locks"] = "+5%"
+        race_abilities["Thief"]["Find/Remove Traps"] = "+10%"
+        race_abilities["Thief"]["Move Silent"] = "+5%"
+        race_abilities["Thief"]["Hide In Shadows"] = "+5%"
+        race_abilities["Thief"]["Hear Noise"] = "+10%"
+        race_abilities["Thief"]["Climb Walls"] = "-15%"
+        race_abilities["Thief"]["Read Languages"] = "0%"
+    elif race == "Half-Elf":
+        race_abilities["Thief"]["Pick Pockets"] = "+10%"
+        race_abilities["Thief"]["Open Locks"] = "0%"
+        race_abilities["Thief"]["Find/Remove Traps"] = "0%"
+        race_abilities["Thief"]["Move Silent"] = "0%"
+        race_abilities["Thief"]["Hide In Shadows"] = "+5%"
+        race_abilities["Thief"]["Hear Noise"] = "0%"
+        race_abilities["Thief"]["Climb Walls"] = "0%"
+        race_abilities["Thief"]["Read Languages"] = "0%"
+    elif race == "Halfling":
+        race_abilities["Thief"]["Pick Pockets"] = "+5%"
+        race_abilities["Thief"]["Open Locks"] = "+5%"
+        race_abilities["Thief"]["Find/Remove Traps"] = "+5%"
+        race_abilities["Thief"]["Move Silent"] = "+10%"
+        race_abilities["Thief"]["Hide In Shadows"] = "+15%"
+        race_abilities["Thief"]["Hear Noise"] = "+5%"
+        race_abilities["Thief"]["Climb Walls"] = "-15%"
+        race_abilities["Thief"]["Read Languages"] = "-5%"
+    elif race == "Half-Orc":
+        race_abilities["Thief"]["Pick Pockets"] = "-5%"
+        race_abilities["Thief"]["Open Locks"] = "+5%"
+        race_abilities["Thief"]["Find/Remove Traps"] = "+5%"
+        race_abilities["Thief"]["Move Silent"] = "0%"
+        race_abilities["Thief"]["Hide In Shadows"] = "0%"
+        race_abilities["Thief"]["Hear Noise"] = "+5%"
+        race_abilities["Thief"]["Climb Walls"] = "+5%"
+        race_abilities["Thief"]["Read Languages"] = "-10%"

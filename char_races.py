@@ -1,7 +1,7 @@
 from enum import Enum
 import re, dice
 
-def races_base(race, rolls):
+def races_base(race, name):
     print("What GENDER are you playing?")
     result = False
     if str(race).isdigit():
@@ -10,29 +10,32 @@ def races_base(race, rolls):
             if gender.isalpha():
                 if gender.upper() == "M".upper() or gender.upper() == "F".upper():
                     print(gender)
+                    #name.gender = gender
                     if race.upper() == "Dwarf".upper() or "0" == race:
                         race = "Dwarf"
-                        result = dwarf(rolls, gender)
+                        result = dwarf(name.char_abilities, gender)
                     elif race.upper() == "Elf".upper() or "1" == race:
                         race = "Elf"
-                        result = elf(rolls, gender)
+                        result = elf(name.char_abilities, gender)
                     elif race.upper() == "Gnome".upper() or "2" == race:
                         race = "Gnome"
-                        result = gnome(rolls, gender)
+                        result = gnome(name.char_abilities, gender)
                     elif race.upper() == "Half-Elf".upper() or "3" == race:
                         race = "Half-Elf"
-                        result = half_elf(rolls, gender)
+                        result = half_elf(name.char_abilities, gender)
                     elif race.upper() == "Half-Orc".upper() or "4" == race:
                         race = "Half-Orc"
-                        result = half_orc(rolls, gender)
+                        result = half_orc(name.char_abilities, gender)
                     elif race.upper() == "Human".upper() or "5" == race:
                         race = "Human"
-                        result = human(rolls, gender)
+                        result = human(name.char_abilities, gender)
                     elif race.upper() == "Halfling".upper() or "6" == race:
                         race = "Halfling"
-                        result = halfling(rolls, gender)
+                        result = halfling(name.char_abilities, gender)
+                    name.char_gender = gender
+                    name.char_race = race
     gender = "M"
-    return race, result, gender
+    return name, result
 
 def minimums(rolls, strength, dexterity, constitution, intelligence, wisdom, charisma):
     result = False
@@ -379,59 +382,3 @@ def base_bonuses(rolls, race, classlist):
 
 
     return rolls, race_abilities
-
-def thief_adjustment(race, race_abilities):
-    if race == "Dwarf":
-        race_abilities["Thief"]["Pick Pockets"] = "0%"
-        race_abilities["Thief"]["Open Locks"] = "+10%"
-        race_abilities["Thief"]["Find/Remove Traps"] = "+15%"
-        race_abilities["Thief"]["Move Silent"] = "0%"
-        race_abilities["Thief"]["Hide In Shadows"] = "0%"
-        race_abilities["Thief"]["Hear Noise"] = "0%"
-        race_abilities["Thief"]["Climb Walls"] = "-10%"
-        race_abilities["Thief"]["Read Languages"] = "-5%"
-    elif race == "Elf":
-        race_abilities["Thief"]["Pick Pockets"] = "+5%"
-        race_abilities["Thief"]["Open Locks"] = "-5%"
-        race_abilities["Thief"]["Find/Remove Traps"] = "0%"
-        race_abilities["Thief"]["Move Silent"] = "+5%"
-        race_abilities["Thief"]["Hide In Shadows"] = "+10%"
-        race_abilities["Thief"]["Hear Noise"] = "+5%"
-        race_abilities["Thief"]["Climb Walls"] = "0%"
-        race_abilities["Thief"]["Read Languages"] = "0%"
-    elif race == "Gnome":
-        race_abilities["Thief"]["Pick Pockets"] = "0%"
-        race_abilities["Thief"]["Open Locks"] = "+5%"
-        race_abilities["Thief"]["Find/Remove Traps"] = "+10%"
-        race_abilities["Thief"]["Move Silent"] = "+5%"
-        race_abilities["Thief"]["Hide In Shadows"] = "+5%"
-        race_abilities["Thief"]["Hear Noise"] = "+10%"
-        race_abilities["Thief"]["Climb Walls"] = "-15%"
-        race_abilities["Thief"]["Read Languages"] = "0%"
-    elif race == "Half-Elf":
-        race_abilities["Thief"]["Pick Pockets"] = "+10%"
-        race_abilities["Thief"]["Open Locks"] = "0%"
-        race_abilities["Thief"]["Find/Remove Traps"] = "0%"
-        race_abilities["Thief"]["Move Silent"] = "0%"
-        race_abilities["Thief"]["Hide In Shadows"] = "+5%"
-        race_abilities["Thief"]["Hear Noise"] = "0%"
-        race_abilities["Thief"]["Climb Walls"] = "0%"
-        race_abilities["Thief"]["Read Languages"] = "0%"
-    elif race == "Halfling":
-        race_abilities["Thief"]["Pick Pockets"] = "+5%"
-        race_abilities["Thief"]["Open Locks"] = "+5%"
-        race_abilities["Thief"]["Find/Remove Traps"] = "+5%"
-        race_abilities["Thief"]["Move Silent"] = "+10%"
-        race_abilities["Thief"]["Hide In Shadows"] = "+15%"
-        race_abilities["Thief"]["Hear Noise"] = "+5%"
-        race_abilities["Thief"]["Climb Walls"] = "-15%"
-        race_abilities["Thief"]["Read Languages"] = "-5%"
-    elif race == "Half-Orc":
-        race_abilities["Thief"]["Pick Pockets"] = "-5%"
-        race_abilities["Thief"]["Open Locks"] = "+5%"
-        race_abilities["Thief"]["Find/Remove Traps"] = "+5%"
-        race_abilities["Thief"]["Move Silent"] = "0%"
-        race_abilities["Thief"]["Hide In Shadows"] = "0%"
-        race_abilities["Thief"]["Hear Noise"] = "+5%"
-        race_abilities["Thief"]["Climb Walls"] = "+5%"
-        race_abilities["Thief"]["Read Languages"] = "-10%"
