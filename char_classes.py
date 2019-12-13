@@ -118,6 +118,7 @@ def race_classes(name):
                         else:
                             choices = choices.replace("Thief", "")
                             name.char_class.append("Thief")
+                            name.char_race_abilities["Thief"] = {}
                             name = thief_adjustment(name)
                     elif "Druid" in choices:
                         if name.char_abilities["WIS"] < 12:
