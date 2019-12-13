@@ -9,6 +9,8 @@ class playerSheet:
         self.char_social_class = ""
         self.player_name = "todd"
         self.char_class = []
+        self.char_class_xpBonus = []
+        self.char_class_abilities = {}
         self.char_race = ""
         self.char_gender = ""
         self.char_abilities = {"STR": dice.ability_roller(6, 5),
