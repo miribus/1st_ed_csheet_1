@@ -84,23 +84,23 @@ def social_class(name):
         classroll = dice.soclass()
         print("You rolled: ", str(classroll), "for social class")
         if int(classroll) in range(1, 5):
-            name.soclass = "LLC"
+            name.social_class = "LLC"
         elif int(classroll) in range(5, 11):
-            name.soclass = "MLC"
+            name.social_class = "MLC"
         elif int(classroll) in range(11, 21):
-            name.soclass = "ULC"
+            name.social_class = "ULC"
         elif int(classroll) in range(22, 36):
-            name.soclass = "LMC"
+            name.social_class = "LMC"
         elif int(classroll) in range(36, 56):
-            name.soclass = "MMC"
+            name.social_class = "MMC"
         elif int(classroll) in range(57, 88):
-            name.soclass = "UMC"
+            name.social_class = "UMC"
         elif int(classroll) in range(88, 97):
-            name.soclass = "LUC"
+            name.social_class = "LUC"
         elif int(classroll) in range(98, 100):
-            name.soclass = "MUC"
+            name.social_class = "MUC"
         elif int(classroll) in range(100, 101):
-            name.soclass = "UUC"
-        name.soclass_limit = soclasslimit[name.soclass]
-        print("You are:", name.social_class, soclass_definition[name.soclass])
+            name.social_class = "UUC"
+        name.soclass_limit = soclasslimit[name.social_class]
+        print("You are:", name.social_class, soclass_definition[name.social_class])
     return name

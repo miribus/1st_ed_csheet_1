@@ -259,7 +259,7 @@ def race_classes(name):
 
 
 
-def class_saving_throws(classlist, saves):
+def class_saving_throws(name):
     class_saves = {}
     class_saves["Poison"] = {"ClericDruid": 10, "ThiefAssassinMonk": 13, "MagicUserIllusionist": 14, "FighterRangerPaladinUAPaladinCavalier": 14}
     class_saves["Petrification"] = {"ThiefAssassinMonk": 12, "ClericDruid": 13, "MagicUserIllusionist": 14, "FighterRangerPaladinUAPaladinCavalier": 15}
@@ -274,37 +274,37 @@ def class_saving_throws(classlist, saves):
     class_saves_high["Breath Weapon"] = 21
     class_saves_high["Spells"] = 21
 
-    for c in classlist:
+    for c in name.char_class:
         for t in class_saves["Poison"]:
             if str(c) in t:
                 if class_saves["Poison"][t] <= class_saves_high["Poison"]:
                     class_saves_high["Poison"] = class_saves["Poison"][t]
-                    saves["Poison"] = class_saves["Poison"][t]
+                    name.char_saves["Poison"] = class_saves["Poison"][t]
 
         for t in class_saves["Petrification"]:
             if str(c) in t:
                 if class_saves["Petrification"][t] <= class_saves_high["Petrification"]:
                     class_saves_high["Petrification"] = class_saves["Petrification"][t]
-                    saves["Petrification"] = class_saves["Petrification"][t]
+                    name.char_saves["Petrification"] = class_saves["Petrification"][t]
 
         for t in class_saves["Rods, Staves, Wands"]:
             if str(c) in t:
                 if class_saves["Rods, Staves, Wands"][t] <= class_saves_high["Rods, Staves, Wands"]:
                     class_saves_high["Rods, Staves, Wands"] = class_saves["Rods, Staves, Wands"][t]
-                    saves["Rods, Staves, Wands"] = class_saves["Rods, Staves, Wands"][t]
+                    name.char_saves["Rods, Staves, Wands"] = class_saves["Rods, Staves, Wands"][t]
 
         for t in class_saves["Breath Weapon"]:
             if str(c) in t:
                 if class_saves["Breath Weapon"][t] <= class_saves_high["Breath Weapon"]:
                     class_saves_high["Breath Weapon"] = class_saves["Breath Weapon"][t]
-                    saves["Breath Weapon"] = class_saves["Breath Weapon"][t]
+                    name.char_saves["Breath Weapon"] = class_saves["Breath Weapon"][t]
 
         for t in class_saves["Spells"]:
             if str(c) in t:
                 if class_saves["Spells"][t] <= class_saves_high["Spells"]:
                     class_saves_high["Spells"] = class_saves["Spells"][t]
-                    saves["Spells"] = class_saves["Spells"][t]
-    return saves
+                    name.char_saves["Spells"] = class_saves["Spells"][t]
+    return name
 
 
 def thief_adjustment(race, race_abilities):

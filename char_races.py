@@ -308,77 +308,83 @@ def halfling(rolls, gender):
     else:
         return False
 
-def base_bonuses(rolls, race, classlist):
+def base_bonuses(name):
     race_abilities ={}
     race_abilities["Save Bonus"] = {}
-    if race == "Elf":
-        rolls["DEX"] += 1
-        rolls["CON"] -= 1
-        race_abilities["Sleep/Charm Resistance"] = "90%"
-        race_abilities["Combat Bonus"] = "Short/Long Swords +1 To Hit, Bows +1 To Hit"
-        race_abilities["Infravision"] = "60'"
-        race_abilities["Racial Languages"] = ["Elvish", "Gnome", "Halfling", "Goblin", "Hobgoblin", "Orcish",
-                                              "Gnoll", "Common", "+{} more".format(rolls["INT"]-15)]
-        race_abilities["Elven Surprise"] = ["d4, 1-4 in Non-Metal Armor and Alone or w/ Elves/Halflings, Score 1-2 if opening door "]
-        race_abilities["Detect Secret Doors"] = ["Concealed: d6, Score 1 (Detect: 1-2)", "Secret: d6, Score 1-2 (Detect: 1-3)"]
-    elif race == "Dwarf":
-        rolls["CON"] += 1
-        rolls["CHA"] -= 1
-        race_abilities["Save Bonus"]["Rods, Staves, Wands"] = str('+')+str(int(str(round(rolls["CON"] / 3.5))[0]))
-        race_abilities["Save Bonus"]["Poison"] = str('+')+str(int(str(round(rolls["CON"] / 3.5))[0]))
-        race_abilities["Save Bonus"]["Spells"] = str('+')+str(int(str(round(rolls["CON"] / 3.5))[0]))
-        race_abilities["Detect Grade Underground"] = "d4, score 1-3"
-        race_abilities["Detect New Construction Underground"] = "d4, score 1-3"
-        race_abilities["Detect Sliding/Shifting Construction Underground"] = "d6, score 1-4"
-        race_abilities["Detect Stone Trapwork"] = "d4, score 1-2"
-        race_abilities["Detect Depth Underground"] = "d4, score 1-2"
-        race_abilities["Infravision"] = "60'"
-        race_abilities["Racial Languages"] = ["Dwarven", "Gnome", "Goblin", "Kobold", "Orcish", "Common"]
-        race_abilities["Combat Bonus"] = ["+1 To hit: Half-Orc, Goblin, Hobgoblin, Orc",
+    if name.char_abilities["INT"] > 15:
+        elflang = str(name.char_abilities["INT"]-15)
+        elflang = "+{} more".format(elflang)
+    else:
+        elflang = ""
+
+    if name.char_race == "Elf":
+        name.char_abilities["DEX"] += 1
+        name.char_abilities["CON"] -= 1
+        name.char_race_abilities["Sleep/Charm Resistance"] = "90%"
+        name.char_race_abilities["Combat Bonus"] = "Short/Long Swords +1 To Hit, Bows +1 To Hit"
+        name.char_race_abilities["Infravision"] = "60'"
+        name.char_race_abilities["Racial Languages"] = ["Elvish", "Gnome", "Halfling", "Goblin", "Hobgoblin", "Orcish",
+                                              "Gnoll", "Common", elflang]
+        name.char_race_abilities["Elven Surprise"] = ["d4, 1-4 in Non-Metal Armor and Alone or w/ Elves/Halflings, Score 1-2 if opening door "]
+        name.char_race_abilities["Detect Secret Doors"] = ["Concealed: d6, Score 1 (Detect: 1-2)", "Secret: d6, Score 1-2 (Detect: 1-3)"]
+    elif name.char_race == "Dwarf":
+        name.char_abilities["CON"] += 1
+        name.char_abilities["CHA"] -= 1
+        name.char_race_abilities["Save Bonus"]["Rods, Staves, Wands"] = str('+')+str(int(str(round(name.char_abilities["CON"] / 3.5))[0]))
+        name.char_race_abilities["Save Bonus"]["Poison"] = str('+')+str(int(str(round(name.char_abilities["CON"] / 3.5))[0]))
+        name.char_race_abilities["Save Bonus"]["Spells"] = str('+')+str(int(str(round(name.char_abilities["CON"] / 3.5))[0]))
+        name.char_race_abilities["Detect Grade Underground"] = "d4, score 1-3"
+        name.char_race_abilities["Detect New Construction Underground"] = "d4, score 1-3"
+        name.char_race_abilities["Detect Sliding/Shifting Construction Underground"] = "d6, score 1-4"
+        name.char_race_abilities["Detect Stone Trapwork"] = "d4, score 1-2"
+        name.char_race_abilities["Detect Depth Underground"] = "d4, score 1-2"
+        name.char_race_abilities["Infravision"] = "60'"
+        name.char_race_abilities["Racial Languages"] = ["Dwarven", "Gnome", "Goblin", "Kobold", "Orcish", "Common"]
+        name.char_race_abilities["Combat Bonus"] = ["+1 To hit: Half-Orc, Goblin, Hobgoblin, Orc",
                                           "-4 Penalty to be hit by Enemy Giants, Titans, Ogres or, Trolls"]
-    elif race == "Half-Orc":
-        rolls["STR"] += 1
-        rolls["CON"] += 1
-        rolls["CHA"] -= 2
-        race_abilities["Racial Languages"] = ["Orcish", "Common"]
-        race_abilities["Infravision"] = "60'"
-    elif race == "Halfling":
-        rolls["STR"] -= 1
-        rolls["DEX"] += 1
-        race_abilities["Save Bonus"]["Poison"] = str('+')+str(int(str(round(rolls["CON"] / 3.5))[0]))
-        race_abilities["Save Bonus"]["Spells"] = str('+')+str(str(round(rolls["CON"] / 3.5))[0])
-        race_abilities["Save Bonus"]["Rods, Staves, Wands"] = str('+')+str(int(str(round(rolls["CON"] / 3.5))[0]))
-        race_abilities["Infravision"] = "30' (Or 60' if Stoutish)"
-        race_abilities["Racial Languages"] = ["Elvish", "Gnome", "Halfling", "Goblin", "Dwarven", "Orcish",
-                                              "Common", "+{} more".format(rolls["INT"]-16)]
-        race_abilities["Halfling Surprise"] = ["d4, 1-4 in Non-Metal Armor and Alone or w/ Elves/Halflings, Score 1-2 if opening door "]
-        race_abilities["Detect Grade Underground"] = "d4, score 1-3"
-        race_abilities["Determine Direction Underground"] = "d10, score 1-5"
-    elif race == "Gnome":
-        race_abilities["Save Bonus"]["Rods, Staves, Wands:"] = str('+')+str(int(str(round(rolls["CON"] / 3.5))[0]))
-        race_abilities["Save Bonus"]["Spells:"] = str('+')+str(int(str(round(rolls["CON"] / 3.5))[0]))
-        race_abilities["Racial Languages"] = ["Dwarven", "Gnome", "Goblin", "Kobold", "Orcish", "Common",
+    elif name.char_race == "Half-Orc":
+        name.char_abilities["STR"] += 1
+        name.char_abilities["CON"] += 1
+        name.char_abilities["CHA"] -= 2
+        name.char_race_abilities["Racial Languages"] = ["Orcish", "Common"]
+        name.char_race_abilities["Infravision"] = "60'"
+    elif name.char_race == "Halfling":
+        name.char_abilities["STR"] -= 1
+        name.char_abilities["DEX"] += 1
+        name.char_race_abilities["Save Bonus"]["Poison"] = str('+')+str(int(str(round(name.char_abilities["CON"] / 3.5))[0]))
+        name.char_race_abilities["Save Bonus"]["Spells"] = str('+')+str(str(round(name.char_abilities["CON"] / 3.5))[0])
+        name.char_race_abilities["Save Bonus"]["Rods, Staves, Wands"] = str('+')+str(int(str(round(name.char_abilities["CON"] / 3.5))[0]))
+        name.char_race_abilities["Infravision"] = "30' (Or 60' if Stoutish)"
+        name.char_race_abilities["Racial Languages"] = ["Elvish", "Gnome", "Halfling", "Goblin", "Dwarven", "Orcish",
+                                              "Common", "+{} more".format(name.char_abilities["INT"]-16)]
+        name.char_race_abilities["Halfling Surprise"] = ["d4, 1-4 in Non-Metal Armor and Alone or w/ Elves/Halflings, Score 1-2 if opening door "]
+        name.char_race_abilities["Detect Grade Underground"] = "d4, score 1-3"
+        name.char_race_abilities["Determine Direction Underground"] = "d10, score 1-5"
+    elif name.char_race == "Gnome":
+        name.char_race_abilities["Save Bonus"]["Rods, Staves, Wands:"] = str('+')+str(int(str(round(name.char_abilities["CON"] / 3.5))[0]))
+        name.char_race_abilities["Save Bonus"]["Spells:"] = str('+')+str(int(str(round(name.char_abilities["CON"] / 3.5))[0]))
+        name.char_race_abilities["Racial Languages"] = ["Dwarven", "Gnome", "Goblin", "Kobold", "Orcish", "Common",
                                               "Burrowing Mammal"]
-        race_abilities["Infravision"] = "60'"
-        race_abilities["Detect Grade Underground"] = "d10, score 1-8"
-        race_abilities["Detect Unsafe Walls/Ceilings/Floors"] = "d10, score 1-7"
-        race_abilities["Detect Depth Underground"] = "d10, score 1-6"
-        race_abilities["Determine Direction Underground"] = "d10, score 1-5"
-        race_abilities["Combat Bonus"] = ["+1 Kobolds, Goblions",
+        name.char_race_abilities["Infravision"] = "60'"
+        name.char_race_abilities["Detect Grade Underground"] = "d10, score 1-8"
+        name.char_race_abilities["Detect Unsafe Walls/Ceilings/Floors"] = "d10, score 1-7"
+        name.char_race_abilities["Detect Depth Underground"] = "d10, score 1-6"
+        name.char_race_abilities["Determine Direction Underground"] = "d10, score 1-5"
+        name.char_race_abilities["Combat Bonus"] = ["+1 Kobolds, Goblions",
                                           "-4 To Be hit by, Gnolls, Trolls, Giants, Bugbaires, Giants, Titans"]
-    elif race == "Half-Elf":
-        race_abilities["Sleep/Charm Resistance"] = "30%"
-        race_abilities["Racial Languages"] = ["Elvish", "Gnome", "Halfling", "Goblin", "Hobgoblin", "Orcish",
-                                              "Gnoll", "Common", "+{} more".format(rolls["INT"] - 16)]
-        race_abilities["Infravision"] = "60'"
-        race_abilities["Detect Secret Doors"] = ["Concealed: d6, Score 1 (Detect: 1-2)",
+    elif name.char_race == "Half-Elf":
+        name.char_race_abilities["Sleep/Charm Resistance"] = "30%"
+        name.char_race_abilities["Racial Languages"] = ["Elvish", "Gnome", "Halfling", "Goblin", "Hobgoblin", "Orcish",
+                                              "Gnoll", "Common", "+{} more".format(name.char_abilities["INT"] - 16)]
+        name.char_race_abilities["Infravision"] = "60'"
+        name.char_race_abilities["Detect Secret Doors"] = ["Concealed: d6, Score 1 (Detect: 1-2)",
                                                  "Secret: d6, Score 1-2 (Detect: 1-3)"]
     fighters = ["Fighter", "Barbarian", "Cavalier", "Paladin", "UAPaladin", "Ranger"]
-    rolls["EX_STR"] = False
-    if rolls["STR"] == 18:
-        for c in classlist:
+    name.char_abilities["EX_STR"] = False
+    if name.char_abilities["STR"] == 18:
+        for c in name.char_class:
             if str(c) in fighters:
-                rolls["EX_STR"] = dice.exceptional_strength()
+                name.char_abilities["EX_STR"] = dice.exceptional_strength()
 
 
-    return rolls, race_abilities
+    return name
