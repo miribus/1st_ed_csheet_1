@@ -1,0 +1,5 @@
+def class_details(name):
+    for c in name.char_class:
+        if "Cleric" == str(c):
+            if name.char_abilities["WIS"] > 15:
+                name.

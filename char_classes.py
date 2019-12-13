@@ -118,6 +118,7 @@ def race_classes(name):
                         else:
                             choices = choices.replace("Thief", "")
                             name.char_class.append("Thief")
+                            name = thief_adjustment(name)
                     elif "Druid" in choices:
                         if name.char_abilities["WIS"] < 12:
                             print("Not enough WIS!")
@@ -307,58 +308,59 @@ def class_saving_throws(name):
     return name
 
 
-def thief_adjustment(race, race_abilities):
-    if race == "Dwarf":
-        race_abilities["Thief"]["Pick Pockets"] = "0%"
-        race_abilities["Thief"]["Open Locks"] = "+10%"
-        race_abilities["Thief"]["Find/Remove Traps"] = "+15%"
-        race_abilities["Thief"]["Move Silent"] = "0%"
-        race_abilities["Thief"]["Hide In Shadows"] = "0%"
-        race_abilities["Thief"]["Hear Noise"] = "0%"
-        race_abilities["Thief"]["Climb Walls"] = "-10%"
-        race_abilities["Thief"]["Read Languages"] = "-5%"
-    elif race == "Elf":
-        race_abilities["Thief"]["Pick Pockets"] = "+5%"
-        race_abilities["Thief"]["Open Locks"] = "-5%"
-        race_abilities["Thief"]["Find/Remove Traps"] = "0%"
-        race_abilities["Thief"]["Move Silent"] = "+5%"
-        race_abilities["Thief"]["Hide In Shadows"] = "+10%"
-        race_abilities["Thief"]["Hear Noise"] = "+5%"
-        race_abilities["Thief"]["Climb Walls"] = "0%"
-        race_abilities["Thief"]["Read Languages"] = "0%"
-    elif race == "Gnome":
-        race_abilities["Thief"]["Pick Pockets"] = "0%"
-        race_abilities["Thief"]["Open Locks"] = "+5%"
-        race_abilities["Thief"]["Find/Remove Traps"] = "+10%"
-        race_abilities["Thief"]["Move Silent"] = "+5%"
-        race_abilities["Thief"]["Hide In Shadows"] = "+5%"
-        race_abilities["Thief"]["Hear Noise"] = "+10%"
-        race_abilities["Thief"]["Climb Walls"] = "-15%"
-        race_abilities["Thief"]["Read Languages"] = "0%"
-    elif race == "Half-Elf":
-        race_abilities["Thief"]["Pick Pockets"] = "+10%"
-        race_abilities["Thief"]["Open Locks"] = "0%"
-        race_abilities["Thief"]["Find/Remove Traps"] = "0%"
-        race_abilities["Thief"]["Move Silent"] = "0%"
-        race_abilities["Thief"]["Hide In Shadows"] = "+5%"
-        race_abilities["Thief"]["Hear Noise"] = "0%"
-        race_abilities["Thief"]["Climb Walls"] = "0%"
-        race_abilities["Thief"]["Read Languages"] = "0%"
-    elif race == "Halfling":
-        race_abilities["Thief"]["Pick Pockets"] = "+5%"
-        race_abilities["Thief"]["Open Locks"] = "+5%"
-        race_abilities["Thief"]["Find/Remove Traps"] = "+5%"
-        race_abilities["Thief"]["Move Silent"] = "+10%"
-        race_abilities["Thief"]["Hide In Shadows"] = "+15%"
-        race_abilities["Thief"]["Hear Noise"] = "+5%"
-        race_abilities["Thief"]["Climb Walls"] = "-15%"
-        race_abilities["Thief"]["Read Languages"] = "-5%"
-    elif race == "Half-Orc":
-        race_abilities["Thief"]["Pick Pockets"] = "-5%"
-        race_abilities["Thief"]["Open Locks"] = "+5%"
-        race_abilities["Thief"]["Find/Remove Traps"] = "+5%"
-        race_abilities["Thief"]["Move Silent"] = "0%"
-        race_abilities["Thief"]["Hide In Shadows"] = "0%"
-        race_abilities["Thief"]["Hear Noise"] = "+5%"
-        race_abilities["Thief"]["Climb Walls"] = "+5%"
-        race_abilities["Thief"]["Read Languages"] = "-10%"
+def thief_adjustment(name):
+    if name.char_race == "Dwarf":
+        name.char_race_abilities["Thief"]["Pick Pockets"] = "0%"
+        name.char_race_abilities["Thief"]["Open Locks"] = "+10%"
+        name.char_race_abilities["Thief"]["Find/Remove Traps"] = "+15%"
+        name.char_race_abilities["Thief"]["Move Silent"] = "0%"
+        name.char_race_abilities["Thief"]["Hide In Shadows"] = "0%"
+        name.char_race_abilities["Thief"]["Hear Noise"] = "0%"
+        name.char_race_abilities["Thief"]["Climb Walls"] = "-10%"
+        name.char_race_abilities["Thief"]["Read Languages"] = "-5%"
+    elif name.char_race == "Elf":
+        name.char_race_abilities["Thief"]["Pick Pockets"] = "+5%"
+        name.char_race_abilities["Thief"]["Open Locks"] = "-5%"
+        name.char_race_abilities["Thief"]["Find/Remove Traps"] = "0%"
+        name.char_race_abilities["Thief"]["Move Silent"] = "+5%"
+        name.char_race_abilities["Thief"]["Hide In Shadows"] = "+10%"
+        name.char_race_abilities["Thief"]["Hear Noise"] = "+5%"
+        name.char_race_abilities["Thief"]["Climb Walls"] = "0%"
+        name.char_race_abilities["Thief"]["Read Languages"] = "0%"
+    elif name.char_race == "Gnome":
+        name.char_race_abilities["Thief"]["Pick Pockets"] = "0%"
+        name.char_race_abilities["Thief"]["Open Locks"] = "+5%"
+        name.char_race_abilities["Thief"]["Find/Remove Traps"] = "+10%"
+        name.char_race_abilities["Thief"]["Move Silent"] = "+5%"
+        name.char_race_abilities["Thief"]["Hide In Shadows"] = "+5%"
+        name.char_race_abilities["Thief"]["Hear Noise"] = "+10%"
+        name.char_race_abilities["Thief"]["Climb Walls"] = "-15%"
+        name.char_race_abilities["Thief"]["Read Languages"] = "0%"
+    elif name.char_race == "Half-Elf":
+        name.char_race_abilities["Thief"]["Pick Pockets"] = "+10%"
+        name.char_race_abilities["Thief"]["Open Locks"] = "0%"
+        name.char_race_abilities["Thief"]["Find/Remove Traps"] = "0%"
+        name.char_race_abilities["Thief"]["Move Silent"] = "0%"
+        name.char_race_abilities["Thief"]["Hide In Shadows"] = "+5%"
+        name.char_race_abilities["Thief"]["Hear Noise"] = "0%"
+        name.char_race_abilities["Thief"]["Climb Walls"] = "0%"
+        name.char_race_abilities["Thief"]["Read Languages"] = "0%"
+    elif name.char_race == "Halfling":
+        name.char_race_abilities["Thief"]["Pick Pockets"] = "+5%"
+        name.char_race_abilities["Thief"]["Open Locks"] = "+5%"
+        name.char_race_abilities["Thief"]["Find/Remove Traps"] = "+5%"
+        name.char_race_abilities["Thief"]["Move Silent"] = "+10%"
+        name.char_race_abilities["Thief"]["Hide In Shadows"] = "+15%"
+        name.char_race_abilities["Thief"]["Hear Noise"] = "+5%"
+        name.char_race_abilities["Thief"]["Climb Walls"] = "-15%"
+        name.char_race_abilities["Thief"]["Read Languages"] = "-5%"
+    elif name.char_race == "Half-Orc":
+        name.char_race_abilities["Thief"]["Pick Pockets"] = "-5%"
+        name.char_race_abilities["Thief"]["Open Locks"] = "+5%"
+        name.char_race_abilities["Thief"]["Find/Remove Traps"] = "+5%"
+        name.char_race_abilities["Thief"]["Move Silent"] = "0%"
+        name.char_race_abilities["Thief"]["Hide In Shadows"] = "0%"
+        name.char_race_abilities["Thief"]["Hear Noise"] = "+5%"
+        name.char_race_abilities["Thief"]["Climb Walls"] = "+5%"
+        name.char_race_abilities["Thief"]["Read Languages"] = "-10%"
+    return name
