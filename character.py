@@ -99,3 +99,4 @@ print(name.char_saves)
 #print(name.char_race_abilities)
 for a in name.char_race_abilities:
     print(a, name.char_race_abilities[a])
+print(name.char_age, name.char_age_desc)
