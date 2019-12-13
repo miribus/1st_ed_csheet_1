@@ -21,3 +21,12 @@ def soclass():
 def exceptional_strength():
     result = random.randrange(1, 101)
     return result
+
+def normal(sides, qty):
+    sides = sides+1
+    qty = qty+1
+    num = 0
+    for i in range(1, qty):
+        num += random.randrange(1, sides)
+
+    return num
