@@ -309,8 +309,7 @@ def halfling(rolls, gender):
         return False
 
 def base_bonuses(name):
-    race_abilities ={}
-    race_abilities["Save Bonus"] = {}
+    name.char_race_abilities["Save Bonus"] = {}
     if name.char_abilities["INT"] > 15:
         elflang = str(name.char_abilities["INT"]-15)
         elflang = "+{} more".format(elflang)

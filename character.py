@@ -2,9 +2,23 @@ import dice, saving_throws, char_races, char_classes, social_class, base_ability
 
 class playerSheet:
     def __init__(self, charname):
-
+        self.char_abilities = {"STR": dice.ability_roller(6, 5),
+                               "INT": dice.ability_roller(6, 5),
+                               "WIS": dice.ability_roller(6, 5),
+                               "DEX": dice.ability_roller(6, 5),
+                               "CON": dice.ability_roller(6, 5),
+                               "CHA": dice.ability_roller(6, 5),
+                               "CMS": dice.ability_roller(6, 3)}
         if len(charname) == 0:
             charname = "Trololo"
+        elif charname == "Sean":
+            self.char_abilities = {"STR": 18,
+                                   "INT": 18,
+                                   "WIS": 18,
+                                   "DEX": 18,
+                                   "CON": 18,
+                                   "CHA": 18,
+                                   "CMS": 18}
         self.char_name = charname
         self.char_social_class = ""
         self.player_name = "todd"
@@ -15,13 +29,6 @@ class playerSheet:
         self.char_class_abilities = {}
         self.char_race = ""
         self.char_gender = ""
-        self.char_abilities = {"STR": dice.ability_roller(6, 5),
-                               "INT": dice.ability_roller(6, 5),
-                               "WIS": dice.ability_roller(6, 5),
-                               "DEX": dice.ability_roller(6, 5),
-                               "CON": dice.ability_roller(6, 5),
-                               "CHA": dice.ability_roller(6, 5),
-                               "CMS": dice.ability_roller(6, 3)}
         self.char_define_abilities = {}
         self.char_define_abilities["STR"] = {}
         self.char_define_abilities["INT"] = {}
@@ -71,8 +78,12 @@ if decision.isalpha():
         #name.char_gender = gender
         race_class_choices = char_classes.race_class_choices
         result = False
-        while not result:
-            name, result = char_classes.race_classes(name)
+        try:
+            while not result:
+                name, result = char_classes.race_classes(name)
+        except:
+            while not result:
+                name, result = char_classes.race_classes(name)
         name = char_classes.class_saving_throws(name)
         name = char_races.base_bonuses(name)
         name = age.age(name)
@@ -106,3 +117,9 @@ print(name.char_saves)
 #print(name.char_race_abilities)
 for a in name.char_race_abilities:
     print(a, name.char_race_abilities[a])
+
+print("***********")
+#for n in name:
+#    print(n)
+sheet = [a for a in dir(name) if not a.startswith('__')]
+print(sheet)

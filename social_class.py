@@ -79,9 +79,11 @@ def social_class(name):
     choice = input("Y to roll, N to ignore.")
     if str(choice).upper() != "Y".upper():
         print("You've chosen no.")
-        soclass = "MUC"
+        name.social_class = "MUC"
     else:
         classroll = dice.soclass()
+        if name.char_name == "Sean":
+            classroll = 100
         print("You rolled: ", str(classroll), "for social class")
         if int(classroll) in range(1, 5):
             name.social_class = "LLC"
@@ -101,6 +103,6 @@ def social_class(name):
             name.social_class = "MUC"
         elif int(classroll) in range(100, 101):
             name.social_class = "UUC"
-        name.soclass_limit = soclasslimit[name.social_class]
-        print("You are:", name.social_class, soclass_definition[name.social_class])
+    name.soclass_limit = soclasslimit[name.social_class]
+    print("You are:", name.social_class, soclass_definition[name.social_class])
     return name

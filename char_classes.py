@@ -45,11 +45,12 @@ def race_classes(name):
     #print(name.char_race)
     if name.char_race == "Elf":
         class_choices = ["Cleric (UA)", "Druid", "Fighter", "Magic-User", "Thief", "Assassin", "Ranger", "Illusionist",
-                         "Cleric/Fighter (UA)", "Cleric/Fighter/Magic-User", "Cleric/Ranger (UA)", "Cleric/Magic-User (UA)",
-                         "Cleric/Thief (UA)", "Cleric/Assassin (UA)", "Fighter/Magic-User", "Fighter/Illusionist (UA)",
-                         "Fighter/Thief", "Fighter/Assassin (UA)", "Fighter/Magic-User/Thief", "Illusionist/Thief (UA)",
-                         "Magic-User/Thief", "Ranger/Magic-User (UA)", "Magic-User/Assassin (UA)", "Cleric/Fighter/Thief (UA)",
-                         "Cleric/Magic-User/Thief (UA)", "Cavalier (UA)"]
+                         "Cleric/Fighter (UA)", "Cleric/Fighter/Magic-User", "Cleric/Ranger (UA)",
+                         "Cleric/Magic-User (UA)", "Cleric/Thief (UA)", "Cleric/Assassin (UA)", "Fighter/Magic-User",
+                         "Fighter/Illusionist (UA)", "Fighter/Thief", "Fighter/Assassin (UA)",
+                         "Fighter/Magic-User/Thief", "Illusionist/Thief (UA)", "Magic-User/Thief",
+                         "Ranger/Magic-User (UA)", "Magic-User/Assassin (UA)", "Cleric/Fighter/Thief (UA)",
+                         "Cleric/Magic-User/Thief (UA)", "Cavalier (UA)", "Druid/Ranger (UA)"]
     elif name.char_race == "Dwarf":
         class_choices = ["Cleric (UA)", "Fighter", "Thief", "Assassin", "Cleric/Fighter (UA)",
                          "Cleric/Thief (UA)", "Cleric/Assassin (UA)",
@@ -72,11 +73,10 @@ def race_classes(name):
                          "Cleric/Thief (UA)", "Cleric/Assassin (UA)", "Fighter/Magic-User", "Fighter/Illusionist (UA)",
                          "Fighter/Thief", "Fighter/Assassin (UA)", "Fighter/Magic-User/Thief", "Illusionist/Thief (UA)",
                          "Magic-User/Thief", "Ranger/Magic-User (UA)", "Magic-User/Assassin (UA)",
-                         "Cleric/Fighter/Thief (UA)",
-                         "Cleric/Magic-User/Thief (UA)"]
+                         "Cleric/Fighter/Thief (UA)", "Cleric/Magic-User/Thief (UA)", "Druid/Ranger (UA)"]
     elif name.char_race == "Human":
-        class_choices = ["Fighter", "Ranger", "Paladin", "Cleric", "Druid", "Thief", "Assassin", "Magic-User", "Illusionist",
-                         "Monk", "Barbarian", "UAPaladin  (UA)", "Cavalier (UA)"]
+        class_choices = ["Fighter", "Ranger", "Paladin", "Cleric", "Druid", "Thief", "Assassin", "Magic-User",
+                         "Illusionist", "Monk", "Barbarian", "UAPaladin  (UA)", "Cavalier (UA)"]
 
     result = False
     while not result:
@@ -123,6 +123,7 @@ def race_classes(name):
                     elif "Druid" in choices:
                         if name.char_abilities["WIS"] < 12:
                             print("Not enough WIS!")
+                            stop = True
                         if name.char_abilities["CHA"] < 15:
                             print("Not enough CHA!")
                             stop = True
@@ -139,12 +140,16 @@ def race_classes(name):
                     elif "Paladin" in choices:
                         if name.char_abilities["STR"] < 12:
                             print("Not enough STR!")
+                            stop = True
                         if name.char_abilities["INT"] < 9:
                             print("Not enough INT!")
+                            stop = True
                         if name.char_abilities["WIS"] < 13:
                             print("Not enough WIS!")
+                            stop = True
                         if name.char_abilities["CON"] < 9:
                             print("Not enough CON!")
+                            stop = True
                         if name.char_abilities["CHA"] < 17:
                             print("Not enough CHA!")
                             stop = True
@@ -154,10 +159,13 @@ def race_classes(name):
                     elif "Ranger" in choices:
                         if name.char_abilities["STR"] < 13:
                             print("Not enough STR!")
+                            stop = True
                         if name.char_abilities["INT"] < 13:
                             print("Not enough INT!")
+                            stop = True
                         if name.char_abilities["WIS"] < 14:
                             print("Not enough WIS!")
+                            stop = True
                         if name.char_abilities["CON"] < 14:
                             print("Not enough CON!")
                             stop = True
@@ -174,6 +182,7 @@ def race_classes(name):
                     elif "Illusionist" in choices:
                         if name.char_abilities["INT"] < 15:
                             print("Not enough INT!")
+                            stop = True
                         elif name.char_abilities["DEX"] < 16:
                             print("Not enough DEX!")
                             stop = True
@@ -183,8 +192,10 @@ def race_classes(name):
                     elif "Assassin" in choices:
                         if name.char_abilities["STR"] < 12:
                             print("Not enough STR!")
+                            stop = True
                         if name.char_abilities["DEX"] < 12:
                             print("Not enough DEX!")
+                            stop = True
                         if name.char_abilities["INT"] < 11:
                             print("Not enough INT!")
                             stop = True
@@ -194,10 +205,13 @@ def race_classes(name):
                     elif "Barbarian" in choices:
                         if name.char_abilities["STR"] < 15:
                             print("Not enough STR!")
+                            stop = True
                         if name.char_abilities["CON"] < 15:
                             print("Not enough CON!")
+                            stop = True
                         if name.char_abilities["DEX"] < 14:
                             print("Not enough DEX!")
+                            stop = True
                         if name.char_abilities["WIS"] > 16:
                             print("WIS TOO HIGH!")
                             stop = True
@@ -207,12 +221,16 @@ def race_classes(name):
                     elif "Cavalier" in choices:
                         if name.char_abilities["STR"] < 15:
                             print("Not enough STR!")
+                            stop = True
                         if name.char_abilities["CON"] < 15:
                             print("Not enough CON!")
+                            stop = True
                         if name.char_abilities["DEX"] < 15:
                             print("Not enough DEX!")
+                            stop = True
                         if name.char_abilities["WIS"] < 10:
                             print("Not enough WIS!")
+                            stop = True
                         if name.char_abilities["INT"] < 10:
                             print("Not enough INT!")
                             stop = True
@@ -222,14 +240,19 @@ def race_classes(name):
                     elif "UAPaladin" in choices:
                         if name.char_abilities["STR"] < 15:
                             print("Not enough STR!")
+                            stop = True
                         if name.char_abilities["CON"] < 15:
                             print("Not enough CON!")
+                            stop = True
                         if name.char_abilities["DEX"] < 15:
                             print("Not enough DEX!")
+                            stop = True
                         if name.char_abilities["WIS"] < 13:
                             print("Not enough WIS!")
+                            stop = True
                         if name.char_abilities["CHA"] < 17:
                             print("Not enough CHA!")
+                            stop = True
                         if name.char_abilities["INT"] < 10:
                             print("Not enough INT!")
                             stop = True
@@ -239,13 +262,15 @@ def race_classes(name):
                     elif "Monk" in choices:
                         if name.char_abilities["STR"] < 15:
                             print("Not enough STR!")
+                            stop = True
                         if name.char_abilities["CON"] < 11:
                             print("Not enough CON!")
+                            stop = True
                         if name.char_abilities["DEX"] < 15:
                             print("Not enough DEX!")
+                            stop = True
                         if name.char_abilities["WIS"] < 15:
                             print("Not enough WIS!")
-
                             stop = True
                         else:
                             choices = choices.replace("Monk", "")

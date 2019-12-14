@@ -356,10 +356,11 @@ def define_abilities(name):
         name.char_define_abilities["CMS"]["Fascinate"] = "Fascinate if Opponent's WIS < {}".format(str(fasc))
     elif name.char_abilities["CMS"] in range(18, 22):
         fasc = round(name.char_abilities["CMS"] / 3)
-        fasc = name.char_abilities("CMS") - fasc
+        fasc = name.char_abilities["CMS"] - fasc
         name.char_define_abilities["CMS"]["Fascinate"] = "Fascinate if Opponent's WIS < {}".format(str(fasc))
 
-    if "Thief" in name.char_class or "Assassin" in name.char_class:
+    if "Thief" in name.char_class or "Assassin" in name.char_class or "Monk" in name.char_class or "Barbarian" in\
+            name.char_class:
         if name.char_abilities["DEX"] == 9:
             name.char_define_abilities["DEX"]["Pick Pockets"] = "-15%"
             name.char_define_abilities["DEX"]["Open Locks"] = "-10%"
