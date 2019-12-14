@@ -83,6 +83,7 @@ if decision.isalpha():
         # name.char_define_abilities = {}
         name = base_ability_detail.define_abilities(name)
 print(name.char_race)
+print(name.char_age, name.char_age_desc)
 print(name.char_social_class)
 print(name.char_abilities["STR"])
 print(name.char_define_abilities["STR"])
@@ -103,4 +104,3 @@ print(name.char_saves)
 #print(name.char_race_abilities)
 for a in name.char_race_abilities:
     print(a, name.char_race_abilities[a])
-print(name.char_age, name.char_age_desc)
