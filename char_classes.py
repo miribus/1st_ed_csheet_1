@@ -53,10 +53,10 @@ def race_classes(name):
     elif name.char_race == "Dwarf":
         class_choices = ["Cleric (UA)", "Fighter", "Thief", "Assassin", "Cleric/Fighter (UA)",
                          "Cleric/Thief (UA)", "Cleric/Assassin (UA)",
-                         "Fighter/Thief", "Fighter/Assassin (UA)"]
+                         "Fighter/Thief", "Fighter/Assassin (UA)", "Cleric/Fighter (UA)"]
     elif name.char_race == "Half-Orc":
         class_choices = ["Cleric", "Fighter", "Thief", "Assassin", "Cleric/Fighter",
-                         "Cleric/Thief", "Cleric/Assassin", "Fighter/Thief", "Fighter/Assassin"]
+                         "Cleric/Thief", "Cleric/Assassin", "Fighter/Thief", "Fighter/Assassin", "Cleric/Fighter"]
     elif name.char_race == "Halfling":
         class_choices = ["Cleric (UA)", "Druid (UA)", "Fighter", "Thief",  "Cleric/Fighter (UA)",
                          "Cleric/Thief (UA)", "Fighter/Thief"]

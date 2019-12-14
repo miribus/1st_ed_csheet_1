@@ -76,6 +76,10 @@ if decision.isalpha():
         name = char_classes.class_saving_throws(name)
         name = char_races.base_bonuses(name)
         name = age.age(name)
+        print("****")
+        print(name.char_age)
+        print(name.char_age_desc)
+        print("****")
         # name.char_define_abilities = {}
         name = base_ability_detail.define_abilities(name)
 print(name.char_race)

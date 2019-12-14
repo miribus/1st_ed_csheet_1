@@ -12,17 +12,17 @@ def age(name):
                 ages.append(75 + dice.normal(6, 3))
         ages.sort()
         name.char_age = str(ages[-1])
-        if name.char_age in range(35, 51):
+        if int(name.char_age) in range(35, 51):
             name.char_age_desc = "Young Adult"
             name.char_abilities["WIS"] -= 1
             name.char_abilities["CON"] += 1
-        elif name.char_age in range(51, 151):
+        elif int(name.char_age) in range(51, 151):
             name.char_age_desc = "Mature"
             name.char_abilities["WIS"] -= 1
             name.char_abilities["CON"] += 1
             name.char_abilities["STR"] += 1
             name.char_abilities["WIS"] += 1
-        elif name.char_age in range(151, 251):
+        elif int(name.char_age) in range(151, 251):
             name.char_age_desc = "Middle Aged"
             name.char_abilities["WIS"] -= 1
             name.char_abilities["CON"] += 1
@@ -32,7 +32,7 @@ def age(name):
                 name.char_abilities["EX_STR"] = round(name.char_abilities["EX_STR"] / 2)
             else:
                 name.char_abilities["STR"] -= 1
-        elif name.char_age in range(251, 351):
+        elif int(name.char_age) in range(251, 351):
             name.char_age_desc = "Old"
             name.char_abilities["WIS"] -= 1
             name.char_abilities["CON"] += 1
@@ -46,7 +46,7 @@ def age(name):
             name.char_abilities["DEX"] -= 2
             name.char_abilities["CON"] -= 1
             name.char_abilities["WIS"] += 1
-        elif name.char_age in range(351, 451):
+        elif int(name.char_age) in range(351, 451):
             name.char_age_desc = "Venerable"
             name.char_abilities["WIS"] -= 1
             name.char_abilities["CON"] += 1
@@ -79,17 +79,17 @@ def age(name):
                 ages.append(100 + dice.normal(6, 5))
         ages.sort()
         name.char_age = str(ages[-1])
-        if name.char_age in range(100, 176):
+        if int(name.char_age) in range(100, 176):
             name.char_age_desc = "Young Adult"
             name.char_abilities["WIS"] -= 1
             name.char_abilities["CON"] += 1
-        elif name.char_age in range(177, 551):
+        elif int(name.char_age) in range(177, 551):
             name.char_age_desc = "Mature"
             name.char_abilities["WIS"] -= 1
             name.char_abilities["CON"] += 1
             name.char_abilities["STR"] += 1
             name.char_abilities["WIS"] += 1
-        elif name.char_age in range(551, 876):
+        elif int(name.char_age) in range(551, 876):
             name.char_age_desc = "Middle Aged"
             name.char_abilities["WIS"] -= 1
             name.char_abilities["CON"] += 1
@@ -99,7 +99,7 @@ def age(name):
                 name.char_abilities["EX_STR"] = round(name.char_abilities["EX_STR"] / 2)
             else:
                 name.char_abilities["STR"] -= 1
-        elif name.char_age in range(876, 1201):
+        elif int(name.char_age) in range(876, 1201):
             name.char_age_desc = "Old"
             name.char_abilities["WIS"] -= 1
             name.char_abilities["CON"] += 1
@@ -113,7 +113,7 @@ def age(name):
             name.char_abilities["DEX"] -= 2
             name.char_abilities["CON"] -= 1
             name.char_abilities["WIS"] += 1
-        elif name.char_age in range(1201, 1601):
+        elif int(name.char_age) in range(1201, 1601):
             name.char_age_desc = "Venerable"
             name.char_abilities["WIS"] -= 1
             name.char_abilities["CON"] += 1
@@ -145,17 +145,17 @@ def age(name):
                 ages.append(80 + dice.normal(4, 5))
         ages.sort()
         name.char_age = str(ages[-1])
-        if name.char_age in range(50, 91):
+        if int(name.char_age) in range(50, 91):
             name.char_age_desc = "Young Adult"
             name.char_abilities["WIS"] -= 1
             name.char_abilities["CON"] += 1
-        elif name.char_age in range(91, 301):
+        elif int(name.char_age) in range(91, 301):
             name.char_age_desc = "Mature"
             name.char_abilities["WIS"] -= 1
             name.char_abilities["CON"] += 1
             name.char_abilities["STR"] += 1
             name.char_abilities["WIS"] += 1
-        elif name.char_age in range(301, 451):
+        elif int(name.char_age) in range(301, 451):
             name.char_age_desc = "Middle Aged"
             name.char_abilities["WIS"] -= 1
             name.char_abilities["CON"] += 1
@@ -165,7 +165,7 @@ def age(name):
                 name.char_abilities["EX_STR"] = round(name.char_abilities["EX_STR"] / 2)
             else:
                 name.char_abilities["STR"] -= 1
-        elif name.char_age in range(451, 601):
+        elif int(name.char_age) in range(451, 601):
             name.char_age_desc = "Old"
             name.char_abilities["WIS"] -= 1
             name.char_abilities["CON"] += 1
@@ -179,7 +179,7 @@ def age(name):
             name.char_abilities["DEX"] -= 2
             name.char_abilities["CON"] -= 1
             name.char_abilities["WIS"] += 1
-        elif name.char_age in range(601, 751):
+        elif int(name.char_age) in range(601, 751):
             name.char_age_desc = "Venerable"
             name.char_abilities["WIS"] -= 1
             name.char_abilities["CON"] += 1
@@ -211,17 +211,17 @@ def age(name):
                 ages.append(22 + dice.normal(8, 3))
         ages.sort()
         name.char_age = str(ages[-1])
-        if name.char_age in range(25, 41):
+        if int(name.char_age) in range(25, 41):
             name.char_age_desc = "Young Adult"
             name.char_abilities["WIS"] -= 1
             name.char_abilities["CON"] += 1
-        elif name.char_age in range(41, 100):
+        elif int(name.char_age) in range(41, 100):
             name.char_age_desc = "Mature"
             name.char_abilities["WIS"] -= 1
             name.char_abilities["CON"] += 1
             name.char_abilities["STR"] += 1
             name.char_abilities["WIS"] += 1
-        elif name.char_age in range(101, 175):
+        elif int(name.char_age) in range(101, 175):
             name.char_age_desc = "Middle Aged"
             name.char_abilities["WIS"] -= 1
             name.char_abilities["CON"] += 1
@@ -231,7 +231,7 @@ def age(name):
                 name.char_abilities["EX_STR"] = round(name.char_abilities["EX_STR"] / 2)
             else:
                 name.char_abilities["STR"] -= 1
-        elif name.char_age in range(176, 251):
+        elif int(name.char_age) in range(176, 251):
             name.char_age_desc = "Old"
             name.char_abilities["WIS"] -= 1
             name.char_abilities["CON"] += 1
@@ -245,7 +245,7 @@ def age(name):
             name.char_abilities["DEX"] -= 2
             name.char_abilities["CON"] -= 1
             name.char_abilities["WIS"] += 1
-        elif name.char_age in range(251, 325):
+        elif int(name.char_age) in range(251, 325):
             name.char_age_desc = "Venerable"
             name.char_abilities["WIS"] -= 1
             name.char_abilities["CON"] += 1
@@ -275,17 +275,17 @@ def age(name):
                 ages.append(40 + dice.normal(4, 2))
         ages.sort()
         name.char_age = str(ages[-1])
-        if name.char_age in range(22, 34):
+        if int(name.char_age) in range(22, 34):
             name.char_age_desc = "Young Adult"
             name.char_abilities["WIS"] -= 1
             name.char_abilities["CON"] += 1
-        elif name.char_age in range(34, 69):
+        elif int(name.char_age) in range(34, 69):
             name.char_age_desc = "Mature"
             name.char_abilities["WIS"] -= 1
             name.char_abilities["CON"] += 1
             name.char_abilities["STR"] += 1
             name.char_abilities["WIS"] += 1
-        elif name.char_age in range(69, 102):
+        elif int(name.char_age) in range(69, 102):
             name.char_age_desc = "Middle Aged"
             name.char_abilities["WIS"] -= 1
             name.char_abilities["CON"] += 1
@@ -295,7 +295,7 @@ def age(name):
                 name.char_abilities["EX_STR"] = round(name.char_abilities["EX_STR"] / 2)
             else:
                 name.char_abilities["STR"] -= 1
-        elif name.char_age in range(102, 145):
+        elif int(name.char_age) in range(102, 145):
             name.char_age_desc = "Old"
             name.char_abilities["WIS"] -= 1
             name.char_abilities["CON"] += 1
@@ -309,7 +309,7 @@ def age(name):
             name.char_abilities["DEX"] -= 2
             name.char_abilities["CON"] -= 1
             name.char_abilities["WIS"] += 1
-        elif name.char_age in range(146, 200):
+        elif int(name.char_age) in range(146, 200):
             name.char_age_desc = "Venerable"
             name.char_abilities["WIS"] -= 1
             name.char_abilities["CON"] += 1
@@ -339,17 +339,17 @@ def age(name):
                 ages.append(20 + dice.normal(4, 2))
         ages.sort()
         name.char_age = str(ages[-1])
-        if name.char_age in range(12, 16):
+        if int(name.char_age) in range(12, 16):
             name.char_age_desc = "Young Adult"
             name.char_abilities["WIS"] -= 1
             name.char_abilities["CON"] += 1
-        elif name.char_age in range(16, 31):
+        elif int(name.char_age) in range(16, 31):
             name.char_age_desc = "Mature"
             name.char_abilities["WIS"] -= 1
             name.char_abilities["CON"] += 1
             name.char_abilities["STR"] += 1
             name.char_abilities["WIS"] += 1
-        elif name.char_age in range(31, 46):
+        elif int(name.char_age) in range(31, 46):
             name.char_age_desc = "Middle Aged"
             name.char_abilities["WIS"] -= 1
             name.char_abilities["CON"] += 1
@@ -359,7 +359,7 @@ def age(name):
                 name.char_abilities["EX_STR"] = round(name.char_abilities["EX_STR"] / 2)
             else:
                 name.char_abilities["STR"] -= 1
-        elif name.char_age in range(46, 61):
+        elif int(name.char_age) in range(46, 61):
             name.char_age_desc = "Old"
             name.char_abilities["WIS"] -= 1
             name.char_abilities["CON"] += 1
@@ -373,7 +373,7 @@ def age(name):
             name.char_abilities["DEX"] -= 2
             name.char_abilities["CON"] -= 1
             name.char_abilities["WIS"] += 1
-        elif name.char_age in range(61, 81):
+        elif int(name.char_age) in range(61, 81):
             name.char_age_desc = "Venerable"
             name.char_abilities["WIS"] -= 1
             name.char_abilities["CON"] += 1
@@ -417,17 +417,19 @@ def age(name):
                 ages.append(21 + dice.normal(4, 1))
         ages.sort()
         name.char_age = str(ages[-1])
-        if name.char_age in range(14, 21):
+        print(name.char_age, name.char_age, name.char_age, name.char_age, name.char_age, name.char_age)
+        if int(name.char_age) in range(14, 21):
+            print("This one")
             name.char_age_desc = "Young Adult"
             name.char_abilities["WIS"] -= 1
             name.char_abilities["CON"] += 1
-        elif name.char_age in range(21, 41):
+        elif int(name.char_age) in range(21, 41):
             name.char_age_desc = "Mature"
             name.char_abilities["WIS"] -= 1
             name.char_abilities["CON"] += 1
             name.char_abilities["STR"] += 1
             name.char_abilities["WIS"] += 1
-        elif name.char_age in range(41, 61):
+        elif int(name.char_age) in range(41, 61):
             name.char_age_desc = "Middle Aged"
             name.char_abilities["WIS"] -= 1
             name.char_abilities["CON"] += 1
@@ -437,7 +439,7 @@ def age(name):
                 name.char_abilities["EX_STR"] = round(name.char_abilities["EX_STR"] / 2)
             else:
                 name.char_abilities["STR"] -= 1
-        elif name.char_age in range(61, 91):
+        elif int(name.char_age) in range(61, 91):
             name.char_age_desc = "Old"
             name.char_abilities["WIS"] -= 1
             name.char_abilities["CON"] += 1
@@ -451,7 +453,7 @@ def age(name):
             name.char_abilities["DEX"] -= 2
             name.char_abilities["CON"] -= 1
             name.char_abilities["WIS"] += 1
-        elif name.char_age in range(91, 121):
+        elif int(name.char_age) in range(91, 121):
             name.char_age_desc = "Venerable"
             name.char_abilities["WIS"] -= 1
             name.char_abilities["CON"] += 1
