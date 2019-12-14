@@ -1,4 +1,5 @@
 def define_abilities(name):
+    fighters = ["Fighter", "Barbarian", "Cavalier", "Paladin", "UAPaladin", "Ranger"]
     if name.char_abilities["STR"] in range(3, 4):
         name.char_define_abilities["STR"]["HIT"] = "-3"
         name.char_define_abilities["STR"]["DMG"] = "-1"
@@ -280,7 +281,6 @@ def define_abilities(name):
         name.char_define_abilities["CON"]["Ressurection Survival"] = "96%"
     elif name.char_abilities["CON"] == 17:
         name.char_define_abilities["CON"]["HP Adj"] = "+2"
-        fighters = ["Fighter", "Barbarian", "Cavalier", "Paladin", "UAPaladin", "Ranger"]
         for c in name.char_class:
             if str(c) in fighters:
                 name.char_define_abilities["CON"]["HP Adj"] = "+3"
@@ -288,7 +288,6 @@ def define_abilities(name):
         name.char_define_abilities["CON"]["Ressurection Survival"] = "98%"
     elif name.char_abilities["CON"] == 18:
         name.char_define_abilities["CON"]["HP Adj"] = "+2"
-        fighters = ["Fighter", "Barbarian", "Cavalier", "Paladin", "UAPaladin", "Ranger"]
         for c in name.char_class:
             if str(c) in fighters:
                 name.char_define_abilities["CON"]["HP Adj"] = "+4"
