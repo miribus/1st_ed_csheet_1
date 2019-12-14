@@ -1,4 +1,4 @@
-import dice, saving_throws, char_races, char_classes, social_class, base_ability_detail, age
+import dice, saving_throws, char_races, char_classes, social_class, base_ability_detail, age, class_abilities
 
 class playerSheet:
     def __init__(self, charname):
@@ -82,6 +82,7 @@ if decision.isalpha():
         print("****")
         # name.char_define_abilities = {}
         name = base_ability_detail.define_abilities(name)
+        name = class_abilities.class_details(name)
 print(name.char_race)
 print(name.char_age, name.char_age_desc)
 print(name.char_social_class)
@@ -99,6 +100,7 @@ print(name.char_abilities["CHA"])
 print(name.char_define_abilities["CHA"])
 print(name.char_abilities["CMS"])
 print(name.char_define_abilities["CMS"])
+print(name.char_class_abilities)
 print(name.char_class)
 print(name.char_saves)
 #print(name.char_race_abilities)

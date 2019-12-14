@@ -49,7 +49,7 @@ def race_classes(name):
                          "Cleric/Thief (UA)", "Cleric/Assassin (UA)", "Fighter/Magic-User", "Fighter/Illusionist (UA)",
                          "Fighter/Thief", "Fighter/Assassin (UA)", "Fighter/Magic-User/Thief", "Illusionist/Thief (UA)",
                          "Magic-User/Thief", "Ranger/Magic-User (UA)", "Magic-User/Assassin (UA)", "Cleric/Fighter/Thief (UA)",
-                         "Cleric/Magic-User/Thief (UA)"]
+                         "Cleric/Magic-User/Thief (UA)", "Cavalier (UA)"]
     elif name.char_race == "Dwarf":
         class_choices = ["Cleric (UA)", "Fighter", "Thief", "Assassin", "Cleric/Fighter (UA)",
                          "Cleric/Thief (UA)", "Cleric/Assassin (UA)",
@@ -59,7 +59,7 @@ def race_classes(name):
                          "Cleric/Thief", "Cleric/Assassin", "Fighter/Thief", "Fighter/Assassin", "Cleric/Fighter"]
     elif name.char_race == "Halfling":
         class_choices = ["Cleric (UA)", "Druid (UA)", "Fighter", "Thief",  "Cleric/Fighter (UA)",
-                         "Cleric/Thief (UA)", "Fighter/Thief"]
+                         "Cleric/Thief (UA)", "Fighter/Thief", "Cavalier (UA)"]
     elif name.char_race == "Gnome":
         class_choices = ["Cleric (UA)", "Druid", "Fighter", "Magic-User", "Thief", "Assassin", "Ranger", "Illusionist",
                          "Cleric/Fighter (UA)", "Cleric/Thief (UA)", "Cleric/Assassin (UA)", "Fighter/Illusionist",
@@ -213,6 +213,8 @@ def race_classes(name):
                             print("Not enough DEX!")
                         if name.char_abilities["WIS"] < 10:
                             print("Not enough WIS!")
+                        if name.char_abilities["INT"] < 10:
+                            print("Not enough INT!")
                             stop = True
                         else:
                             choices = choices.replace("Cavalier", "")
@@ -226,13 +228,15 @@ def race_classes(name):
                             print("Not enough DEX!")
                         if name.char_abilities["WIS"] < 13:
                             print("Not enough WIS!")
-                        if name.char_abilities["CHA"] < 13:
+                        if name.char_abilities["CHA"] < 17:
                             print("Not enough CHA!")
+                        if name.char_abilities["INT"] < 10:
+                            print("Not enough INT!")
                             stop = True
                         else:
                             choices = choices.replace("UAPaladin", "")
                             name.char_class.append("UAPaladin")
-                    elif "UAPaladin" in choices:
+                    elif "Monk" in choices:
                         if name.char_abilities["STR"] < 15:
                             print("Not enough STR!")
                         if name.char_abilities["CON"] < 11:
@@ -364,4 +368,13 @@ def thief_adjustment(name):
         name.char_race_abilities["Thief"]["Hear Noise"] = "+5%"
         name.char_race_abilities["Thief"]["Climb Walls"] = "+5%"
         name.char_race_abilities["Thief"]["Read Languages"] = "-10%"
+    elif name.char_race == "Human":
+        name.char_race_abilities["Thief"]["Pick Pockets"] = "0%"
+        name.char_race_abilities["Thief"]["Open Locks"] = "0%"
+        name.char_race_abilities["Thief"]["Find/Remove Traps"] = "0%"
+        name.char_race_abilities["Thief"]["Move Silent"] = "0%"
+        name.char_race_abilities["Thief"]["Hide In Shadows"] = "0%"
+        name.char_race_abilities["Thief"]["Hear Noise"] = "0%"
+        name.char_race_abilities["Thief"]["Climb Walls"] = "0%"
+        name.char_race_abilities["Thief"]["Read Languages"] = "0%"
     return name
