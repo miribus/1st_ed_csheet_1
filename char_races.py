@@ -402,11 +402,9 @@ def base_bonuses(name):
         name.char_race_abilities["Detect Secret Doors"] = ["Concealed: d6, Score 1 (Detect: 1-2)",
                                                  "Secret: d6, Score 1-2 (Detect: 1-3)"]
     fighters = ["Fighter", "Barbarian", "Cavalier", "Paladin", "UAPaladin", "Ranger"]
-    name.char_abilities["EX_STR"] = False
     if name.char_abilities["STR"] == 18:
         for c in name.char_class:
             if str(c) in fighters:
                 name.char_abilities["EX_STR"] = dice.exceptional_strength()
-
 
     return name

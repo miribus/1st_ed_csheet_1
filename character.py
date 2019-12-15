@@ -9,6 +9,7 @@ class playerSheet:
                                "CON": dice.ability_roller(6, 5),
                                "CHA": dice.ability_roller(6, 5),
                                "CMS": dice.ability_roller(6, 3)}
+        self.char_abilities["EX_STR"] = False
         if len(charname) == 0:
             charname = "Trololo"
         elif charname == "Wreck":
@@ -95,35 +96,48 @@ if decision.isalpha():
         # name.char_define_abilities = {}
         name = base_ability_detail.define_abilities(name)
         name = class_abilities.class_details(name)
-print(name.char_race)
-print(name.char_age, name.char_age_desc)
-print(name.char_social_class)
-print(name.char_abilities["STR"])
-print(name.char_define_abilities["STR"])
-print(name.char_abilities["INT"])
-print(name.char_define_abilities["INT"])
-print(name.char_abilities["WIS"])
-print(name.char_define_abilities["WIS"])
-print(name.char_abilities["DEX"])
-print(name.char_define_abilities["DEX"])
-print(name.char_abilities["CON"])
-print(name.char_define_abilities["CON"])
-print(name.char_abilities["CHA"])
-print(name.char_define_abilities["CHA"])
-print(name.char_abilities["CMS"])
-print(name.char_define_abilities["CMS"])
-for c in name.char_class_abilities:
-    print(c)
-    for a in name.char_class_abilities[c]:
-        print(a, name.char_class_abilities[a])
-#print(name.char_class_abilities)
-print(name.char_class)
+print("*********************************")
+print("\n")
+print("Character Name: ", name.char_name)
+print("Class(es): ", name.char_class)
+print("Race: ", name.char_race)
+print("Age: ", name.char_age, name.char_age_desc)
+print("Social Class:", name.char_social_class)
+print("HP: ", name.char_HP)
 print(name.char_saves)
-print(name.char_HP)
-#print(name.char_race_abilities)
+print("Strength:", name.char_abilities["STR"])
+if name.char_abilities['EX_STR']:
+    print("Exceptional Strength:", name.char_abilities['EX_STR'])
+print(name.char_define_abilities["STR"])
+print("##########")
+print("Intelligence:", name.char_abilities["INT"])
+print(name.char_define_abilities["INT"])
+print("##########")
+print("Wisdom:", name.char_abilities["WIS"])
+print(name.char_define_abilities["WIS"])
+print("##########")
+print("Dexterity;", name.char_abilities["DEX"])
+print(name.char_define_abilities["DEX"])
+print("##########")
+print("Constitution", name.char_abilities["CON"])
+print(name.char_define_abilities["CON"])
+print("##########")
+print("Charisma:", name.char_abilities["CHA"])
+print(name.char_define_abilities["CHA"])
+print("##########")
+print("Comeliness:", name.char_abilities["CMS"])
+print(name.char_define_abilities["CMS"])
+print("##########")
+print("\n")
+print("Race Abilities:")
 for a in name.char_race_abilities:
     print(a, name.char_race_abilities[a])
-
+print("***********")
+print("Class Abilities:")
+for c in name.char_class_abilities:
+    #print(c, name.char_class_abilities[c])
+    for a in name.char_class_abilities[c]:
+        print(a,  name.char_class_abilities[c][a])
 print("***********")
 quitout = input("Enter to quit")
 
