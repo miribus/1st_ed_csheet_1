@@ -436,5 +436,5 @@ def define_abilities(name):
             name.char_define_abilities["DEX"]["Open Locks"] = "+20%"
             name.char_define_abilities["DEX"]["Find/Remove Traps"] = "+10%"
             name.char_define_abilities["DEX"]["Move Silent"] = "+12%"
-            name.char_define_abilities["DEX"]["Hide In Shadows"] = "+1%"
+            name.char_define_abilities["DEX"]["Hide In Shadows"] = "+12%"
     return name
