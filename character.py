@@ -123,4 +123,5 @@ for a in name.char_race_abilities:
     print(a, name.char_race_abilities[a])
 
 print("***********")
+quitout = input("Enter to quit")
 
