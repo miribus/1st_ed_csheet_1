@@ -82,7 +82,7 @@ def social_class(name):
         name.social_class = "MUC"
     else:
         classroll = dice.soclass()
-        if name.char_name == "Sean":
+        if name.char_name == "Wreck":
             classroll = 100
         print("You rolled: ", str(classroll), "for social class")
         if int(classroll) in range(1, 5):

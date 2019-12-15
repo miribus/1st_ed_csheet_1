@@ -11,7 +11,7 @@ class playerSheet:
                                "CMS": dice.ability_roller(6, 3)}
         if len(charname) == 0:
             charname = "Trololo"
-        elif charname == "Sean":
+        elif charname == "Wreck":
             self.char_abilities = {"STR": 18,
                                    "INT": 18,
                                    "WIS": 18,
