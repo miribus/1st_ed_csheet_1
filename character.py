@@ -8,8 +8,9 @@ class playerSheet:
                                "DEX": dice.ability_roller(6, 5),
                                "CON": dice.ability_roller(6, 5),
                                "CHA": dice.ability_roller(6, 5),
-                               "CMS": dice.ability_roller(6, 3)}
-        self.char_abilities["EX_STR"] = False
+                               "CMS": dice.ability_roller(6, 3),
+                               "EX_STR": False}
+        #self.char_abilities["EX_STR"] = False
         if len(charname) == 0:
             charname = "Trololo"
         elif charname == "Wreck":
@@ -19,7 +20,9 @@ class playerSheet:
                                    "DEX": 18,
                                    "CON": 18,
                                    "CHA": 18,
-                                   "CMS": 18}
+                                   "CMS": 18,
+                                   "EX_STR": False}
+
         self.char_name = charname
         self.char_social_class = ""
         self.player_name = "todd"
@@ -75,27 +78,43 @@ decision = input("Agreed? Y/N:")
 if decision.isalpha():
     if "y".upper() == decision.upper():
         result = result
-        #name.char_race = race
-        #name.char_gender = gender
         race_class_choices = char_classes.race_class_choices
         result = False
         try:
             while not result:
                 name, result = char_classes.race_classes(name)
+                print(name.char_abilities)
+
         except:
             while not result:
                 name, result = char_classes.race_classes(name)
+                print(name.char_abilities)
+
         name = char_classes.class_saving_throws(name)
+        print(name.char_abilities)
+
         name = char_races.base_bonuses(name)
+        print(name.char_abilities)
+
         name = age.age(name)
+        print(name.char_abilities)
+
         name = char_races.race_ability_updater(name)
-        print("****")
-        print(name.char_age)
-        print(name.char_age_desc)
-        print("****")
-        # name.char_define_abilities = {}
+        print(name.char_abilities)
+
         name = base_ability_detail.define_abilities(name)
+        print(name.char_abilities)
+
         name = class_abilities.class_details(name)
+        print(name.char_abilities)
+
+print("\n")
+print("\n")
+print("\n")
+print("\n")
+print("\n")
+print("\n")
+print("\n")
 print("*********************************")
 print("\n")
 print("Character Name: ", name.char_name)
@@ -135,7 +154,6 @@ for a in name.char_race_abilities:
 print("***********")
 print("Class Abilities:")
 for c in name.char_class_abilities:
-    #print(c, name.char_class_abilities[c])
     for a in name.char_class_abilities[c]:
         print(a,  name.char_class_abilities[c][a])
 print("***********")

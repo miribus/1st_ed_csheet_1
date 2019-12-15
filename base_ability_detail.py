@@ -54,7 +54,7 @@ def define_abilities(name):
         name.char_define_abilities["STR"]["WEIGHT"] = "+500"
         name.char_define_abilities["STR"]["OPEN_DOOR"] = "1-3"
         name.char_define_abilities["STR"]["BEND_BARS"] = "13%"
-    elif name.char_abilities["STR"] in range(18, 19) and not name.char_abilities['EX_STR']:
+    elif name.char_abilities["STR"] in range(18, 19) and not name.char_abilities["EX_STR"]:
         name.char_define_abilities["STR"]["HIT"] = "+1"
         name.char_define_abilities["STR"]["DMG"] = "+2"
         name.char_define_abilities["STR"]["WEIGHT"] = "+750"
@@ -197,33 +197,43 @@ def define_abilities(name):
 
     if name.char_abilities["DEX"] == 3:
         name.char_define_abilities["DEX"]["Reaction"] = "-3"
+        name.char_define_abilities["DEX"]["Missile To Hit"] = name.char_define_abilities["DEX"]["Reaction"]
         name.char_define_abilities["DEX"]["Defensive"] = "+4"
     elif name.char_abilities["DEX"] == 4:
         name.char_define_abilities["DEX"]["Reaction"] = "-2"
+        name.char_define_abilities["DEX"]["Missile To Hit"] = name.char_define_abilities["DEX"]["Reaction"]
         name.char_define_abilities["DEX"]["Defensive"] = "+3"
     elif name.char_abilities["DEX"] == 5:
         name.char_define_abilities["DEX"]["Reaction"] = "-1"
+        name.char_define_abilities["DEX"]["Missile To Hit"] = name.char_define_abilities["DEX"]["Reaction"]
         name.char_define_abilities["DEX"]["Defensive"] = "+2"
     elif name.char_abilities["DEX"] == 5:
         name.char_define_abilities["DEX"]["Reaction"] = "0"
+        name.char_define_abilities["DEX"]["Missile To Hit"] = name.char_define_abilities["DEX"]["Reaction"]
         name.char_define_abilities["DEX"]["Defensive"] = "+1"
     elif name.char_abilities["DEX"] in range(7,15):
         name.char_define_abilities["DEX"]["Reaction"] = "0"
+        name.char_define_abilities["DEX"]["Missile To Hit"] = name.char_define_abilities["DEX"]["Reaction"]
         name.char_define_abilities["DEX"]["Defensive"] = "0"
     elif name.char_abilities["DEX"] == 15:
         name.char_define_abilities["DEX"]["Reaction"] = "0"
+        name.char_define_abilities["DEX"]["Missile To Hit"] = name.char_define_abilities["DEX"]["Reaction"]
         name.char_define_abilities["DEX"]["Defensive"] = "-1"
     elif name.char_abilities["DEX"] == 16:
         name.char_define_abilities["DEX"]["Reaction"] = "+1"
+        name.char_define_abilities["DEX"]["Missile To Hit"] = name.char_define_abilities["DEX"]["Reaction"]
         name.char_define_abilities["DEX"]["Defensive"] = "-2"
     elif name.char_abilities["DEX"] == 17:
         name.char_define_abilities["DEX"]["Reaction"] = "+2"
+        name.char_define_abilities["DEX"]["Missile To Hit"] = name.char_define_abilities["DEX"]["Reaction"]
         name.char_define_abilities["DEX"]["Defensive"] = "-3"
     elif name.char_abilities["DEX"] == 18:
         name.char_define_abilities["DEX"]["Reaction"] = "+3"
+        name.char_define_abilities["DEX"]["Missile To Hit"] = name.char_define_abilities["DEX"]["Reaction"]
         name.char_define_abilities["DEX"]["Defensive"] = "-4"
     elif name.char_abilities["DEX"] == 19:
         name.char_define_abilities["DEX"]["Reaction"] = "+3"
+        name.char_define_abilities["DEX"]["Missile To Hit"] = name.char_define_abilities["DEX"]["Reaction"]
         name.char_define_abilities["DEX"]["Defensive"] = "-4"
 
     if name.char_abilities["CON"] == 3:
