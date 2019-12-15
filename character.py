@@ -113,7 +113,9 @@ print(name.char_define_abilities["CHA"])
 print(name.char_abilities["CMS"])
 print(name.char_define_abilities["CMS"])
 for c in name.char_class_abilities:
-    print(c, name.char_class_abilities[c])
+    print(c)
+    for a in name.char_class_abilities[c]:
+        print(a, name.char_class_abilities[a])
 #print(name.char_class_abilities)
 print(name.char_class)
 print(name.char_saves)

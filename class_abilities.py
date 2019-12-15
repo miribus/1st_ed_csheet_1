@@ -76,13 +76,13 @@ def class_details(name):
                                                                             "HxB: 1/2, Lasso/SSling: 1/1, Thrown Dagger: 3/1," \
                                                                             "Thrown Dart: 4/1, Other: 3/2"
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
-            HP = dice.HP(8, 2) + int(HPadj) + int(HPadj)
+            HP = dice.HP(8, 2, name) + int(HPadj) + int(HPadj)
             name.char_HP += HP
         elif "MagicUser" == str(c):
             if name.char_abilities["INT"] > 15:
                 name.char_class_xpBonus.append("+10%")
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
-            HP = dice.HP(8, 2, name) + int(HPadj)
+            HP = dice.HP(4, 1, name) + int(HPadj)
             name.char_HP += HP
         elif "Illusionist" == str(c):
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
@@ -234,7 +234,7 @@ def class_details(name):
             elif choice == "6":
                 name.char_class_abilities["Barbarian"]["Native"] = "Snare Building (UA, Pg20)"
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
-            HP = dice.HP(12, 1) + int(HPadj)
+            HP = dice.HP(12, 1, name) + int(HPadj)
             name.char_HP += HP
 
     return name
