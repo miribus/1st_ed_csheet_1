@@ -161,6 +161,9 @@ def class_details(name):
                                                                      ]
             name.char_class_abilities["Monk"]["Thief"]["Hear Noise"] = ["10%"]
             name.char_class_abilities["Monk"]["Thief"]["Climb Walls"] = ["85%"]
+            HPadj = name.char_define_abilities["CON"]["HP Adj"]
+            HP = dice.HP(4, 2, name) + int(HPadj) + int(HPadj)
+            name.char_HP += HP
         elif "Cavalier" == str(c):
             if "Cavalier" not in name.char_class_abilities:
                 name.char_class_abilities["Cavalier"] = {}
