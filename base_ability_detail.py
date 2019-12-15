@@ -222,6 +222,9 @@ def define_abilities(name):
     elif name.char_abilities["DEX"] == 18:
         name.char_define_abilities["DEX"]["Reaction"] = "+3"
         name.char_define_abilities["DEX"]["Defensive"] = "-4"
+    elif name.char_abilities["DEX"] == 19:
+        name.char_define_abilities["DEX"]["Reaction"] = "+3"
+        name.char_define_abilities["DEX"]["Defensive"] = "-4"
 
     if name.char_abilities["CON"] == 3:
         name.char_define_abilities["CON"]["HP Adj"] = "-2"
@@ -293,6 +296,15 @@ def define_abilities(name):
                 name.char_define_abilities["CON"]["HP Adj"] = "+4"
         name.char_define_abilities["CON"]["System Shock"] = "99%"
         name.char_define_abilities["CON"]["Ressurection Survival"] = "100%"
+    elif name.char_abilities["CON"] == 19:
+        name.char_define_abilities["CON"]["HP Adj"] = "+2"
+        for c in name.char_class:
+            if str(c) in fighters:
+                name.char_define_abilities["CON"]["HP Adj"] = "+5"
+        name.char_define_abilities["CON"]["System Shock"] = "99%"
+        name.char_define_abilities["CON"]["Ressurection Survival"] = "100%"
+        name.char_define_abilities["CON"]["Poison Save"] = "+1"
+        name.char_define_abilities["CON"]["Hearty"] = "Cannot Roll 1 for HP"
 
     if name.char_abilities["CHA"] == 3:
         name.char_define_abilities["CHA"]["Henchmen"] = "1"
@@ -409,4 +421,10 @@ def define_abilities(name):
             name.char_define_abilities["DEX"]["Find/Remove Traps"] = "+5%"
             name.char_define_abilities["DEX"]["Move Silent"] = "+10%"
             name.char_define_abilities["DEX"]["Hide In Shadows"] = "+10%"
+        elif name.char_abilities["DEX"] == 19:
+            name.char_define_abilities["DEX"]["Pick Pockets"] = "+15%"
+            name.char_define_abilities["DEX"]["Open Locks"] = "+20%"
+            name.char_define_abilities["DEX"]["Find/Remove Traps"] = "+10%"
+            name.char_define_abilities["DEX"]["Move Silent"] = "+12%"
+            name.char_define_abilities["DEX"]["Hide In Shadows"] = "+12%"
     return name

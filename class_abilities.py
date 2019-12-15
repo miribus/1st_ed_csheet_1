@@ -59,8 +59,8 @@ def class_details(name):
             if "Ranger" not in name.char_class_abilities:
                 name.char_class_abilities["Ranger"] = {}
                 name.char_class_abilities["Ranger"]["Special"] = {}
-            name.char_class_abilities["Ranger"]["Combat Bonus"] = "+1 Dmg/Lvl against: Bugbear, Ettin, Giant, \
-                                                                  Gnoll, Goblin, Hobgoblin, Kobold, Ogre," \
+            name.char_class_abilities["Ranger"]["Combat Bonus"] = "+1 Dmg/Lvl against: Bugbear, Ettin, Giant,"\
+                                                                  "Gnoll, Goblin, Hobgoblin, Kobold, Ogre,"\
                                                                   "Ogre Magi, Orc, Troll"
 
             name.char_class_abilities["Ranger"]["Surprise"] = "1-3/d6 Surprise if alone, w/Elves." \

@@ -13,25 +13,25 @@ def races_base(race, name):
                     #name.gender = gender
                     if race.upper() == "Dwarf".upper() or "0" == race:
                         race = "Dwarf"
-                        result = dwarf(name.char_abilities, gender)
+                        result, rolls = dwarf(name.char_abilities, gender)
                     elif race.upper() == "Elf".upper() or "1" == race:
                         race = "Elf"
-                        result = elf(name.char_abilities, gender)
+                        result, rolls = elf(name.char_abilities, gender)
                     elif race.upper() == "Gnome".upper() or "2" == race:
                         race = "Gnome"
-                        result = gnome(name.char_abilities, gender)
+                        result, rolls = gnome(name.char_abilities, gender)
                     elif race.upper() == "Half-Elf".upper() or "3" == race:
                         race = "Half-Elf"
-                        result = half_elf(name.char_abilities, gender)
+                        result, rolls = half_elf(name.char_abilities, gender)
                     elif race.upper() == "Half-Orc".upper() or "4" == race:
                         race = "Half-Orc"
-                        result = half_orc(name.char_abilities, gender)
+                        result, rolls = half_orc(name.char_abilities, gender)
                     elif race.upper() == "Human".upper() or "5" == race:
                         race = "Human"
-                        result = human(name.char_abilities, gender)
+                        result, rolls = human(name.char_abilities, gender)
                     elif race.upper() == "Halfling".upper() or "6" == race:
                         race = "Halfling"
-                        result = halfling(name.char_abilities, gender)
+                        result, rolls = halfling(name.char_abilities, gender)
                     name.char_gender = gender
                     name.char_race = race
     gender = "M"
@@ -60,6 +60,29 @@ def minimums(rolls, strength, dexterity, constitution, intelligence, wisdom, cha
         return result
     result = True
     return result
+
+def race_ability_updater(name):
+    if name.char_race.upper() == "Dwarf".upper():
+        result, rolls = dwarf(name.char_abilities, name.char_gender)
+    elif name.char_race.upper() == "Elf".upper():
+        result, rolls = elf(name.char_abilities, name.char_gender)
+    elif name.char_race.upper() == "Gnome".upper():
+        result, rolls = gnome(name.char_abilities, name.char_gender)
+    elif name.char_race.upper() == "Half-Elf".upper():
+        result, rolls = half_elf(name.char_abilities, name.char_gender)
+    elif name.char_race.upper() == "Half-Orc".upper():
+        result, rolls = half_orc(name.char_abilities, name.char_gender)
+    elif name.char_race.upper() == "Human".upper():
+        result, rolls = human(name.char_abilities, name.char_gender)
+    elif name.char_race.upper() == "Halfling".upper():
+        result, rolls = halfling(name.char_abilities, name.char_gender)
+    name.char_abilities["STR"] = rolls["STR"]
+    name.char_abilities["INT"] = rolls["INT"]
+    name.char_abilities["WIS"] = rolls["WIS"]
+    name.char_abilities["DEX"] = rolls["DEX"]
+    name.char_abilities["CON"] = rolls["CON"]
+    name.char_abilities["CHA"] = rolls["CHA"]
+    return name
 
 def dwarf(rolls, gender):
     strength = 8
@@ -92,9 +115,9 @@ def dwarf(rolls, gender):
     result = minimums(rolls, strength, dexterity, constitution, intelligence, wisdom, charisma)
     if result:
         print("You have valid Dwarf character rolls.")
-        return True
+        return True, rolls
     else:
-        return False
+        return False, rolls
 
 
 def elf(rolls, gender):
@@ -128,9 +151,9 @@ def elf(rolls, gender):
     result = minimums(rolls, strength, dexterity, constitution, intelligence, wisdom, charisma)
     if result:
         print("You have valid Elf character rolls.")
-        return True
+        return True, rolls
     else:
-        return False
+        return False, rolls
 
 
 def gnome(rolls, gender):
@@ -164,9 +187,9 @@ def gnome(rolls, gender):
     result = minimums(rolls, strength, dexterity, constitution, intelligence, wisdom, charisma)
     if result:
         print("You have valid Gnome character rolls.")
-        return True
+        return True, rolls
     else:
-        return False
+        return False, rolls
 
 
 def half_elf(rolls, gender):
@@ -200,9 +223,9 @@ def half_elf(rolls, gender):
     result = minimums(rolls, strength, dexterity, constitution, intelligence, wisdom, charisma)
     if result:
         print("You have valid Half-Elf character rolls.")
-        return True
+        return True, rolls
     else:
-        return False
+        return False, rolls
 
 
 def half_orc(rolls, gender):
@@ -236,9 +259,9 @@ def half_orc(rolls, gender):
     result = minimums(rolls, strength, dexterity, constitution, intelligence, wisdom, charisma)
     if result:
         print("You have valid Half-Orc character rolls.")
-        return True
+        return True, rolls
     else:
-        return False
+        return False, rolls
 
 
 def human(rolls, gender):
@@ -269,9 +292,9 @@ def human(rolls, gender):
     result = minimums(rolls, strength, dexterity, constitution, intelligence, wisdom, charisma)
     if result:
         print("You have valid Human character rolls.")
-        return True
+        return True, rolls
     else:
-        return False
+        return False, rolls
 
 def halfling(rolls, gender):
     strength = 6
@@ -304,9 +327,9 @@ def halfling(rolls, gender):
     result = minimums(rolls, strength, dexterity, constitution, intelligence, wisdom, charisma)
     if result:
         print("You have valid Halfling character rolls.")
-        return True
+        return True, rolls
     else:
-        return False
+        return False, rolls
 
 def base_bonuses(name):
     name.char_race_abilities["Save Bonus"] = {}

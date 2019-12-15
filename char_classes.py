@@ -76,7 +76,7 @@ def race_classes(name):
                          "Cleric/Fighter/Thief (UA)", "Cleric/Magic-User/Thief (UA)", "Druid/Ranger (UA)"]
     elif name.char_race == "Human":
         class_choices = ["Fighter", "Ranger", "Paladin", "Cleric", "Druid", "Thief", "Assassin", "Magic-User",
-                         "Illusionist", "Monk", "Barbarian", "UAPaladin  (UA)", "Cavalier (UA)"]
+                         "Illusionist", "Monk", "Barbarian", "UAPaladin (UA)", "Cavalier (UA)"]
 
     result = False
     while not result:
@@ -108,14 +108,14 @@ def race_classes(name):
                         if name.char_abilities["WIS"] < 9:
                             print("Not enough WIS!")
                             stop = True
-                        else:
+                        if not stop:
                             choices = choices.replace("Cleric", "")
                             name.char_class.append("Cleric")
                     elif "Thief" in choices:
                         if name.char_abilities["DEX"] < 9:
                             print("Not enough DEX!")
                             stop = True
-                        else:
+                        if not stop:
                             choices = choices.replace("Thief", "")
                             name.char_class.append("Thief")
                             name.char_race_abilities["Thief"] = {}
@@ -127,14 +127,14 @@ def race_classes(name):
                         if name.char_abilities["CHA"] < 15:
                             print("Not enough CHA!")
                             stop = True
-                        else:
+                        if not stop:
                             choices = choices.replace("Druid", "")
                             name.char_class.append("Druid")
                     elif "Fighter" in choices:
                         if name.char_abilities["STR"] < 9:
                             print("Not enough STR!")
                             stop = True
-                        else:
+                        if not stop:
                             choices = choices.replace("Fighter", "")
                             name.char_class.append("Fighter")
                     elif "Paladin" in choices:
@@ -153,7 +153,7 @@ def race_classes(name):
                         if name.char_abilities["CHA"] < 17:
                             print("Not enough CHA!")
                             stop = True
-                        else:
+                        if not stop:
                             choices = choices.replace("Paladin", "")
                             name.char_class.append("Paladin")
                     elif "Ranger" in choices:
@@ -169,14 +169,14 @@ def race_classes(name):
                         if name.char_abilities["CON"] < 14:
                             print("Not enough CON!")
                             stop = True
-                        else:
+                        if not stop:
                             choices = choices.replace("Ranger", "")
                             name.char_class.append("Ranger")
                     elif "MagicUser" in choices:
                         if name.char_abilities["INT"] < 9:
                             print("Not enough INT!")
                             stop = True
-                        else:
+                        if not stop:
                             choices = choices.replace("MagicUser", "")
                             name.char_class.append("MagicUser")
                     elif "Illusionist" in choices:
@@ -186,7 +186,7 @@ def race_classes(name):
                         elif name.char_abilities["DEX"] < 16:
                             print("Not enough DEX!")
                             stop = True
-                        else:
+                        if not stop:
                             choices = choices.replace("Illusionist", "")
                             name.char_class.append("Illusionist")
                     elif "Assassin" in choices:
@@ -199,7 +199,7 @@ def race_classes(name):
                         if name.char_abilities["INT"] < 11:
                             print("Not enough INT!")
                             stop = True
-                        else:
+                        if not stop:
                             choices = choices.replace("Assassin", "")
                             name.char_class.append("Assassin")
                     elif "Barbarian" in choices:
@@ -215,7 +215,7 @@ def race_classes(name):
                         if name.char_abilities["WIS"] > 16:
                             print("WIS TOO HIGH!")
                             stop = True
-                        else:
+                        if not stop:
                             choices = choices.replace("Barbarian", "")
                             name.char_class.append("Barbarian")
                     elif "Cavalier" in choices:
@@ -234,7 +234,7 @@ def race_classes(name):
                         if name.char_abilities["INT"] < 10:
                             print("Not enough INT!")
                             stop = True
-                        else:
+                        if not stop:
                             choices = choices.replace("Cavalier", "")
                             name.char_class.append("Cavalier")
                     elif "UAPaladin" in choices:
@@ -256,7 +256,7 @@ def race_classes(name):
                         if name.char_abilities["INT"] < 10:
                             print("Not enough INT!")
                             stop = True
-                        else:
+                        if not stop:
                             choices = choices.replace("UAPaladin", "")
                             name.char_class.append("UAPaladin")
                     elif "Monk" in choices:
@@ -272,7 +272,7 @@ def race_classes(name):
                         if name.char_abilities["WIS"] < 15:
                             print("Not enough WIS!")
                             stop = True
-                        else:
+                        if not stop:
                             choices = choices.replace("Monk", "")
                             name.char_class.append("Monk")
                 if stop:

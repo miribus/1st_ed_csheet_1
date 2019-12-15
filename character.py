@@ -87,6 +87,7 @@ if decision.isalpha():
         name = char_classes.class_saving_throws(name)
         name = char_races.base_bonuses(name)
         name = age.age(name)
+        name = char_races.race_ability_updater(name)
         print("****")
         print(name.char_age)
         print(name.char_age_desc)
@@ -119,7 +120,4 @@ for a in name.char_race_abilities:
     print(a, name.char_race_abilities[a])
 
 print("***********")
-#for n in name:
-#    print(n)
-sheet = [a for a in dir(name) if not a.startswith('__')]
-print(sheet)
+
