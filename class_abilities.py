@@ -237,4 +237,5 @@ def class_details(name):
             HP = dice.HP(12, 1, name) + int(HPadj)
             name.char_HP += HP
 
+    name.char_HP = round(name.char_HP/len(name.char_class))
     return name
