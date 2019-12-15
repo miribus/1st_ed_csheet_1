@@ -14,14 +14,14 @@ def class_details(name):
             name.char_class_abilities["Cleric"]["Turn Undead"]["Shadow"] = "19"
             name.char_class_abilities["Cleric"]["Turn Undead"]["Wight"] = "20"
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
-            HP = dice.normal(8, 1)+int(HPadj)
+            HP = dice.HP(8, 1, name)+int(HPadj)
             name.char_HP += HP
 
         elif "Druid" == str(c):
             if name.char_abilities["WIS"] > 15 and name.char_abilities["CHA"] > 15:
                 name.char_class_xpBonus.append("+10%")
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
-            HP = dice.normal(8, 1)+int(HPadj)
+            HP = dice.HP(8, 1, name)+int(HPadj)
             name.char_HP += HP
 
         elif "Fighter" == str(c):
@@ -36,7 +36,7 @@ def class_details(name):
                                                                     "HxB: 1/2, Lasso/SSling: 1/1, Thrown Dagger: 3/1," \
                                                                     "Thrown Dart: 4/1, Other: 3/2"
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
-            HP = dice.normal(10, 1)+int(HPadj)
+            HP = dice.HP(10, 1, name)+int(HPadj)
             name.char_HP += HP
         elif "Paladin" == str(c) and "UAPaladin" not in str(c):
             if name.char_abilities["STR"] > 15 and name.char_abilities["WIS"] > 15:
@@ -51,7 +51,7 @@ def class_details(name):
             name.char_class_abilities["Paladin"]["Special"]["Cure Disease"] = "1/wk per 5 levels"
             name.char_class_abilities["Paladin"]["Special"]["Protection from Evil"] = '1\" radius all 24/7'
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
-            HP = dice.normal(10, 1)+int(HPadj)
+            HP = dice.HP(10, 1, name)+int(HPadj)
             name.char_HP += HP
         elif "Ranger" == str(c):
             if name.char_abilities["STR"] > 15 and name.char_abilities["WIS"] > 15 and name.char_abilities["INT"] > 15:
@@ -76,17 +76,17 @@ def class_details(name):
                                                                             "HxB: 1/2, Lasso/SSling: 1/1, Thrown Dagger: 3/1," \
                                                                             "Thrown Dart: 4/1, Other: 3/2"
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
-            HP = dice.normal(8, 2) + int(HPadj) + int(HPadj)
+            HP = dice.HP(8, 2) + int(HPadj) + int(HPadj)
             name.char_HP += HP
         elif "MagicUser" == str(c):
             if name.char_abilities["INT"] > 15:
                 name.char_class_xpBonus.append("+10%")
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
-            HP = dice.normal(8, 2) + int(HPadj)
+            HP = dice.HP(8, 2, name) + int(HPadj)
             name.char_HP += HP
         elif "Illusionist" == str(c):
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
-            HP = dice.normal(4, 1) + int(HPadj)
+            HP = dice.HP(4, 1, name) + int(HPadj)
             name.char_HP += HP
         elif "Thief" == str(c):
             if "Thief" not in name.char_class_abilities:
@@ -127,7 +127,7 @@ def class_details(name):
                                                                     ]
             name.char_class_abilities["Thief"]["Backstab"] = "2x Damage / 3 levels with one-handed Club, Dagger/Knife or Sword"
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
-            HP = dice.normal(6, 1) + int(HPadj)
+            HP = dice.HP(6, 1, name) + int(HPadj)
             name.char_HP += HP
         elif "Assassin" == str(c):
             if "Assassin" not in name.char_class_abilities:
@@ -136,7 +136,7 @@ def class_details(name):
                                                                     "100gp, Victim 3-4L: 150gp, Victim 5-6L: 200gp, "
                                                                     "Victim 7-9L: 250gp"]
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
-            HP = dice.normal(6, 1) + int(HPadj)
+            HP = dice.HP(6, 1, name) + int(HPadj)
             name.char_HP += HP
         elif "Monk" == str(c):
             if "Monk" not in name.char_class_abilities:
@@ -166,14 +166,14 @@ def class_details(name):
                 name.char_class_abilities["Cavalier"] = {}
             name.char_class_abilities["Cavalier"]["Honor"] = ["Cannot run from combat", "Must wear metal armor"]
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
-            HP = dice.normal(4, 1) + int(HPadj) + 1
+            HP = dice.HP(4, 1, name) + int(HPadj) + 1
             name.char_HP += HP
         elif "UAPaladin" == str(c):
             if "UAPaladin" not in name.char_class_abilities:
                 name.char_class_abilities["UAPaladin"] = {}
             name.char_class_abilities["UAPaladin"]["Honor"] = ["Cannot run from combat", "Must wear metal armor"]
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
-            HP = dice.normal(4, 1) + int(HPadj) + 1
+            HP = dice.HP(4, 1, name) + int(HPadj) + 1
             name.char_HP += HP
         elif "Barbarian" == str(c):
             if "Barbarian" not in name.char_class_abilities:
@@ -234,7 +234,7 @@ def class_details(name):
             elif choice == "6":
                 name.char_class_abilities["Barbarian"]["Native"] = "Snare Building (UA, Pg20)"
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
-            HP = dice.normal(12, 1) + int(HPadj)
+            HP = dice.HP(12, 1) + int(HPadj)
             name.char_HP += HP
 
     return name

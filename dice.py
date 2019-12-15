@@ -30,3 +30,15 @@ def normal(sides, qty):
         num += random.randrange(1, sides)
 
     return num
+
+
+def HP(sides, qty, name):
+    sides = sides+1
+    qty = qty+1
+    num = 0
+    for i in range(1, qty):
+        num += random.randrange(1, sides)
+        if name.char_abilities["CON"] == 19:
+            if num == 1:
+                num = 2
+    return num

@@ -115,6 +115,7 @@ print(name.char_define_abilities["CMS"])
 print(name.char_class_abilities)
 print(name.char_class)
 print(name.char_saves)
+print(name.char_HP)
 #print(name.char_race_abilities)
 for a in name.char_race_abilities:
     print(a, name.char_race_abilities[a])
