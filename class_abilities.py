@@ -14,14 +14,14 @@ def class_details(name):
             name.char_class_abilities["Cleric"]["Turn Undead"]["Shadow"] = "19"
             name.char_class_abilities["Cleric"]["Turn Undead"]["Wight"] = "20"
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
-            HP = dice.HP(8, 1, name)+int(HPadj)
+            HP = dice.HP(8, 1, name, 5)+int(HPadj)
             name.char_HP += HP
 
         elif "Druid" == str(c):
             if name.char_abilities["WIS"] > 15 and name.char_abilities["CHA"] > 15:
                 name.char_class_xpBonus.append("+10%")
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
-            HP = dice.HP(8, 1, name)+int(HPadj)
+            HP = dice.HP(8, 1, name, 5)+int(HPadj)
             name.char_HP += HP
 
         elif "Fighter" == str(c):
@@ -36,7 +36,7 @@ def class_details(name):
                                                                     "HxB: 1/2, Lasso/SSling: 1/1, Thrown Dagger: 3/1, " \
                                                                     "Thrown Dart: 4/1, Other: 3/2"
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
-            HP = dice.HP(10, 1, name)+int(HPadj)
+            HP = dice.HP(10, 1, name, 6)+int(HPadj)
             name.char_HP += HP
         elif "Paladin" == str(c) and "UAPaladin" not in str(c):
             if name.char_abilities["STR"] > 15 and name.char_abilities["WIS"] > 15:
@@ -51,7 +51,7 @@ def class_details(name):
             name.char_class_abilities["Paladin"]["Special"]["Cure Disease"] = "1/wk per 5 levels"
             name.char_class_abilities["Paladin"]["Special"]["Protection from Evil"] = '1\" radius all 24/7'
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
-            HP = dice.HP(10, 1, name)+int(HPadj)
+            HP = dice.HP(10, 1, name, 6)+int(HPadj)
             name.char_HP += HP
         elif "Ranger" == str(c):
             if name.char_abilities["STR"] > 15 and name.char_abilities["WIS"] > 15 and name.char_abilities["INT"] > 15:
@@ -76,48 +76,66 @@ def class_details(name):
                                                                             "HxB: 1/2, Lasso/SSling: 1/1, Thrown Dagger: 3/1, " \
                                                                             "Thrown Dart: 4/1, Other: 3/2"
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
-            HP = dice.HP(8, 2, name) + int(HPadj) + int(HPadj)
+            HP = dice.HP(8, 2, name, 9) + int(HPadj) + int(HPadj)
             name.char_HP += HP
         elif "MagicUser" == str(c):
             if name.char_abilities["INT"] > 15:
                 name.char_class_xpBonus.append("+10%")
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
-            HP = dice.HP(4, 1, name) + int(HPadj)
+            HP = dice.HP(4, 1, name, 3) + int(HPadj)
             name.char_HP += HP
         elif "Illusionist" == str(c):
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
-            HP = dice.HP(4, 1, name) + int(HPadj)
+            HP = dice.HP(4, 1, name, 3) + int(HPadj)
             name.char_HP += HP
         elif "Thief" == str(c):
             if "Thief" not in name.char_class_abilities:
                 name.char_class_abilities["Thief"] = {}
             pick_pockets = ["30%", name.char_race_abilities["Thief"]["Pick Pockets"], name.char_define_abilities["DEX"]["Pick Pockets"]]
             pick_pockets = [p.replace("%", "") for p in pick_pockets]
-            #pick_pockets = [int]
-            name.char_class_abilities["Thief"]["Pick Pockets"] = ["30%",
-                                                                  name.char_race_abilities["Thief"]["Pick Pockets"],
-                                                                  name.char_define_abilities["DEX"]["Pick Pockets"]]
-            name.char_class_abilities["Thief"]["Open Locks"] = ["25%",
-                                                                name.char_race_abilities["Thief"]["Open Locks"],
-                                                                name.char_define_abilities["DEX"]["Open Locks"]]
-            name.char_class_abilities["Thief"]["Find/Remove Traps"] = ["20%",
-                                                                       name.char_race_abilities["Thief"]["Find/Remove Traps"],
+            pick_pockets = int(pick_pockets[0]) + int(pick_pockets[1]) + int(pick_pockets[2])
+            name.char_class_abilities["Thief"]["Pick Pockets"] = str(pick_pockets)+"%"
+
+            open_locks = ["25%",name.char_race_abilities["Thief"]["Open Locks"],name.char_define_abilities["DEX"]["Open Locks"]]
+            open_locks = [p.replace("%", "") for p in open_locks]
+            open_locks = int(open_locks[0]) + int(open_locks[1]) + int(open_locks[2])
+            name.char_class_abilities["Thief"]["Open Locks"] = str(open_locks)+"%"
+
+            find_traps = ["20%", name.char_race_abilities["Thief"]["Find/Remove Traps"],
                                                                        name.char_define_abilities["DEX"]["Find/Remove Traps"]]
-            name.char_class_abilities["Thief"]["Move Silent"] = ["15%",
-                                                                 name.char_race_abilities["Thief"]["Move Silent"],
+            find_traps = [p.replace("%", "") for p in find_traps]
+            find_traps = int(find_traps[0]) + int(find_traps[1]) + int(find_traps[2])
+            name.char_class_abilities["Thief"]["Find/Remove Traps"] = str(find_traps)+"%"
+
+            move_silent = ["15%",name.char_race_abilities["Thief"]["Move Silent"],
                                                                  name.char_define_abilities["DEX"]["Move Silent"]]
-            name.char_class_abilities["Thief"]["Hide In Shadows"] = ["10%",
-                                                                     name.char_race_abilities["Thief"]["Hide In Shadows"],
-                                                                     name.char_define_abilities["DEX"]["Hide In Shadows"]]
-            name.char_class_abilities["Thief"]["Hear Noise"] = ["10%",
-                                                                name.char_race_abilities["Thief"]["Hear Noise"],"0%"]
-            name.char_class_abilities["Thief"]["Climb Walls"] = ["85%",
-                                                                 name.char_race_abilities["Thief"]["Climb Walls"],"0%"]
-            name.char_class_abilities["Thief"]["Read Languages"] = ["0%",
-                                                                    name.char_race_abilities["Thief"]["Read Languages"],"0%"]
+            move_silent = [p.replace("%", "") for p in move_silent]
+            move_silent = int(move_silent[0]) + int(move_silent[1]) + int(move_silent[2])
+            name.char_class_abilities["Thief"]["Move Silent"] = str(move_silent)+"%"
+
+            hide_shadows = ["10%", name.char_race_abilities["Thief"]["Hide In Shadows"],name.char_define_abilities["DEX"]["Hide In Shadows"]]
+            hide_shadows = [p.replace("%", "") for p in hide_shadows]
+            hide_shadows = int(hide_shadows[0]) + int(hide_shadows[1]) + int(hide_shadows[2])
+            name.char_class_abilities["Thief"]["Hide In Shadows"] = str(hide_shadows) + "%"
+
+            hear_noise = ["10%",name.char_race_abilities["Thief"]["Hear Noise"],"0%"]
+            hear_noise = [p.replace("%", "") for p in hear_noise]
+            hear_noise = int(hear_noise[0]) + int(hear_noise[1]) + int(hear_noise[2])
+            name.char_class_abilities["Thief"]["Hear Noise"] = str(hear_noise)+"%"
+
+            climb_walls = ["85%",name.char_race_abilities["Thief"]["Climb Walls"],"0%"]
+            climb_walls = [p.replace("%", "") for p in climb_walls]
+            climb_walls = int(climb_walls[0]) + int(climb_walls[1]) + int(climb_walls[2])
+            name.char_class_abilities["Thief"]["Climb Walls"] = str(climb_walls)+"%"
+
+            read_languages = ["0%",name.char_race_abilities["Thief"]["Read Languages"],"0%"]
+            read_languages = [p.replace("%", "") for p in read_languages]
+            read_languages = int(read_languages[0]) + int(read_languages[1]) + int(read_languages[2])
+            name.char_class_abilities["Thief"]["Read Languages"] = str(read_languages)+"%"
+
             name.char_class_abilities["Thief"]["Backstab"] = "2x Damage / 3 levels with one-handed Club, Dagger/Knife or Sword"
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
-            HP = dice.HP(6, 1, name) + int(HPadj)
+            HP = dice.HP(6, 1, name, 4) + int(HPadj)
             name.char_HP += HP
         elif "Assassin" == str(c):
             if "Assassin" not in name.char_class_abilities:
@@ -126,7 +144,7 @@ def class_details(name):
                                                                     "100gp, Victim 3-4L: 150gp, Victim 5-6L: 200gp, "
                                                                     "Victim 7-9L: 250gp"]
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
-            HP = dice.HP(6, 1, name) + int(HPadj)
+            HP = dice.HP(6, 1, name, 4) + int(HPadj)
             name.char_HP += HP
         elif "Monk" == str(c):
             if "Monk" not in name.char_class_abilities:
@@ -149,21 +167,21 @@ def class_details(name):
             name.char_class_abilities["Monk"]["Thief"]["Hear Noise"] = ["10%"]
             name.char_class_abilities["Monk"]["Thief"]["Climb Walls"] = ["85%"]
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
-            HP = dice.HP(4, 2, name) + int(HPadj) + int(HPadj)
+            HP = dice.HP(4, 2, name, 5) + int(HPadj) + int(HPadj)
             name.char_HP += HP
         elif "Cavalier" == str(c):
             if "Cavalier" not in name.char_class_abilities:
                 name.char_class_abilities["Cavalier"] = {}
             name.char_class_abilities["Cavalier"]["Honor"] = ["Cannot run from combat", "Must wear metal armor"]
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
-            HP = dice.HP(4, 1, name) + int(HPadj) + 1
+            HP = dice.HP(4, 1, name, 6) + int(HPadj) + 1
             name.char_HP += HP
         elif "UAPaladin" == str(c):
             if "UAPaladin" not in name.char_class_abilities:
                 name.char_class_abilities["UAPaladin"] = {}
             name.char_class_abilities["UAPaladin"]["Honor"] = ["Cannot run from combat", "Must wear metal armor"]
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
-            HP = dice.HP(4, 1, name) + int(HPadj) + 1
+            HP = dice.HP(4, 1, name, 6) + int(HPadj) + 1
             name.char_HP += HP
         elif "Barbarian" == str(c):
             if "Barbarian" not in name.char_class_abilities:
@@ -224,7 +242,7 @@ def class_details(name):
             elif choice == "6":
                 name.char_class_abilities["Barbarian"]["Native"] = "Snare Building (UA, Pg20)"
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
-            HP = dice.HP(12, 1, name) + int(HPadj)
+            HP = dice.HP(12, 1, name, 7) + int(HPadj)
             name.char_HP += HP
 
     name.char_HP = round(name.char_HP/len(name.char_class))

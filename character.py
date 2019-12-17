@@ -3,15 +3,19 @@ import dice, char_races, char_classes, social_class, base_ability_detail, age, c
 
 class playerSheet:
     def __init__(self, charname):
-        self.char_abilities = {"STR": dice.ability_roller(6, 5),
-                               "INT": dice.ability_roller(6, 5),
-                               "WIS": dice.ability_roller(6, 5),
-                               "DEX": dice.ability_roller(6, 5),
-                               "CON": dice.ability_roller(6, 5),
-                               "CHA": dice.ability_roller(6, 5),
-                               "CMS": dice.ability_roller(6, 3),
-                               "EX_STR": False}
-        #self.char_abilities["EX_STR"] = False
+        global methodv
+        global abilities
+        if methodv:
+            self.char_abilities = abilities
+        else:
+            self.char_abilities = {"STR": dice.ability_roller(6, 5),
+                                   "INT": dice.ability_roller(6, 5),
+                                   "WIS": dice.ability_roller(6, 5),
+                                   "DEX": dice.ability_roller(6, 5),
+                                   "CON": dice.ability_roller(6, 5),
+                                   "CHA": dice.ability_roller(6, 5),
+                                   "CMS": dice.ability_roller(6, 3),
+                                   "EX_STR": False}
         if len(charname) == 0:
             charname = "Trololo"
         elif charname == "Wreck":
@@ -23,10 +27,10 @@ class playerSheet:
                                    "CHA": 18,
                                    "CMS": 18,
                                    "EX_STR": False}
-
+        self.methodv = methodv
         self.char_name = charname
         self.char_social_class = ""
-        self.player_name = "todd"
+        self.player_name = ""
         self.char_age = ""
         self.char_age_desc = ""
         self.char_class = []
@@ -58,21 +62,35 @@ class playerSheet:
         self.soclass_limit = []
         self.social_class = ""
 
+methodv = False
+method = False
+while not method:
+    print("1 Human-Only Choose Class: Method V\n",
+          "2 Random: DMG Method III\n",
+          "Note: If you choose 1, you may wish to choose NOT to roll social class!\n")
+    choice = input("Choose a Number>")
+    if choice != "1" and choice != "2":
+        method = False
+    else:
+        method = True
+if method:
+    if int(choice) == 1:
+        abilities = dice.unearthed()
+        methodv = True
+
 name = playerSheet(input("Character Name?:"))
 print(name.char_abilities)
 name = social_class.social_class(name)
 result = False
 while not result:
-    print("Choose a race:",
-          "[ ",
-          "0 Dwarf",
-          "1 Elf",
-          "2 Gnome",
-          "3 Half-Elf",
-          "4 Half-Orc",
-          "5 Human",
-          "6 Halfling",
-          " ]")
+    print("Choose a race:\n",
+          "0 Dwarf\n",
+          "1 Elf\n",
+          "2 Gnome\n",
+          "3 Half-Elf\n",
+          "4 Half-Orc\n",
+          "5 Human\n",
+          "6 Halfling\n")
     name, result = char_races.races_base(input("Choose Race:"), name)
 decision = input("Agreed? Y/N:")
 

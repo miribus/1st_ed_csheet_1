@@ -77,8 +77,8 @@ def social_class(name):
     global soclasslimit
     print("Roll social class or ignore it?")
     choice = input("Y to roll, N to ignore.")
-    if str(choice).upper() != "Y".upper():
-        print("You've chosen no.")
+    if str(choice).upper() != "Y".upper() or name.methodv:
+        print("You've chosen no, or roll method 5, you're MUC")
         name.social_class = "MUC"
     else:
         classroll = dice.soclass()

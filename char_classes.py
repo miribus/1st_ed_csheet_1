@@ -1,5 +1,5 @@
 from enum import Enum
-import re, social_class
+import re
 
 class race_class_choices(Enum):
     Cleric = 1
@@ -106,15 +106,21 @@ def race_classes(name):
                         break
                     if "Cleric" in choices:
                         if name.char_abilities["WIS"] < 9:
-                            print("Not enough WIS!")
-                            stop = True
+                            if name.methodv:
+                                name.char_abilities["WIS"] = 9
+                            else:
+                                print("Not enough WIS!")
+                                stop = True
                         if not stop:
                             choices = choices.replace("Cleric", "")
                             name.char_class.append("Cleric")
                     elif "Thief" in choices:
                         if name.char_abilities["DEX"] < 9:
-                            print("Not enough DEX!")
-                            stop = True
+                            if name.methodv:
+                                name.char_abilities["DEX"] = 9
+                            else:
+                                print("Not enough DEX!")
+                                stop = True
                         if not stop:
                             choices = choices.replace("Thief", "")
                             name.char_class.append("Thief")
@@ -122,18 +128,27 @@ def race_classes(name):
                             name = thief_adjustment(name)
                     elif "Druid" in choices:
                         if name.char_abilities["WIS"] < 12:
-                            print("Not enough WIS!")
-                            stop = True
+                            if name.methodv:
+                                name.char_abilities["WIS"] = 12
+                            else:
+                                print("Not enough WIS!")
+                                stop = True
                         if name.char_abilities["CHA"] < 15:
-                            print("Not enough CHA!")
-                            stop = True
+                            if name.methodv:
+                                name.char_abilities["CHA"] = 15
+                            else:
+                                print("Not enough CHA!")
+                                stop = True
                         if not stop:
                             choices = choices.replace("Druid", "")
                             name.char_class.append("Druid")
                     elif "Fighter" in choices:
                         if name.char_abilities["STR"] < 9:
-                            print("Not enough STR!")
-                            stop = True
+                            if name.methodv:
+                                name.char_abilities["STR"] = 9
+                            else:
+                                print("Not enough STR!")
+                                stop = True
                         if not stop:
                             choices = choices.replace("Fighter", "")
                             name.char_class.append("Fighter")
@@ -158,34 +173,55 @@ def race_classes(name):
                             name.char_class.append("Paladin")
                     elif "Ranger" in choices:
                         if name.char_abilities["STR"] < 13:
-                            print("Not enough STR!")
-                            stop = True
+                            if name.methodv:
+                                name.char_abilities["STR"] = 13
+                            else:
+                                print("Not enough STR!")
+                                stop = True
                         if name.char_abilities["INT"] < 13:
-                            print("Not enough INT!")
-                            stop = True
+                            if name.methodv:
+                                name.char_abilities["INT"] = 13
+                            else:
+                                print("Not enough INT!")
+                                stop = True
                         if name.char_abilities["WIS"] < 14:
-                            print("Not enough WIS!")
-                            stop = True
+                            if name.methodv:
+                                name.char_abilities["WIS"] = 14
+                            else:
+                                print("Not enough WIS!")
+                                stop = True
                         if name.char_abilities["CON"] < 14:
-                            print("Not enough CON!")
-                            stop = True
+                            if name.methodv:
+                                name.char_abilities["CON"] = 14
+                            else:
+                                print("Not enough CON!")
+                                stop = True
                         if not stop:
                             choices = choices.replace("Ranger", "")
                             name.char_class.append("Ranger")
                     elif "MagicUser" in choices:
                         if name.char_abilities["INT"] < 9:
-                            print("Not enough INT!")
-                            stop = True
+                            if name.methodv:
+                                name.char_abilities["INT"] = 9
+                            else:
+                                print("Not enough INT!")
+                                stop = True
                         if not stop:
                             choices = choices.replace("MagicUser", "")
                             name.char_class.append("MagicUser")
                     elif "Illusionist" in choices:
                         if name.char_abilities["INT"] < 15:
-                            print("Not enough INT!")
-                            stop = True
+                            if name.methodv:
+                                name.char_abilities["INT"] = 15
+                            else:
+                                print("Not enough INT!")
+                                stop = True
                         elif name.char_abilities["DEX"] < 16:
-                            print("Not enough DEX!")
-                            stop = True
+                            if name.methodv:
+                                name.char_abilities["DEX"] = 16
+                            else:
+                                print("Not enough DEX!")
+                                stop = True
                         if not stop:
                             choices = choices.replace("Illusionist", "")
                             name.char_class.append("Illusionist")
