@@ -91,40 +91,30 @@ def class_details(name):
         elif "Thief" == str(c):
             if "Thief" not in name.char_class_abilities:
                 name.char_class_abilities["Thief"] = {}
-            name.char_class_abilities["Thief"]["Pick Pockets"] = ["30%", name.char_race_abilities["Thief"]["Pick Pockets"], name.char_define_abilities["DEX"]["Pick Pockets"]]
+            pick_pockets = ["30%", name.char_race_abilities["Thief"]["Pick Pockets"], name.char_define_abilities["DEX"]["Pick Pockets"]]
+            pick_pockets = [p.replace("%", "") for p in pick_pockets]
+            #pick_pockets = [int]
+            name.char_class_abilities["Thief"]["Pick Pockets"] = ["30%",
+                                                                  name.char_race_abilities["Thief"]["Pick Pockets"],
+                                                                  name.char_define_abilities["DEX"]["Pick Pockets"]]
             name.char_class_abilities["Thief"]["Open Locks"] = ["25%",
                                                                 name.char_race_abilities["Thief"]["Open Locks"],
                                                                 name.char_define_abilities["DEX"]["Open Locks"]]
             name.char_class_abilities["Thief"]["Find/Remove Traps"] = ["20%",
-                                                                       name.char_race_abilities["Thief"][
-                                                                           "Find/Remove Traps"],
-                                                                       name.char_define_abilities["DEX"][
-                                                                           "Find/Remove Traps"]
-                                                                       ]
+                                                                       name.char_race_abilities["Thief"]["Find/Remove Traps"],
+                                                                       name.char_define_abilities["DEX"]["Find/Remove Traps"]]
             name.char_class_abilities["Thief"]["Move Silent"] = ["15%",
-                                                                 name.char_race_abilities["Thief"][
-                                                                     "Move Silent"],
-                                                                 name.char_define_abilities["DEX"][
-                                                                     "Move Silent"]
-                                                                ]
+                                                                 name.char_race_abilities["Thief"]["Move Silent"],
+                                                                 name.char_define_abilities["DEX"]["Move Silent"]]
             name.char_class_abilities["Thief"]["Hide In Shadows"] = ["10%",
-                                                                     name.char_race_abilities["Thief"][
-                                                                         "Hide In Shadows"],
-                                                                     name.char_define_abilities["DEX"][
-                                                                         "Hide In Shadows"]
-                                                                     ]
+                                                                     name.char_race_abilities["Thief"]["Hide In Shadows"],
+                                                                     name.char_define_abilities["DEX"]["Hide In Shadows"]]
             name.char_class_abilities["Thief"]["Hear Noise"] = ["10%",
-                                                                name.char_define_abilities["DEX"][
-                                                                    "Hide In Shadows"]
-                                                                ]
+                                                                name.char_race_abilities["Thief"]["Hear Noise"],"0%"]
             name.char_class_abilities["Thief"]["Climb Walls"] = ["85%",
-                                                                 name.char_define_abilities["DEX"][
-                                                                     "Hide In Shadows"]
-                                                                 ]
+                                                                 name.char_race_abilities["Thief"]["Climb Walls"],"0%"]
             name.char_class_abilities["Thief"]["Read Languages"] = ["0%",
-                                                                    name.char_define_abilities["DEX"][
-                                                                        "Hide In Shadows"]
-                                                                    ]
+                                                                    name.char_race_abilities["Thief"]["Read Languages"],"0%"]
             name.char_class_abilities["Thief"]["Backstab"] = "2x Damage / 3 levels with one-handed Club, Dagger/Knife or Sword"
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
             HP = dice.HP(6, 1, name) + int(HPadj)
@@ -151,14 +141,11 @@ def class_details(name):
             name.char_class_abilities["Monk"]["Thief"]["Open Locks"] = ["25%",
                                                                 name.char_define_abilities["DEX"]["Open Locks"]]
             name.char_class_abilities["Monk"]["Thief"]["Find/Remove Traps"] = ["20%",
-                                                                       name.char_define_abilities["DEX"]["Find/Remove Traps"]
-                                                                       ]
+                                                                       name.char_define_abilities["DEX"]["Find/Remove Traps"]]
             name.char_class_abilities["Monk"]["Thief"]["Move Silent"] = ["15%",
-                                                                 name.char_define_abilities["DEX"]["Move Silent"]
-                                                                ]
+                                                                 name.char_define_abilities["DEX"]["Move Silent"]]
             name.char_class_abilities["Monk"]["Thief"]["Hide In Shadows"] = ["10%",
-                                                                     name.char_define_abilities["DEX"]["Hide In Shadows"]
-                                                                     ]
+                                                                     name.char_define_abilities["DEX"]["Hide In Shadows"]]
             name.char_class_abilities["Monk"]["Thief"]["Hear Noise"] = ["10%"]
             name.char_class_abilities["Monk"]["Thief"]["Climb Walls"] = ["85%"]
             HPadj = name.char_define_abilities["CON"]["HP Adj"]

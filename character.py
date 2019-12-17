@@ -1,4 +1,5 @@
-import dice, saving_throws, char_races, char_classes, social_class, base_ability_detail, age, class_abilities
+import dice, char_races, char_classes, social_class, base_ability_detail, age, class_abilities
+#import re
 
 class playerSheet:
     def __init__(self, charname):
@@ -77,7 +78,7 @@ decision = input("Agreed? Y/N:")
 
 if decision.isalpha():
     if "y".upper() == decision.upper():
-        result = result
+        #result = result
         race_class_choices = char_classes.race_class_choices
         result = False
         try:
