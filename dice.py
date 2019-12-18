@@ -48,18 +48,18 @@ def HP(sides, qty, name, min):
 def unearthed():
     method = False
     while not method:
-        print("36 Cavalier",
-              "35 Paladin",
-              "1 Cleric",
-              "11 Druid",
-              "16 Fighter",
-              "34 Barbarian",
-              "22 Ranger",
-              "27 Magic-user",
-              "30 Illusionist",
-              "25 Thief",
-              "26 Assassin",
-              "33 Monk")
+        print("36 Cavalier\n",
+              "35 Paladin\n",
+              "1 Cleric\n",
+              "11 Druid\n",
+              "16 Fighter\n",
+              "34 Barbarian\n",
+              "22 Ranger\n",
+              "27 Magic-user\n",
+              "30 Illusionist\n",
+              "25 Thief\n",
+              "26 Assassin\n",
+              "33 Monk\n")
         choice = input("Choose a class NUMBER:")
         if choice.isdigit():
             if str(choice) in ["36", "35", "1", "11", "16", "34", "22", "27", "30", "25", "26", "33"]:

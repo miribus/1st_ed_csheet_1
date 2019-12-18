@@ -348,9 +348,9 @@ def race_classes(name):
                             else:
                                 print("Not enough DEX!")
                                 stop = True
-                        if name.char_abilities["WIS"] < 10:
+                        if name.char_abilities["WIS"] < 13:
                             if name.methodv:
-                                name.char_abilities["WIS"] = 10
+                                name.char_abilities["WIS"] = 13
                             else:
                                 print("Not enough WIS!")
                                 stop = True
@@ -359,6 +359,12 @@ def race_classes(name):
                                 name.char_abilities["INT"] = 10
                             else:
                                 print("Not enough INT!")
+                                stop = True
+                        if name.char_abilities["CHA"] < 17:
+                            if name.methodv:
+                                name.char_abilities["CHA"] = 17
+                            else:
+                                print("Not enough CHA!")
                                 stop = True
                         if not stop:
                             choices = choices.replace("UAPaladin", "")
