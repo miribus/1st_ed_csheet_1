@@ -89,7 +89,12 @@ def race_classes(name):
                         print(rc.value, c)
                         classes.append(str(rc.name))
 
-        choices = input("Choose a Class NUMBER:")
+        if name.methodv:
+            print("You chose Method V and preselected your class")
+            choices = name.methodv_choice
+        else:
+            choices = input("Choose a Class NUMBER:")
+
         if choices.isdigit():
             if int(choices) in range(1, 37):
                 for rc in race_class_choices:
@@ -152,7 +157,7 @@ def race_classes(name):
                         if not stop:
                             choices = choices.replace("Fighter", "")
                             name.char_class.append("Fighter")
-                    elif "Paladin" in choices:
+                    elif "Paladin" == choices:
                         if name.char_abilities["STR"] < 12:
                             if name.methodv:
                                 name.char_abilities["STR"] = 12
@@ -324,7 +329,7 @@ def race_classes(name):
                         if not stop:
                             choices = choices.replace("Cavalier", "")
                             name.char_class.append("Cavalier")
-                    elif "UAPaladin" in choices:
+                    elif "UAPaladin" == choices:
                         if name.char_abilities["STR"] < 15:
                             if name.methodv:
                                 name.char_abilities["STR"] = 15
@@ -343,17 +348,11 @@ def race_classes(name):
                             else:
                                 print("Not enough DEX!")
                                 stop = True
-                        if name.char_abilities["WIS"] < 13:
+                        if name.char_abilities["WIS"] < 10:
                             if name.methodv:
-                                name.char_abilities["WIS"] = 13
+                                name.char_abilities["WIS"] = 10
                             else:
                                 print("Not enough WIS!")
-                                stop = True
-                        if name.char_abilities["CHA"] < 17:
-                            if name.methdov:
-                                name.char_abilities["CHA"] = 17
-                            else:
-                                print("Not enough CHA!")
                                 stop = True
                         if name.char_abilities["INT"] < 10:
                             if name.methodv:

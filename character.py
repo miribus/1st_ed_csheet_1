@@ -3,8 +3,7 @@ import dice, char_races, char_classes, social_class, base_ability_detail, age, c
 
 class playerSheet:
     def __init__(self, charname):
-        global methodv
-        global abilities
+        global methodv, abilities, methodv_choice
         if methodv:
             self.char_abilities = abilities
         else:
@@ -28,6 +27,7 @@ class playerSheet:
                                    "CMS": 18,
                                    "EX_STR": False}
         self.methodv = methodv
+        self.methodv_choice = methodv_choice
         self.char_name = charname
         self.char_social_class = ""
         self.player_name = ""
@@ -75,8 +75,10 @@ while not method:
         method = True
 if method:
     if int(choice) == 1:
-        abilities = dice.unearthed()
+        abilities, methodv_choice = dice.unearthed()
         methodv = True
+    else:
+        methodv_choice = False
 
 name = playerSheet(input("Character Name?:"))
 print(name.char_abilities)
@@ -91,23 +93,20 @@ while not result:
           "4 Half-Orc\n",
           "5 Human\n",
           "6 Halfling\n")
-    name, result = char_races.races_base(input("Choose Race:"), name)
+    if name.methodv:
+        print("You chose method V, you must be human.")
+        name, result = char_races.races_base("5", name)
+    else:
+        name, result = char_races.races_base(input("Choose Race:"), name)
 decision = input("Agreed? Y/N:")
 
 if decision.isalpha():
     if "y".upper() == decision.upper():
-        #result = result
-        race_class_choices = char_classes.race_class_choices
         result = False
-        try:
-            while not result:
-                name, result = char_classes.race_classes(name)
-                print(name.char_abilities)
 
-        except:
-            while not result:
-                name, result = char_classes.race_classes(name)
-                print(name.char_abilities)
+        while not result:
+            name, result = char_classes.race_classes(name)
+            print(name.char_abilities)
 
         name = char_classes.class_saving_throws(name)
         print(name.char_abilities)

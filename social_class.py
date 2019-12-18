@@ -62,7 +62,7 @@ soclass_definition = {"LLC": "Lower Lower Class:\n"
                              "            Illusionist, Magic-User",
                       "UMC": "Upper Middle Class:\n"
                              "You can be: Monk, Thief, Assassin, Barbarian, Fighter, Ranger, Druid, Cleric\n"
-                             "            Illusionist, Magic-User",
+                             "            Illusionist, Magic-User, Paladin, UAPaladin, Cavalier",
                       "LUC": "Lower Upper Class:\n"
                              "You can be: Monk, Thief, Assassin, Barbarian, Fighter, Ranger, Druid, Cleric\n"
                              "            Illusionist, Magic-User, Paladin, UAPaladin, Cavalier",

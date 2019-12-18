@@ -48,22 +48,22 @@ def HP(sides, qty, name, min):
 def unearthed():
     method = False
     while not method:
-        print("1 Cavalier",
-              "2 Paladin",
-              "3 Cleric",
-              "4 Druid",
-              "5 Fighter",
-              "6 Barbarian",
-              "7 Ranger",
-              "8 Magic-user",
-              "9 Illusionist",
-              "10 Thief",
-              "11 Assassin",
-              "12 Monk")
+        print("36 Cavalier",
+              "35 Paladin",
+              "1 Cleric",
+              "11 Druid",
+              "16 Fighter",
+              "34 Barbarian",
+              "22 Ranger",
+              "27 Magic-user",
+              "30 Illusionist",
+              "25 Thief",
+              "26 Assassin",
+              "33 Monk")
         choice = input("Choose a class NUMBER:")
         if choice.isdigit():
-            if int(choice) < 13 and int(choice) > 0:
-                if choice == "1":
+            if str(choice) in ["36", "35", "1", "11", "16", "34", "22", "27", "30", "25", "26", "33"]:
+                if choice == "36":
                     abilities = {"STR": ability_roller(6, 8),
                                  "INT": ability_roller(6, 6),
                                  "WIS": ability_roller(6, 4),
@@ -72,7 +72,9 @@ def unearthed():
                                  "CHA": ability_roller(6, 3),
                                  "CMS": ability_roller(6, 5),
                                  "EX_STR": False}
-                elif choice == "2":
+                    return abilities, choice
+
+                elif choice == "35":
                     abilities = {"STR": ability_roller(6, 7),
                                  "INT": ability_roller(6, 5),
                                  "WIS": ability_roller(6, 8),
@@ -81,7 +83,9 @@ def unearthed():
                                  "CHA": ability_roller(6, 9),
                                  "CMS": ability_roller(6, 4),
                                  "EX_STR": False}
-                elif choice == "3":
+                    return abilities, choice
+
+                elif choice == "1":
                     abilities = {"STR": ability_roller(6, 7),
                                  "INT": ability_roller(6, 4),
                                  "WIS": ability_roller(6, 9),
@@ -90,7 +94,9 @@ def unearthed():
                                  "CHA": ability_roller(6, 6),
                                  "CMS": ability_roller(6, 3),
                                  "EX_STR": False}
-                elif choice == "4":
+                    return abilities, choice
+
+                elif choice == "11":
                     abilities = {"STR": ability_roller(6, 7),
                                  "INT": ability_roller(6, 4),
                                  "WIS": ability_roller(6, 8),
@@ -99,7 +105,9 @@ def unearthed():
                                  "CHA": ability_roller(6, 9),
                                  "CMS": ability_roller(6, 3),
                                  "EX_STR": False}
-                elif choice == "5" or choice == "6":
+                    return abilities, choice
+
+                elif choice == "16" or choice == "34":
                     abilities = {"STR": ability_roller(6, 9),
                                  "INT": ability_roller(6, 3),
                                  "WIS": ability_roller(6, 5),
@@ -108,7 +116,9 @@ def unearthed():
                                  "CHA": ability_roller(6, 6),
                                  "CMS": ability_roller(6, 4),
                                  "EX_STR": False}
-                elif choice == "7":
+                    return abilities, choice
+
+                elif choice == "22":
                     abilities = {"STR": ability_roller(6, 7),
                                  "INT": ability_roller(6, 6),
                                  "WIS": ability_roller(6, 8),
@@ -117,7 +127,9 @@ def unearthed():
                                  "CHA": ability_roller(6, 4),
                                  "CMS": ability_roller(6, 3),
                                  "EX_STR": False}
-                elif choice == "8":
+                    return abilities, choice
+
+                elif choice == "27":
                     abilities = {"STR": ability_roller(6, 4),
                                  "INT": ability_roller(6, 9),
                                  "WIS": ability_roller(6, 7),
@@ -126,7 +138,9 @@ def unearthed():
                                  "CHA": ability_roller(6, 5),
                                  "CMS": ability_roller(6, 3),
                                  "EX_STR": False}
-                elif choice == "9":
+                    return abilities, choice
+
+                elif choice == "30":
                     abilities = {"STR": ability_roller(6, 3),
                                  "INT": ability_roller(6, 8),
                                  "WIS": ability_roller(6, 7),
@@ -135,7 +149,9 @@ def unearthed():
                                  "CHA": ability_roller(6, 6),
                                  "CMS": ability_roller(6, 4),
                                  "EX_STR": False}
-                elif choice == "10":
+                    return abilities, choice
+
+                elif choice == "25":
                     abilities = {"STR": ability_roller(6, 6),
                                  "INT": ability_roller(6, 5),
                                  "WIS": ability_roller(6, 3),
@@ -144,7 +160,9 @@ def unearthed():
                                  "CHA": ability_roller(6, 4),
                                  "CMS": ability_roller(6, 8),
                                  "EX_STR": False}
-                elif choice == "11":
+                    return abilities, choice
+
+                elif choice == "26":
                     abilities = {"STR": ability_roller(6, 6),
                                  "INT": ability_roller(6, 7),
                                  "WIS": ability_roller(6, 4),
@@ -153,7 +171,9 @@ def unearthed():
                                  "CHA": ability_roller(6, 3),
                                  "CMS": ability_roller(6, 5),
                                  "EX_STR": False}
-                elif choice == "12":
+                    return abilities, choice
+
+                elif choice == "33":
                     abilities = {"STR": ability_roller(6, 7),
                                  "INT": ability_roller(6, 5),
                                  "WIS": ability_roller(6, 9),
@@ -162,7 +182,10 @@ def unearthed():
                                  "CHA": ability_roller(6, 4),
                                  "CMS": ability_roller(6, 3),
                                  "EX_STR": False}
-                return abilities
+                    return abilities, choice
+
+                else:
+                    method = False
             else:
                 method = False
         else:
