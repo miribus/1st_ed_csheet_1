@@ -154,20 +154,35 @@ def race_classes(name):
                             name.char_class.append("Fighter")
                     elif "Paladin" in choices:
                         if name.char_abilities["STR"] < 12:
-                            print("Not enough STR!")
-                            stop = True
+                            if name.methodv:
+                                name.char_abilities["STR"] = 12
+                            else:
+                                print("Not enough STR!")
+                                stop = True
                         if name.char_abilities["INT"] < 9:
-                            print("Not enough INT!")
-                            stop = True
+                            if name.methodv:
+                                name.char_abilities["INT"] = 9
+                            else:
+                                print("Not enough INT!")
+                                stop = True
                         if name.char_abilities["WIS"] < 13:
-                            print("Not enough WIS!")
-                            stop = True
+                            if name.methodv:
+                                name.char_abilities["WIS" ] = 13
+                            else:
+                                print("Not enough WIS!")
+                                stop = True
                         if name.char_abilities["CON"] < 9:
-                            print("Not enough CON!")
-                            stop = True
+                            if name.methodv:
+                                name.char_abilities["CON"] = 9
+                            else:
+                                print("Not enough CON!")
+                                stop = True
                         if name.char_abilities["CHA"] < 17:
-                            print("Not enough CHA!")
-                            stop = True
+                            if name.methodv:
+                                name.char_abilities["CHA"] = 17
+                            else:
+                                print("Not enough CHA!")
+                                stop = True
                         if not stop:
                             choices = choices.replace("Paladin", "")
                             name.char_class.append("Paladin")
@@ -227,87 +242,153 @@ def race_classes(name):
                             name.char_class.append("Illusionist")
                     elif "Assassin" in choices:
                         if name.char_abilities["STR"] < 12:
-                            print("Not enough STR!")
-                            stop = True
+                            if name.methodv:
+                                name.char_abilities["STR"] = 12
+                            else:
+                                print("Not enough STR!")
+                                stop = True
                         if name.char_abilities["DEX"] < 12:
-                            print("Not enough DEX!")
-                            stop = True
+                            if name.methodv:
+                                name.char_abilities["DEX"] = 12
+                            else:
+                                print("Not enough DEX!")
+                                stop = True
                         if name.char_abilities["INT"] < 11:
-                            print("Not enough INT!")
-                            stop = True
+                            if name.methodv:
+                                name.char_abilities["INT"] = 11
+                            else:
+                                print("Not enough INT!")
+                                stop = True
                         if not stop:
                             choices = choices.replace("Assassin", "")
                             name.char_class.append("Assassin")
                     elif "Barbarian" in choices:
                         if name.char_abilities["STR"] < 15:
-                            print("Not enough STR!")
-                            stop = True
+                            if name.methodv:
+                                name.char_abilities["STR"] = 15
+                            else:
+                                print("Not enough STR!")
+                                stop = True
                         if name.char_abilities["CON"] < 15:
-                            print("Not enough CON!")
-                            stop = True
+                            if name.methodv:
+                                name.char_abilities["CON"] = 15
+                            else:
+                                print("Not enough CON!")
+                                stop = True
                         if name.char_abilities["DEX"] < 14:
-                            print("Not enough DEX!")
-                            stop = True
+                            if name.methodv:
+                                name.char_abilities["DEX"] = 14
+                            else:
+                                print("Not enough DEX!")
+                                stop = True
                         if name.char_abilities["WIS"] > 16:
-                            print("WIS TOO HIGH!")
-                            stop = True
+                            if name.methodv:
+                                name.char_abilities["WIS"] = 16
+                            else:
+                                print("WIS TOO HIGH!")
+                                stop = True
                         if not stop:
                             choices = choices.replace("Barbarian", "")
                             name.char_class.append("Barbarian")
                     elif "Cavalier" in choices:
                         if name.char_abilities["STR"] < 15:
-                            print("Not enough STR!")
-                            stop = True
+                            if name.methodv:
+                                name.char_abilities["STR"] = 15
+                            else:
+                                print("Not enough STR!")
+                                stop = True
                         if name.char_abilities["CON"] < 15:
-                            print("Not enough CON!")
-                            stop = True
+                            if name.methodv:
+                                name.char_abilities["CON"] = 15
+                            else:
+                                print("Not enough CON!")
+                                stop = True
                         if name.char_abilities["DEX"] < 15:
-                            print("Not enough DEX!")
-                            stop = True
+                            if name.methodv:
+                                name.char_abilities["DEX"] = 15
+                            else:
+                                print("Not enough DEX!")
+                                stop = True
                         if name.char_abilities["WIS"] < 10:
-                            print("Not enough WIS!")
-                            stop = True
+                            if name.methodv:
+                                name.char_abilities["WIS"] = 10
+                            else:
+                                print("Not enough WIS!")
+                                stop = True
                         if name.char_abilities["INT"] < 10:
-                            print("Not enough INT!")
-                            stop = True
+                            if name.methodv:
+                                name.char_abilities["INT"] = 10
+                            else:
+                                print("Not enough INT!")
+                                stop = True
                         if not stop:
                             choices = choices.replace("Cavalier", "")
                             name.char_class.append("Cavalier")
                     elif "UAPaladin" in choices:
                         if name.char_abilities["STR"] < 15:
-                            print("Not enough STR!")
-                            stop = True
+                            if name.methodv:
+                                name.char_abilities["STR"] = 15
+                            else:
+                                print("Not enough STR!")
+                                stop = True
                         if name.char_abilities["CON"] < 15:
-                            print("Not enough CON!")
-                            stop = True
+                            if name.methodv:
+                                name.char_abilities["CON"] = 15
+                            else:
+                                print("Not enough CON!")
+                                stop = True
                         if name.char_abilities["DEX"] < 15:
-                            print("Not enough DEX!")
-                            stop = True
+                            if name.methodv:
+                                name.char_abilities["DEX"] = 15
+                            else:
+                                print("Not enough DEX!")
+                                stop = True
                         if name.char_abilities["WIS"] < 13:
-                            print("Not enough WIS!")
-                            stop = True
+                            if name.methodv:
+                                name.char_abilities["WIS"] = 13
+                            else:
+                                print("Not enough WIS!")
+                                stop = True
                         if name.char_abilities["CHA"] < 17:
-                            print("Not enough CHA!")
-                            stop = True
+                            if name.methdov:
+                                name.char_abilities["CHA"] = 17
+                            else:
+                                print("Not enough CHA!")
+                                stop = True
                         if name.char_abilities["INT"] < 10:
-                            print("Not enough INT!")
-                            stop = True
+                            if name.methodv:
+                                name.char_abilities["INT"] = 10
+                            else:
+                                print("Not enough INT!")
+                                stop = True
                         if not stop:
                             choices = choices.replace("UAPaladin", "")
                             name.char_class.append("UAPaladin")
                     elif "Monk" in choices:
                         if name.char_abilities["STR"] < 15:
-                            print("Not enough STR!")
-                            stop = True
+                            if name.methodv:
+                                name.char_abilities["STR"] = 15
+                            else:
+                                print("Not enough STR!")
+                                stop = True
                         if name.char_abilities["CON"] < 11:
-                            print("Not enough CON!")
-                            stop = True
+                            if name.methodv:
+                                name.char_abilities["CON"] = 11
+                            else:
+                                print("Not enough CON!")
+                                stop = True
                         if name.char_abilities["DEX"] < 15:
-                            print("Not enough DEX!")
-                            stop = True
+                            if name.methodv:
+                                name.char_abilities["DEX"] = 15
+                            else:
+                                print("Not enough DEX!")
+                                stop = True
                         if name.char_abilities["WIS"] < 15:
-                            print("Not enough WIS!")
-                            stop = True
+                            if name.methodv:
+                                name.char_abilities["WIS"] = 15
+                            else:
+                                print("Not enough WIS!")
+                                stop = True
                         if not stop:
                             choices = choices.replace("Monk", "")
                             name.char_class.append("Monk")
