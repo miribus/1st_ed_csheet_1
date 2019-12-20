@@ -1,4 +1,5 @@
 import dice, char_races, char_classes, social_class, base_ability_detail, age, class_abilities
+import alignments
 #import re
 
 class playerSheet:
@@ -28,6 +29,7 @@ class playerSheet:
                                    "EX_STR": False}
         self.methodv = methodv
         self.methodv_choice = methodv_choice
+        self.char_alignment = ""
         self.char_name = charname
         self.char_social_class = ""
         self.player_name = ""
@@ -126,6 +128,8 @@ if decision.isalpha():
         name = class_abilities.class_details(name)
         print(name.char_abilities)
 
+        name = alignments.choose_alignment(name)
+
 print("\n")
 print("\n")
 print("\n")
@@ -137,6 +141,7 @@ print("*********************************")
 print("\n")
 print("Character Name: ", name.char_name)
 print("Class(es): ", name.char_class)
+print("Alignment: ", name.char_alignment)
 print("Race: ", name.char_race)
 print("Age: ", name.char_age, name.char_age_desc)
 print("Social Class:", name.char_social_class)
