@@ -108,26 +108,12 @@ if decision.isalpha():
 
         while not result:
             name, result = char_classes.race_classes(name)
-            print(name.char_abilities)
-
         name = char_classes.class_saving_throws(name)
-        print(name.char_abilities)
-
         name = char_races.base_bonuses(name)
-        print(name.char_abilities)
-
         name = age.age(name)
-        print(name.char_abilities)
-
         name = char_races.race_ability_updater(name)
-        print(name.char_abilities)
-
         name = base_ability_detail.define_abilities(name)
-        print(name.char_abilities)
-
         name = class_abilities.class_details(name)
-        print(name.char_abilities)
-
         name = alignments.choose_alignment(name)
 
 print("\n")

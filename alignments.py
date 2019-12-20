@@ -127,30 +127,25 @@ def choose_alignment(name):
     align_choices = character_alignment(name)
     print("Would you like to see some potential context and motivations for these Alignments?")
     choice = input("Y or N?")
-    print(alignments["Notes"])
     if choice.upper() == "Y".upper():
+        print(alignments["Notes"])
         for a in alignments:
             if a != "Notes":
                 print(alignments[a])
-                choice = input("Enter M for more, or just press ENTER to quit.")
-                if len(choice) > 0:
-                    if choice.upper() == "M".upper():
-                        continue
-                    else:
-                        break
+                choice = input("Enter for mor...")
+    result = False
+    while not result:
+        iter = 1
+        for i in align_choices:
+            print(iter, i)
+            iter += 1
+        choice = input("Choose a NUMBER:")
 
-    iter = 1
-    for i in align_choices:
-        print(iter, i)
-        iter += 1
-    choice = input("Choose a NUMBER:")
-    if choice.isdigit():
-        if int(choice) in range(1, len(align_choices)+1):
-            it = iter-1
-            print(align_choices[it])
-            return name
-        else:
-            name = choose_alignment(name)
-    else:
-        name = choose_alignment(name)
+        if choice.isdigit():
+            if int(choice) in range(1, len(align_choices)+1):
+                it = int(choice)-1
+                print(align_choices[it])
+                name.char_alignment = align_choices[it]
+                return name
+
 
