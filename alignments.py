@@ -120,7 +120,7 @@ alignments["Notes"] = "These are only one interpretation based on the PHB Alignm
                           "profile and their proclivities kept in check where plausible.  If making an Evil characterd, discuss it with \n" \
                           "the DM to see how it will fit.\n" \
                           "Nominally, the alignments fall into two segments, your dispotion towards Good or Evil, combined with your \n " \
-                          "disposition towards order or chaos.\n" \
+                          "disposition towards order or chaos.\n"
 
 
 def choose_alignment(name):
