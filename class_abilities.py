@@ -45,7 +45,7 @@ def class_details(name):
                 name.char_class_abilities["Paladin"] = {}
                 name.char_class_abilities["Paladin"]["Special"] = {}
                 name.char_class_abilities["Paladin"]["Save Bonus"] = {}
-                name.char_class_abilitiee["Paladin"]["Immunity"] = "Disease, Fear"
+                name.char_class_abilities["Paladin"]["Immunity"] = "Disease, Fear"
             name.char_class_abilities["Paladin"]["Save Bonus"] = "+2 all Saving Throws"
             name.char_class_abilities["Paladin"]["Special"]["Lay on Hands"] = "+2 per level/day"
             name.char_class_abilities["Paladin"]["Special"]["Cure Disease"] = "1/wk per 5 levels"
@@ -199,7 +199,7 @@ def class_details(name):
                 name.char_class_abilities["UAPaladin"] = {}
                 name.char_class_abilities["UAPaladin"]["Special"] = {}
                 name.char_class_abilities["UAPaladin"]["Save Bonus"] = {}
-                name.char_class_abilitiee["UAPaladin"]["Immunity"] = "Disease, Fear"
+                name.char_class_abilities["UAPaladin"]["Immunity"] = "Disease, Fear"
             name.char_class_abilities["UAPaladin"]["Save Bonus"] = "+2 all Saving Throws"
             name.char_class_abilities["UAPaladin"]["Special"]["Lay on Hands"] = "+2 per level/day"
             name.char_class_abilities["UAPaladin"]["Special"]["Cure Disease"] = "1/wk per 5 levels"
@@ -233,11 +233,11 @@ def class_details(name):
             if "Barbarian" not in name.char_class_abilities:
                 name.char_class_abilities["Barbarian"] = {}
                 name.char_class_abilities["Barbarian"]["Special"] = {}
-            name.char_class_abilitiess["Barbarian"]["AC Bonus"] = ["If AC < 14: +2/pt AC Not Bulky, +1 AC if Bulky"
+            name.char_class_abilities["Barbarian"]["AC Bonus"] = ["If AC < 14: +2/pt AC Not Bulky, +1 AC if Bulky"
                                                                    " per point over 14"]
-            name.char_class_abilitiess["Barbarian"]["Movement"] = ["Base Movement Rate of 15\""]
-            name.char_class_abilitiess["Barbarian"]["Weapons"] = ["Initial weapons must include: Hand Axe, Knife and Spear"]
-            name.char_class_abilitiess["Barbarian"]["Restrictions"] = [
+            name.char_class_abilities["Barbarian"]["Movement"] = ["Base Movement Rate of 15\""]
+            name.char_class_abilities["Barbarian"]["Weapons"] = ["Initial weapons must include: Hand Axe, Knife and Spear"]
+            name.char_class_abilities["Barbarian"]["Restrictions"] = [
                 "Cannot use magic weapons or armor, will destroy it for XP"]
             name.char_class_abilities["Barbarian"]["Special"]["Climb Cliffs and Trees"] = ["Unearthed Arcana Pg 20"]
             name.char_class_abilities["Barbarian"]["Special"]["Hide In Natural Surroundings"] = ["Unearthed Arcana Pg 20"]

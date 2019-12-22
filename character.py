@@ -166,7 +166,10 @@ print("Class Abilities:")
 for c in name.char_class_abilities:
     for a in name.char_class_abilities[c]:
         print(a,  name.char_class_abilities[c][a])
-print("***********")
+print("-------------")
 quitout = input("Enter to quit")
-print(os.getcwd())
+tables = str(os.getcwd()+"\\tables\\")
+print(os.listdir(tables))
+print("***********")
+
 
