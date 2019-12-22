@@ -68,7 +68,7 @@ class playerSheet:
 methodv = False
 method = False
 while not method:
-    print("1 Human-Only Choose Class: Method V\n",
+    print(" 1 *Human-Only* Choose Class: Method V\n",
           "2 Random: DMG Method III\n",
           )
     choice = input("Choose a Number>")
@@ -167,9 +167,9 @@ for c in name.char_class_abilities:
     for a in name.char_class_abilities[c]:
         print(a,  name.char_class_abilities[c][a])
 print("-------------")
-quitout = input("Enter to quit")
 tables = str(os.getcwd()+"\\tables\\")
 print(os.listdir(tables))
 print("***********")
+quitout = input("Enter to quit")
 
 

@@ -417,7 +417,6 @@ def age(name):
                 ages.append(21 + dice.normal(4, 1))
         ages.sort()
         name.char_age = str(ages[-1])
-        print(name.char_age, name.char_age, name.char_age, name.char_age, name.char_age, name.char_age)
         if int(name.char_age) in range(14, 21):
             print("This one")
             name.char_age_desc = "Young Adult"
