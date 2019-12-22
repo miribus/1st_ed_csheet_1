@@ -1,5 +1,5 @@
 import dice, char_races, char_classes, social_class, base_ability_detail, age, class_abilities
-import alignments
+import alignments, os
 #import re
 
 class playerSheet:
@@ -168,4 +168,5 @@ for c in name.char_class_abilities:
         print(a,  name.char_class_abilities[c][a])
 print("***********")
 quitout = input("Enter to quit")
+print(os.getcwd())
 

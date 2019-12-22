@@ -172,21 +172,21 @@ def class_details(name):
         elif "Cavalier" == str(c):
             if "Cavalier" not in name.char_class_abilities:
                 name.char_class_abilities["Cavalier"] = {}
-            name.char_class_abilities["Cavalier"]["Honor"] = ["Cannot run from combat", "Must wear metal armor"]
-            name.char_define_abilities["Cavalier"]["Lance"] = "Lance Proficiency Required, +1 DMG per Lvl when Mounted," \
+            name.char_class_abilities["Cavalier"]["Honor"] = ["Cannot run from combat", "Must wear metal armor", "Must adhere to code to gain XP"]
+            name.char_class_abilities["Cavalier"]["Lance"] = "Lance Proficiency Required, +1 DMG per Lvl when Mounted," \
                                                               "+1 DMG when dismounted."
-            name.char_define_abilities["Cavalier"][
+            name.char_class_abilities["Cavalier"][
                 "Parry"] = "Unearthed Arcana Pg 15, reduce Attacker To hit by your bonus"
-            name.char_define_abilities["Cavalier"]["Immununity"] = "Fear"
-            name.char_define_abilities["Cavalier"]["Horsemanship"] = "Attacks from Horseback as +1 Level (UA Pg 15)"
-            name.char_define_abilities["Cavalier"]["Horsemanship2"] = "-85% thrown from saddle, or injured +1% per level"
-            name.char_define_abilities["Cavalier"]["Horsemanship3"] = "+2HP per hit die for horse, determine best quality HP steed"
-            name.char_define_abilities["Cavalier"]["Resistances"] = "Mind Affecting spells 90% failure"
-            name.char_define_abilities["Cavalier"]["Good Aligned"] = "Radiate Protection from Fear 1\" radius"
-            name.char_define_abilities["Cavalier"]["STR Training"] = dice.exceptional_strength()
-            name.char_define_abilities["Cavalier"]["DEX Training"] = dice.exceptional_strength()
-            name.char_define_abilities["Cavalier"]["CON Training"] = dice.exceptional_strength()
-
+            name.char_class_abilities["Cavalier"]["Immununity"] = "Fear"
+            name.char_class_abilities["Cavalier"]["Horsemanship"] = "Attacks from Horseback as +1 Level (UA Pg 15)"
+            name.char_class_abilities["Cavalier"]["Horsemanship2"] = "-85% thrown from saddle, or injured +1% per level"
+            name.char_class_abilities["Cavalier"]["Horsemanship3"] = "+2HP per hit die for horse, determine best quality HP steed"
+            name.char_class_abilities["Cavalier"]["Resistances"] = "Mind Affecting spells 90% failure"
+            name.char_class_abilities["Cavalier"]["Good Aligned"] = "Radiate Protection from Fear 1\" radius"
+            name.char_class_abilities["Cavalier"]["STR Training"] = dice.exceptional_strength()
+            name.char_class_abilities["Cavalier"]["DEX Training"] = dice.exceptional_strength()
+            name.char_class_abilities["Cavalier"]["CON Training"] = dice.exceptional_strength()
+            name.char_class_abilities["Cavalier"]["Save Bonus"] = "+2 Illusions"
 
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
             if name.char_social_class in ["MMC", "UMC", "LUC", "MUC", "UUC"]:
@@ -205,23 +205,25 @@ def class_details(name):
             name.char_class_abilities["UAPaladin"]["Special"]["Lay on Hands"] = "+2 per level/day"
             name.char_class_abilities["UAPaladin"]["Special"]["Cure Disease"] = "1/wk per 5 levels"
             name.char_class_abilities["UAPaladin"]["Special"]["Protection from Evil"] = '1\" radius all 24/7'
-            name.char_class_abilities["UAPaladin"]["Honor"] = ["Cannot run from combat", "Must wear metal armor"]
-            name.char_class_abilities["UAPaladin"]["Honor"] = ["Cannot run from combat", "Must wear metal armor"]
-            name.char_define_abilities["UAPaladin"]["Lance"] = "Lance Proficiency Required, +1 DMG per Lvl when Mounted," \
+            name.char_class_abilities["UAPaladin"]["Honor"] = ["Cannot run from combat", "Must wear metal armor",
+                                                              "Must adhere to code to gain XP"]
+            name.char_class_abilities["UAPaladin"]["Lance"] = "Lance Proficiency Required, +1 DMG per Lvl when Mounted," \
                                                               "+1 DMG when dismounted."
-            name.char_define_abilities["UAPaladin"][
+            name.char_class_abilities["UAPaladin"][
                 "Parry"] = "Unearthed Arcana Pg 15, reduce Attacker To hit by your bonus"
-            name.char_define_abilities["UAPaladin"]["Immununity"] = "Fear"
-            name.char_define_abilities["UAPaladin"]["Horsemanship"] = "Attacks from Horseback as +1 Level (UA Pg 15)"
-            name.char_define_abilities["UAPaladin"][
+            name.char_class_abilities["UAPaladin"]["Immununity"] = "Fear"
+            name.char_class_abilities["UAPaladin"]["Horsemanship"] = "Attacks from Horseback as +1 Level (UA Pg 15)"
+            name.char_class_abilities["UAPaladin"][
                 "Horsemanship2"] = "-85% thrown from saddle, or injured +1% per level"
-            name.char_define_abilities["UAPaladin"][
+            name.char_class_abilities["UAPaladin"][
                 "Horsemanship3"] = "+2HP per hit die for horse, determine best quality HP steed"
-            name.char_define_abilities["UAPaladin"]["Resistances"] = "Mind Affecting spells 90% failure"
-            name.char_define_abilities["UAPaladin"]["Good Aligned"] = "Radiate Protection from Fear 1\" radius"
-            name.char_define_abilities["UAPaladin"]["STR Training"] = dice.exceptional_strength()
-            name.char_define_abilities["UAPaladin"]["DEX Training"] = dice.exceptional_strength()
-            name.char_define_abilities["UAPaladin"]["CON Training"] = dice.exceptional_strength()
+            name.char_class_abilities["UAPaladin"]["Resistances"] = "Mind Affecting spells 90% failure"
+            name.char_class_abilities["UAPaladin"]["Good Aligned"] = "Radiate Protection from Fear 1\" radius"
+            name.char_class_abilities["UAPaladin"]["STR Training"] = dice.exceptional_strength()
+            name.char_class_abilities["UAPaladin"]["DEX Training"] = dice.exceptional_strength()
+            name.char_class_abilities["UAPaladin"]["CON Training"] = dice.exceptional_strength()
+            name.char_class_abilities["UAPaladin"]["CHA Training"] = dice.exceptional_strength()
+            name.char_class_abilities["UAPaladin"]["Save Bonus"] = "+2 Illusions"
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
             if name.char_social_class in ["MMC", "UMC", "LUC", "MUC", "UUC"]:
                 HP = dice.HP(10, 1, name, 6) + int(HPadj) + 3
