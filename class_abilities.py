@@ -183,14 +183,13 @@ def class_details(name):
             name.char_class_abilities["Cavalier"]["Horsemanship3"] = "+2HP per hit die for horse, determine best quality HP steed"
             name.char_class_abilities["Cavalier"]["Resistances"] = "Mind Affecting spells 90% failure"
             name.char_class_abilities["Cavalier"]["Good Aligned"] = "Radiate Protection from Fear 1\" radius"
-            name.char_class_abilities["Cavalier"]["STR Training"] = dice.exceptional_strength()
-            name.char_class_abilities["Cavalier"]["DEX Training"] = dice.exceptional_strength()
-            name.char_class_abilities["Cavalier"]["CON Training"] = dice.exceptional_strength()
             name.char_class_abilities["Cavalier"]["Save Bonus"] = "+2 Illusions"
 
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
             if name.char_social_class in ["MMC", "UMC", "LUC", "MUC", "UUC"]:
-
+                name.char_class_abilities["Cavalier"]["STR Training"] = dice.exceptional_strength()
+                name.char_class_abilities["Cavalier"]["DEX Training"] = dice.exceptional_strength()
+                name.char_class_abilities["Cavalier"]["CON Training"] = dice.exceptional_strength()
                 HP = dice.HP(10, 1, name, 6) + int(HPadj) + 3
             else:
                 HP = dice.HP(4, 1, name, 3) + int(HPadj) + 1
@@ -218,7 +217,7 @@ def class_details(name):
             name.char_class_abilities["UAPaladin"][
                 "Horsemanship3"] = "+2HP per hit die for horse, determine best quality HP steed"
             name.char_class_abilities["UAPaladin"]["Resistances"] = "Mind Affecting spells 90% failure"
-            name.char_class_abilities["UAPaladin"]["Good Aligned"] = "Radiate Protection from Fear 1\" radius"
+            name.char_class_abilities["UAPaladin"]["Special"]["Protection from Fear"] = "Radiate Protection from Fear 1\" radius"
             name.char_class_abilities["UAPaladin"]["STR Training"] = dice.exceptional_strength()
             name.char_class_abilities["UAPaladin"]["DEX Training"] = dice.exceptional_strength()
             name.char_class_abilities["UAPaladin"]["CON Training"] = dice.exceptional_strength()
