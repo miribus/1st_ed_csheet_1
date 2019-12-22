@@ -36,6 +36,7 @@ class playerSheet:
         self.char_age = ""
         self.char_age_desc = ""
         self.char_class = []
+        self.char_class_levels = []
         self.char_class_xpBonus = []
         self.char_class_abilities = {}
         self.char_race = ""
@@ -69,7 +70,7 @@ method = False
 while not method:
     print("1 Human-Only Choose Class: Method V\n",
           "2 Random: DMG Method III\n",
-          "Note: If you choose 1, you may wish to choose NOT to roll social class!\n")
+          )
     choice = input("Choose a Number>")
     if choice != "1" and choice != "2":
         method = False

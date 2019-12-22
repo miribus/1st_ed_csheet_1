@@ -50,16 +50,17 @@ soclasslimit = {"LLC": ["Monk", "Thief", "Assassin", "Barbarian"],
                         "IllusionistAssassin", "Paladin", "Cavalier", "UAPaladin"]}
 
 soclass_definition = {"LLC": "Lower Lower Class:\n"
-                             "You can be: Monk, Thief, Assassin, Barbarian",
+                             "You can be: Monk, Thief, Assassin, Barbarian, UAPaladin, Cavalier",
                       "MLC": "Middle Lower Class:\n"
-                             "You can be: Monk, Thief, Assassin, Barbarian, Fighter",
+                             "You can be: Monk, Thief, Assassin, Barbarian, Fighter, UAPaladin, Cavalier",
                       "ULC": "Upper Lower Class:\n"
-                             "You can be: Monk, Thief, Assassin, Barbarian, Fighter, Ranger, Druid",
+                             "You can be: Monk, Thief, Assassin, Barbarian, Fighter, Ranger, Druid, UAPaladin, Cavalier",
                       "LMC": "Lower Middle Class:\n"
-                             "You can be: Monk, Thief, Assassin, Barbarian, Fighter, Ranger, Druid, Cleric",
+                             "You can be: Monk, Thief, Assassin, Barbarian, Fighter, Ranger, Druid, Cleric, "
+                             "UAPaladin, Cavalier",
                       "MMC": "Middle Middle Class:\n"
                              "You can be: Monk, Thief, Assassin, Barbarian, Fighter, Ranger, Druid, Cleric\n"
-                             "            Illusionist, Magic-User",
+                             "            Illusionist, Magic-User, UAPaladin, Cavalier",
                       "UMC": "Upper Middle Class:\n"
                              "You can be: Monk, Thief, Assassin, Barbarian, Fighter, Ranger, Druid, Cleric\n"
                              "            Illusionist, Magic-User, Paladin, UAPaladin, Cavalier",
@@ -77,8 +78,8 @@ def social_class(name):
     global soclasslimit
     print("Roll social class or ignore it?")
     choice = input("Y to roll, N to ignore.")
-    if str(choice).upper() != "Y".upper() or name.methodv:
-        print("You've chosen no, or roll method 5, you're MUC")
+    if str(choice).upper() != "Y".upper():
+        print("You've chosen no")
         name.social_class = "MUC"
     else:
         classroll = dice.soclass()
