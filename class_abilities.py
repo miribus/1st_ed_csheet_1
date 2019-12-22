@@ -35,6 +35,7 @@ def class_details(name):
             name.char_class_abilities["Fighter"]["Specialization (UA) 2"] = "Atk/Rnd: Melee: 3/2, Bow: 2/1, LxB: 1/1, " \
                                                                     "HxB: 1/2, Lasso/SSling: 1/1, Thrown Dagger: 3/1, " \
                                                                     "Thrown Dart: 4/1, Other: 3/2"
+            name.char_class_abilities["Fighter"]["Superior Fighting"] = "1/Level attack per creatures less than 1HD"
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
             HP = dice.HP(10, 1, name, 6)+int(HPadj)
             name.char_HP += HP
@@ -50,6 +51,7 @@ def class_details(name):
             name.char_class_abilities["Paladin"]["Special"]["Lay on Hands"] = "+2 per level/day"
             name.char_class_abilities["Paladin"]["Special"]["Cure Disease"] = "1/wk per 5 levels"
             name.char_class_abilities["Paladin"]["Special"]["Protection from Evil"] = '1\" radius all 24/7'
+            name.char_class_abilities["Paladin"]["Superior Fighting"] = "1/Level attack per creatures less than 1HD"
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
             HP = dice.HP(10, 1, name, 6)+int(HPadj)
             name.char_HP += HP
@@ -75,6 +77,7 @@ def class_details(name):
             name.char_class_abilities["Ranger"]["Specialization (UA) 2"] = "Atk/Rnd: Melee: 3/2, Bow: 2/1, LxB: 1/1, " \
                                                                             "HxB: 1/2, Lasso/SSling: 1/1, Thrown Dagger: 3/1, " \
                                                                             "Thrown Dart: 4/1, Other: 3/2"
+            name.char_class_abilities["Ranger"]["Superior Fighting"] = "1/Level attack per creatures less than 1HD"
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
             HP = dice.HP(8, 2, name, 9) + int(HPadj) + int(HPadj)
             name.char_HP += HP
@@ -176,7 +179,8 @@ def class_details(name):
                                                               "Must be proficient in lance, favors close range swords", "Elves or Half Elves may use composite"
                                                               " short bows with honor."]
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
-            if name.char_social_class in ["MMC", "UMC", "LUC", "MUC", "UUC"]:
+            if name.char_social_class in ["LUC", "MUC", "UUC"]:
+                name.char_class_abilities["Cavalier"]["Superior Fighting"] = "1/Level attack per creatures less than 1HD"
                 name.char_class_abilities["Cavalier"][
                     "Lance"] = "Lance Proficiency Required, +1 DMG per Lvl when Mounted," \
                                "+1 DMG when dismounted."
@@ -208,8 +212,9 @@ def class_details(name):
                                                               "Must adhere to code to gain XP", "Must be proficient in "
                                                                "lance, favors close range swords"]
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
-            if name.char_social_class in ["MMC", "UMC", "LUC", "MUC", "UUC"]:
+            if name.char_social_class in ["LUC", "MUC", "UUC"]:
                 HP = dice.HP(10, 1, name, 6) + int(HPadj) + 3
+                name.char_class_abilities["UAPaladin"]["Superior Fighting"] = "1/Level attack per creatures less than 1HD"
                 name.char_class_abilities["UAPaladin"]["Save Bonus"] = "+2 all Saving Throws"
                 name.char_class_abilities["UAPaladin"]["Special"]["Lay on Hands"] = "+2 per level/day"
                 name.char_class_abilities["UAPaladin"]["Special"]["Cure Disease"] = "1/wk per 5 levels"
@@ -244,6 +249,7 @@ def class_details(name):
                                                                    " per point over 14"]
             name.char_class_abilities["Barbarian"]["Movement"] = ["Base Movement Rate of 15\""]
             name.char_class_abilities["Barbarian"]["Weapons"] = ["Initial weapons must include: Hand Axe, Knife and Spear"]
+            name.char_class_abilities["Barbarian"]["Superior Fighting"] = "1/Level attack per creatures less than 1HD"
             name.char_class_abilities["Barbarian"]["Restrictions"] = [
                 "Cannot use magic weapons or armor, will destroy it for XP"]
             name.char_class_abilities["Barbarian"]["Special"]["Climb Cliffs and Trees"] = ["Unearthed Arcana Pg 20"]
@@ -300,3 +306,29 @@ def class_details(name):
 
     name.char_HP = round(name.char_HP/len(name.char_class))
     return name
+
+def starting_money(name):
+    if "Fighter" in name.char_class or "Barbarian" in name.char_class or "Ranger" in name.char_class:
+        gold = dice.normal(4, 5)
+        gold = gold*10
+    elif "Paladin" in name.char_class and "UAPaladin" not in name.char_class:
+        gold = dice.normal(4, 5)
+        gold = gold*10
+    elif "Druid" in name.char_class or "Cleric" in name.char_class:
+        gold = dice.normal(6, 3)
+        gold = gold * 10
+    elif "Thief" in name.char_class or "Assassin" in name.char_class:
+        gold = dice.normal(6, 2)
+        gold = gold * 10
+    elif "MagicUser" in name.char_class or "Illusionist" in name.char_class:
+        gold = dice.normal(4, 2)
+        gold = gold * 10
+    elif "Monk" in name.char_class:
+        gold = dice.normal(4, 5)
+    elif "UAPaladin" in name.char_class or "Cavalier" in name.char_class:
+        if name.char_social_class in ["LUC", "MUC", "UUC"]:
+            if name.char_social_class == "UUC":
+                gold = dice.normal(6, 1)+12
+                gold = gold*10
+            name.char_armor["Full Plate Armor"] = {}
+

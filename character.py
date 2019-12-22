@@ -57,13 +57,19 @@ class playerSheet:
         self.char_saves["Rods, Staves, Wands"] = 21
         self.char_saves["Breath Weapon"] = 21
         self.char_saves["Spells"] = 21
-        self.char_armor = ""
-        self.char_shield = ""
+        self.char_armor = {}
+        self.char_shield = {}
         self.char_inventory = {}
         self.char_adjustments = {}
         self.char_race_abilities = {}
         self.soclass_limit = []
         self.social_class = ""
+        self.char_money = {}
+        self.char_money["gp"] = 0
+        self.char_money["sp"] = 0
+        self.char_money["pp"] = 0
+        self.char_money["sp"] = 0
+        self.char_money["cp"] = 0
 
 methodv = False
 method = False
