@@ -329,6 +329,10 @@ def starting_money(name):
         if name.char_social_class in ["LUC", "MUC", "UUC"]:
             if name.char_social_class == "UUC":
                 gold = dice.normal(6, 1)+12
-                gold = gold*10
-            name.char_armor["Full Plate Armor"] = {}
-
+            else:
+                gold = dice.normal(12, 1)+6
+        else:
+            gold = dice.normal(4, 2)
+        gold = gold*10
+    name.char_money["gp"] = gold
+    return name

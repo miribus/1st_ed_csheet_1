@@ -122,6 +122,7 @@ if decision.isalpha():
         name = base_ability_detail.define_abilities(name)
         name = class_abilities.class_details(name)
         name = alignments.choose_alignment(name)
+        name = class_abilities.starting_money(name)
 
 print("\n")
 print("\n")
@@ -164,6 +165,8 @@ print("Comeliness:", name.char_abilities["CMS"])
 print(name.char_define_abilities["CMS"])
 print("##########")
 print("\n")
+print("Money:")
+print(name.char_money)
 print("Race Abilities:")
 for a in name.char_race_abilities:
     print(a, name.char_race_abilities[a])
