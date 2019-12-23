@@ -133,6 +133,8 @@ if decision.isalpha():
         result = False
         while not result:
             name, result = item_shop.buy_weapons(name)
+        while not result:
+            name, result = item_shop.buy_armor(name)
         print("*****LEAVE ITEM SHOP******\n")
 
 print("\n")

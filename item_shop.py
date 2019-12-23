@@ -85,11 +85,13 @@ def buy_weapons(name):
               "     Weight:", weapons_list[int(i)][8])
 
     print("Select a NUMBER to buy, you have: ", name.char_money, " in cash.")
-    choice = input("Choose a NUMBER to purchase an item:")
 
     result = False
     while not result:
-        choice = input("Choose a NUMBER to purchase an item:")
+        choice = input("Choose a NUMBER to purchase an item, or Q to quit:")
+        if str(choice).upper() == "q".upper():
+            result = True
+            return name, result
         if choice.isdigit():
             if int(choice) in range(1, 75):
                 player_gold = name.char_money["gp"]
@@ -130,6 +132,71 @@ def buy_weapons(name):
                     return name, result
 
 
+def buy_armor(name):
+    result = False
+    while not result:
+        for i in range(1, 6):
+            print(armor_list[i][0], armor_list[i][1],
+                  "Classes", armor_list[i][8],
+                  "Cost", armor_list[i][4],
+                  "Weight", armor_list[i][5],
+                  "Bulk", armor_list[i][7])
+        choice = input("Pick NUMBER for your shield, or Q to quit:")
+        if str(choice).upper() == "q".upper():
+            result = True
+            return name, result
+        if str(choice).isdigit():
+            if int(choice) in range(1, 6):
+                name.char_shield[armor_list[int(choice)][1]] = {}
+                name.char_shield[armor_list[int(choice)][1]]["Armor Class"] = str(armor_list[int(choice)][3])
+                name.char_shield[armor_list[int(choice)][1]]["Reduction"] = str(armor_list[int(choice)][2])
+                name.char_shield[armor_list[int(choice)][1]]["Weight"] = str(armor_list[int(choice)][5])
+                name.char_shield[armor_list[int(choice)][1]]["Bulk"] = str(armor_list[int(choice)][7])
+                player_gold = name.char_money["gp"]
+                item_cost = str(weapons_list[int(choice)][7])
+                item_cost = item_cost.replace("gp", "")
+                item_cost = int(item_cost)
+                if player_gold >= item_cost:
+                    name.char_money["gp"] = player_gold - item_cost
+                    result = True
+                else:
+                    print("Not enough gold...")
+                    choice = input("Are you done? Y or N:")
+                    if str(choice).upper() == "y".upper():
+                        result = True
+
+    result = False
+    while not result:
+        for i in range(7, 19):
+            print(armor_list[i][0], armor_list[i][1],
+                  "Classes", armor_list[i][8],
+                  "Cost", armor_list[i][4],
+                  "Weight", armor_list[i][5],
+                  "Bulk", armor_list[i][7])
+        choice = input("Pick NUMBER for your Armor, or Q to quit::")
+        if str(choice).upper() == "q".upper():
+            result = True
+            return name, result
+        if str(choice).isdigit():
+            if int(choice) in range(7, 19):
+                name.char_armor[armor_list[int(choice)][1]] = {}
+                name.char_armor[armor_list[int(choice)][1]]["Armor Class"] = str(armor_list[int(choice)][3])
+                name.char_armor[armor_list[int(choice)][1]]["Reduction"] = str(armor_list[int(choice)][2])
+                name.char_armor[armor_list[int(choice)][1]]["Weight"] = str(armor_list[int(choice)][5])
+                name.char_armor[armor_list[int(choice)][1]]["Bulk"] = str(armor_list[int(choice)][7])
+                player_gold = name.char_money["gp"]
+                item_cost = str(weapons_list[int(choice)][7])
+                item_cost = item_cost.replace("gp", "")
+                item_cost = int(item_cost)
+                if player_gold >= item_cost:
+                    name.char_money["gp"] = player_gold - item_cost
+                    result = True
+                else:
+                    print("Not enough gold...")
+                    choice = input("Are you done? Y or N:")
+                    if str(choice).upper() == "y".upper():
+                        result = True
+                return name, result
 
 
 def cavalier_start(name):
