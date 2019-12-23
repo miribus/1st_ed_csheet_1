@@ -31,7 +31,7 @@ class playerSheet:
         self.methodv_choice = methodv_choice
         self.char_alignment = ""
         self.char_name = charname
-        self.char_social_class = ""
+        #self.char_social_class = ""
         self.player_name = ""
         self.char_age = ""
         self.char_age_desc = ""
@@ -128,7 +128,11 @@ if decision.isalpha():
         name = class_abilities.starting_money(name)
         print("*****ITEM SHOP******\n")
         print("\n")
-        name = item_shop.cavalier_start(name)
+        if "Cavalier" in name.char_class or "UAPaladin" in name.char_class:
+            name = item_shop.cavalier_start(name)
+        result = False
+        while not result:
+            name, result = item_shop.buy_weapons(name)
         print("*****LEAVE ITEM SHOP******\n")
 
 print("\n")
@@ -145,7 +149,7 @@ print("Class(es): ", name.char_class)
 print("Alignment: ", name.char_alignment)
 print("Race: ", name.char_race)
 print("Age: ", name.char_age, name.char_age_desc)
-print("Social Class:", name.char_social_class)
+print("Social Class:", name.social_class)
 print("HP: ", name.char_HP)
 print(name.char_saves)
 print("Strength:", name.char_abilities["STR"])

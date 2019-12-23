@@ -18,6 +18,115 @@ with open(provisions_csv, 'r') as PCSV:
     pcsv_write = csv.reader(PCSV, delimiter = ",")
     provisions_csv = list(pcsv_write)
 
+
+def buy_weapons(name):
+    m_weapons = {}
+    r_weapons = {}
+    mweapons = []
+    mweapons.append("")
+    rweapons = []
+    rweapons.append("")
+    for i in range(1, 75):
+        mweapons.append(weapons_list[int(i)][1])
+        rweapons.append(weapons_list[int(i)][1])
+        m_weapons[weapons_list[int(i)][1]] = {}
+        r_weapons[weapons_list[int(i)][1]] = {}
+        m_weapons[weapons_list[int(i)][1]]["Damage S-M"] = str(weapons_list[20][3])
+        m_weapons[weapons_list[int(i)][1]]["Damage L"] = str(weapons_list[20][4])
+        m_weapons[weapons_list[int(i)][1]]["Length"] = str(weapons_list[int(i)][9])
+        m_weapons[weapons_list[int(i)][1]]["Space"] = str(weapons_list[int(i)][10])
+        m_weapons[weapons_list[int(i)][1]]["Speed"] = str(weapons_list[int(i)][11])
+        m_weapons[weapons_list[int(i)][1]]["Notes"] = str(weapons_list[int(i)][6]).replace("\n", " ")
+        m_weapons[weapons_list[int(i)][1]]["Weight"] = str(weapons_list[int(i)][8])
+        m_weapons[weapons_list[int(i)][1]]["Type"] = str(weapons_list[int(i)][2])
+        m_weapons[weapons_list[int(i)][1]]["Cost"] = str(weapons_list[int(i)][7])
+        m_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][12]))] = str(weapons_list[int(i)][12])
+        m_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][13]))] = str(weapons_list[int(i)][13])
+        m_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][14]))] = str(weapons_list[int(i)][14])
+        m_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][15]))] = str(weapons_list[int(i)][15])
+        m_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][16]))] = str(weapons_list[int(i)][16])
+        m_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][17]))] = str(weapons_list[int(i)][17])
+        m_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][18]))] = str(weapons_list[int(i)][18])
+        m_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][19]))] = str(weapons_list[int(i)][19])
+        m_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][20]))] = str(weapons_list[int(i)][20])
+        m_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][21]))] = str(weapons_list[int(i)][21])
+        m_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][22]))] = str(weapons_list[int(i)][22])
+        if "Missile" in str(weapons_list[int(i)][2]) or "Bow" in str(weapons_list[int(i)][2]) or \
+            "Thrown" in str(weapons_list[int(i)][2]):
+
+            r_weapons[weapons_list[int(i)][1]]["Damage S-M"] = str(weapons_list[20][3])
+            r_weapons[weapons_list[int(i)][1]]["Damage L"] = str(weapons_list[20][4])
+            r_weapons[weapons_list[int(i)][1]]["Length"] = str(weapons_list[int(i)][9])
+            r_weapons[weapons_list[int(i)][1]]["Space"] = str(weapons_list[int(i)][10])
+            r_weapons[weapons_list[int(i)][1]]["Speed"] = str(weapons_list[int(i)][11])
+            r_weapons[weapons_list[int(i)][1]]["Notes"] = str(weapons_list[int(i)][6]).replace("\n", " ")
+            r_weapons[weapons_list[int(i)][1]]["Weight"] = str(weapons_list[int(i)][8])
+            r_weapons[weapons_list[int(i)][1]]["Type"] = str(weapons_list[int(i)][2])
+            r_weapons[weapons_list[int(i)][1]]["Cost"] = str(weapons_list[int(i)][7])
+            r_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][23]))] = str(weapons_list[int(i)][23])
+            r_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][24]))] = str(weapons_list[int(i)][24])
+            r_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][25]))] = str(weapons_list[int(i)][25])
+            r_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][26]))] = str(weapons_list[int(i)][26])
+            r_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][27]))] = str(weapons_list[int(i)][27])
+            r_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][28]))] = str(weapons_list[int(i)][28])
+            r_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][29]))] = str(weapons_list[int(i)][29])
+            r_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][30]))] = str(weapons_list[int(i)][30])
+            r_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][31]))] = str(weapons_list[int(i)][31])
+            r_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][32]))] = str(weapons_list[int(i)][32])
+            r_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][33]))] = str(weapons_list[int(i)][33])
+            r_weapons[weapons_list[int(i)][1]]["Rate of Fire"] = str(weapons_list[int(i)][5])
+
+        print(i, weapons_list[int(i)][1], "     Cost:", weapons_list[int(i)][7], "      DMG S-M", weapons_list[int(i)][3],
+              "     DMG L", weapons_list[int(i)][4], "      Note:", weapons_list[int(i)][6], "      Weight:", weapons_list[int(i)][8])
+
+    print("Select a NUMBER to buy, you have: ", name.char_money, " in cash.")
+    choice = input("Choose a NUMBER to purchase an item:")
+
+    result = False
+    while not result:
+        choice = input("Choose a NUMBER to purchase an item:")
+        if choice.isdigit():
+            if int(choice) in range(1, 75):
+                player_gold = name.char_money["gp"]
+                item_cost = str(weapons_list[int(choice)][7])
+                item_cost = item_cost.replace("gp", "")
+                item_cost = int(item_cost)
+                if player_gold >= item_cost:
+                    name.char_money["gp"] = player_gold - item_cost
+                    if mweapons[int(choice)] in name.char_melee_weapons:
+                        indx = 0
+                        for i in name.char_melee_weapons:
+                            if mweapons[int(choice)] in i:
+                                indx += 1
+                        indx += 1
+                        name.char_melee_weapons[mweapons[int(choice)]+"_"+str(indx)] = m_weapons[mweapons[int(choice)]]
+                    else:
+                        name.char_melee_weapons[mweapons[int(choice)]] = m_weapons[
+                            mweapons[int(choice)]]
+                    if rweapons[int(choice)] in name.char_ranged_weapons:
+                        indx = 0
+                        for i in name.char_ranged_weapons:
+                            if rweapons[int(choice)] in i:
+                                indx += 1
+                        indx += 1
+                        name.char_ranged_weapons[rweapons[int(choice)]+"_"+str(indx)] = r_weapons[rweapons[int(choice)]]
+                    else:
+                        name.char_ranged_weapons[rweapons[int(choice)]] = r_weapons[
+                            rweapons[int(choice)]]
+                    choice = input("Are you done? Y or N:")
+                    if str(choice).upper() == "y".upper():
+                        result = True
+                    return name, result
+                else:
+                    print("Not enough gold...")
+                    choice = input("Are you done? Y or N:")
+                    if str(choice).upper() == "y".upper():
+                        result = True
+                    return name, result
+
+
+
+
 def cavalier_start(name):
     if name.social_class == "UUC":
         for a in armor_list:
@@ -80,7 +189,9 @@ def cavalier_start(name):
                 name.char_melee_weapons[weapons_list[int(choice)][1]]["Length"] = str(weapons_list[int(choice)][9])
                 name.char_melee_weapons[weapons_list[int(choice)][1]]["Space"] = str(weapons_list[int(choice)][10])
                 name.char_melee_weapons[weapons_list[int(choice)][1]]["Speed"] = str(weapons_list[int(choice)][11])
-                name.char_melee_weapons[weapons_list[int(choice)][1]]["Notes"] = str(weapons_list[int(choice)][6])
+                name.char_melee_weapons[weapons_list[int(choice)][1]]["Notes"] = str(weapons_list[int(choice)][6]) \
+                    .replace("\n", " ")
+                name.char_melee_weapons[weapons_list[int(choice)][1]]["Weight"] = str(weapons_list[int(choice)][8])
                 name.char_melee_weapons[weapons_list[int(choice)][1]]["THACDJ: {}".format(str(weapons_list[0][12]))]\
                     = str(weapons_list[int(choice)][12])
                 name.char_melee_weapons[weapons_list[int(choice)][1]]["THACDJ: {}".format(str(weapons_list[0][13]))]\
@@ -121,7 +232,9 @@ def cavalier_start(name):
                     name.char_melee_weapons[weapons_list[int(choice)][1]]["Length"] = str(weapons_list[int(choice)][9])
                     name.char_melee_weapons[weapons_list[int(choice)][1]]["Space"] = str(weapons_list[int(choice)][10])
                     name.char_melee_weapons[weapons_list[int(choice)][1]]["Speed"] = str(weapons_list[int(choice)][11])
-                    name.char_melee_weapons[weapons_list[int(choice)][1]]["Notes"] = str(weapons_list[int(choice)][6])
+                    name.char_melee_weapons[weapons_list[int(choice)][1]]["Notes"] = str(weapons_list[int(choice)][6]) \
+                        .replace("\n", " ")
+                    name.char_melee_weapons[weapons_list[int(choice)][1]]["Weight"] = str(weapons_list[int(choice)][8])
                     name.char_melee_weapons[weapons_list[int(choice)][1]]["THACDJ: {}".format(str(weapons_list[0][12]))] \
                         = str(weapons_list[int(choice)][12])
                     name.char_melee_weapons[weapons_list[int(choice)][1]]["THACDJ: {}".format(str(weapons_list[0][13]))] \
@@ -154,7 +267,8 @@ def cavalier_start(name):
         name.char_melee_weapons[weapons_list[20][1]]["Length"] = str(weapons_list[20][9])
         name.char_melee_weapons[weapons_list[20][1]]["Space"] = str(weapons_list[20][10])
         name.char_melee_weapons[weapons_list[20][1]]["Speed"] = str(weapons_list[20][11])
-        name.char_melee_weapons[weapons_list[20][1]]["Notes"] = str(weapons_list[20][6])
+        name.char_melee_weapons[weapons_list[20][1]]["Notes"] = str(weapons_list[20][6]).replace("\n", " ")
+        name.char_melee_weapons[weapons_list[20][1]]["Weight"] = str(weapons_list[20][8])
         name.char_melee_weapons[weapons_list[20][1]]["THACDJ: {}".format(str(weapons_list[0][12]))] \
             = str(weapons_list[20][12])
         name.char_melee_weapons[weapons_list[20][1]]["THACDJ: {}".format(str(weapons_list[0][13]))] \
@@ -186,29 +300,30 @@ def cavalier_start(name):
         name.char_ranged_weapons[weapons_list[20][1]]["Length"] = str(weapons_list[20][9])
         name.char_ranged_weapons[weapons_list[20][1]]["Space"] = str(weapons_list[20][10])
         name.char_ranged_weapons[weapons_list[20][1]]["Speed"] = str(weapons_list[20][11])
-        name.char_ranged_weapons[weapons_list[20][1]]["Notes"] = str(weapons_list[20][6])
+        name.char_ranged_weapons[weapons_list[20][1]]["Notes"] = str(weapons_list[20][6]).replace("\n", " ")
+        name.char_ranged_weapons[weapons_list[20][1]]["Weight"] = str(weapons_list[20][8])
         name.char_ranged_weapons[weapons_list[20][1]]["THACDJ: {}".format(str(weapons_list[0][23]))] \
-            = str(weapons_list[20][12])
+            = str(weapons_list[20][23])
         name.char_ranged_weapons[weapons_list[20][1]]["THACDJ: {}".format(str(weapons_list[0][24]))] \
-            = str(weapons_list[20][13])
+            = str(weapons_list[20][24])
         name.char_ranged_weapons[weapons_list[20][1]]["THACDJ: {}".format(str(weapons_list[0][25]))] \
-            = str(weapons_list[20][14])
+            = str(weapons_list[20][25])
         name.char_ranged_weapons[weapons_list[20][1]]["THACDJ: {}".format(str(weapons_list[0][26]))] \
-            = str(weapons_list[20][15])
+            = str(weapons_list[20][26])
         name.char_ranged_weapons[weapons_list[20][1]]["THACDJ: {}".format(str(weapons_list[0][27]))] \
-            = str(weapons_list[20][16])
+            = str(weapons_list[20][27])
         name.char_ranged_weapons[weapons_list[20][1]]["THACDJ: {}".format(str(weapons_list[0][28]))] \
-            = str(weapons_list[20][17])
+            = str(weapons_list[20][28])
         name.char_ranged_weapons[weapons_list[20][1]]["THACDJ: {}".format(str(weapons_list[0][29]))] \
-            = str(weapons_list[20][18])
+            = str(weapons_list[20][29])
         name.char_ranged_weapons[weapons_list[20][1]]["THACDJ: {}".format(str(weapons_list[0][30]))] \
-            = str(weapons_list[20][19])
+            = str(weapons_list[20][30])
         name.char_ranged_weapons[weapons_list[20][1]]["THACDJ: {}".format(str(weapons_list[0][31]))] \
-            = str(weapons_list[20][20])
+            = str(weapons_list[20][31])
         name.char_ranged_weapons[weapons_list[20][1]]["THACDJ: {}".format(str(weapons_list[0][32]))] \
-            = str(weapons_list[20][21])
+            = str(weapons_list[20][32])
         name.char_ranged_weapons[weapons_list[20][1]]["THACDJ: {}".format(str(weapons_list[0][33]))] \
-            = str(weapons_list[20][22])
+            = str(weapons_list[20][33])
         name.char_ranged_weapons[weapons_list[20][1]]["Rate of Fire"] = str(weapons_list[20][5])
         if name.social_class in ["UUC"]:
             name.char_melee_weapons[weapons_list[44][1]] = {}
@@ -219,7 +334,8 @@ def cavalier_start(name):
             name.char_melee_weapons[weapons_list[44][1]]["Length"] = str(weapons_list[44][9])
             name.char_melee_weapons[weapons_list[44][1]]["Space"] = str(weapons_list[44][10])
             name.char_melee_weapons[weapons_list[44][1]]["Speed"] = str(weapons_list[44][11])
-            name.char_melee_weapons[weapons_list[44][1]]["Notes"] = str(weapons_list[44][6])
+            name.char_melee_weapons[weapons_list[44][1]]["Notes"] = str(weapons_list[44][6]).replace("\n", " ")
+            name.char_melee_weapons[weapons_list[44][1]]["Weight"] = str(weapons_list[44][8])
             name.char_melee_weapons[weapons_list[44][1]]["THACDJ: {}".format(str(weapons_list[0][12]))] \
                 = str(weapons_list[44][12])
             name.char_melee_weapons[weapons_list[44][1]]["THACDJ: {}".format(str(weapons_list[0][13]))] \

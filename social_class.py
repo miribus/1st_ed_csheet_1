@@ -94,7 +94,7 @@ def social_class(name):
             name.social_class = "ULC"
         elif int(classroll) in range(22, 36):
             name.social_class = "LMC"
-        elif int(classroll) in range(36, 56):
+        elif int(classroll) in range(36, 57):
             name.social_class = "MMC"
         elif int(classroll) in range(57, 88):
             name.social_class = "UMC"
