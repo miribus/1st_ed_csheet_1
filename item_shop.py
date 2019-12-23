@@ -76,8 +76,13 @@ def buy_weapons(name):
             r_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][33]))] = str(weapons_list[int(i)][33])
             r_weapons[weapons_list[int(i)][1]]["Rate of Fire"] = str(weapons_list[int(i)][5])
 
-        print(i, weapons_list[int(i)][1], "     Cost:", weapons_list[int(i)][7], "      DMG S-M", weapons_list[int(i)][3],
-              "     DMG L", weapons_list[int(i)][4], "      Note:", weapons_list[int(i)][6], "      Weight:", weapons_list[int(i)][8])
+        print(i, weapons_list[int(i)][1],
+              "                 Cost:", weapons_list[int(i)][7],
+              "     Classes:", weapons_list[int(i)][34],
+              "     DMG S-M", weapons_list[int(i)][3],
+              "     DMG L", weapons_list[int(i)][4],
+              "     Note:", weapons_list[int(i)][6],
+              "     Weight:", weapons_list[int(i)][8])
 
     print("Select a NUMBER to buy, you have: ", name.char_money, " in cash.")
     choice = input("Choose a NUMBER to purchase an item:")

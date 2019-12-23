@@ -1,19 +1,19 @@
-number,Armor,Reduction,From AC10,Cost,Weight,Type,Bulk
-1,Large Shield,-1,9,15gp,100w,shield,bulky
-2,Small Shield,-1,9,10gp,50w,shield,non
-3,Wooden Small Shield,-1,9,1gp,30w,shield,non
-4,Buckler,-1,9,5gp,30w,shield,non
-2,Spiked Buckler,-1,9,10gp,30w,shield,non
-3,Leather Armor,-2,8,5gp,150w,armor,non
-4,Padded Armor,-2,8,4gp,100w,armor,fairly
-5,Studded Leather Armor,-3,7,15gp,200w,armor,fairly
-6,Ring Mail,-3,7,30gp,250w,armor,fairly
-7,Scale Mail,-4,6,45gp,400w,armor,fairly
-8,Chain Mail,-5,5,75gp,300w,armor,fairly
-9,Elfin Chain Mail,-5,5,5000gp,150w,armor,non
-10,Splint Mail,-6,4,80gp,400w,armor,bulky
-11,Banded Mail,-6,4,90gp,350w,armor,bulky
-12,Bronze Mail,-6,4,100gp,450w,armor,bulky
-13,Plate Mail,-7,3,300gp,450w,armor,bulky
-14,Field Plate Armor,-8,2,2000gp,550w,armor,bulky
-15,Full Plate Armor,-9,1,4000gp,650w,armor,bulky
+number,Armor,Reduction,From AC10,Cost,Weight,Type,Bulk,Classes
+1,Large Shield,-1,9,15gp,100w,shield,bulky,"F, A, R, C, Cav"
+2,Small Shield,-1,9,10gp,50w,shield,non,"F, A, R, C, Cav"
+3,Wooden Small Shield,-1,9,1gp,30w,shield,non,"F, A, R, C, D, B"
+4,Buckler,-1,9,5gp,30w,shield,non,"F, A, R, C, D, B"
+2,Spiked Buckler,-1,9,10gp,30w,shield,non,"F, A, R, C, B"
+3,Leather Armor,-2,8,5gp,150w,armor,non,"F, A, R, C, D, T*, B*"
+4,Padded Armor,-2,8,4gp,100w,armor,fairly,"F, A, R, C, B**"
+5,Studded Leather Armor,-3,7,15gp,200w,armor,fairly,"F, A, R, C, B**"
+6,Ring Mail,-3,7,30gp,250w,armor,fairly,"F, A, R, C, B**"
+7,Scale Mail,-4,6,45gp,400w,armor,fairly,"F, A, R, C, B**"
+8,Chain Mail,-5,5,75gp,300w,armor,fairly,"F, A, R, C, Cav"
+9,Elfin Chain Mail,-5,5,5000gp,150w,armor,non,"F, A, R, C, Cav"
+10,Splint Mail,-6,4,80gp,400w,armor,bulky,"F, A, R, C, Cav"
+11,Banded Mail,-6,4,90gp,350w,armor,bulky,"F, A, R, C, Cav"
+12,Bronze Mail,-6,4,100gp,450w,armor,bulky,"F, A, R, C, Cav"
+13,Plate Mail,-7,3,300gp,450w,armor,bulky,"F, A, R, C, Cav"
+14,Field Plate Armor,-8,2,2000gp,550w,armor,bulky,"F, A, R, C, Cav"
+15,Full Plate Armor,-9,1,4000gp,650w,armor,bulky,"F, A, R, C, Cav"
