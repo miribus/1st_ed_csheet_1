@@ -1,103 +1,103 @@
-"Weapon","Type","Damage S-M","Damage L","Fire Rate","Range/Notes","Cost","Weight","Length","Space","Speed",0,1,2,3,4,5,6,7,8,9,10,0,1,2,3,4,5,6,7,8,9,10
-"Aklys","Thrown/Melee","d6","d4",1,"Range 10 foot (rope to recover) 
-Entangling attack","2gp","35w","2’","2’",5,-7,-6,-5,-4,-3,-2,-1,-1,0,0,1,,,,,,,,,,,
-"Atlatl with Javelin","Missile","d6","d6",1,"Range 3:6:9, fires javelins","1gp","30w","3’","1’",0,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,,,,
-"Arrow-- 
-Leafhead","Missile","d8","d6",2,"Bow Ranges 
-MJY penalizes -1 to hit","0.2gp","2w",,,,,,,,,,,,,,,,,,,,,,,,,
-"Arrow-- 
-Standard","Missile","d6","d6",2,"Bow Ranges","1gp","24w",,,,,,,,,,,,,,,,,,,,,,,,,
-"Axe, Battle","Melee","d8","d8",1,,"5gp","75w","4’","4’",7,-5,-4,-3,-2,-1,-1,0,0,1,1,2,,,,,,,,,,,
-"Axe, Hand","Melee/Thrown","d6","d4",,"Ranges 1:2:3","1gp","50w","1.5’","1’",4,-5,-4,-3,-2,-2,-1,0,0,1,1,1,-6,-5,-4,-3,-2,-1,-1,0,0,0,1
-"Bardiche","Polearm","2d4","3d4",,,"7gp","125w","5’","5’",9,-3,-2,-2,-1,0,0,1,1,2,2,3,,,,,,,,,,,
-"Bec de Corbin","Polearm","d8","d6",,,"6gp","100w","6’","6’",9,2,2,2,2,2,0,0,0,0,0,-1,,,,,,,,,,,
-"Bill-Guisarme","Polearm","2d4","d10",,,"6gp","150w","8’","2’",10,0,0,0,0,0,0,0,0,1,0,0,,,,,,,,,,,
-"Blowgun/Needle","Missile",1,1,2,"Ranges 1:2:3","20gp","15w","4’-7’","1’",0,,,,,,,,,,,,-14,-12,-10,-8,-6,-4,-2,-1,-1,1,2
-"Long Composite Bow","Bow",,,2,"Ranges 6:12:21","100gp","80w",,,0,,,,,,,,,,,,-4,-3,-2,-1,0,0,1,2,2,3,3
-"Long Bow","Bow",,,2,"Ranges 7:14:21","60gp","100w",,,0,,,,,,,,,,,,-2,-1,-1,0,0,1,2,3,3,3,3
-"Short Composite Bow","Bow",,,2,"Ranges 5:10:18","75gp","50w",,,0,,,,,,,,,,,,-4,-4,-3,-3,-1,0,1,2,2,2,3
-"Short Bow","Bow",,,2,"Ranges 5:10:15","15gp","50w",,,0,,,,,,,,,,,,-7,-6,-5,-4,-1,0,0,1,2,2,2
-"Caltrop (Tetsu-bishi)","Special",1,"d2",,"Portable ground spikes 
+number,Weapon,Type,Damage S-M,Damage L,Fire Rate,Range/Notes,Cost,Weight,Length,Space,Speed,0,1,2,3,4,5,6,7,8,9,10,0,1,2,3,4,5,6,7,8,9,10
+1,Aklys,Thrown/Melee,d6,d4,1,"Range 10 foot (rope to recover) 
+Entangling attack",2gp,35w,2’,2’,5,-7,-6,-5,-4,-3,-2,-1,-1,0,0,1,,,,,,,,,,,
+2,Atlatl with Javelin,Missile,d6,d6,1,"Range 3:6:9, fires javelins",1gp,30w,3’,1’,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,,,,
+3,"Arrow-- 
+Leafhead",Missile,d8,d6,2,"Bow Ranges 
+MJY penalizes -1 to hit",0.2gp,2w,,,,,,,,,,,,,,,,,,,,,,,,,
+4,"Arrow-- 
+Standard",Missile,d6,d6,2,Bow Ranges,1gp,24w,,,,,,,,,,,,,,,,,,,,,,,,,
+5,"Axe, Battle",Melee,d8,d8,1,,5gp,75w,4’,4’,7,-5,-4,-3,-2,-1,-1,0,0,1,1,2,,,,,,,,,,,
+6,"Axe, Hand",Melee/Thrown,d6,d4,,Ranges 1:2:3,1gp,50w,1.5’,1’,4,-5,-4,-3,-2,-2,-1,0,0,1,1,1,-6,-5,-4,-3,-2,-1,-1,0,0,0,1
+7,Bardiche,Polearm,2d4,3d4,,,7gp,125w,5’,5’,9,-3,-2,-2,-1,0,0,1,1,2,2,3,,,,,,,,,,,
+8,Bec de Corbin,Polearm,d8,d6,,,6gp,100w,6’,6’,9,2,2,2,2,2,0,0,0,0,0,-1,,,,,,,,,,,
+9,Bill-Guisarme,Polearm,2d4,d10,,,6gp,150w,8’,2’,10,0,0,0,0,0,0,0,0,1,0,0,,,,,,,,,,,
+10,Blowgun/Needle,Missile,1,1,2,Ranges 1:2:3,20gp,15w,4’-7’,1’,0,,,,,,,,,,,,-14,-12,-10,-8,-6,-4,-2,-1,-1,1,2
+11,Long Composite Bow,Bow,,,2,Ranges 6:12:21,100gp,80w,,,0,,,,,,,,,,,,-4,-3,-2,-1,0,0,1,2,2,3,3
+12,Long Bow,Bow,,,2,Ranges 7:14:21,60gp,100w,,,0,,,,,,,,,,,,-2,-1,-1,0,0,1,2,3,3,3,3
+13,Short Composite Bow,Bow,,,2,Ranges 5:10:18,75gp,50w,,,0,,,,,,,,,,,,-4,-4,-3,-3,-1,0,1,2,2,2,3
+14,Short Bow,Bow,,,2,Ranges 5:10:15,15gp,50w,,,0,,,,,,,,,,,,-7,-6,-5,-4,-1,0,0,1,2,2,2
+15,Caltrop,Special,1,d2,,"Portable ground spikes 
 MJY:  Hard boots protect 
-MJY:  Proficiency not required for use","0.2gp","3w",0,0,0,-8,-7,-6,-5,-4,-3,-2,-1,0,1,2,,,,,,,,,,,
-"Club","Melee/Thrown","d6","d3",1,"Ranges 2:4:6","0gp","30w","3’","1’",4,-7,-6,-5,-4,-3,-2,-1,-1,0,0,1,-9,-8,-7,-5,-3,-2,-1,-1,-1,0,0
-"Hand Crossbow","Bow",,,1,"Ranges 2:4:6 
-Drow weapon","300gp","30w",,,0,,,,,,,,,,,,-6,-4,-2,-1,0,0,0,1,2,2,3
-"Heavy Crossbow","Bow",,,0.5,"Ranges 8:16:24 
-Fire Rate 1/2","20gp","80w",,,0,,,,,,,,,,,,-2,-1,-1,0,1,2,3,3,4,4,4
-"Light Crossbow","Bow",,,1,"Ranges 6:12:18","12gp","50w",,,0,,,,,,,,,,,,-3,-2,-2,-2,0,0,1,2,3,3,3
-"Dagger and Scabbard","Melee/Thrown","d4","d3",2,"Ranges 1:2:3","2gp","10w","1.5’",,2,-4,-4,-3,-3,-2,-2,0,0,1,1,3,-7,-6,-5,-4,-3,-2,-1,-1,0,0,1
-"Blowgun Needle (Dart)","Missile","d2",1,2,"Ranges 1.5:3:4.5","0.1gp","1w",,,0,,,,,,,,,,,,-14,-12,-10,-8,-6,-4,-2,-1,-1,1,2
-"Dart","Thrown","d3","d2",3,"Ranges 1.5:3:4.5","0.5gp","5w",,,0,,,,,,,,,,,,-7,-6,-5,-4,-3,-2,-1,0,1,0,1
-"Fauchard","Polearm","d6","d8",,"Dismount opponent on any hit","3gp","60w","8’+","2’",8,-3,-3,-2,-2,-1,-1,0,0,0,-1,-1,,,,,,,,,,,
-"Fauchard-Fork","Polearm","d8","d10",,"Dismount opponent on any hit","8gp","80w","8’","2’",8,-2,-2,-1,-1,-1,0,0,0,1,0,1,,,,,,,,,,,
-"Footman's Flail","Melee","d6+1","2d4",,,"3gp","150w","4’","6’",7,3,3,2,2,1,2,1,1,1,1,-1,,,,,,,,,,,
-"Horseman's Flail","Melee","d4+1","d4+1",,,"8gp","35w","2’","4’",6,0,0,0,0,0,0,0,1,1,1,0,,,,,,,,,,,
-"Military Fork","Polearm","d8","2d4",,"Dismount opponent on any hit","4gp","75w","7’+","1’",7,-3,-3,-2,-2,-1,0,0,1,1,0,1,,,,,,,,,,,
-"Garrotte","Backstab","d4","d6",,"Choking attack surprise from behind 
+MJY:  Proficiency not required for use",0.2gp,3w,0,0,0,-8,-7,-6,-5,-4,-3,-2,-1,0,1,2,,,,,,,,,,,
+16,Club,Melee/Thrown,d6,d3,1,Ranges 2:4:6,0gp,30w,3’,1’,4,-7,-6,-5,-4,-3,-2,-1,-1,0,0,1,-9,-8,-7,-5,-3,-2,-1,-1,-1,0,0
+17,Hand Crossbow,Bow,,,1,"Ranges 2:4:6 
+Drow weapon",300gp,30w,,,0,,,,,,,,,,,,-6,-4,-2,-1,0,0,0,1,2,2,3
+18,Heavy Crossbow,Bow,,,0.5,"Ranges 8:16:24 
+Fire Rate 1/2",20gp,80w,,,0,,,,,,,,,,,,-2,-1,-1,0,1,2,3,3,4,4,4
+19,Light Crossbow,Bow,,,1,Ranges 6:12:18,12gp,50w,,,0,,,,,,,,,,,,-3,-2,-2,-2,0,0,1,2,3,3,3
+20,Dagger and Scabbard,Melee/Thrown,d4,d3,2,Ranges 1:2:3,2gp,10w,1.5’,,2,-4,-4,-3,-3,-2,-2,0,0,1,1,3,-7,-6,-5,-4,-3,-2,-1,-1,0,0,1
+21,Blowgun Needle (Dart),Missile,d2,1,2,Ranges 1.5:3:4.5,0.1gp,1w,,,0,,,,,,,,,,,,-14,-12,-10,-8,-6,-4,-2,-1,-1,1,2
+22,Dart,Thrown,d3,d2,3,Ranges 1.5:3:4.5,0.5gp,5w,,,0,,,,,,,,,,,,-7,-6,-5,-4,-3,-2,-1,0,1,0,1
+23,Fauchard,Polearm,d6,d8,,Dismount opponent on any hit,3gp,60w,8’+,2’,8,-3,-3,-2,-2,-1,-1,0,0,0,-1,-1,,,,,,,,,,,
+24,Fauchard-Fork,Polearm,d8,d10,,Dismount opponent on any hit,8gp,80w,8’,2’,8,-2,-2,-1,-1,-1,0,0,0,1,0,1,,,,,,,,,,,
+25,Footman's Flail,Melee,d6+1,2d4,,,3gp,150w,4’,6’,7,3,3,2,2,1,2,1,1,1,1,-1,,,,,,,,,,,
+26,Horseman's Flail,Melee,d4+1,d4+1,,,8gp,35w,2’,4’,6,0,0,0,0,0,0,0,1,1,1,0,,,,,,,,,,,
+27,Military Fork,Polearm,d8,2d4,,Dismount opponent on any hit,4gp,75w,7’+,1’,7,-3,-3,-2,-2,-1,0,0,1,1,0,1,,,,,,,,,,,
+28,Garrotte,Backstab,d4,d6,,"Choking attack surprise from behind 
 Stout collar negates 
-Not used in combat","0.5gp","1w","3’","1.5’",2,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,,,,
-"Glaive","Polearm","d6","d10",,"Double damage set against charge (L)","6gp","75w","8’+","1’",8,-2,-2,-1,-1,0,0,0,0,0,0,0,,,,,,,,,,,
-"Glaive-Guisarme","Polearm","2d4","2d6",,"Dismount opponent on any hit","10gp","100w","8’+","1’",9,-2,-2,-1,-1,0,0,0,0,0,0,0,,,,,,,,,,,
-"Guisarme","Polearm","2d4","d8",,"Dismount opponent on any hit","5gp","80w","6’+","2’",8,-3,-3,-2,-2,-1,-1,0,0,0,-1,-1,,,,,,,,,,,
-"Guisarme-Voulge","Polearm","2d4","2d4",,"Dismount opponent on any hit","7gp","150w","7’+","2’",10,-2,-2,-1,-1,0,1,1,1,0,0,0,,,,,,,,,,,
-"Halberd","Polearm","d10","2d6",,"Two-handed axe","9gp","175w","5’+","5’",9,0,1,1,1,1,2,2,2,1,1,0,,,,,,,,,,,
-"Hammer","Melee/Thrown","d4+1","d4",1,"Ranges 1:2:3","1gp","150w","1.5’","2’",4,0,0,0,1,0,1,0,0,0,0,0,-4,-3,-2,-1,0,0,0,0,0,0,1
-"Lucerne Hammer","Polearm","2d4","d6",,"Dismount opponent on any hit","7gp","50w","5’+","5’",9,0,1,1,1,2,2,2,1,1,0,0,,,,,,,,,,,
-"Harpoon","Melee/Thrown","2d4","2d6",1,"Ranges 1:2:3 
-Entangling attack","5gp","55w","6’-8’","1.5’",6,-3,-2,-2,-1,-1,-1,0,0,0,0,0,-6,-5,-4,-3,-2,-1,0,0,0,0,1
-"Javelin","Melee/Thrown","d6","d6",,"Double damage set against charge (L)  Ranges 2:4:6","1gp","20w",,,0,-6,-5,-4,-3,-2,-1,0,0,1,1,2,-7,-6,-5,-4,-3,-2,-1,0,1,0,1
-"Knife & Scabbard","Melee/Thrown","d3","d2",2,"Ranges 1:2:3","1gp","6w","1’","1’",2,"1’","1’",-3,-3,-2,-2,0,0,1,1,3,-8,-7,-6,-5,-4,-3,-2,-1,0,0,1
-"Heavy Lance","Polearm","2d4+1","3d6",,"Double damage in mounted charge 
-Mounted use only (except Cavalier)","6gp","150w","14’","1’",8,4,4,3,3,2,2,2,1,1,0,0,,,,,,,,,,,
-"Light Lance","Polearm","d6","d8",,"Double damage in mounted charge 
-Mounted use only (except Cavalier)","6gp","50w","10’","1’",7,-3,-3,-2,-2,-1,0,0,0,0,0,0,,,,,,,,,,,
-"Medium Lance","Polearm","d6+1","2d6",,"Double damage in mounted charge 
-Mounted use only (except Cavalier)","6gp","100w","12’","1’",6,-1,0,0,1,1,1,1,0,0,0,0,,,,,,,,,,,
-"Lasso","Thrown",0,0,0.5,"Ranges 1:2:3 
+Not used in combat",0.5gp,1w,3’,1.5’,2,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,,,,
+29,Glaive,Polearm,d6,d10,,Double damage set against charge (L),6gp,75w,8’+,1’,8,-2,-2,-1,-1,0,0,0,0,0,0,0,,,,,,,,,,,
+30,Glaive-Guisarme,Polearm,2d4,2d6,,Dismount opponent on any hit,10gp,100w,8’+,1’,9,-2,-2,-1,-1,0,0,0,0,0,0,0,,,,,,,,,,,
+31,Guisarme,Polearm,2d4,d8,,Dismount opponent on any hit,5gp,80w,6’+,2’,8,-3,-3,-2,-2,-1,-1,0,0,0,-1,-1,,,,,,,,,,,
+32,Guisarme-Voulge,Polearm,2d4,2d4,,Dismount opponent on any hit,7gp,150w,7’+,2’,10,-2,-2,-1,-1,0,1,1,1,0,0,0,,,,,,,,,,,
+33,Halberd,Polearm,d10,2d6,,Two-handed axe,9gp,175w,5’+,5’,9,0,1,1,1,1,2,2,2,1,1,0,,,,,,,,,,,
+34,Hammer,Melee/Thrown,d4+1,d4,1,Ranges 1:2:3,1gp,150w,1.5’,2’,4,0,0,0,1,0,1,0,0,0,0,0,-4,-3,-2,-1,0,0,0,0,0,0,1
+35,Lucerne Hammer,Polearm,2d4,d6,,Dismount opponent on any hit,7gp,50w,5’+,5’,9,0,1,1,1,2,2,2,1,1,0,0,,,,,,,,,,,
+36,Harpoon,Melee/Thrown,2d4,2d6,1,"Ranges 1:2:3 
+Entangling attack",5gp,55w,6’-8’,1.5’,6,-3,-2,-2,-1,-1,-1,0,0,0,0,0,-6,-5,-4,-3,-2,-1,0,0,0,0,1
+37,Javelin,Melee/Thrown,d6,d6,,Double damage set against charge (L)  Ranges 2:4:6,1gp,20w,,,0,-6,-5,-4,-3,-2,-1,0,0,1,1,2,-7,-6,-5,-4,-3,-2,-1,0,1,0,1
+38,Knife & Scabbard,Melee/Thrown,d3,d2,2,Ranges 1:2:3,1gp,6w,1’,1’,2,1’,1’,-3,-3,-2,-2,0,0,1,1,3,-8,-7,-6,-5,-4,-3,-2,-1,0,0,1
+39,Heavy Lance,Polearm,2d4+1,3d6,,"Double damage in mounted charge 
+Mounted use only (except Cavalier)",6gp,150w,14’,1’,8,4,4,3,3,2,2,2,1,1,0,0,,,,,,,,,,,
+40,Light Lance,Polearm,d6,d8,,"Double damage in mounted charge 
+Mounted use only (except Cavalier)",6gp,50w,10’,1’,7,-3,-3,-2,-2,-1,0,0,0,0,0,0,,,,,,,,,,,
+41,Medium Lance,Polearm,d6+1,2d6,,"Double damage in mounted charge 
+Mounted use only (except Cavalier)",6gp,100w,12’,1’,6,-1,0,0,1,1,1,1,0,0,0,0,,,,,,,,,,,
+42,Lasso,Thrown,0,0,0.5,"Ranges 1:2:3 
 Entangling attack 
-May dismount or topple opponent","0.5gp","20w","10’-20’","8’",10,0,0,0,0,0,0,0,0,0,0,0,9,8,7,6,5,4,3,2,1,0,-1
-"Footman's Mace","Melee","d6+1","d6",,,"8gp","60w","2.5’","4’",7,2,2,1,1,0,0,0,0,0,1,-1,,,,,,,,,,,
-"Horseman's Mace","Melee","d6","d4",,,"4gp","40w","1.5’","2’",6,2,2,1,1,0,0,0,0,0,0,0,,,,,,,,,,,
-"Man Catcher","Polearm","d2","d2",,"Two-handed weapon 
-Tatget must be near man-sized","25gp","80w","8’","2.5’",7,0,0,0,0,0,0,0,0,-1,-2,-3,,,,,,,,,,,
-"Morningstar","Melee","2d4","d6+1",,,"5gp","125w","4’","5’",7,0,0,0,1,1,1,1,1,1,2,2,,,,,,,,,,,
-"Partisan","Polearm","d6","d6+1",,,"10gp","80w","7’+","3’",9,0,0,0,1,1,1,1,1,1,2,2,,,,,,,,,,,
-"Fooman's Military Pick","Melee","d6+1","2d4",,,"6gp","60w","4’","4’",7,3,3,2,2,1,1,0,-1,-1,-1,-2,,,,,,,,,,,
-"Horseman's Military Pick","Melee","d4+1","d4",,,"5gp","40w","1’","2’",6,2,2,1,1,1,1,0,0,-1,-1,-1,,,,,,,,,,,
-"Awl Pike","Polearm","d6","2d6",,,"3gp","80w","18’+","1’",13,-1,-1,-1,0,0,0,0,0,0,-1,-2,,,,,,,,,,,
-"Hand Quarrel  or Bolt","Missile","d3","d2",1,"Hand Crossbow Use 
-Drow weapon","100gp","1w",,,0,,,,,,,,,,,,-6,-4,-2,-1,0,0,0,1,2,2,3
-"Heavy Quarrel or Bolt","Missile","d4+1","d6+1",1,"Heavy Crossbow Use","0.1gp","2w",,,0,,,,,,,,,,,,-2,-1,-1,0,1,2,3,3,4,4,4
-"Light Quarrel or Bolt","Missile","d4","d4",1,"Light Crossbow Use 
-Chu-ko-nu Use","0.1gp","1w",,,0,,,,,,,,,,,,-3,-2,-2,-1,0,0,1,2,3,3,3
-"Ranseur","Polearm","2d4","2d4",,"Disarm on hit v. AC8 
-Double damage set against charge (L)","4gp","50w","8’+","1’",8,-3,-3,-2,-1,-1,0,0,0,0,0,1,,,,,,,,,,,
-"Sap","Backstab","d2","d2",,"5% per point Strength of knockout 
-Helmet negates effect","1gp","10w","1.5’","1’",2,-14,-13,-12,-10,-8,-6,-5,-4,-3,-2,0,,,,,,,,,,,
-"Scimitar","Melee","d8","d8",,,"15gp","40w","3’","2’",4,-4,-3,-3,-2,-2,-1,0,0,1,1,3,,,,,,,,,,,
-"Sling Bullet","Missile","d4+1","d6+1",1,"Range 5:10:20",".1gb","1w",,,0,,,,,,,,,,,,-3,-3,-2,-2,-1,0,0,0,2,1,3
-"Sling Stone","Missile","d4","d4",1,"Range 4:8:16","0gp","1w",,,0,,,,,,,,,,,,-7,-6,-5,-4,-2,-1,0,0,2,1,3
-"Spear","Melee/Thrown","d6","d8",1,"Two-handed weapon 
+May dismount or topple opponent",0.5gp,20w,10’-20’,8’,10,0,0,0,0,0,0,0,0,0,0,0,9,8,7,6,5,4,3,2,1,0,-1
+43,Footman's Mace,Melee,d6+1,d6,,,8gp,60w,2.5’,4’,7,2,2,1,1,0,0,0,0,0,1,-1,,,,,,,,,,,
+44,Horseman's Mace,Melee,d6,d4,,,4gp,40w,1.5’,2’,6,2,2,1,1,0,0,0,0,0,0,0,,,,,,,,,,,
+45,Man Catcher,Polearm,d2,d2,,"Two-handed weapon 
+Tatget must be near man-sized",25gp,80w,8’,2.5’,7,0,0,0,0,0,0,0,0,-1,-2,-3,,,,,,,,,,,
+46,Morningstar,Melee,2d4,d6+1,,,5gp,125w,4’,5’,7,0,0,0,1,1,1,1,1,1,2,2,,,,,,,,,,,
+47,Partisan,Polearm,d6,d6+1,,,10gp,80w,7’+,3’,9,0,0,0,1,1,1,1,1,1,2,2,,,,,,,,,,,
+48,Fooman's Military Pick,Melee,d6+1,2d4,,,6gp,60w,4’,4’,7,3,3,2,2,1,1,0,-1,-1,-1,-2,,,,,,,,,,,
+49,Horseman's Military Pick,Melee,d4+1,d4,,,5gp,40w,1’,2’,6,2,2,1,1,1,1,0,0,-1,-1,-1,,,,,,,,,,,
+50,Awl Pike,Polearm,d6,2d6,,,3gp,80w,18’+,1’,13,-1,-1,-1,0,0,0,0,0,0,-1,-2,,,,,,,,,,,
+51,Hand Quarrel  or Bolt,Missile,d3,d2,1,"Hand Crossbow Use 
+Drow weapon",100gp,1w,,,0,,,,,,,,,,,,-6,-4,-2,-1,0,0,0,1,2,2,3
+52,Heavy Quarrel or Bolt,Missile,d4+1,d6+1,1,Heavy Crossbow Use,0.1gp,2w,,,0,,,,,,,,,,,,-2,-1,-1,0,1,2,3,3,4,4,4
+53,Light Quarrel or Bolt,Missile,d4,d4,1,"Light Crossbow Use 
+Chu-ko-nu Use",0.1gp,1w,,,0,,,,,,,,,,,,-3,-2,-2,-1,0,0,1,2,3,3,3
+54,Ranseur,Polearm,2d4,2d4,,"Disarm on hit v. AC8 
+Double damage set against charge (L)",4gp,50w,8’+,1’,8,-3,-3,-2,-1,-1,0,0,0,0,0,1,,,,,,,,,,,
+55,Sap,Backstab,d2,d2,,"5% per point Strength of knockout 
+Helmet negates effect",1gp,10w,1.5’,1’,2,-14,-13,-12,-10,-8,-6,-5,-4,-3,-2,0,,,,,,,,,,,
+56,Scimitar,Melee,d8,d8,,,15gp,40w,3’,2’,4,-4,-3,-3,-2,-2,-1,0,0,1,1,3,,,,,,,,,,,
+57,Sling Bullet,Missile,d4+1,d6+1,1,Range 5:10:20,.1gb,1w,,,0,,,,,,,,,,,,-3,-3,-2,-2,-1,0,0,0,2,1,3
+58,Sling Stone,Missile,d4,d4,1,Range 4:8:16,0gp,1w,,,0,,,,,,,,,,,,-7,-6,-5,-4,-2,-1,0,0,2,1,3
+59,Spear,Melee/Thrown,d6,d8,1,"Two-handed weapon 
 Double damage set against charge 
-Martial arts capable","1gp","50w","5’-13’+","1’",6,-2,-2,-2,-1,-1,-1,0,0,0,0,0,-4,-4,-3,-3,-2,-2,-1,0,0,0,0
-"Spetum","Polearm","d6+1","2d6",,"Disarm on hit v. AC8","3gp","50w","8’+","1’",8,-2,-2,-2,-1,0,0,0,0,0,1,2,,,,,,,,,,,
-"Spiked Buckler","Melee","d4","d3",,"Shield function 
-Usually used as off-hand weapon",5,"50w","1’","2’",4,-7,-6,-5,-4,-3,-2,-1,0,0,0,2,,,,,,,,,,,
-"Quarter Staff","Melee","d6","d6",,,"0gp","50w","6’-8’","3’",4,-9,-8,-7,-5,-3,-1,0,0,1,1,1,,,,,,,,,,,
-"Staff Sling with Bullet","Missile","2d4","2d4+1",0.5,"Range 0:6:9 
-No targets closer than 3","1gp","100w","5’","6’",11,-5,-4,-3,-2,-1,0,0,0,0,0,0,,,,,,,,,,,
-"Staff Sling with Stone","Missile","d8","2d4",0.5,"Range 0:6:9 
-No targets closer than 3","1gp","100w","5’","6’",11,-6,-5,-4,-3,-2,-1,0,0,0,0,0,,,,,,,,,,,
-"Bastard Sword & Scabbard","Melee","2d4","2d8",,"Two-handed weapon 
-May be used one-handed as Long Sword","25gp","100w","4.5’","4’",6,0,0,0,0,1,1,1,1,1,1,0,,,,,,,,,,,
-"Broad Sword & Scabbard","Melee","2d4","d6+1",,,"10gp","75w","3.5’","4’",5,-5,-4,-3,-2,-1,0,0,1,1,1,2,,,,,,,,,,,
-"Falchion Sword & Scabbard","Melee","d6+1","2d4",,"Includes sabre","10gp","70w","3.5’","3.5’",5,-3,-2,-2,-1,0,1,1,1,1,0,0,,,,,,,,,,,
-"Khopesh Sword","Melee","2d4","d6",,"May impede opponent attack 
-May bring down opponent","10gp","75w","3.5’","4’",9,-7,-6,-5,-4,-2,-1,0,0,1,1,2,,,,,,,,,,,
-"Long Sword & Scabbard","Melee","d8","d12",,"Most common sword in occident","15gp","60w","3.5’",,,-4,-3,,,,,,,,,,,,,,,,,,,,
-"Short Sword & Scabbard","Melee","d6","d8",,,"8gp","35w","2’","1’",3,-5,-4,-3,-2,-1,0,0,0,1,0,2,,,,,,,,,,,
-"Two-handed Sword","Melee","d10","3d6",,"Two-handed weapon","30gp","190w","6’","6’",10,2,2,2,2,2,2,3,3,3,1,0,,,,,,,,,,,
-"Trident","Polearm","d6+1","3d4",,,"4gp","50w","4’-8’","1’","6-8",-4,-3,-3,-2,-1,-1,0,0,1,0,1,,,,,,,,,,,
-"Voulge","Polearm","2d4","2d4",,,"2gp","125w","8’","2’",10,-2,-2,-1,-1,0,1,1,1,0,0,0,,,,,,,,,,,
-"Whip","Melee","d2",1,,"Entangling attack","3gp","30w","8’-20’","8’-20’","5-8",-14,-12,-10,-8,-6,-4,-2,-1,1,0,3,,,,,,,,,,,
+Martial arts capable",1gp,50w,5’-13’+,1’,6,-2,-2,-2,-1,-1,-1,0,0,0,0,0,-4,-4,-3,-3,-2,-2,-1,0,0,0,0
+60,Spetum,Polearm,d6+1,2d6,,Disarm on hit v. AC8,3gp,50w,8’+,1’,8,-2,-2,-2,-1,0,0,0,0,0,1,2,,,,,,,,,,,
+61,Spiked Buckler,Melee,d4,d3,,"Shield function 
+Usually used as off-hand weapon",5,50w,1’,2’,4,-7,-6,-5,-4,-3,-2,-1,0,0,0,2,,,,,,,,,,,
+62,Quarter Staff,Melee,d6,d6,,,0gp,50w,6’-8’,3’,4,-9,-8,-7,-5,-3,-1,0,0,1,1,1,,,,,,,,,,,
+63,Staff Sling with Bullet,Missile,2d4,2d4+1,0.5,"Range 0:6:9 
+No targets closer than 3",1gp,100w,5’,6’,11,-5,-4,-3,-2,-1,0,0,0,0,0,0,,,,,,,,,,,
+64,Staff Sling with Stone,Missile,d8,2d4,0.5,"Range 0:6:9 
+No targets closer than 3",1gp,100w,5’,6’,11,-6,-5,-4,-3,-2,-1,0,0,0,0,0,,,,,,,,,,,
+65,Bastard Sword & Scabbard,Melee,2d4,2d8,,"Two-handed weapon 
+May be used one-handed as Long Sword",25gp,100w,4.5’,4’,6,0,0,0,0,1,1,1,1,1,1,0,,,,,,,,,,,
+66,Broad Sword & Scabbard,Melee,2d4,d6+1,,,10gp,75w,3.5’,4’,5,-5,-4,-3,-2,-1,0,0,1,1,1,2,,,,,,,,,,,
+67,Falchion Sword & Scabbard,Melee,d6+1,2d4,,Includes sabre,10gp,70w,3.5’,3.5’,5,-3,-2,-2,-1,0,1,1,1,1,0,0,,,,,,,,,,,
+68,Khopesh Sword,Melee,2d4,d6,,"May impede opponent attack 
+May bring down opponent",10gp,75w,3.5’,4’,9,-7,-6,-5,-4,-2,-1,0,0,1,1,2,,,,,,,,,,,
+69,Long Sword & Scabbard,Melee,d8,d12,,Most common sword in occident,15gp,60w,3.5’,,,-4,-3,,,,,,,,,,,,,,,,,,,,
+70,Short Sword & Scabbard,Melee,d6,d8,,,8gp,35w,2’,1’,3,-5,-4,-3,-2,-1,0,0,0,1,0,2,,,,,,,,,,,
+71,Two-handed Sword,Melee,d10,3d6,,Two-handed weapon,30gp,190w,6’,6’,10,2,2,2,2,2,2,3,3,3,1,0,,,,,,,,,,,
+72,Trident,Polearm,d6+1,3d4,,,4gp,50w,4’-8’,1’,6-8,-4,-3,-3,-2,-1,-1,0,0,1,0,1,,,,,,,,,,,
+73,Voulge,Polearm,2d4,2d4,,,2gp,125w,8’,2’,10,-2,-2,-1,-1,0,1,1,1,0,0,0,,,,,,,,,,,
+74,Whip,Melee,d2,1,,Entangling attack,3gp,30w,8’-20’,8’-20’,5-8,-14,-12,-10,-8,-6,-4,-2,-1,1,0,3,,,,,,,,,,,

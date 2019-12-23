@@ -1,5 +1,5 @@
 import dice, char_races, char_classes, social_class, base_ability_detail, age, class_abilities
-import alignments, os
+import alignments, os, item_shop
 #import re
 
 class playerSheet:
@@ -59,7 +59,10 @@ class playerSheet:
         self.char_saves["Spells"] = 21
         self.char_armor = {}
         self.char_shield = {}
+        self.char_melee_weapons = {}
+        self.char_ranged_weapons = {}
         self.char_inventory = {}
+        self.char_encumbrance = {}
         self.char_adjustments = {}
         self.char_race_abilities = {}
         self.soclass_limit = []
@@ -123,6 +126,10 @@ if decision.isalpha():
         name = class_abilities.class_details(name)
         name = alignments.choose_alignment(name)
         name = class_abilities.starting_money(name)
+        print("*****ITEM SHOP******\n")
+        print("\n")
+        name = item_shop.cavalier_start(name)
+        print("*****LEAVE ITEM SHOP******\n")
 
 print("\n")
 print("\n")
@@ -176,8 +183,12 @@ for c in name.char_class_abilities:
     for a in name.char_class_abilities[c]:
         print(a,  name.char_class_abilities[c][a])
 print("-------------")
-tables = str(os.getcwd()+"\\tables\\")
-print(os.listdir(tables))
+print(name.char_armor)
+print(name.char_shield)
+for w in name.char_melee_weapons:
+    print(w, name.char_melee_weapons[w])
+for w in name.char_ranged_weapons:
+    print("RANGED", w, name.char_ranged_weapons[w])
 print("***********")
 quitout = input("Enter to quit")
 
