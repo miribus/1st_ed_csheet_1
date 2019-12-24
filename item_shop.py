@@ -94,10 +94,10 @@ def buy_weapons(name):
             return name, result
         if choice.isdigit():
             if int(choice) in range(1, 75):
-                player_gold = name.char_money["gp"]
+                player_gold = float(name.char_money["gp"])
                 item_cost = str(weapons_list[int(choice)][7])
                 item_cost = item_cost.replace("gp", "")
-                item_cost = int(item_cost)
+                item_cost = float(item_cost)
                 if player_gold >= item_cost:
                     name.char_money["gp"] = player_gold - item_cost
                     if mweapons[int(choice)] in name.char_melee_weapons:
@@ -152,10 +152,10 @@ def buy_armor(name):
                 name.char_shield[armor_list[int(choice)][1]]["Reduction"] = str(armor_list[int(choice)][2])
                 name.char_shield[armor_list[int(choice)][1]]["Weight"] = str(armor_list[int(choice)][5])
                 name.char_shield[armor_list[int(choice)][1]]["Bulk"] = str(armor_list[int(choice)][7])
-                player_gold = name.char_money["gp"]
+                player_gold = float(name.char_money["gp"])
                 item_cost = str(weapons_list[int(choice)][7])
                 item_cost = item_cost.replace("gp", "")
-                item_cost = int(item_cost)
+                item_cost = float(item_cost)
                 if player_gold >= item_cost:
                     name.char_money["gp"] = player_gold - item_cost
                     result = True
@@ -184,10 +184,10 @@ def buy_armor(name):
                 name.char_armor[armor_list[int(choice)][1]]["Reduction"] = str(armor_list[int(choice)][2])
                 name.char_armor[armor_list[int(choice)][1]]["Weight"] = str(armor_list[int(choice)][5])
                 name.char_armor[armor_list[int(choice)][1]]["Bulk"] = str(armor_list[int(choice)][7])
-                player_gold = name.char_money["gp"]
+                player_gold = float(name.char_money["gp"])
                 item_cost = str(weapons_list[int(choice)][7])
                 item_cost = item_cost.replace("gp", "")
-                item_cost = int(item_cost)
+                item_cost = float(item_cost)
                 if player_gold >= item_cost:
                     name.char_money["gp"] = player_gold - item_cost
                     result = True

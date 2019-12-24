@@ -54,7 +54,7 @@ def race_classes(name):
     elif name.char_race == "Dwarf":
         class_choices = ["Cleric (UA)", "Fighter", "Thief", "Assassin", "Cleric/Fighter (UA)",
                          "Cleric/Thief (UA)", "Cleric/Assassin (UA)",
-                         "Fighter/Thief", "Fighter/Assassin (UA)", "Cleric/Fighter (UA)"]
+                         "Fighter/Thief", "Fighter/Assassin (UA)"]
     elif name.char_race == "Half-Orc":
         class_choices = ["Cleric", "Fighter", "Thief", "Assassin", "Cleric/Fighter",
                          "Cleric/Thief", "Cleric/Assassin", "Fighter/Thief", "Fighter/Assassin", "Cleric/Fighter"]
@@ -83,11 +83,13 @@ def race_classes(name):
         classes = []
         for c in class_choices:
             class_ch = re.sub(r' \(UA\)|/|-', '', str(c))
+
             for rc in race_class_choices:
+                #print(class_ch, rc.name, rc.value, c)
                 if str(rc.name) == str(class_ch) and str(rc.name) in name.soclass_limit:
-                    if str(rc.name) not in classes:
-                        print(rc.value, c)
-                        classes.append(str(rc.name))
+                    #if str(rc.name) not in classes:
+                    print(rc.value, c)
+                    classes.append(str(rc.name))
 
         if name.methodv:
             print("You chose Method V and preselected your class")

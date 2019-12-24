@@ -25,7 +25,7 @@ def character_alignment(name):
         return align_choices
     elif "Thief" in name.char_class:
         if "Cleric" in name.char_class:
-            align_choices = ["Neutral Good", "Neutral Evil", "Chaotic Evil", "Lawful Evil", "Lawful Neutral"]
+            align_choices = ["Neutral Good", "Neutral Evil", "Chaotic Evil", "Chaotic Neutral", "Lawful Evil", "Lawful Neutral"]
             return align_choices
         else:
             align_choices = ["Neutral Good", "True Neutral", "Neutral Evil", "Chaotic Evil", "Lawful Evil",
