@@ -75,6 +75,8 @@ def buy_weapons(name):
             r_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][32]))] = str(weapons_list[int(i)][32])
             r_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][33]))] = str(weapons_list[int(i)][33])
             r_weapons[weapons_list[int(i)][1]]["Rate of Fire"] = str(weapons_list[int(i)][5])
+        else:
+            del r_weapons[weapons_list[int(i)][1]]
 
         print(i, weapons_list[int(i)][1],
               "                 Cost:", weapons_list[int(i)][7],
@@ -110,6 +112,7 @@ def buy_weapons(name):
                     else:
                         name.char_melee_weapons[mweapons[int(choice)]] = m_weapons[
                             mweapons[int(choice)]]
+
                     if rweapons[int(choice)] in name.char_ranged_weapons:
                         indx = 0
                         for i in name.char_ranged_weapons:

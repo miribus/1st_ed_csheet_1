@@ -1,6 +1,7 @@
 number,Weapon,Type,Damage S-M,Damage L,Fire Rate,Range/Notes,Cost,Weight,Length,Space,Speed,0,1,2,3,4,5,6,7,8,9,10,0,1,2,3,4,5,6,7,8,9,10,Classes
-1,Aklys,Thrown/Melee,d6,d4,1,"Range 10 foot (rope to recover), Entangling attack",2gp,35w,2’,2’,5,-7,-6,-5,-4,-3,-2,-1,-1,0,0,1,,,,,,,,,,,,"F, B, R, A"
-2,Atlatl with Javelin,Missile,d6,d6,1,"Range 3:6:9, fires javelins",1gp,30w,3’,1’,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,,,,,"F, B, R, A"
+1,Fist,Melee,*,*,,,0,0,2’,,1,-9,-8,-7,-5,-3,-1,0,0,2,0,4,,,,,,,,,,,,All
+2,Aklys,Thrown/Melee,d6,d4,1,"Range 10 foot (rope to recover), Entangling attack",2gp,35w,2’,2’,5,-7,-6,-5,-4,-3,-2,-1,-1,0,0,1,,,,,,,,,,,,"F, B, R, A"
+3,Atlatl with Javelin,Missile,d6,d6,1,"Range 3:6:9, fires javelins",1gp,30w,3’,1’,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,,,,,"F, B, R, A"
 4,Arrows —Standard (20),Missile,d6,d6,2,Bow Ranges,1gp,24w,,,,,,,,,,,,,,,,,,,,,,,,,,"F, B, R, A, Cav*, T"
 5,"Axe, Battle",Melee,d8,d8,1,,5gp,75w,4’,4’,7,-5,-4,-3,-2,-1,-1,0,0,1,1,2,,,,,,,,,,,,"F, B, R, A"
 6,"Axe, Hand",Melee/Thrown,d6,d4,,Ranges 1:2:3,1gp,50w,1.5’,1’,4,-5,-4,-3,-2,-2,-1,0,0,1,1,1,-6,-5,-4,-3,-2,-1,-1,0,0,0,1,"F, B, R, A, T"
