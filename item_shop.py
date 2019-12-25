@@ -96,10 +96,10 @@ def buy_weapons(name):
             return name, result
         if choice.isdigit():
             if int(choice) in range(1, 75):
-                player_gold = float(name.char_money["gp"])
+                player_gold = int(name.char_money["gp"])
                 item_cost = str(weapons_list[int(choice)][7])
                 item_cost = item_cost.replace("gp", "")
-                item_cost = float(item_cost)
+                item_cost = int(item_cost)
                 if player_gold >= item_cost:
                     name.char_money["gp"] = player_gold - item_cost
                     if mweapons[int(choice)] in name.char_melee_weapons:
@@ -121,8 +121,12 @@ def buy_weapons(name):
                         indx += 1
                         name.char_ranged_weapons[rweapons[int(choice)]+"_"+str(indx)] = r_weapons[rweapons[int(choice)]]
                     else:
-                        name.char_ranged_weapons[rweapons[int(choice)]] = r_weapons[
-                            rweapons[int(choice)]]
+                        try:
+                            name.char_ranged_weapons[rweapons[int(choice)]] = r_weapons[
+                                rweapons[int(choice)]]
+                        except KeyError:
+                            # don't need to look at this, it isn't a ranged weapon
+                            pass
                     choice = input("Are you done? Y or N:")
                     if str(choice).upper() == "y".upper():
                         result = True
@@ -147,7 +151,7 @@ def buy_armor(name):
         choice = input("Pick NUMBER for your shield, or Q to quit:")
         if str(choice).upper() == "q".upper():
             result = True
-            return name, result
+            #return name, result
         if str(choice).isdigit():
             if int(choice) in range(1, 6):
                 name.char_shield[armor_list[int(choice)][1]] = {}
@@ -155,10 +159,10 @@ def buy_armor(name):
                 name.char_shield[armor_list[int(choice)][1]]["Reduction"] = str(armor_list[int(choice)][2])
                 name.char_shield[armor_list[int(choice)][1]]["Weight"] = str(armor_list[int(choice)][5])
                 name.char_shield[armor_list[int(choice)][1]]["Bulk"] = str(armor_list[int(choice)][7])
-                player_gold = float(name.char_money["gp"])
+                player_gold = int(name.char_money["gp"])
                 item_cost = str(weapons_list[int(choice)][7])
                 item_cost = item_cost.replace("gp", "")
-                item_cost = float(item_cost)
+                item_cost = int(item_cost)
                 if player_gold >= item_cost:
                     name.char_money["gp"] = player_gold - item_cost
                     result = True
@@ -187,10 +191,10 @@ def buy_armor(name):
                 name.char_armor[armor_list[int(choice)][1]]["Reduction"] = str(armor_list[int(choice)][2])
                 name.char_armor[armor_list[int(choice)][1]]["Weight"] = str(armor_list[int(choice)][5])
                 name.char_armor[armor_list[int(choice)][1]]["Bulk"] = str(armor_list[int(choice)][7])
-                player_gold = float(name.char_money["gp"])
+                player_gold = int(name.char_money["gp"])
                 item_cost = str(weapons_list[int(choice)][7])
                 item_cost = item_cost.replace("gp", "")
-                item_cost = float(item_cost)
+                item_cost = int(item_cost)
                 if player_gold >= item_cost:
                     name.char_money["gp"] = player_gold - item_cost
                     result = True

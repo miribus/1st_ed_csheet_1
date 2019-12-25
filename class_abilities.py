@@ -29,12 +29,13 @@ def class_details(name):
                 name.char_class_xpBonus.append("+10%")
             if "Fighter" not in name.char_class_abilities:
                 name.char_class_abilities["Fighter"] = {}
-            name.char_class_abilities["Fighter"]["Specialization (UA) 1"] = "2x WP Slots for Spec, 3x WP Slots for Double Spec;" \
-                                                                     "+1/+2 (Single) +3/+3 (Double Spec: no missile, polearm," \
-                                                                     "or 2h sword). Damage Bonus only at \'point blank\' range"
-            name.char_class_abilities["Fighter"]["Specialization (UA) 2"] = "Atk/Rnd: Melee: 3/2, Bow: 2/1, LxB: 1/1, " \
-                                                                    "HxB: 1/2, Lasso/SSling: 1/1, Thrown Dagger: 3/1, " \
-                                                                    "Thrown Dart: 4/1, Other: 3/2"
+                if len(name.char_class) == 1:
+                    name.char_class_abilities["Fighter"]["Specialization (UA) 1"] = "2x WP Slots for Spec, 3x WP Slots for Double Spec;" \
+                                                                             "+1/+2 (Single) +3/+3 (Double Spec: no missile, polearm," \
+                                                                             "or 2h sword). Damage Bonus only at \'point blank\' range"
+                    name.char_class_abilities["Fighter"]["Specialization (UA) 2"] = "Atk/Rnd: Melee: 3/2, Bow: 2/1, LxB: 1/1, " \
+                                                                            "HxB: 1/2, Lasso/SSling: 1/1, Thrown Dagger: 3/1, " \
+                                                                            "Thrown Dart: 4/1, Other: 3/2"
             name.char_class_abilities["Fighter"]["Superior Fighting"] = "1/Level attack per creatures less than 1HD"
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
             HP = dice.HP(10, 1, name, 6)+int(HPadj)
@@ -70,13 +71,14 @@ def class_details(name):
             name.char_class_abilities["Ranger"]["Special"]["Tracking"] = "Tracking PHB Pg: 24"
             name.char_class_abilities["Ranger"]["Special"]["Cure Disease"] = "1/wk per 5 levels"
             name.char_class_abilities["Ranger"]["Special"]["Protection from Evil"] = '1\" radius all 24/7'
-            name.char_class_abilities["Ranger"][
-                "Specialization (UA) 1"] = "2x WP Slots for Spec, 3x WP Slots for Double Spec;" \
-                                                                     "+1/+2 (Single) +3/+3 (Double Spec: no missile, polearm," \
-                                                                     "or 2h sword). Damage Bonus only at \'point blank\' range"
-            name.char_class_abilities["Ranger"]["Specialization (UA) 2"] = "Atk/Rnd: Melee: 3/2, Bow: 2/1, LxB: 1/1, " \
-                                                                            "HxB: 1/2, Lasso/SSling: 1/1, Thrown Dagger: 3/1, " \
-                                                                            "Thrown Dart: 4/1, Other: 3/2"
+            if len(name.char_class) == 1:
+                name.char_class_abilities["Ranger"][
+                    "Specialization (UA) 1"] = "2x WP Slots for Spec, 3x WP Slots for Double Spec;" \
+                                                                         "+1/+2 (Single) +3/+3 (Double Spec: no missile, polearm," \
+                                                                         "or 2h sword). Damage Bonus only at \'point blank\' range"
+                name.char_class_abilities["Ranger"]["Specialization (UA) 2"] = "Atk/Rnd: Melee: 3/2, Bow: 2/1, LxB: 1/1, " \
+                                                                                "HxB: 1/2, Lasso/SSling: 1/1, Thrown Dagger: 3/1, " \
+                                                                                "Thrown Dart: 4/1, Other: 3/2"
             name.char_class_abilities["Ranger"]["Superior Fighting"] = "1/Level attack per creatures less than 1HD"
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
             HP = dice.HP(8, 2, name, 9) + int(HPadj) + int(HPadj)
