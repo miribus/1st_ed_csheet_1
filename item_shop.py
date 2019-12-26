@@ -16,7 +16,7 @@ with open(weapons_csv, 'r') as WCSV:
 
 with open(provisions_csv, 'r') as PCSV:
     pcsv_write = csv.reader(PCSV, delimiter = ",")
-    provisions_csv = list(pcsv_write)
+    provisions_list = list(pcsv_write)
 
 
 def buy_weapons(name):
@@ -31,13 +31,13 @@ def buy_weapons(name):
         rweapons.append(weapons_list[int(i)][1])
         m_weapons[weapons_list[int(i)][1]] = {}
         r_weapons[weapons_list[int(i)][1]] = {}
-        m_weapons[weapons_list[int(i)][1]]["Damage S-M"] = str(weapons_list[20][3])
-        m_weapons[weapons_list[int(i)][1]]["Damage L"] = str(weapons_list[20][4])
+        m_weapons[weapons_list[int(i)][1]]["Damage S-M"] = str(weapons_list[int(i)][3])
+        m_weapons[weapons_list[int(i)][1]]["Damage L"] = str(weapons_list[int(i)][4])
         m_weapons[weapons_list[int(i)][1]]["Length"] = str(weapons_list[int(i)][9])
         m_weapons[weapons_list[int(i)][1]]["Space"] = str(weapons_list[int(i)][10])
         m_weapons[weapons_list[int(i)][1]]["Speed"] = str(weapons_list[int(i)][11])
         m_weapons[weapons_list[int(i)][1]]["Notes"] = str(weapons_list[int(i)][6]).replace("\n", " ")
-        m_weapons[weapons_list[int(i)][1]]["Weight"] = str(weapons_list[int(i)][8])
+        m_weapons[weapons_list[int(i)][1]]["Encumbrance"] = str(weapons_list[int(i)][8])
         m_weapons[weapons_list[int(i)][1]]["Type"] = str(weapons_list[int(i)][2])
         m_weapons[weapons_list[int(i)][1]]["Cost"] = str(weapons_list[int(i)][7])
         m_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][12]))] = str(weapons_list[int(i)][12])
@@ -54,13 +54,13 @@ def buy_weapons(name):
         if "Missile" in str(weapons_list[int(i)][2]) or "Bow" in str(weapons_list[int(i)][2]) or \
             "Thrown" in str(weapons_list[int(i)][2]):
 
-            r_weapons[weapons_list[int(i)][1]]["Damage S-M"] = str(weapons_list[20][3])
-            r_weapons[weapons_list[int(i)][1]]["Damage L"] = str(weapons_list[20][4])
+            r_weapons[weapons_list[int(i)][1]]["Damage S-M"] = str(weapons_list[int(i)][3])
+            r_weapons[weapons_list[int(i)][1]]["Damage L"] = str(weapons_list[int(i)][4])
             r_weapons[weapons_list[int(i)][1]]["Length"] = str(weapons_list[int(i)][9])
             r_weapons[weapons_list[int(i)][1]]["Space"] = str(weapons_list[int(i)][10])
             r_weapons[weapons_list[int(i)][1]]["Speed"] = str(weapons_list[int(i)][11])
             r_weapons[weapons_list[int(i)][1]]["Notes"] = str(weapons_list[int(i)][6]).replace("\n", " ")
-            r_weapons[weapons_list[int(i)][1]]["Weight"] = str(weapons_list[int(i)][8])
+            r_weapons[weapons_list[int(i)][1]]["Encumbrance"] = str(weapons_list[int(i)][8])
             r_weapons[weapons_list[int(i)][1]]["Type"] = str(weapons_list[int(i)][2])
             r_weapons[weapons_list[int(i)][1]]["Cost"] = str(weapons_list[int(i)][7])
             r_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][23]))] = str(weapons_list[int(i)][23])
@@ -84,7 +84,7 @@ def buy_weapons(name):
               "     DMG S-M", weapons_list[int(i)][3],
               "     DMG L", weapons_list[int(i)][4],
               "     Note:", weapons_list[int(i)][6],
-              "     Weight:", weapons_list[int(i)][8])
+              "     Encumbrance:", weapons_list[int(i)][8])
 
     print("Select a NUMBER to buy, you have: ", name.char_money, " in cash.")
 
@@ -146,8 +146,9 @@ def buy_armor(name):
             print(armor_list[i][0], armor_list[i][1],
                   "Classes", armor_list[i][8],
                   "Cost", armor_list[i][4],
-                  "Weight", armor_list[i][5],
+                  "Encumbrance", armor_list[i][5],
                   "Bulk", armor_list[i][7])
+        print("You have: ", name.char_money, " in cash.")
         choice = input("Pick NUMBER for your shield, or Q to quit:")
         if str(choice).upper() == "q".upper():
             result = True
@@ -157,7 +158,7 @@ def buy_armor(name):
                 name.char_shield[armor_list[int(choice)][1]] = {}
                 name.char_shield[armor_list[int(choice)][1]]["Armor Class"] = str(armor_list[int(choice)][3])
                 name.char_shield[armor_list[int(choice)][1]]["Reduction"] = str(armor_list[int(choice)][2])
-                name.char_shield[armor_list[int(choice)][1]]["Weight"] = str(armor_list[int(choice)][5])
+                name.char_shield[armor_list[int(choice)][1]]["Encumbrance"] = str(armor_list[int(choice)][5])
                 name.char_shield[armor_list[int(choice)][1]]["Bulk"] = str(armor_list[int(choice)][7])
                 player_gold = int(name.char_money["gp"])
                 item_cost = str(weapons_list[int(choice)][7])
@@ -178,8 +179,9 @@ def buy_armor(name):
             print(armor_list[i][0], armor_list[i][1],
                   "Classes", armor_list[i][8],
                   "Cost", armor_list[i][4],
-                  "Weight", armor_list[i][5],
+                  "Encumbrance", armor_list[i][5],
                   "Bulk", armor_list[i][7])
+        print("You have: ", name.char_money, " in cash.")
         choice = input("Pick NUMBER for your Armor, or Q to quit::")
         if str(choice).upper() == "q".upper():
             result = True
@@ -189,7 +191,7 @@ def buy_armor(name):
                 name.char_armor[armor_list[int(choice)][1]] = {}
                 name.char_armor[armor_list[int(choice)][1]]["Armor Class"] = str(armor_list[int(choice)][3])
                 name.char_armor[armor_list[int(choice)][1]]["Reduction"] = str(armor_list[int(choice)][2])
-                name.char_armor[armor_list[int(choice)][1]]["Weight"] = str(armor_list[int(choice)][5])
+                name.char_armor[armor_list[int(choice)][1]]["Encumbrance"] = str(armor_list[int(choice)][5])
                 name.char_armor[armor_list[int(choice)][1]]["Bulk"] = str(armor_list[int(choice)][7])
                 player_gold = int(name.char_money["gp"])
                 item_cost = str(weapons_list[int(choice)][7])
@@ -205,6 +207,57 @@ def buy_armor(name):
                         result = True
                 return name, result
 
+def buy_provisions(name):
+    provisions = {}
+    prov = []
+    prov.append("")
+    for i in range(1, 106):
+        prov.append(provisions_list[int(i)][1])
+        provisions[provisions_list[int(i)][1]] = {}
+        provisions[provisions_list[int(i)][1]]["Cost"] = str(provisions_list[int(i)][2])
+        provisions[provisions_list[int(i)][1]]["Encumbrance"] = str(provisions_list[int(i)][3])
+
+        print(i, provisions_list[int(i)][1],
+              "                 Cost:", provisions_list[int(i)][2],
+              "     Weight/Encumbrance:", provisions_list[int(i)][3])
+
+    result = False
+    while not result:
+        print("You have: ", name.char_money, " in cash.")
+        choice = input("Choose a NUMBER to purchase an item, or Q to quit:")
+        if str(choice).upper() == "q".upper():
+            result = True
+            return name, result
+        if choice.isdigit():
+            if int(choice) in range(1, 106):
+                player_gold = int(name.char_money["gp"])
+                item_cost = str(provisions_list[int(choice)][2])
+                item_cost = item_cost.replace("gp", "")
+                item_cost = int(item_cost)
+                if player_gold >= item_cost:
+                    name.char_money["gp"] = player_gold - item_cost
+                    if prov[int(choice)] in name.char_inventory:
+                        indx = 0
+                        for i in name.char_inventory:
+                            if prov[int(choice)] in i:
+                                indx += 1
+                        indx += 1
+                        name.char_inventory[prov[int(choice)] + "_" + str(indx)] = provisions[
+                            prov[int(choice)]]
+                    else:
+                        name.char_inventory[prov[int(choice)]] = provisions[
+                            prov[int(choice)]]
+                    choice = input("Are you done? Y or N:")
+                    if str(choice).upper() == "y".upper():
+                        result = True
+                    return name, result
+                else:
+                    print("Not enough gold...")
+                    choice = input("Are you done? Y or N:")
+                    if str(choice).upper() == "y".upper():
+                        result = True
+                    return name, result
+
 
 def cavalier_start(name):
     if name.social_class == "UUC":
@@ -213,7 +266,7 @@ def cavalier_start(name):
                 name.char_armor[str(a[1])] = {}
                 name.char_armor[str(a[1])]["Armor Class"] = str(a[3])
                 name.char_armor[str(a[1])]["Reduction"] = str(a[2])
-                name.char_armor[str(a[1])]["Weight"] = str(a[5])
+                name.char_armor[str(a[1])]["Encumbrance"] = str(a[5])
                 name.char_armor[str(a[1])]["Bulk"] = str(a[7])
     elif name.social_class == "MUC":
         for a in armor_list:
@@ -221,7 +274,7 @@ def cavalier_start(name):
                 name.char_armor[str(a[1])] = {}
                 name.char_armor[str(a[1])]["Armor Class"] = str(a[3])
                 name.char_armor[str(a[1])]["Reduction"] = str(a[2])
-                name.char_armor[str(a[1])]["Weight"] = str(a[5])
+                name.char_armor[str(a[1])]["Encumbrance"] = str(a[5])
                 name.char_armor[str(a[1])]["Bulk"] = str(a[7])
     elif name.social_class == "LUC":
         for a in armor_list:
@@ -229,7 +282,7 @@ def cavalier_start(name):
                 name.char_armor[str(a[1])] = {}
                 name.char_armor[str(a[1])]["Armor Class"] = str(a[3])
                 name.char_armor[str(a[1])]["Reduction"] = str(a[2])
-                name.char_armor[str(a[1])]["Weight"] = str(a[5])
+                name.char_armor[str(a[1])]["Encumbrance"] = str(a[5])
                 name.char_armor[str(a[1])]["Bulk"] = str(a[7])
     elif name.social_class == "UMC":
         for a in armor_list:
@@ -237,7 +290,7 @@ def cavalier_start(name):
                 name.char_armor[str(a[1])] = {}
                 name.char_armor[str(a[1])]["Armor Class"] = str(a[3])
                 name.char_armor[str(a[1])]["Reduction"] = str(a[2])
-                name.char_armor[str(a[1])]["Weight"] = str(a[5])
+                name.char_armor[str(a[1])]["Encumbrance"] = str(a[5])
                 name.char_armor[str(a[1])]["Bulk"] = str(a[7])
 
     result = False
@@ -250,7 +303,7 @@ def cavalier_start(name):
                 name.char_shield[armor_list[int(choice)][1]] = {}
                 name.char_shield[armor_list[int(choice)][1]]["Armor Class"] = str(armor_list[int(choice)][3])
                 name.char_shield[armor_list[int(choice)][1]]["Reduction"] = str(armor_list[int(choice)][2])
-                name.char_shield[armor_list[int(choice)][1]]["Weight"] = str(armor_list[int(choice)][5])
+                name.char_shield[armor_list[int(choice)][1]]["Encumbrance"] = str(armor_list[int(choice)][5])
                 name.char_shield[armor_list[int(choice)][1]]["Bulk"] = str(armor_list[int(choice)][7])
                 result = True
 
@@ -270,7 +323,7 @@ def cavalier_start(name):
                 name.char_melee_weapons[weapons_list[int(choice)][1]]["Speed"] = str(weapons_list[int(choice)][11])
                 name.char_melee_weapons[weapons_list[int(choice)][1]]["Notes"] = str(weapons_list[int(choice)][6]) \
                     .replace("\n", " ")
-                name.char_melee_weapons[weapons_list[int(choice)][1]]["Weight"] = str(weapons_list[int(choice)][8])
+                name.char_melee_weapons[weapons_list[int(choice)][1]]["Encumbrance"] = str(weapons_list[int(choice)][8])
                 name.char_melee_weapons[weapons_list[int(choice)][1]]["THACDJ: {}".format(str(weapons_list[0][12]))]\
                     = str(weapons_list[int(choice)][12])
                 name.char_melee_weapons[weapons_list[int(choice)][1]]["THACDJ: {}".format(str(weapons_list[0][13]))]\
@@ -313,7 +366,7 @@ def cavalier_start(name):
                     name.char_melee_weapons[weapons_list[int(choice)][1]]["Speed"] = str(weapons_list[int(choice)][11])
                     name.char_melee_weapons[weapons_list[int(choice)][1]]["Notes"] = str(weapons_list[int(choice)][6]) \
                         .replace("\n", " ")
-                    name.char_melee_weapons[weapons_list[int(choice)][1]]["Weight"] = str(weapons_list[int(choice)][8])
+                    name.char_melee_weapons[weapons_list[int(choice)][1]]["Encumbrance"] = str(weapons_list[int(choice)][8])
                     name.char_melee_weapons[weapons_list[int(choice)][1]]["THACDJ: {}".format(str(weapons_list[0][12]))] \
                         = str(weapons_list[int(choice)][12])
                     name.char_melee_weapons[weapons_list[int(choice)][1]]["THACDJ: {}".format(str(weapons_list[0][13]))] \
@@ -347,7 +400,7 @@ def cavalier_start(name):
         name.char_melee_weapons[weapons_list[20][1]]["Space"] = str(weapons_list[20][10])
         name.char_melee_weapons[weapons_list[20][1]]["Speed"] = str(weapons_list[20][11])
         name.char_melee_weapons[weapons_list[20][1]]["Notes"] = str(weapons_list[20][6]).replace("\n", " ")
-        name.char_melee_weapons[weapons_list[20][1]]["Weight"] = str(weapons_list[20][8])
+        name.char_melee_weapons[weapons_list[20][1]]["Encumbrance"] = str(weapons_list[20][8])
         name.char_melee_weapons[weapons_list[20][1]]["THACDJ: {}".format(str(weapons_list[0][12]))] \
             = str(weapons_list[20][12])
         name.char_melee_weapons[weapons_list[20][1]]["THACDJ: {}".format(str(weapons_list[0][13]))] \
@@ -380,7 +433,7 @@ def cavalier_start(name):
         name.char_ranged_weapons[weapons_list[20][1]]["Space"] = str(weapons_list[20][10])
         name.char_ranged_weapons[weapons_list[20][1]]["Speed"] = str(weapons_list[20][11])
         name.char_ranged_weapons[weapons_list[20][1]]["Notes"] = str(weapons_list[20][6]).replace("\n", " ")
-        name.char_ranged_weapons[weapons_list[20][1]]["Weight"] = str(weapons_list[20][8])
+        name.char_ranged_weapons[weapons_list[20][1]]["Encumbrance"] = str(weapons_list[20][8])
         name.char_ranged_weapons[weapons_list[20][1]]["THACDJ: {}".format(str(weapons_list[0][23]))] \
             = str(weapons_list[20][23])
         name.char_ranged_weapons[weapons_list[20][1]]["THACDJ: {}".format(str(weapons_list[0][24]))] \
@@ -414,7 +467,7 @@ def cavalier_start(name):
             name.char_melee_weapons[weapons_list[44][1]]["Space"] = str(weapons_list[44][10])
             name.char_melee_weapons[weapons_list[44][1]]["Speed"] = str(weapons_list[44][11])
             name.char_melee_weapons[weapons_list[44][1]]["Notes"] = str(weapons_list[44][6]).replace("\n", " ")
-            name.char_melee_weapons[weapons_list[44][1]]["Weight"] = str(weapons_list[44][8])
+            name.char_melee_weapons[weapons_list[44][1]]["Encumbrance"] = str(weapons_list[44][8])
             name.char_melee_weapons[weapons_list[44][1]]["THACDJ: {}".format(str(weapons_list[0][12]))] \
                 = str(weapons_list[44][12])
             name.char_melee_weapons[weapons_list[44][1]]["THACDJ: {}".format(str(weapons_list[0][13]))] \

@@ -136,6 +136,9 @@ if decision.isalpha():
         result = False
         while not result:
             name, result = item_shop.buy_armor(name)
+        result = False
+        while not result:
+            name, result = item_shop.buy_provisions(name)
         print("*****LEAVE ITEM SHOP******\n")
 
 print("\n")
@@ -196,6 +199,8 @@ for w in name.char_melee_weapons:
     print(w, name.char_melee_weapons[w])
 for w in name.char_ranged_weapons:
     print("RANGED", w, name.char_ranged_weapons[w])
+for i in name.char_inventory:
+    print("Inventory:", i, name.char_inventory[i])
 print("***********")
 quitout = input("Enter to quit")
 

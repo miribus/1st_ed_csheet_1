@@ -1,5 +1,5 @@
 number,Weapon,Type,Damage S-M,Damage L,Fire Rate,Range/Notes,Cost,Weight,Length,Space,Speed,0,1,2,3,4,5,6,7,8,9,10,0,1,2,3,4,5,6,7,8,9,10,Classes
-1,Fist,Melee,*,*,,,0,0,2’,,1,-9,-8,-7,-5,-3,-1,0,0,2,0,4,,,,,,,,,,,,All
+1,Fist,Melee,*,*,,,,,2’,,1,-9,-8,-7,-5,-3,-1,0,0,2,0,4,,,,,,,,,,,,All
 2,Aklys,Thrown/Melee,d6,d4,1,"Range 10 foot (rope to recover), Entangling attack",2gp,35w,2’,2’,5,-7,-6,-5,-4,-3,-2,-1,-1,0,0,1,,,,,,,,,,,,"F, B, R, A"
 3,Atlatl with Javelin,Missile,d6,d6,1,"Range 3:6:9, fires javelins",1gp,30w,3’,1’,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,,,,,"F, B, R, A"
 4,Arrows —Standard (20),Missile,d6,d6,2,Bow Ranges,1gp,24w,,,,,,,,,,,,,,,,,,,,,,,,,,"F, B, R, A, Cav*, T"
@@ -40,7 +40,7 @@ number,Weapon,Type,Damage S-M,Damage L,Fire Rate,Range/Notes,Cost,Weight,Length,
 39,Heavy Lance,Polearm,2d4+1,3d6,,"Double damage in mounted charge, Mounted use only (except Cavalier)",6gp,150w,14’,1’,8,4,4,3,3,2,2,2,1,1,0,0,,,,,,,,,,,,"F, B, R, A, Cav*"
 40,Light Lance,Polearm,d6,d8,,"Double damage in mounted charge, Mounted use only (except Cavalier)",6gp,50w,10’,1’,7,-3,-3,-2,-2,-1,0,0,0,0,0,0,,,,,,,,,,,,"F, B, R, A, Cav*"
 41,Medium Lance,Polearm,d6+1,2d6,,"Double damage in mounted charge, Mounted use only (except Cavalier)",6gp,100w,12’,1’,6,-1,0,0,1,1,1,1,0,0,0,0,,,,,,,,,,,,"F, B, R, A, Cav*"
-42,Lasso,Thrown,0,0,0.5,"Ranges 1:2:3, Entangling attack, May dismount or topple opponent",0.5gp,20w,10’-20’,8’,10,0,0,0,0,0,0,0,0,0,0,0,9,8,7,6,5,4,3,2,1,0,-1,"F, B, R, A, T"
+42,Lasso (50’ Hemp),Thrown,0,0,0.5,"Ranges 1:2:3, Entangling attack, May dismount or topple opponent.  Total Rope length ~50’",1gp,75w,10’-30’,8’,10,0,0,0,0,0,0,0,0,0,0,0,9,8,7,6,5,4,3,2,1,0,-1,"F, B, R, A, T"
 43,Footman's Mace,Melee,d6+1,d6,,,8gp,60w,2.5’,4’,7,2,2,1,1,0,0,0,0,0,1,-1,,,,,,,,,,,,"F, B, R, A, Cav*, C"
 44,Horseman's Mace,Melee,d6,d4,,,4gp,40w,1.5’,2’,6,2,2,1,1,0,0,0,0,0,0,0,,,,,,,,,,,,"F, B, R, A, Cav*, C"
 45,Man Catcher,Polearm,d2,d2,,"Two-handed weapon, Tatget must be near man-sized",25gp,80w,8’,2.5’,7,0,0,0,0,0,0,0,0,-1,-2,-3,,,,,,,,,,,,"F, B, R, A"
