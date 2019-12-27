@@ -161,7 +161,7 @@ def buy_armor(name):
                 name.char_shield[armor_list[int(choice)][1]]["Encumbrance"] = str(armor_list[int(choice)][5])
                 name.char_shield[armor_list[int(choice)][1]]["Bulk"] = str(armor_list[int(choice)][7])
                 player_gold = int(name.char_money["gp"])
-                item_cost = str(weapons_list[int(choice)][7])
+                item_cost = str(armor_list[int(choice)][4])
                 item_cost = item_cost.replace("gp", "")
                 item_cost = int(item_cost)
                 if player_gold >= item_cost:
@@ -194,7 +194,7 @@ def buy_armor(name):
                 name.char_armor[armor_list[int(choice)][1]]["Encumbrance"] = str(armor_list[int(choice)][5])
                 name.char_armor[armor_list[int(choice)][1]]["Bulk"] = str(armor_list[int(choice)][7])
                 player_gold = int(name.char_money["gp"])
-                item_cost = str(weapons_list[int(choice)][7])
+                item_cost = str(armor_list[int(choice)][4])
                 item_cost = item_cost.replace("gp", "")
                 item_cost = int(item_cost)
                 if player_gold >= item_cost:

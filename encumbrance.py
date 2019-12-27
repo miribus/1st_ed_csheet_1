@@ -10,3 +10,8 @@ def calculate_encumbrance(name):
         enc = str(enc).replace("w", "")
         enc = int(enc)
         equip_encumbrance += enc
+    for r in name.char_ranged_weapons:
+        enc = name.char_melee_weapons[n]["Encumbrance"]
+        enc = str(enc).replace("w", "")
+        enc = int(enc)
+        equip_encumbrance += enc
