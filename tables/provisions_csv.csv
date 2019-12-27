@@ -1,106 +1,106 @@
-number,Item,Occidental,Coin Weight
-1,Air Bladder,15gp,20w
-2,Leather Backpack,2gp,20w
-3,Large and Small Basket Set (2),1gp,80w
-4,Birdcage,1gp,50w
-5,Warm Clothes & Blanket,1gp,20w
-6,Large Iron Box,28gp,1000w
-7,Small Gold Box,100gp,20w
-8,Small Iron Box,9gp,20w
-9,Small Lead Box,20gp,20w
-10,Glass Bottle (4),1gp,60w
-11,"Candle, Wax (12)",1gp,5w
-12,Bone Map or Scroll Case,5gp,50w
-13,Leather Map or Scroll Case,15gp,25w
-14,10' Cord,1gp,2w
-15,Crampons,40gp,50w
-16,Crowbar,3gp,75w
-17,Iron Drill,5gp,50w
-18,Empty Flask (20),1gp,7w
-19,Grappling Hook,75gp,75w
-20,Beacon Lantern,40gp,200w
-21,Bullseye Lantern,12gp,60w
-22,Hooded Lantern,7gp,60w
-23,Waterproof Lantern,50gp,50w
-24,Mallet with 3 Wooden Stakes,1gp,10w
-25,Large Metal Mirror,10gp,300w
-26,Small Metal Mirror,5gp,5w
-27,Small Silver Mirror,20gp,5w
-28,Flask Oil,1gp,20w
-29,Waterproofing Oil,1gp,20w
-30,Pan Pipes,5gp,20w
-31,10 Sheets Writing Paper,1gp,1w
-32,Pickax,20gp,200w
-33,10' Pole,1gp,100w
-34,Large Belt Pouch,1gp,10w
-35,Belt with pair of pouches,1gp,5w
-36,Chalk Powder ( Waxed Tin),1gp,20w
-37,Pulley,25gp,60w
-38,Alchemist Satchel,2gp,1w
-39,Quiver (Capacity 40),1gp,30w
-40,Fishing Rod,1gp,60w
-41,50' Hemp Rope,1gp,75w
-42,50' Silk Rope,5gp,75w
-43,3 Large Sacks,1gp,20w
-44,5 Small Sacks,5gp,5w
-45,Shovel (Wooden),1gp,150w
-46,Shovel (Iron),3gp,210w
-47,Full Water or Wine Skin,1gp,50w
-48,Large Adequate Tent,75gp,750w
-49,Large Good Tent,180gp,100w
-50,Large Poor Tent,30gp,600w
-51,Large Superior Tent,400gp,1500w
-52,Medium Adequate Tent,50gp,600w
-53,Medium Good Tent,120gp,200w
-54,Medium Poor Tent,20gp,450w
-55,Medium Superior Tent,300gp,1000w
-56,Small Adequate Tent,30gp,500w
-57,Small Good Tent,75gp,600w
-58,Small Poor Tent,10gp,350w
-59,Small Superior Tent,200gp,750w
-60,Thief's Picks &Tools,30gp,5w
-61,Tinderbox with Flint & Steel,1gp,2w
-62,Common Tool,5gp,10w
-63,Torch (Pitched 12),1gp,250w
-64,Horse’s Grain (Week),1gp,1000w
-65,Mead (Liter),1gp,75w
-66,1 Week Iron Rations,5gp,75w
-67,1 Week Standard Rations,3gp,200w
-68,Pound Tea,10gp,10w
-69,Pitcher Common Wine,2gp,20w
-70,Pint Good Wine,1gp,10w
-71,Prayer Beeds,1gp,0w
-72,Stick Incense,1gp,0w
-73,Iron Holy Symbol,2gp,5w
-74,Silver Holy Symbol,50gp,2w
-75,Cat,0gp, 
-76,Hen and Rooster Pair,1gp, 
-77,Cow,10gp, 
-78,Guard Dog,25gp,
-79,Hunting Dog,17gp,
-80,Donkey,8gp,
-81,Goat,1gp,
-82,Large Trained Hawk,40gp,
-83,Small Trained Hawk,18gp,
-84,Draft Horse,30gp,
-85,Heavy War Horse,300gp,
-86,Light Riding Horse,25gp,
-87,Light War Horse,150gp,
-88,Medium War Horse,225gp,
-89,Mule,20gp,
-90,Ox,15gp,
-91,Piglet,1gp,
-92,Pig,3gp,
-93,Riding Pony,15gp,
-94,Sheep,2gp,
-95,Chain Barding,250gp,3500w
-96,Leather or Padded Barding,100gp,1600w
-97,Plate Barding,500gp,5000w
-98,Scale Barding,50gp,2500w
-99,Bit & Bridle,2gp,1w
-100,Harness & Feed Bag,1gp,5w
-101,Heavy Saddle,10gp,500w
-102,Light Saddle,10gp,250w
-103,Medium Saddle,10gp,375w
-104,Pair Large Saddle Bags,4gp,150w
-105,Pair Small Saddle Bags,3gp,75w
+number,Item,Occidental,Coin Weight,Cleric,Druid,MagicUser,Illusionist
+1,Air Bladder,15gp,20w,,,,
+2,Leather Backpack,2gp,20w,,,,
+3,Large and Small Basket Set (2),1gp,80w,,,,
+4,Birdcage,1gp,50w,,,,
+5,Warm Clothes & Blanket,1gp,20w,,,,
+6,Large Iron Box,28gp,1000w,,,,
+7,"Small Gem(s), Pearls, Jewels",100gp,20w,Augury,,Identify,Identify
+8,Small Iron Box,9gp,20w,,,,
+9,Small Jar w/ Insects (Common),1gp,20w,,,"(Cricket: Sleep, Spider: Spider Climb)","(Cricket: Sleep, Spider: Spider Climb)"
+10,Glass Bottle (4),1gp,60w,,,,
+11,"Candle, Wax (12)",1gp,5w,,,,
+12,Bone Map or Scroll Case,5gp,50w,,,,
+13,Leather Map or Scroll Case,15gp,25w,,,,
+14,10' Cord,1gp,2w,,,,
+15,"Medium Gem, Jewel, or Pot of Fine Ink",200gp,20w,,,(ink: Write),(ink: Write)
+16,Crowbar,3gp,75w,,,,
+17,Iron Drill,5gp,50w,,,,
+18,Empty Vials (20),1gp,5w,"Filled with liquids for many spells, weight is 10w per when filled",,,
+19,Grappling Hook,75gp,75w,,,,
+20,Beacon Lantern,40gp,200w,,,,
+21,Bullseye Lantern,12gp,60w,,,,
+22,Hooded Lantern,7gp,60w,,,,
+23,Vial Holy Water,1gp,10w,"Bless, Protection From Evil",,,
+24,Mallet with 3 Wooden Stakes,1gp,10w,,,,
+25,Large Metal Mirror,10gp,300w,,,,
+26,Small Metal Mirror,5gp,5w,,,,
+27,Small Silver Mirror,20gp,5w,Sanctuary,,,
+28,Flask Oil,1gp,20w,,,,
+29,Waterproofing Oil,1gp,20w,,,,
+30,Pan Pipes,5gp,20w,,,,
+31,10 Sheets Writing Paper,1gp,1w,,,"Ventriloquism, Rope Trick","Ventriloquism, Rope Trick"
+32,Pickax,20gp,200w,,,,
+33,10' Pole,1gp,100w,,,,
+34,Large Belt Pouch,1gp,10w,,,,
+35,Belt with pair of pouches,1gp,5w,,,,
+36,Chalk Powder ( Waxed Tin),1gp,20w,,,,
+37,Vial of Mercury,1gp,10w,Resist Fire,,Tenser’s Floating Disc,Tenser’s Floating Disc
+38,Iron Rod,1gp,10w,Hold Person,,,
+39,Quiver (Capacity 40),1gp,30w,,,,
+40,Fishing Rod,1gp,60w,,,,
+41,50' Hemp Rope,1gp,75w,,,,
+42,50' Silk Rope or 6” gold wire,5gp,75w,,,,
+43,3 Large Sacks,1gp,20w,,,,
+44,5 Small Sacks,5gp,5w,,,,
+45,Shovel (Wooden),1gp,150w,,,,
+46,Shovel (Iron),3gp,210w,,,,
+47,Full Water or Wine Skin,1gp,50w,Create Water (Drop),,Read Magic,Read Magic
+48,Large Adequate Tent,75gp,750w,,,,
+49,Large Good Tent,180gp,100w,,,,
+50,Large Poor Tent,30gp,600w,,,,
+51,Large Superior Tent,400gp,1500w,,,,
+52,Medium Adequate Tent,50gp,600w,,,,
+53,Medium Good Tent,120gp,200w,,,,
+54,Medium Poor Tent,20gp,450w,,,,
+55,Medium Superior Tent,300gp,1000w,,,,
+56,Small Adequate Tent,30gp,500w,,,,
+57,Small Good Tent,75gp,600w,,,,
+58,Small Poor Tent,10gp,350w,,,,
+59,Small Superior Tent,200gp,750w,,,,
+60,Thief's Picks &Tools or Lodestone or Copper Wire,30gp,5w,,,"Mending, Message","Mending, Message"
+61,Tinderbox with Flint & Steel,1gp,2w,,,,
+62,"Common Tool (Hammer, Hatchet, etc)",5gp,10w,Spiritual Hammer,,,
+63,Torch (Pitched 12),1gp,250w,Hold Person,,,
+64,Horse’s Grain (Week),1gp,1000w,,,,
+65,Mead (Liter),1gp,75w,,,,
+66,1 Week Iron Rations,5gp,75w,,,,
+67,1 Week Standard Rations,3gp,200w,,,,
+68,Pound Tea / Evergreen / Oak Mulch,10gp,10w,,"(Evergreen: Pass without Trace, Oak:  Barkskin, Feign Death)",,
+69,Pitcher Common Wine,2gp,20w,,,,
+70,Pound of Garlic / Mistletoe / Druid Holy Symbol / Holly,1gp,10w,Slow Poison,"(Mistletoe/Carved Symbol: Many Druid Spells, Holly: Invisibility to Animals, Mistletoe: Pass without Trace, Shellelagh (need club), Firetrap)",,
+71,Prayer Beads or Silk Handkercheif,1gp,0w,,,Nystul’s Magic Aura,Nystul’s Magic Aura
+72,10 Sticks Incense or Vials/Pouches of Common Spell Powders,1gp,0w,Protection from Evil,(Charcoal:  Fire Trap (w/ Mistletoe),Most Mage Spells,Most Mage Spells
+73,Iron Holy Symbol,2gp,5w,Most Cleric spells,,Protection from Evil,Protection from Evil
+74,Silver Holy Symbol,50gp,2w,Most Cleric spells,,Protection from Evil,Protection from Evil
+75,Cat or Dog (Normal/Stray),0gp,0w,,,,
+76,Hen and Rooster Pair,1gp,0w,,,(Rotten Egg: Stinking Cloud),(Rotten Egg: Stinking Cloud)
+77,Cow,10gp,0w,,,,
+78,Guard Dog,25gp,0w,,,,
+79,Hunting Dog,17gp,0w,,,,
+80,Donkey,8gp,0w,,,,
+81,Goat,1gp,0w,,,,
+82,Large Trained Hawk,40gp,0w,,,,
+83,Small Trained Hawk,18gp,0w,,,,
+84,Draft Horse,30gp,0w,,,,
+85,Heavy War Horse,300gp,0w,,,,
+86,Light Riding Horse,25gp,0w,,,,
+87,Light War Horse,150gp,0w,,,,
+88,Medium War Horse,225gp,0w,,,,
+89,Mule,20gp,0w,,,,
+90,Ox,15gp,0w,,,,
+91,Piglet,1gp,0w,,,,
+92,Pig,3gp,0w,,,,
+93,Riding Pony,15gp,0w,,,,
+94,Sheep,2gp,0w,,,,
+95,Chain Barding,250gp,3500w,,,,
+96,Leather or Padded Barding,100gp,1600w,,,,
+97,Plate Barding,500gp,5000w,,,,
+98,Scale Barding,50gp,2500w,,,,
+99,Bit & Bridle,2gp,1w,,,,
+100,Harness & Feed Bag,1gp,5w,,,,
+101,Heavy Saddle,10gp,500w,,,,
+102,Light Saddle,10gp,250w,,,,
+103,Medium Saddle,10gp,375w,,,,
+104,Pair Large Saddle Bags,4gp,150w,,,,
+105,Pair Small Saddle Bags,3gp,75w,,,,

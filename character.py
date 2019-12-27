@@ -1,5 +1,5 @@
 import dice, char_races, char_classes, social_class, base_ability_detail, age, class_abilities
-import alignments, os, item_shop
+import alignments, os, item_shop, encumbrance
 #import re
 
 class playerSheet:
@@ -201,6 +201,8 @@ for w in name.char_ranged_weapons:
     print("RANGED", w, name.char_ranged_weapons[w])
 for i in name.char_inventory:
     print("Inventory:", i, name.char_inventory[i])
+print("#$#$#$#$#$#$#$#$")
+name = encumbrance.calculate_encumbrance(name)
 print("***********")
 quitout = input("Enter to quit")
 

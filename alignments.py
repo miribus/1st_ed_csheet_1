@@ -92,21 +92,26 @@ alignments["Chaotic Neutral"] = "\nCHAOTIC NEUTRAL:\n"\
 
 alignments["Lawful Evil"] = "\nLAWFUL EVIL:\n"\
                             "Lawful Evil characters are the mirror opposite of Lawful Good.  Lawful Evil characters use order and\n" \
-                            "brutal rule over an obsessive and unquenchable thirst for control.  The rule under a Lawful Evil regime\n"\
+                            "brutal rule with an obsessive and unquenchable thirst for control.  The rule under a Lawful Evil regime\n"\
                             "are devastating to the populace and always some form of extreme cult or authoratarian stete.\n"\
                             "Lawful Evil characters are typically at odds with other Evil characters finding them impossible\n"\
                             "to control.  In some manner, Lawful Evil characters are the least dangerous as their intent is generally\n" \
                             "known and they fallow a perverse path of honor.  Do not be fooled, nor take them lightly as they as \n" \
-                            "they always rule by decree and change the laws to suit their need.\n"
+                            "they always rule by decree and change the laws to suit their need.\n" \
+                            "Lawful Evil characters are typically "
 
 alignments["Neutral Evil"] ="\nNEUTRAL EVIL:\n" \
-                            "Perhaps the most dangers as they are the most unpredictable, Neutral Evil characters are the most \n" \
+                            "Perhaps the most dangerous as they are the most unpredictable, Neutral Evil characters are the most \n" \
                             "though not guaranteed to be the most cruel or unrelenting.  Neutral Evil characters care only to further\n"\
                             "their needs through especially selfish means.  Law or Chaos doesn't matter, only their malicious intent.\n" \
                             "Lawful Evil characters are common amongst apocalyptic and nihilistic cults, using any means to simply\n" \
                             "bring the world to darkness.  They are the purest of evil, they do not reap shadaows among the world\n" \
                             "their only intent is to bring ruin, it is an obsession, the form it takes to enforce it, cruel reign\n" \
-                            "or berzerker chaos, is not employed out of any desire other than utility.\n"
+                            "or berzerker chaos, is not employed out of any desire other than utility.\n" \
+                            "Neutral Evil characters typically serve a higher purpose, either a god of an obsessive desire for selfish \n" \
+                            "gain at any and all cost without consideration of moral consequence.\n" \
+                            "Neutral Evil differs from other neutrality in that True or Good Neutrals will consider their actions and will \n" \
+                            "hot seek to do exceptional or undue harm and suffering, Neutral Evil have no consideration for their actions at all.\n"
 
 alignments["Chaotic Evil"] = "\nCHAOTIC EVIL:\n"\
                              "Arguably Neutral Evil, and certainly Lawful Evil characters can be 'reasoned' with.  Either character\n"\
@@ -115,7 +120,8 @@ alignments["Chaotic Evil"] = "\nCHAOTIC EVIL:\n"\
                              "Chaotic Evil characters value exceptional cruelty, and murderous chaos, solely for the turmoil and\n"\
                              "pain that it brings. They value anguish and ruin for the sense of control it brings them, and\n" \
                              "unfathomable and exceptional cruelty to others.  The experience of bringing terror to others as well\n"\
-                             "destroying any comfort in order is their goal.\n"
+                             "destroying any comfort in order is their goal.  For a Chaotic Evil aigned character, the end isn't \n" \
+                             "control, power, or the glory of a god, it is about the \'glory\' of strife and destruction.\n"
 
 alignments["Notes"] = "These are only one interpretation based on the PHB Alignment explanations with some more context.  These are not\n"\
                           "to be taken literally and are only meant to give some context to the motivation of a given alignment choice,\n"\
@@ -125,7 +131,14 @@ alignments["Notes"] = "These are only one interpretation based on the PHB Alignm
                           "profile and their proclivities kept in check where plausible.  If making an Evil characterd, discuss it with \n" \
                           "the DM to see how it will fit.\n" \
                           "Nominally, the alignments fall into two segments, your dispotion towards Good or Evil, combined with your \n " \
-                          "disposition towards order or chaos.\n"
+                          "disposition towards order or chaos.\n" \
+                          "Note regarding Clerics:\n" \
+                          "Generally Cleric alignment is directly tied to their faith and must choose/use their spells in accordance to it.\n" \
+                          "Example:  A Good aligned Cleric of a beneficial god who heals the sick wouldn't allow their 'Cure' spell to be\n" \
+                          "used to cause harm except in extreme circumstances.  A likewise assumption could be made about Evil clerics and\n" \
+                          "healing spells.  An Evil cleric is likely to heal only themselves, anything else is weak and destroyed.\n" \
+                          "It's best to outline your aignment choice, god and motivations for your Cleric with the DM, especially \n" \
+                          "if evil.\n"
 
 
 def choose_alignment(name):
