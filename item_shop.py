@@ -175,7 +175,7 @@ def buy_armor(name):
 
     result = False
     while not result:
-        for i in range(7, 19):
+        for i in range(6, 19):
             print(armor_list[i][0], armor_list[i][1],
                   "Classes", armor_list[i][8],
                   "Cost", armor_list[i][4],
