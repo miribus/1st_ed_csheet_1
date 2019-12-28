@@ -31,7 +31,6 @@ class playerSheet:
         self.methodv_choice = methodv_choice
         self.char_alignment = ""
         self.char_name = charname
-        #self.char_social_class = ""
         self.player_name = ""
         self.char_age = ""
         self.char_age_desc = ""

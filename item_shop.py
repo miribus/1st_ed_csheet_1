@@ -187,7 +187,7 @@ def buy_armor(name):
             result = True
             return name, result
         if str(choice).isdigit():
-            if int(choice) in range(7, 19):
+            if int(choice) in range(6, 19):
                 name.char_armor[armor_list[int(choice)][1]] = {}
                 name.char_armor[armor_list[int(choice)][1]]["Armor Class"] = str(armor_list[int(choice)][3])
                 name.char_armor[armor_list[int(choice)][1]]["Reduction"] = str(armor_list[int(choice)][2])
@@ -216,10 +216,21 @@ def buy_provisions(name):
         provisions[provisions_list[int(i)][1]] = {}
         provisions[provisions_list[int(i)][1]]["Cost"] = str(provisions_list[int(i)][2])
         provisions[provisions_list[int(i)][1]]["Encumbrance"] = str(provisions_list[int(i)][3])
+        if 'Cleric' in name.char_class:
+            components = provisions_list[int(i)][4]
+        elif 'Druid' in name.char_class:
+            components = provisions_list[int(i)][5]
+        elif 'MagicUser' in name.char_class:
+            components = provisions_list[int(i)][6]
+        elif 'Illusionist' in name.char_class:
+            components = provisions_list[int(i)][7]
+        else:
+            components = ""
 
         print(i, provisions_list[int(i)][1],
               "                 Cost:", provisions_list[int(i)][2],
-              "     Weight/Encumbrance:", provisions_list[int(i)][3])
+              "     Weight/Encumbrance:", provisions_list[int(i)][3],
+              "     Component Use:", components)
 
     result = False
     while not result:
