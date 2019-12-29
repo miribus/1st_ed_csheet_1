@@ -69,7 +69,7 @@ def age(name):
     elif name.char_race == "Elf":
         for c in name.char_class:
             ages = []
-            if "Cleric" in str(c) or "Druid" in str(c):
+            if "Cleric" in str(c) or "Druid" in str(c) or "Cavalier" in str(c):
                 ages.append(500 + dice.normal(10, 10))
             elif "Fighter" in str(c) or "Paladin" in str(c) or "Ranger" in str(c):
                 ages.append(130 + dice.normal(6, 5))
@@ -201,7 +201,7 @@ def age(name):
     elif name.char_race == "Half-Elf":
         for c in name.char_class:
             ages = []
-            if "Cleric" in str(c) or "Druid" in str(c):
+            if "Cleric" in str(c) or "Druid" in str(c) or "Cavalier" in str(c):
                 ages.append(40 + dice.normal(4, 2))
             elif "Fighter" in str(c) or "Paladin" in str(c) or "Ranger" in str(c):
                 ages.append(22 + dice.normal(4, 3))

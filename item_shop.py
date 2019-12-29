@@ -273,7 +273,7 @@ def buy_provisions(name):
 def cavalier_start(name):
     if name.social_class == "UUC":
         for a in armor_list:
-            if "15" == str(a[0]):
+            if "18" == str(a[0]):
                 name.char_armor[str(a[1])] = {}
                 name.char_armor[str(a[1])]["Armor Class"] = str(a[3])
                 name.char_armor[str(a[1])]["Reduction"] = str(a[2])
@@ -281,7 +281,7 @@ def cavalier_start(name):
                 name.char_armor[str(a[1])]["Bulk"] = str(a[7])
     elif name.social_class == "MUC":
         for a in armor_list:
-            if "14" == str(a[0]):
+            if "17" == str(a[0]):
                 name.char_armor[str(a[1])] = {}
                 name.char_armor[str(a[1])]["Armor Class"] = str(a[3])
                 name.char_armor[str(a[1])]["Reduction"] = str(a[2])
@@ -289,7 +289,7 @@ def cavalier_start(name):
                 name.char_armor[str(a[1])]["Bulk"] = str(a[7])
     elif name.social_class == "LUC":
         for a in armor_list:
-            if "13" == str(a[0]):
+            if "16" == str(a[0]):
                 name.char_armor[str(a[1])] = {}
                 name.char_armor[str(a[1])]["Armor Class"] = str(a[3])
                 name.char_armor[str(a[1])]["Reduction"] = str(a[2])
@@ -297,7 +297,7 @@ def cavalier_start(name):
                 name.char_armor[str(a[1])]["Bulk"] = str(a[7])
     elif name.social_class == "UMC":
         for a in armor_list:
-            if "8" == str(a[0]):
+            if "11" == str(a[0]):
                 name.char_armor[str(a[1])] = {}
                 name.char_armor[str(a[1])]["Armor Class"] = str(a[3])
                 name.char_armor[str(a[1])]["Reduction"] = str(a[2])
@@ -335,6 +335,7 @@ def cavalier_start(name):
                 name.char_melee_weapons[weapons_list[int(choice)][1]]["Notes"] = str(weapons_list[int(choice)][6]) \
                     .replace("\n", " ")
                 name.char_melee_weapons[weapons_list[int(choice)][1]]["Encumbrance"] = str(weapons_list[int(choice)][8])
+                name.char_melee_weapons[weapons_list[int(choice)][1]]["Type"] = str(weapons_list[int(choice)][2])
                 name.char_melee_weapons[weapons_list[int(choice)][1]]["THACDJ: {}".format(str(weapons_list[0][12]))]\
                     = str(weapons_list[int(choice)][12])
                 name.char_melee_weapons[weapons_list[int(choice)][1]]["THACDJ: {}".format(str(weapons_list[0][13]))]\
@@ -378,6 +379,8 @@ def cavalier_start(name):
                     name.char_melee_weapons[weapons_list[int(choice)][1]]["Notes"] = str(weapons_list[int(choice)][6]) \
                         .replace("\n", " ")
                     name.char_melee_weapons[weapons_list[int(choice)][1]]["Encumbrance"] = str(weapons_list[int(choice)][8])
+                    name.char_melee_weapons[weapons_list[int(choice)][1]]["Type"] = str(
+                        weapons_list[int(choice)][2])
                     name.char_melee_weapons[weapons_list[int(choice)][1]]["THACDJ: {}".format(str(weapons_list[0][12]))] \
                         = str(weapons_list[int(choice)][12])
                     name.char_melee_weapons[weapons_list[int(choice)][1]]["THACDJ: {}".format(str(weapons_list[0][13]))] \
@@ -412,6 +415,7 @@ def cavalier_start(name):
         name.char_melee_weapons[weapons_list[20][1]]["Speed"] = str(weapons_list[20][11])
         name.char_melee_weapons[weapons_list[20][1]]["Notes"] = str(weapons_list[20][6]).replace("\n", " ")
         name.char_melee_weapons[weapons_list[20][1]]["Encumbrance"] = str(weapons_list[20][8])
+        name.char_melee_weapons[weapons_list[20][1]]["Type"] = str(weapons_list[20][2])
         name.char_melee_weapons[weapons_list[20][1]]["THACDJ: {}".format(str(weapons_list[0][12]))] \
             = str(weapons_list[20][12])
         name.char_melee_weapons[weapons_list[20][1]]["THACDJ: {}".format(str(weapons_list[0][13]))] \
@@ -445,6 +449,7 @@ def cavalier_start(name):
         name.char_ranged_weapons[weapons_list[20][1]]["Speed"] = str(weapons_list[20][11])
         name.char_ranged_weapons[weapons_list[20][1]]["Notes"] = str(weapons_list[20][6]).replace("\n", " ")
         name.char_ranged_weapons[weapons_list[20][1]]["Encumbrance"] = str(weapons_list[20][8])
+        name.char_ranged_weapons[weapons_list[20][1]]["Type"] = str(weapons_list[20][2])
         name.char_ranged_weapons[weapons_list[20][1]]["THACDJ: {}".format(str(weapons_list[0][23]))] \
             = str(weapons_list[20][23])
         name.char_ranged_weapons[weapons_list[20][1]]["THACDJ: {}".format(str(weapons_list[0][24]))] \
@@ -479,6 +484,7 @@ def cavalier_start(name):
             name.char_melee_weapons[weapons_list[44][1]]["Speed"] = str(weapons_list[44][11])
             name.char_melee_weapons[weapons_list[44][1]]["Notes"] = str(weapons_list[44][6]).replace("\n", " ")
             name.char_melee_weapons[weapons_list[44][1]]["Encumbrance"] = str(weapons_list[44][8])
+            name.char_melee_weapons[weapons_list[44][1]]["Type"] = str(weapons_list[44][2])
             name.char_melee_weapons[weapons_list[44][1]]["THACDJ: {}".format(str(weapons_list[0][12]))] \
                 = str(weapons_list[44][12])
             name.char_melee_weapons[weapons_list[44][1]]["THACDJ: {}".format(str(weapons_list[0][13]))] \

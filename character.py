@@ -36,6 +36,8 @@ class playerSheet:
         self.char_age_desc = ""
         self.char_class = []
         self.char_class_levels = []
+        self.char_class_nextXP = []
+        self.char_class_name = []
         self.char_class_xpBonus = []
         self.char_class_abilities = {}
         self.char_race = ""
@@ -62,7 +64,8 @@ class playerSheet:
         self.char_ranged_weapons = {}
         self.char_inventory = {}
         self.char_encumbrance = {}
-        self.char_adjustments = {}
+        self.char_movement_rate = {}
+        #self.char_adjustments = {}
         self.char_race_abilities = {}
         self.soclass_limit = []
         self.social_class = ""
@@ -150,7 +153,9 @@ print("\n")
 print("*********************************")
 print("\n")
 print("Character Name: ", name.char_name)
-print("Class(es): ", name.char_class)
+print("Class(es): ", name.char_class, name.char_class_name)
+print(name.char_class_levels)
+print(name.char_class_nextXP)
 print("Alignment: ", name.char_alignment)
 print("Race: ", name.char_race)
 print("Age: ", name.char_age, name.char_age_desc)
@@ -202,6 +207,8 @@ for i in name.char_inventory:
     print("Inventory:", i, name.char_inventory[i])
 print("#$#$#$#$#$#$#$#$")
 name = encumbrance.calculate_encumbrance(name)
+print(name.char_movement_rate)
+print(name.char_encumbrance)
 print("***********")
 quitout = input("Enter to quit")
 
