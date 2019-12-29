@@ -40,6 +40,9 @@ class playerSheet:
         self.char_class_name = []
         self.char_class_xpBonus = []
         self.char_class_abilities = {}
+        self.char_weapon_prof_slots = 0
+        self.char_weapon_prof_penalty = -6
+        self.char_weapon_prof = []
         self.char_race = ""
         self.char_gender = ""
         self.char_define_abilities = {}

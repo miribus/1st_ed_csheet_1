@@ -44,10 +44,10 @@ def calculate_encumbrance(name):
     adjusted_encumbrance = name.char_define_abilities["STR"]["WEIGHT"]
     adjusted_encumbrance = int(adjusted_encumbrance)
     adjusted_encumbrance += 350
-    name.char_encumbrance["Normal"] = 350 + adjusted_encumbrance
-    name.char_encumbrance["Fairly"] = name.char_encumbrance["Normal"] + 400
-    name.char_encumbrance["Bulky"] = name.char_encumbrance["Fairly"] + 300
-    name.char_encumbrance["Encumbered"] = name.char_encumbrance["Bulky"] + 350
+    name.char_encumbrance["Fairly"] = 350 + adjusted_encumbrance
+    name.char_encumbrance["Bulky"] = name.char_encumbrance["Fairly"] + 400
+    name.char_encumbrance["Encumbered"] = name.char_encumbrance["Bulky"] + 300
+    name.char_encumbrance["Overloaded"] = name.char_encumbrance["Encumbered"] + 350
 
     #if adjusted_encumbrance - equip_encumbrance >= -350:
     #    print("Not", adjusted_encumbrance, equip_encumbrance)

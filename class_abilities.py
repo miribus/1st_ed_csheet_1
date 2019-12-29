@@ -3,6 +3,10 @@ import dice
 def class_details(name):
     for c in name.char_class:
         if "Cleric" == str(c):
+            if not name.char_weapon_prof_slots > 2:
+                name.char_weapon_prof_slots = 2
+            if not name.char_weapon_prof_penalty > -3:
+                name.char_weapon_prof_penalty = -3
             name.char_class_levels.append("1")
             name.char_class_nextXP.append("1500")
             name.char_class_name = "Acolyte"
@@ -21,6 +25,10 @@ def class_details(name):
             name.char_HP += HP
 
         elif "Druid" == str(c):
+            if not name.char_weapon_prof_slots > 2:
+                name.char_weapon_prof_slots = 2
+            if not name.char_weapon_prof_penalty > -4:
+                name.char_weapon_prof_penalty = -4
             name.char_class_levels.append("1")
             name.char_class_nextXP.append("2000")
             name.char_class_name = "Aspirant"
@@ -31,6 +39,10 @@ def class_details(name):
             name.char_HP += HP
 
         elif "Fighter" == str(c):
+            if not name.char_weapon_prof_slots > 4:
+                name.char_weapon_prof_slots = 4
+            if not name.char_weapon_prof_penalty > -2:
+                name.char_weapon_prof_penalty = -2
             name.char_class_levels.append("1")
             name.char_class_nextXP.append("2000")
             name.char_class_name = "Veteran"
@@ -50,6 +62,10 @@ def class_details(name):
             HP = dice.HP(10, 1, name, 6)+int(HPadj)
             name.char_HP += HP
         elif "Paladin" == str(c) and "UAPaladin" not in str(c):
+            if not name.char_weapon_prof_slots > 3:
+                name.char_weapon_prof_slots = 3
+            if not name.char_weapon_prof_penalty > -3:
+                name.char_weapon_prof_penalty = -3
             name.char_class_levels.append("1")
             name.char_class_nextXP.append("2750")
             name.char_class_name = "Gallant"
@@ -69,6 +85,10 @@ def class_details(name):
             HP = dice.HP(10, 1, name, 6)+int(HPadj)
             name.char_HP += HP
         elif "Ranger" == str(c):
+            if not name.char_weapon_prof_slots > 3:
+                name.char_weapon_prof_slots = 3
+            if not name.char_weapon_prof_penalty > -2:
+                name.char_weapon_prof_penalty = -2
             name.char_class_levels.append("1")
             name.char_class_nextXP.append("2250")
             name.char_class_name = "Runner"
@@ -99,6 +119,10 @@ def class_details(name):
             HP = dice.HP(8, 2, name, 9) + int(HPadj) + int(HPadj)
             name.char_HP += HP
         elif "MagicUser" == str(c):
+            if not name.char_weapon_prof_slots > 1:
+                name.char_weapon_prof_slots = 1
+            if not name.char_weapon_prof_penalty > -5:
+                name.char_weapon_prof_penalty = -5
             name.char_class_levels.append("1")
             name.char_class_nextXP.append("2500")
             name.char_class_name = "Prestidigitator"
@@ -108,6 +132,10 @@ def class_details(name):
             HP = dice.HP(4, 1, name, 3) + int(HPadj)
             name.char_HP += HP
         elif "Illusionist" == str(c):
+            if not name.char_weapon_prof_penalty > -5:
+                name.char_weapon_prof_penalty = -5
+            if not name.char_weapon_prof_slots > 1:
+                name.char_weapon_prof_slots = 1
             name.char_class_levels.append("1")
             name.char_class_nextXP.append("2250")
             name.char_class_name = "Prestidigitator"
@@ -115,6 +143,10 @@ def class_details(name):
             HP = dice.HP(4, 1, name, 3) + int(HPadj)
             name.char_HP += HP
         elif "Thief" == str(c):
+            if not name.char_weapon_prof_slots > 2:
+                name.char_weapon_prof_slots = 2
+            if not name.char_weapon_prof_penalty > -3:
+                name.char_weapon_prof_penalty = -3
             name.char_class_levels.append("1")
             name.char_class_nextXP.append("1250")
             name.char_class_name = "Rogue"
@@ -167,6 +199,10 @@ def class_details(name):
             HP = dice.HP(6, 1, name, 4) + int(HPadj)
             name.char_HP += HP
         elif "Assassin" == str(c):
+            if not name.char_weapon_prof_slots > 3:
+                name.char_weapon_prof_slots = 3
+            if not name.char_weapon_prof_penalty > -2:
+                name.char_weapon_prof_penalty = -2
             name.char_class_levels.append("1")
             name.char_class_nextXP.append("1500")
             name.char_class_name = "Apprentice"
@@ -179,6 +215,10 @@ def class_details(name):
             HP = dice.HP(6, 1, name, 4) + int(HPadj)
             name.char_HP += HP
         elif "Monk" == str(c):
+            if not name.char_weapon_prof_slots > 1:
+                name.char_weapon_prof_slots = 1
+            if not name.char_weapon_prof_penalty > -3:
+                name.char_weapon_prof_penalty = -3
             name.char_class_levels.append("1")
             name.char_class_nextXP.append("2250")
             name.char_class_name = "Novice"
@@ -205,6 +245,10 @@ def class_details(name):
             HP = dice.HP(4, 2, name, 5) + int(HPadj) + int(HPadj)
             name.char_HP += HP
         elif "Cavalier" == str(c):
+            if not name.char_weapon_prof_slots > 3:
+                name.char_weapon_prof_slots = 3
+            if not name.char_weapon_prof_penalty > -3:
+                name.char_weapon_prof_penalty = -3
             if name.social_class not in ["LUC", "UUC", "MUC"]:
                 name.char_class_levels.append("0")
                 name.char_class_nextXP.append("-501")
@@ -243,6 +287,10 @@ def class_details(name):
                 HP = dice.HP(4, 1, name, 3) + int(HPadj) + 1
             name.char_HP += HP
         elif "UAPaladin" == str(c):
+            if not name.char_weapon_prof_slots > 3:
+                name.char_weapon_prof_slots = 3
+            if not name.char_weapon_prof_penalty > -3:
+                name.char_weapon_prof_penalty = -3
             if name.social_class not in ["LUC", "UUC", "MUC"]:
                 name.char_class_levels.append("0")
                 name.char_class_nextXP.append("-501")
@@ -290,6 +338,10 @@ def class_details(name):
                 HP = dice.HP(4, 1, name, 3) + int(HPadj) + 1
             name.char_HP += HP
         elif "Barbarian" == str(c):
+            if not name.char_weapon_prof_slots > 6:
+                name.char_weapon_prof_slots = 6
+            if not name.char_weapon_prof_penalty > -1:
+                name.char_weapon_prof_penalty = -1
             name.char_class_levels.append("1")
             name.char_class_nextXP.append("3000")
             name.char_class_name = "Barbarian"

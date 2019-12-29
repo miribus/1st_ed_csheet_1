@@ -106,6 +106,7 @@ def race_classes(name):
 
                 stop = False
                 name.classlist = []
+                old_choices = choices
                 while len(choices) > 0 and not stop:
                     stop = False
                     for c in name.classlist:
@@ -401,6 +402,8 @@ def race_classes(name):
                             name.char_class.append("Monk")
                 if stop:
                     print("This choice isn't valid, try again.")
+                    name.char_class = []
+                    choices = old_choices
                 else:
                     print("-------------")
                     for i in name.char_class:
