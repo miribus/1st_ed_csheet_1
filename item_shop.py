@@ -19,6 +19,24 @@ with open(provisions_csv, 'r') as PCSV:
     provisions_list = list(pcsv_write)
 
 
+def show_inv(name):
+    stuff = []
+    for w in name.char_melee_weapons:
+        #print(w, name.char_melee_weapons[w])
+        stuff.append([w, name.char_melee_weapons[w]])
+    for w in name.char_ranged_weapons:
+        #print("RANGED", w, name.char_ranged_weapons[w])
+        stuff.append(["RANGED", w, name.char_ranged_weapons[w]])
+    for i in name.char_inventory:
+        #print("Inventory:", i, name.char_inventory[i])
+        stuff.append(["Inventory:", i, name.char_inventory[i]])
+    print("Your inventory:\n")
+    for s in stuff:
+        print(s)
+    print("+++++++++++++++ Ebd Inventory\n")
+    #return stuff
+
+
 def buy_weapons(name):
     m_weapons = {}
     r_weapons = {}
@@ -90,6 +108,9 @@ def buy_weapons(name):
 
     result = False
     while not result:
+        print("---------ITEM SHOP---------")
+        display_inv = show_inv(name)
+
         choice = input("Choose a NUMBER to purchase an item, or Q to quit:")
         if str(choice).upper() == "q".upper():
             result = True
@@ -142,6 +163,7 @@ def buy_weapons(name):
 def buy_armor(name):
     result = False
     while not result:
+        display_inv = show_inv(name)
         for i in range(1, 6):
             print(armor_list[i][0], armor_list[i][1],
                   "Classes", armor_list[i][8],
@@ -175,6 +197,7 @@ def buy_armor(name):
 
     result = False
     while not result:
+        display_inv = show_inv(name)
         for i in range(6, 19):
             print(armor_list[i][0], armor_list[i][1],
                   "Classes", armor_list[i][8],
@@ -234,6 +257,7 @@ def buy_provisions(name):
 
     result = False
     while not result:
+        display_inv = show_inv(name)
         print("You have: ", name.char_money, " in cash.")
         choice = input("Choose a NUMBER to purchase an item, or Q to quit:")
         if str(choice).upper() == "q".upper():
@@ -306,6 +330,7 @@ def cavalier_start(name):
 
     result = False
     while not result:
+        display_inv = show_inv(name)
         for i in range(1, 3):
             print(armor_list[i][0], armor_list[i][1])
         choice = input("Pick NUMBER for your shield:")
@@ -320,6 +345,7 @@ def cavalier_start(name):
 
     result = False
     while not result:
+        display_inv = show_inv(name)
         print("\n")
         print(weapons_list[66][0], weapons_list[66][1])
         print(weapons_list[69][0], weapons_list[69][1])
@@ -362,6 +388,7 @@ def cavalier_start(name):
     if name.social_class in ["UMC", "LUC", "MUC", "UUC"]:
         result = False
         while not result:
+            display_inv = show_inv(name)
             for i in range(39, 42):
                 print(weapons_list[i][0], weapons_list[i][1])
             choice = input("Pick NUMBER for your Lance:")

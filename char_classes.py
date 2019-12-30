@@ -403,17 +403,19 @@ def race_classes(name):
                 if stop:
                     print("This choice isn't valid, try again.")
                     name.char_class = []
-                    choices = old_choices
+                    result = False
                 else:
                     print("-------------")
                     for i in name.char_class:
                         print("Class: ", i, "selected.")
                     result = input("Agreed? Y/N")
-                    if result.isalpha():
-                        if "y".upper() == result.upper():
-                            #result = True
-                            result = True
-                            return name, result
+                    if "y".upper() == str(result).upper():
+                        #result = True
+                        result = True
+                        return name, result
+                    else:
+                        name.char_class = []
+                        result = False
 
 
 
