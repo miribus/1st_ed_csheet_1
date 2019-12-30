@@ -22,13 +22,14 @@ with open(provisions_csv, 'r') as PCSV:
 def show_inv(name):
     stuff = []
     for w in name.char_melee_weapons:
-        #print(w, name.char_melee_weapons[w])
         stuff.append([w, name.char_melee_weapons[w]])
     for w in name.char_ranged_weapons:
-        #print("RANGED", w, name.char_ranged_weapons[w])
         stuff.append(["RANGED", w, name.char_ranged_weapons[w]])
+    for a in name.char_armor:
+        stuff.append(["Armor:", a, name.char_armor[a]])
+    for s in name.char_shield:
+        stuff.append(["Shield:", s, name.char_shield[s]])
     for i in name.char_inventory:
-        #print("Inventory:", i, name.char_inventory[i])
         stuff.append(["Inventory:", i, name.char_inventory[i]])
     print("Your inventory:\n")
     for s in stuff:

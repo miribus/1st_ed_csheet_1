@@ -144,6 +144,12 @@ if decision.isalpha():
         result = False
         while not result:
             name, result = item_shop.buy_provisions(name)
+        result = False
+        while not result:
+            print("***********")
+            name, result = class_abilities.weapon_prof(name)
+            print(name.char_weapon_prof)
+            print("***********")
         print("*****LEAVE ITEM SHOP******\n")
 
 print("\n")
@@ -212,7 +218,7 @@ print("#$#$#$#$#$#$#$#$")
 name = encumbrance.calculate_encumbrance(name)
 print(name.char_movement_rate)
 print(name.char_encumbrance)
-print("***********")
+
 quitout = input("Enter to quit")
 
 

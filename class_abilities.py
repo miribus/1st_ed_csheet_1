@@ -1,4 +1,19 @@
-import dice
+import dice, csv, os
+
+tables = str(os.getcwd()+"\\tables\\")
+weapons_csv = tables+"weapons_csv.csv"
+#
+
+with open(weapons_csv, 'r') as WCSV:
+    wcsv_write = csv.reader(WCSV, delimiter = ",")
+    weapons_list = list(wcsv_write)
+
+def fighter_check(name):
+    fighter = False
+    if "Fighter" in name.char_class or "Ranger" in name.char_class:
+        if len(name.char_class) == 1:
+            fighter = True
+    return fighter
 
 def class_details(name):
     for c in name.char_class:
@@ -443,3 +458,133 @@ def starting_money(name):
     name.char_money["gp"] = gold
     return name
 
+
+def weapon_prof(name):
+    m_weapons = {}
+    mweapons = []
+    mweapons.append("")
+    char_list = []
+    if 'Fighter' in name.char_class or 'Ranger' in name.char_class or 'Barbarian' in name.char_class or 'Assassin' \
+            in name.char_class or 'Paladin' in name.char_class:
+        if 'UAPaladin' not in name.char_class:
+            char_list.append("Fighter")
+    if 'Monk' in name.char_class:
+        char_list.append("Monk")
+    if "Cleric" in name.char_class:
+        char_list.append("Cleric")
+    if "Druid" in name.char_class:
+        char_list.append("Druid")
+    if 'MagicUser' in name.char_class or 'Illusionist' in name.char_class:
+        char_list.append("MagicUser")
+    if 'Thief' in name.char_class:
+        char_list.append("Thief")
+    if 'Cavalier' in name.char_class:
+        char_list.append("Cavalier")
+    if 'UAPaladin' in name.char_class:
+        char_list.append("Paladin")
+    for i in range(1, 75):
+
+        mweapons.append(weapons_list[int(i)][1])
+
+        show_weapons = []
+
+        for c in char_list:
+            if str(c) in str(weapons_list[int(i)][35]):
+                m_weapons[weapons_list[int(i)][1]] = {}
+                m_weapons[weapons_list[int(i)][1]]["Damage S-M"] = str(weapons_list[int(i)][3])
+                m_weapons[weapons_list[int(i)][1]]["Damage L"] = str(weapons_list[int(i)][4])
+                m_weapons[weapons_list[int(i)][1]]["Length"] = str(weapons_list[int(i)][9])
+                m_weapons[weapons_list[int(i)][1]]["Space"] = str(weapons_list[int(i)][10])
+                m_weapons[weapons_list[int(i)][1]]["Speed"] = str(weapons_list[int(i)][11])
+                m_weapons[weapons_list[int(i)][1]]["Notes"] = str(weapons_list[int(i)][6]).replace("\n", " ")
+                m_weapons[weapons_list[int(i)][1]]["Encumbrance"] = str(weapons_list[int(i)][8])
+                m_weapons[weapons_list[int(i)][1]]["Type"] = str(weapons_list[int(i)][2])
+                m_weapons[weapons_list[int(i)][1]]["Cost"] = str(weapons_list[int(i)][7])
+                m_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][12]))] = str(
+                    weapons_list[int(i)][12])
+                m_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][13]))] = str(
+                    weapons_list[int(i)][13])
+                m_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][14]))] = str(
+                    weapons_list[int(i)][14])
+                m_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][15]))] = str(
+                    weapons_list[int(i)][15])
+                m_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][16]))] = str(
+                    weapons_list[int(i)][16])
+                m_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][17]))] = str(
+                    weapons_list[int(i)][17])
+                m_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][18]))] = str(
+                    weapons_list[int(i)][18])
+                m_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][19]))] = str(
+                    weapons_list[int(i)][19])
+                m_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][20]))] = str(
+                    weapons_list[int(i)][20])
+                m_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][21]))] = str(
+                    weapons_list[int(i)][21])
+                m_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][22]))] = str(
+                    weapons_list[int(i)][22])
+                if m_weapons[weapons_list[int(i)][1]] not in show_weapons:
+                    show_weapons.append(m_weapons[weapons_list[int(i)][1]])
+                    print(i, weapons_list[int(i)][1],
+                          "     Classes [CHOOSE CAREFULLY!]:", weapons_list[int(i)][34],
+                          "     DMG S-M", weapons_list[int(i)][3],
+                          "     DMG L", weapons_list[int(i)][4],
+                          "     Note:", weapons_list[int(i)][6],
+                          "     Encumbrance:", weapons_list[int(i)][8])
+
+    if fighter_check(name):
+            print(
+                "Specialization must be done at 1st level, on any one specific weapon.  Double specialization can be done later.")
+            print(
+                "Limited to Single Class Fighters or Rangers.  Rangers must specialize in a specific set of weapons.")
+            print("Long/Short/Composite Bows require 1 additional proficiency slot to specialize.")
+            print("To specialize, choose the same weapon repeatedly (up to 3x)")
+
+    result = False
+    while not result:
+
+        print("Select a NUMBER to gain proficiency.")
+        print("You have {} choices remaining.".format(name.char_weapon_prof_slots - len(name.char_weapon_prof)))
+        print("You have chosen:", name.char_weapon_prof)
+        choice = input("Choose a NUMBER to purchase an item, or Q to quit:")
+        if str(choice).upper() == "q".upper():
+            result = True
+            return name, result
+        if choice.isdigit():
+            if int(choice) in range(1, 75):
+                if name.char_weapon_prof_slots - len(name.char_weapon_prof) > 0:
+                    if "Bow" in str(mweapons[int(choice)]):
+                        if len(name.char_weapon_prof_slots) - len(name.char_weapon_prof) - 1 > 0:
+                            print("Not enough slots")
+                            choice = input("Are you done? Y or N:")
+                            if str(choice).upper() == "y".upper():
+                                result = True
+                            return name, result
+                    if mweapons[int(choice)] in name.char_weapon_prof:
+                        if fighter_check(name):
+                            indx = 0
+                            for i in name.char_weapon_prof:
+                                if mweapons[int(choice)] in i:
+                                    indx += 1
+                            indx += 1
+                            name.char_weapon_prof.append(mweapons[int(choice)]+"_"+str(indx))
+                            if "Bow" in str(mweapons[int(choice)]):
+                                name.char_weapon_prof.append(mweapons[int(choice)] + "_" + str(indx))
+                        else:
+                            print("You already chose this.")
+                            choice = input("Are you done? Y or N:")
+                            if str(choice).upper() == "y".upper():
+                                result = True
+                            return name, result
+                    else:
+                        name.char_weapon_prof.append(mweapons[int(choice)])
+
+                    choice = input("Are you done? Y or N:")
+                    if str(choice).upper() == "y".upper():
+                        result = True
+                    return name, result
+                else:
+                    print("Not enough slots")
+                    choice = input("Are you done? Y or N:")
+                    if str(choice).upper() == "y".upper():
+                        result = True
+                    return name, result
