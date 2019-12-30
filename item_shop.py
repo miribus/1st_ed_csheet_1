@@ -1,4 +1,4 @@
-import os, csv, dice
+import os, csv, encumbrance
 
 tables = str(os.getcwd()+"\\tables\\")
 armor_csv = tables+"armors_csv.csv"
@@ -34,6 +34,11 @@ def show_inv(name):
     for s in stuff:
         print(s)
     print("+++++++++++++++ Ebd Inventory\n")
+    print("Your Movement Rate & Encumbrance:")
+    name = encumbrance.calculate_encumbrance(name)
+    print("Move:", name.char_movement_rate)
+    print("Weight Ranges:", name.char_encumbrance)
+    print("***********")
     #return stuff
 
 
