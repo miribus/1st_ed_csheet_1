@@ -428,6 +428,28 @@ def class_details(name):
     name.char_HP = round(name.char_HP/len(name.char_class))
     return name
 
+def class_equipment_checker(name):
+    char_list = []
+    if 'Fighter' in name.char_class or 'Ranger' in name.char_class or 'Barbarian' in name.char_class or 'Assassin' \
+            in name.char_class or 'Paladin' in name.char_class:
+        if 'UAPaladin' not in name.char_class:
+            char_list.append("Fighter")
+    if 'Monk' in name.char_class:
+        char_list.append("Monk")
+    if "Cleric" in name.char_class:
+        char_list.append("Cleric")
+    if "Druid" in name.char_class:
+        char_list.append("Druid")
+    if 'MagicUser' in name.char_class or 'Illusionist' in name.char_class:
+        char_list.append("MagicUser")
+    if 'Thief' in name.char_class:
+        char_list.append("Thief")
+    if 'Cavalier' in name.char_class:
+        char_list.append("Cavalier")
+    if 'UAPaladin' in name.char_class:
+        char_list.append("Paladin")
+    return char_list
+
 def starting_money(name):
     if "Fighter" in name.char_class or "Barbarian" in name.char_class or "Ranger" in name.char_class:
         gold = dice.normal(4, 5)
@@ -463,30 +485,11 @@ def weapon_prof(name):
     m_weapons = {}
     mweapons = []
     mweapons.append("")
-    char_list = []
-    if 'Fighter' in name.char_class or 'Ranger' in name.char_class or 'Barbarian' in name.char_class or 'Assassin' \
-            in name.char_class or 'Paladin' in name.char_class:
-        if 'UAPaladin' not in name.char_class:
-            char_list.append("Fighter")
-    if 'Monk' in name.char_class:
-        char_list.append("Monk")
-    if "Cleric" in name.char_class:
-        char_list.append("Cleric")
-    if "Druid" in name.char_class:
-        char_list.append("Druid")
-    if 'MagicUser' in name.char_class or 'Illusionist' in name.char_class:
-        char_list.append("MagicUser")
-    if 'Thief' in name.char_class:
-        char_list.append("Thief")
-    if 'Cavalier' in name.char_class:
-        char_list.append("Cavalier")
-    if 'UAPaladin' in name.char_class:
-        char_list.append("Paladin")
+    char_list = class_equipment_checker(name)
+
     for i in range(1, 75):
 
         mweapons.append(weapons_list[int(i)][1])
-
-        show_weapons = []
 
         for c in char_list:
             if str(c) in str(weapons_list[int(i)][35]):
@@ -522,22 +525,48 @@ def weapon_prof(name):
                     weapons_list[int(i)][21])
                 m_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][22]))] = str(
                     weapons_list[int(i)][22])
-                if m_weapons[weapons_list[int(i)][1]] not in show_weapons:
-                    show_weapons.append(m_weapons[weapons_list[int(i)][1]])
-                    print(i, weapons_list[int(i)][1],
-                          "     Classes [CHOOSE CAREFULLY!]:", weapons_list[int(i)][34],
-                          "     DMG S-M", weapons_list[int(i)][3],
-                          "     DMG L", weapons_list[int(i)][4],
-                          "     Note:", weapons_list[int(i)][6],
-                          "     Encumbrance:", weapons_list[int(i)][8])
+                print(i, weapons_list[int(i)][1],
+                      "     Classes [CHOOSE CAREFULLY!]:", weapons_list[int(i)][34],
+                      "     DMG S-M", weapons_list[int(i)][3],
+                      "     DMG L", weapons_list[int(i)][4],
+                      "     Note:", weapons_list[int(i)][6],
+                      "     Encumbrance:", weapons_list[int(i)][8])
 
+    prof_message = ""
     if fighter_check(name):
-            print(
-                "Specialization must be done at 1st level, on any one specific weapon.  Double specialization can be done later.")
-            print(
-                "Limited to Single Class Fighters or Rangers.  Rangers must specialize in a specific set of weapons.")
-            print("Long/Short/Composite Bows require 1 additional proficiency slot to specialize.")
-            print("To specialize, choose the same weapon repeatedly (up to 3x)")
+            prof_message += "Specialization must be done at 1st level, on any one specific weapon.  Double specialization " \
+                  "can be done later.\n" \
+                  "Limited to Single Class Fighters or Rangers.  Rangers must specialize" \
+                  "in a specific set of weapons.\n" \
+                  "Long/Short/Composite Bows require 1 additional proficiency slot to specialize.\n" \
+                  "To specialize, choose the same weapon repeatedly (up to 3x)\n"
+            if "Ranger" in name.char_class:
+                prof_message += "You are a Ranger, you have proficiency prerequisites\n."\
+                    "You MUST choose a Bow or Light Crossbow, but not both.\n"\
+                    "If specializing, you MUST only choose from:\n Bow or Light Crossbow,\n"\
+                    "Spear, Axe (Battle or Hand), Dagger, Knife or Sword (any).\n"\
+                    "You MUST have all of the above weapons taken by 4th level.\n"
+    if "Ranger" in name.char_class:
+        prof_message += "You are a Ranger, you have proficiency prerequisites.\n"\
+            "You MUST choose a Bow or Light Crossbow, but not both.\n"\
+            "You MUST have all of these weapons taken by 4th level:\n"\
+            "Spear, Axe (Battle or Hand), Dagger, Knife or Sword (any).\n"
+    if 'Barbarian' in name.char_class:
+        prof_message += "You are a Barbarian, you have proficiency prerequisites.\n" \
+            "Barbarians MUST choose each of these: Hand Axe, Knife, and Spear to startn"\
+            "The DM may require others, otherwise you're free to choose anything a Fighter can take.\n"
+    if 'Cavalier' in name.char_class or 'UAPaladin' in name.char_class:
+        prof_message += "You are a Cavalier or Paladin (Unearthed Arcana Version), you have proficiency prerequisites.\n"\
+            "Technically you can use any weapon, but you must gain proficiency in the following first:\n"\
+            "Lance (any),\n Long, Broad, Short or Bastard Swords and Scimitar.\n"\
+            "Javelin (the only missile weapon allowed for Human Cavaliers)\n"\
+            "Horseman's Mace, Horseman's Flail,\n"\
+            "Horesman's Military Pick,\nDagger\n"\
+            "Elven (High) or Half Elven (High) Cavaliers can select: Composite Short Bow\n"\
+            "All other weapons are generally prohibited until higher levels\n"\
+            "Depending on your Social Class, you may have been pre-equipped will get some of these for free next.\n"\
+            "Your first Weapon of Choice is your Lance offering a bonus per UA Pg 14\n"
+    print(prof_message)
 
     result = False
     while not result:
@@ -553,7 +582,7 @@ def weapon_prof(name):
             if int(choice) in range(1, 75):
                 if name.char_weapon_prof_slots - len(name.char_weapon_prof) > 0:
                     if "Bow" in str(mweapons[int(choice)]):
-                        if len(name.char_weapon_prof_slots) - len(name.char_weapon_prof) - 1 > 0:
+                        if name.char_weapon_prof_slots - len(name.char_weapon_prof) - 1 > 0:
                             print("Not enough slots")
                             choice = input("Are you done? Y or N:")
                             if str(choice).upper() == "y".upper():

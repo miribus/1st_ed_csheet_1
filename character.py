@@ -131,6 +131,12 @@ if decision.isalpha():
         name = class_abilities.class_details(name)
         name = alignments.choose_alignment(name)
         name = class_abilities.starting_money(name)
+        result = False
+        while not result:
+            print("***********")
+            name, result = class_abilities.weapon_prof(name)
+            print(name.char_weapon_prof)
+            print("***********")
         print("*****ITEM SHOP******\n")
         print("\n")
         if "Cavalier" in name.char_class or "UAPaladin" in name.char_class:
@@ -144,12 +150,6 @@ if decision.isalpha():
         result = False
         while not result:
             name, result = item_shop.buy_provisions(name)
-        result = False
-        while not result:
-            print("***********")
-            name, result = class_abilities.weapon_prof(name)
-            print(name.char_weapon_prof)
-            print("***********")
         print("*****LEAVE ITEM SHOP******\n")
 
 print("\n")
