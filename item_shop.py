@@ -49,7 +49,7 @@ def buy_weapons(name):
     mweapons.append("")
     rweapons = []
     rweapons.append("")
-
+    show_weapons = {}
     for i in range(1, 75):
         char_list = class_abilities.class_equipment_checker(name)
         for c in char_list:
@@ -106,6 +106,14 @@ def buy_weapons(name):
                 else:
                     del r_weapons[weapons_list[int(i)][1]]
 
+                show_weapons[i] = [ weapons_list[int(i)][1],
+                      "                 Cost: {}".format(weapons_list[int(i)][7]),
+                      "     Classes: {}".format(weapons_list[int(i)][34]),
+                      "     DMG S-M: {}".format(weapons_list[int(i)][3]),
+                      "     DMG L: {}".format(weapons_list[int(i)][4]),
+                      "     Note: {}".format(weapons_list[int(i)][6]),
+                      "     Encumbrance: {}".format(weapons_list[int(i)][8])]
+                '''
                 print(i, weapons_list[int(i)][1],
                       "                 Cost:", weapons_list[int(i)][7],
                       "     Classes:", weapons_list[int(i)][34],
@@ -113,7 +121,9 @@ def buy_weapons(name):
                       "     DMG L", weapons_list[int(i)][4],
                       "     Note:", weapons_list[int(i)][6],
                       "     Encumbrance:", weapons_list[int(i)][8])
-
+                '''
+    for w in show_weapons:
+        print(w, show_weapons[w])
     print("Select a NUMBER to buy, you have: ", name.char_money, " in cash.")
 
     result = False
@@ -172,18 +182,28 @@ def buy_weapons(name):
 
 def buy_armor(name):
     char_list = class_abilities.class_equipment_checker(name)
-
+    show_shields = {}
     result = False
     while not result:
         display_inv = show_inv(name)
         for i in range(1, 6):
             for c in char_list:
                 if str(c) in str(armor_list[int(i)][9]):
+                    show_shields[armor_list[i][0]] = [ armor_list[i][1],
+                          "     Classes: {}".format(armor_list[i][8]),
+                          "Cost: {}".format(armor_list[i][4]),
+                          "Encumbrance: {}".format(armor_list[i][5]),
+                          "Bulk: {}".format(armor_list[i][7]) ]
+
+                    '''
                     print(armor_list[i][0], armor_list[i][1],
                           "     Classes", armor_list[i][8],
                           "Cost", armor_list[i][4],
                           "Encumbrance", armor_list[i][5],
                           "Bulk", armor_list[i][7])
+                    '''
+        for s in show_shields:
+            print(s, show_shields[s])
         print("You have: ", name.char_money, " in cash.")
         choice = input("Pick NUMBER for your shield, or Q to quit:")
         if str(choice).upper() == "q".upper():
@@ -208,17 +228,28 @@ def buy_armor(name):
                     if str(choice).upper() == "y".upper():
                         result = True
 
+    show_armor = {}
     result = False
     while not result:
         display_inv = show_inv(name)
         for i in range(6, 19):
             for c in char_list:
                 if str(c) in str(armor_list[int(i)][9]):
+                    show_armor[armor_list[i][0]] = [ armor_list[i][1],
+                          "     Classes: {}".format(armor_list[i][8]),
+                          "Cost: {}".format(armor_list[i][4]),
+                          "Encumbrance: {}".format(armor_list[i][5]),
+                          "Bulk: {}".format(armor_list[i][7]) ]
+
+                    '''
                     print(armor_list[i][0], armor_list[i][1],
                           "     Classes", armor_list[i][8],
                           "Cost", armor_list[i][4],
                           "Encumbrance", armor_list[i][5],
                           "Bulk", armor_list[i][7])
+                    '''
+        for a in show_armor:
+            print(a, show_armor[a])
         print("You have: ", name.char_money, " in cash.")
         choice = input("Pick NUMBER for your Armor, or Q to quit::")
         if str(choice).upper() == "q".upper():

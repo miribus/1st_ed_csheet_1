@@ -118,9 +118,7 @@ def class_details(name):
 
             name.char_class_abilities["Ranger"]["Surprise"] = "1-3/d6 Surprise if alone, w/Elves." \
                                                               " 1/d6 to be Surprised if alone, w/Elves"
-            name.char_class_abilities["Ranger"]["Special"]["Tracking"] = "Tracking PHB Pg: 24"
-            name.char_class_abilities["Ranger"]["Special"]["Cure Disease"] = "1/wk per 5 levels"
-            name.char_class_abilities["Ranger"]["Special"]["Protection from Evil"] = '1\" radius all 24/7'
+            name.char_class_abilities["Ranger"]["Special"]["Tracking"] = "Tracking Unearthed Arcana Pg: 21"
             if len(name.char_class) == 1:
                 name.char_class_abilities["Ranger"][
                     "Specialization (UA) 1"] = "2x WP Slots for Spec, 3x WP Slots for Double Spec;" \
@@ -546,7 +544,7 @@ def weapon_prof(name):
                     "If specializing, you MUST only choose from:\n Bow or Light Crossbow,\n"\
                     "Spear, Axe (Battle or Hand), Dagger, Knife or Sword (any).\n"\
                     "You MUST have all of the above weapons taken by 4th level.\n"
-    if "Ranger" in name.char_class:
+    if "Ranger" in name.char_class and len(name.char_class) > 1:
         prof_message += "You are a Ranger, you have proficiency prerequisites.\n"\
             "You MUST choose a Bow or Light Crossbow, but not both.\n"\
             "You MUST have all of these weapons taken by 4th level:\n"\
@@ -582,22 +580,41 @@ def weapon_prof(name):
             if int(choice) in range(1, 75):
                 if name.char_weapon_prof_slots - len(name.char_weapon_prof) > 0:
                     if "Bow" in str(mweapons[int(choice)]):
-                        if name.char_weapon_prof_slots - len(name.char_weapon_prof) - 1 > 0:
-                            print("Not enough slots")
-                            choice = input("Are you done? Y or N:")
-                            if str(choice).upper() == "y".upper():
-                                result = True
-                            return name, result
+                        if mweapons[int(choice)] in name.char_weapon_prof:
+                            if name.char_weapon_prof_slots - len(name.char_weapon_prof) - 1 <= 0:
+                                print("Not enough slots")
+                                choice = input("Are you done? Y or N:")
+                                if str(choice).upper() == "y".upper():
+                                    result = True
+                                return name, result
                     if mweapons[int(choice)] in name.char_weapon_prof:
                         if fighter_check(name):
-                            indx = 0
-                            for i in name.char_weapon_prof:
-                                if mweapons[int(choice)] in i:
-                                    indx += 1
-                            indx += 1
-                            name.char_weapon_prof.append(mweapons[int(choice)]+"_"+str(indx))
+                            #indx = 0
+                            #for i in name.char_weapon_prof:
+                            #    if mweapons[int(choice)] in i:
+                            #        indx += 1
+                            #indx += 1
+                            if mweapons[int(choice)]+"_Specialized" in name.char_weapon_prof:
+                                if mweapons[int(choice)] + "_Double-Specialized" not in name.char_weapon_prof:
+                                    name.char_weapon_prof.append(mweapons[int(choice)]+"_Double-Specialized")
+                                else:
+                                    print("You already mastered Specialization.")
+                                    choice = input("Are you done? Y or N:")
+                                    if str(choice).upper() == "y".upper():
+                                        result = True
+                                    return name, result
+                            else:
+                                if "Bow" not in str(mweapons[int(choice)]) and "Light Crossbow" \
+                                        not in str(mweapons[int(choice)]) and "Ranger" in name.char_class:
+                                    print("Ranger can only specialize in Bow or Light Crossbow.")
+                                    choice = input("Are you done? Y or N:")
+                                    if str(choice).upper() == "y".upper():
+                                        result = True
+                                    return name, result
+                                else:
+                                    name.char_weapon_prof.append(mweapons[int(choice)] + "_Specialized")
                             if "Bow" in str(mweapons[int(choice)]):
-                                name.char_weapon_prof.append(mweapons[int(choice)] + "_" + str(indx))
+                                name.char_weapon_prof.append(mweapons[int(choice)] + "_Specialized_Slot-2")
                         else:
                             print("You already chose this.")
                             choice = input("Are you done? Y or N:")
