@@ -68,17 +68,19 @@ def buy_weapons(name):
                 m_weapons[weapons_list[int(i)][1]]["Encumbrance"] = str(weapons_list[int(i)][8])
                 m_weapons[weapons_list[int(i)][1]]["Type"] = str(weapons_list[int(i)][2])
                 m_weapons[weapons_list[int(i)][1]]["Cost"] = str(weapons_list[int(i)][7])
-                m_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][12]))] = str(weapons_list[int(i)][12])
-                m_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][13]))] = str(weapons_list[int(i)][13])
-                m_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][14]))] = str(weapons_list[int(i)][14])
-                m_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][15]))] = str(weapons_list[int(i)][15])
-                m_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][16]))] = str(weapons_list[int(i)][16])
-                m_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][17]))] = str(weapons_list[int(i)][17])
-                m_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][18]))] = str(weapons_list[int(i)][18])
-                m_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][19]))] = str(weapons_list[int(i)][19])
-                m_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][20]))] = str(weapons_list[int(i)][20])
-                m_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][21]))] = str(weapons_list[int(i)][21])
-                m_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][22]))] = str(weapons_list[int(i)][22])
+                m_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][12]))] = str(weapons_list[int(i)][12])
+                m_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][13]))] = str(weapons_list[int(i)][13])
+                m_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][14]))] = str(weapons_list[int(i)][14])
+                m_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][15]))] = str(weapons_list[int(i)][15])
+                m_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][16]))] = str(weapons_list[int(i)][16])
+                m_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][17]))] = str(weapons_list[int(i)][17])
+                m_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][18]))] = str(weapons_list[int(i)][18])
+                m_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][19]))] = str(weapons_list[int(i)][19])
+                m_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][20]))] = str(weapons_list[int(i)][20])
+                m_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][21]))] = str(weapons_list[int(i)][21])
+                m_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][22]))] = str(weapons_list[int(i)][22])
+                m_weapons[weapons_list[int(i)][1]]["Norm Hit"] = 0
+                m_weapons[weapons_list[int(i)][1]]["Norm Dmg"] = 0
                 if "Missile" in str(weapons_list[int(i)][2]) or "Bow" in str(weapons_list[int(i)][2]) or \
                     "Thrown" in str(weapons_list[int(i)][2]):
 
@@ -91,18 +93,20 @@ def buy_weapons(name):
                     r_weapons[weapons_list[int(i)][1]]["Encumbrance"] = str(weapons_list[int(i)][8])
                     r_weapons[weapons_list[int(i)][1]]["Type"] = str(weapons_list[int(i)][2])
                     r_weapons[weapons_list[int(i)][1]]["Cost"] = str(weapons_list[int(i)][7])
-                    r_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][23]))] = str(weapons_list[int(i)][23])
-                    r_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][24]))] = str(weapons_list[int(i)][24])
-                    r_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][25]))] = str(weapons_list[int(i)][25])
-                    r_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][26]))] = str(weapons_list[int(i)][26])
-                    r_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][27]))] = str(weapons_list[int(i)][27])
-                    r_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][28]))] = str(weapons_list[int(i)][28])
-                    r_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][29]))] = str(weapons_list[int(i)][29])
-                    r_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][30]))] = str(weapons_list[int(i)][30])
-                    r_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][31]))] = str(weapons_list[int(i)][31])
-                    r_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][32]))] = str(weapons_list[int(i)][32])
-                    r_weapons[weapons_list[int(i)][1]]["THACDJ: {}".format(str(weapons_list[0][33]))] = str(weapons_list[int(i)][33])
+                    r_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][23]))] = str(weapons_list[int(i)][23])
+                    r_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][24]))] = str(weapons_list[int(i)][24])
+                    r_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][25]))] = str(weapons_list[int(i)][25])
+                    r_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][26]))] = str(weapons_list[int(i)][26])
+                    r_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][27]))] = str(weapons_list[int(i)][27])
+                    r_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][28]))] = str(weapons_list[int(i)][28])
+                    r_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][29]))] = str(weapons_list[int(i)][29])
+                    r_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][30]))] = str(weapons_list[int(i)][30])
+                    r_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][31]))] = str(weapons_list[int(i)][31])
+                    r_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][32]))] = str(weapons_list[int(i)][32])
+                    r_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][33]))] = str(weapons_list[int(i)][33])
                     r_weapons[weapons_list[int(i)][1]]["Rate of Fire"] = str(weapons_list[int(i)][5])
+                    r_weapons[weapons_list[int(i)][1]]["Norm Hit"] = 0
+                    r_weapons[weapons_list[int(i)][1]]["Norm Dmg"] = 0
                 else:
                     del r_weapons[weapons_list[int(i)][1]]
 
@@ -113,15 +117,7 @@ def buy_weapons(name):
                       "     DMG L: {}".format(weapons_list[int(i)][4]),
                       "     Note: {}".format(weapons_list[int(i)][6]),
                       "     Encumbrance: {}".format(weapons_list[int(i)][8])]
-                '''
-                print(i, weapons_list[int(i)][1],
-                      "                 Cost:", weapons_list[int(i)][7],
-                      "     Classes:", weapons_list[int(i)][34],
-                      "     DMG S-M", weapons_list[int(i)][3],
-                      "     DMG L", weapons_list[int(i)][4],
-                      "     Note:", weapons_list[int(i)][6],
-                      "     Encumbrance:", weapons_list[int(i)][8])
-                '''
+
     for w in show_weapons:
         print(w, show_weapons[w])
     print("Select a NUMBER to buy, you have: ", name.char_money, " in cash.")
@@ -195,13 +191,6 @@ def buy_armor(name):
                           "Encumbrance: {}".format(armor_list[i][5]),
                           "Bulk: {}".format(armor_list[i][7]) ]
 
-                    '''
-                    print(armor_list[i][0], armor_list[i][1],
-                          "     Classes", armor_list[i][8],
-                          "Cost", armor_list[i][4],
-                          "Encumbrance", armor_list[i][5],
-                          "Bulk", armor_list[i][7])
-                    '''
         for s in show_shields:
             print(s, show_shields[s])
         print("You have: ", name.char_money, " in cash.")
@@ -241,13 +230,6 @@ def buy_armor(name):
                           "Encumbrance: {}".format(armor_list[i][5]),
                           "Bulk: {}".format(armor_list[i][7]) ]
 
-                    '''
-                    print(armor_list[i][0], armor_list[i][1],
-                          "     Classes", armor_list[i][8],
-                          "Cost", armor_list[i][4],
-                          "Encumbrance", armor_list[i][5],
-                          "Bulk", armor_list[i][7])
-                    '''
         for a in show_armor:
             print(a, show_armor[a])
         print("You have: ", name.char_money, " in cash.")

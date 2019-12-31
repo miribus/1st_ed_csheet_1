@@ -1,5 +1,5 @@
 number,Weapon,Type,Damage S-M,Damage L,Fire Rate,Range/Notes,Cost,Weight,Length,Space,Speed,0,1,2,3,4,5,6,7,8,9,10,0,1,2,3,4,5,6,7,8,9,10,Classes,Classes2
-1,Fist,Melee,*,*,,,0gp,0w,2’,,1,-9,-8,-7,-5,-3,-1,0,0,2,0,4,,,,,,,,,,,,None,None
+1,Fist,Melee,*,*,,,0gp,0w,2’,,1,-9,-8,-7,-5,-3,-1,0,0,2,0,4,,,,,,,,,,,,"F, B, R, A, Cav*, MU, D, Mk, T","Fighter, Assassin, Cavalier, Paladin, Monk, Thief, MagicUser"
 2,Aklys,Thrown/Melee,d6,d4,1,"Range 10 foot (rope to recover), Entangling attack",2gp,35w,2’,2’,5,-7,-6,-5,-4,-3,-2,-1,-1,0,0,1,,,,,,,,,,,,"F, B, R, A","Fighter, Assassin"
 3,Atlatl with Javelin,Missile,d6,d6,1,"Range 3:6:9, fires javelins",1gp,30w,3’,1’,0,0,0,0,0,0,0,0,0,0,0,0,,,,,,,,,,,,"F, B, R, A","Fighter, Assassin"
 4,Arrows —Standard (20),Missile,d6,d6,2,Bow Ranges,1gp,24w,,,0,,,,,,,,,,,,,,,,,,,,,,,"F, B, R, A, Cav*, T","Fighter, Assassin, Cavalier, Paladin, Thief"
@@ -13,7 +13,7 @@ number,Weapon,Type,Damage S-M,Damage L,Fire Rate,Range/Notes,Cost,Weight,Length,
 12,Long Bow,Bow,,,2,Ranges 7:14:21,60gp,100w,,,0,,,,,,,,,,,,-2,-1,-1,0,0,1,2,3,3,3,3,"F, B, R, A, T","Fighter, Assassin, Thief"
 13,Short Composite Bow,Bow,,,2,Ranges 5:10:18,75gp,50w,,,0,,,,,,,,,,,,-4,-4,-3,-3,-1,0,1,2,2,2,3,"F, B, R, A, T, Cav (Elf)*","Fighter, Assassin, Thief, Cavalier"
 14,Short Bow,Bow,,,2,Ranges 5:10:15,15gp,50w,,,0,,,,,,,,,,,,-7,-6,-5,-4,-1,0,0,1,2,2,2,"F, B, R, A, T","Fighter, Assassin, Thief"
-15,Caltrop (5),Special,1,d2,,"Portable ground spikes, MJY:  Hard boots protect, MJY:  Proficiency not required for use",1gp,3w,0,0,0,-8,-7,-6,-5,-4,-3,-2,-1,0,1,2,,,,,,,,,,,,None,None
+15,Caltrop (5),Special,1,d2,,"Portable ground spikes, MJY:  Hard boots protect, MJY:  Proficiency not required for use",1gp,3w,0,0,0,-8,-7,-6,-5,-4,-3,-2,-1,0,1,2,,,,,,,,,,,,"F, B, R, A, Cav*, MU, D, Mk, T","Fighter, Assassin, Cavalier, Paladin, Monk, Thief, MagicUser"
 16,Club,Melee/Thrown,d6,d3,1,Ranges 2:4:6,0gp,30w,3’,1’,4,-7,-6,-5,-4,-3,-2,-1,-1,0,0,1,-9,-8,-7,-5,-3,-2,-1,-1,-1,0,0,"F, B, R, A, C, D, T","Fighter, Assassin, Cleric, Druid, Thief"
 17,Hand Crossbow,Crossbow,,,1,"Ranges 2:4:6, Drow weapon",300gp,30w,,,0,,,,,,,,,,,,-6,-4,-2,-1,0,0,0,1,2,2,3,"F, B, R, A, T","Fighter, Assassin, Thief"
 18,Heavy Crossbow,Crossbow,,,0.5,Ranges 8:16:24 Fire Rate 1/2,20gp,80w,,,0,,,,,,,,,,,,-2,-1,-1,0,1,2,3,3,4,4,4,"F, B, R, A, T","Fighter, Assassin, Thief"
