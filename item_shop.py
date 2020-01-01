@@ -117,9 +117,10 @@ def buy_weapons(name):
                       "     DMG L: {}".format(weapons_list[int(i)][4]),
                       "     Note: {}".format(weapons_list[int(i)][6]),
                       "     Encumbrance: {}".format(weapons_list[int(i)][8])]
-
+    ind = 1
     for w in show_weapons:
-        print(w, show_weapons[w])
+        print(ind, show_weapons[w])
+        ind+=1
     print("Select a NUMBER to buy, you have: ", name.char_money, " in cash.")
 
     result = False
@@ -132,7 +133,7 @@ def buy_weapons(name):
             result = True
             return name, result
         if choice.isdigit():
-            if int(choice) in range(1, 75):
+            if int(choice) in range(1, 75) and int(choice) in show_weapons:
                 player_gold = int(name.char_money["gp"])
                 item_cost = str(weapons_list[int(choice)][7])
                 item_cost = item_cost.replace("gp", "")

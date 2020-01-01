@@ -49,7 +49,7 @@ number,Weapon,Type,Damage S-M,Damage L,Fire Rate,Range/Notes,Cost,Weight,Length,
 48,Fooman's Military Pick,Melee,d6+1,2d4,,,6gp,60w,4’,4’,7,3,3,2,2,1,1,0,-1,-1,-1,-2,,,,,,,,,,,,"F, B, R, A","Fighter, Assassin"
 49,Horseman's Military Pick,Melee,d4+1,d4,,,5gp,40w,1’,2’,6,2,2,1,1,1,1,0,0,-1,-1,-1,,,,,,,,,,,,"F, B, R, A","Fighter, Assassin"
 50,Awl Pike,Polearm,d6,2d6,,,3gp,80w,18’+,1’,13,-1,-1,-1,0,0,0,0,0,0,-1,-2,,,,,,,,,,,,"F, B, R, A","Fighter, Assassin"
-51,Hand Quarrel (12),Missile,d3,d2,1,"Hand Crossbow Use, Drow weapon",100gp,1w,,,0,,,,,,,,,,,,-6,-4,-2,-1,0,0,0,1,2,2,3,"F, B, R, A, T","Fighter, Assassin, Thief"
+51,Hand Quarrel (12),Missile,d3,d2,1,"Hand Crossbow Use, Drow weapon",100gp,1w,,,0,,,,,,,,,,,,-6,-4,-2,-1,0,0,0,1,2,2,3,"F, B, R, A, T","Fighter, Assassin, Thief"
 52,Heavy Bolt (12),Missile,d4+1,d6+1,1,Heavy Crossbow Use,1gp,2w,,,0,,,,,,,,,,,,-2,-1,-1,0,1,2,3,3,4,4,4,"F, B, R, A, T","Fighter, Assassin, Thief"
 53,Light Quarrel (12),Missile,d4,d4,1,"Light Crossbow Use, Chu-ko-nu Use",1gp,1w,,,0,,,,,,,,,,,,-3,-2,-2,-1,0,0,1,2,3,3,3,"F, B, R, A, T","Fighter, Assassin, Thief"
 54,Ranseur,Polearm,2d4,2d4,,"Disarm on hit v. AC8, Double damage set against charge (L)",4gp,50w,8’+,1’,8,-3,-3,-2,-1,-1,0,0,0,0,0,1,,,,,,,,,,,,"F, B, R, A","Fighter, Assassin"
