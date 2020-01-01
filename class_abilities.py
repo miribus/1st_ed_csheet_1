@@ -258,7 +258,6 @@ def class_details(name):
             HP = dice.HP(4, 2, name, 5) + int(HPadj) + int(HPadj)
             name.char_HP += HP
         elif "Cavalier" == str(c):
-            name.char_class_abilities["Cavalier"]["Save Bonus"] = ""
             if not name.char_weapon_prof_slots > 3:
                 name.char_weapon_prof_slots = 3
             if not name.char_weapon_prof_penalty > -3:
@@ -273,6 +272,8 @@ def class_details(name):
                 name.char_class_name = "Armiger"
             if "Cavalier" not in name.char_class_abilities:
                 name.char_class_abilities["Cavalier"] = {}
+                name.char_class_abilities["Cavalier"]["Save Bonus"] = ""
+
             name.char_class_abilities["Cavalier"]["Honor"] = ["Cannot run from combat", "Must wear metal armor", "Must adhere to code to gain XP",
                                                               "Must be proficient in lance, favors close range swords", "Elves or Half Elves may use composite"
                                                               " short bows with honor."]
@@ -672,7 +673,7 @@ def calculate_combat_bonuses(name):
                             name.char_melee_weapons[w]["Norm Dmg"] += int(name.char_define_abilities["STR"]["DMG"])
                         if len(slots) == 2 or len(slots) == 3:
                             name.char_melee_weapons[w]["Notes"] += "SPEC: Attack 3/2 rounds."
-                        if len(slots) == 1:
+                        if len(slots) == 1 and not "Monk" in name.char_class:
                             name.char_melee_weapons[w]["Norm Hit"] += int(name.char_define_abilities["STR"]["HIT"])
                             name.char_melee_weapons[w]["Norm Dmg"] += int(name.char_define_abilities["STR"]["DMG"])
         else:
@@ -707,11 +708,13 @@ def calculate_combat_bonuses(name):
                         name.char_ranged_weapons[w]["Norm Dmg"] += 2
                         name.char_ranged_weapons[w]["Notes"] += "SPEC: Attack 3/2 rounds."
                         name.char_ranged_weapons[w]["Norm Hit"] += int(name.char_define_abilities["DEX"]["Missile To Hit"])
-                        name.char_ranged_weapons[w]["Norm Dmg"] += int(name.char_define_abilities["STR"]["DMG"])
+                        if not "Monk" in name.char_class:
+                            name.char_ranged_weapons[w]["Norm Dmg"] += int(name.char_define_abilities["STR"]["DMG"])
                     elif len(slots) == 1 and not name.char_ranged_weapons[w]["Type"] == "Bow" and \
                             len(slots) == 1 and not name.char_ranged_weapons[w]["Type"] == "Crossbow":
                         name.char_ranged_weapons[w]["Norm Hit"] += int(name.char_define_abilities["DEX"]["Missile To Hit"])
-                        name.char_ranged_weapons[w]["Norm Dmg"] += int(name.char_define_abilities["STR"]["DMG"])
+                        if not "Monk" in name.char_class:
+                            name.char_ranged_weapons[w]["Norm Dmg"] += int(name.char_define_abilities["STR"]["DMG"])
                     else:
                         name.char_ranged_weapons[w]["Norm Hit"] += int(name.char_define_abilities["DEX"]["Missile To Hit"])
 
@@ -722,5 +725,6 @@ def calculate_combat_bonuses(name):
             else:
                 name.char_ranged_weapons[w]["Norm Hit"] += name.char_weapon_prof_penalty
                 name.char_ranged_weapons[w]["Norm Hit"] += int(name.char_define_abilities["DEX"]["Missile To Hit"])
-                name.char_ranged_weapons[w]["Norm Dmg"] += int(name.char_define_abilities["STR"]["DMG"])
+                if not "Monk" in name.char_class:
+                    name.char_ranged_weapons[w]["Norm Dmg"] += int(name.char_define_abilities["STR"]["DMG"])
     return name

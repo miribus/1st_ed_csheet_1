@@ -180,84 +180,94 @@ def buy_weapons(name):
 def buy_armor(name):
     char_list = class_abilities.class_equipment_checker(name)
     show_shields = {}
-    result = False
-    while not result:
-        display_inv = show_inv(name)
-        for i in range(1, 6):
-            for c in char_list:
-                if str(c) in str(armor_list[int(i)][9]):
-                    show_shields[armor_list[i][0]] = [ armor_list[i][1],
-                          "     Classes: {}".format(armor_list[i][8]),
-                          "Cost: {}".format(armor_list[i][4]),
-                          "Encumbrance: {}".format(armor_list[i][5]),
-                          "Bulk: {}".format(armor_list[i][7]) ]
+    if len(name.char_shield) == 0:
+        result = False
+        while not result:
+            display_inv = show_inv(name)
+            for i in range(1, 6):
+                for c in char_list:
+                    if str(c) in str(armor_list[int(i)][9]):
+                        show_shields[armor_list[i][0]] = [ armor_list[i][1],
+                              "     Classes: {}".format(armor_list[i][8]),
+                              "Cost: {}".format(armor_list[i][4]),
+                              "Encumbrance: {}".format(armor_list[i][5]),
+                              "Bulk: {}".format(armor_list[i][7]) ]
 
-        for s in show_shields:
-            print(s, show_shields[s])
-        print("You have: ", name.char_money, " in cash.")
-        choice = input("Pick NUMBER for your shield, or Q to quit:")
-        if str(choice).upper() == "q".upper():
-            result = True
-        if str(choice).isdigit():
-            if int(choice) in range(1, 6):
-                name.char_shield[armor_list[int(choice)][1]] = {}
-                name.char_shield[armor_list[int(choice)][1]]["Armor Class"] = str(armor_list[int(choice)][3])
-                name.char_shield[armor_list[int(choice)][1]]["Reduction"] = str(armor_list[int(choice)][2])
-                name.char_shield[armor_list[int(choice)][1]]["Encumbrance"] = str(armor_list[int(choice)][5])
-                name.char_shield[armor_list[int(choice)][1]]["Bulk"] = str(armor_list[int(choice)][7])
-                player_gold = int(name.char_money["gp"])
-                item_cost = str(armor_list[int(choice)][4])
-                item_cost = item_cost.replace("gp", "")
-                item_cost = int(item_cost)
-                if player_gold >= item_cost:
-                    name.char_money["gp"] = player_gold - item_cost
-                    result = True
-                else:
-                    print("Not enough gold...")
-                    choice = input("Are you done? Y or N:")
-                    if str(choice).upper() == "y".upper():
+            for s in show_shields:
+                print(s, show_shields[s])
+            print("You have: ", name.char_money, " in cash.")
+            choice = input("Pick NUMBER for your shield, or Q to quit:")
+            if str(choice).upper() == "q".upper():
+                result = True
+            if str(choice).isdigit():
+                if int(choice) in range(1, 6):
+                    name.char_shield[armor_list[int(choice)][1]] = {}
+                    name.char_shield[armor_list[int(choice)][1]]["Armor Class"] = str(armor_list[int(choice)][3])
+                    name.char_shield[armor_list[int(choice)][1]]["Reduction"] = str(armor_list[int(choice)][2])
+                    name.char_shield[armor_list[int(choice)][1]]["Encumbrance"] = str(armor_list[int(choice)][5])
+                    name.char_shield[armor_list[int(choice)][1]]["Bulk"] = str(armor_list[int(choice)][7])
+                    player_gold = int(name.char_money["gp"])
+                    item_cost = str(armor_list[int(choice)][4])
+                    item_cost = item_cost.replace("gp", "")
+                    item_cost = int(item_cost)
+                    if player_gold >= item_cost:
+                        name.char_money["gp"] = player_gold - item_cost
                         result = True
+                    else:
+                        print("Not enough gold...")
+                        choice = input("Are you done? Y or N:")
+                        if str(choice).upper() == "y".upper():
+                            result = True
+    else:
+        print("You have been provisioned a shield")
+        return True
 
-    show_armor = {}
-    result = False
-    while not result:
-        display_inv = show_inv(name)
-        for i in range(6, 19):
-            for c in char_list:
-                if str(c) in str(armor_list[int(i)][9]):
-                    show_armor[armor_list[i][0]] = [ armor_list[i][1],
-                          "     Classes: {}".format(armor_list[i][8]),
-                          "Cost: {}".format(armor_list[i][4]),
-                          "Encumbrance: {}".format(armor_list[i][5]),
-                          "Bulk: {}".format(armor_list[i][7]) ]
 
-        for a in show_armor:
-            print(a, show_armor[a])
-        print("You have: ", name.char_money, " in cash.")
-        choice = input("Pick NUMBER for your Armor, or Q to quit::")
-        if str(choice).upper() == "q".upper():
-            result = True
-            return name, result
-        if str(choice).isdigit():
-            if int(choice) in range(6, 19):
-                name.char_armor[armor_list[int(choice)][1]] = {}
-                name.char_armor[armor_list[int(choice)][1]]["Armor Class"] = str(armor_list[int(choice)][3])
-                name.char_armor[armor_list[int(choice)][1]]["Reduction"] = str(armor_list[int(choice)][2])
-                name.char_armor[armor_list[int(choice)][1]]["Encumbrance"] = str(armor_list[int(choice)][5])
-                name.char_armor[armor_list[int(choice)][1]]["Bulk"] = str(armor_list[int(choice)][7])
-                player_gold = int(name.char_money["gp"])
-                item_cost = str(armor_list[int(choice)][4])
-                item_cost = item_cost.replace("gp", "")
-                item_cost = int(item_cost)
-                if player_gold >= item_cost:
-                    name.char_money["gp"] = player_gold - item_cost
-                    result = True
-                else:
-                    print("Not enough gold...")
-                    choice = input("Are you done? Y or N:")
-                    if str(choice).upper() == "y".upper():
-                        result = True
+    if len(name.char_armor) == 0:
+        show_armor = {}
+        result = False
+        while not result:
+            display_inv = show_inv(name)
+            for i in range(6, 19):
+                for c in char_list:
+                    if str(c) in str(armor_list[int(i)][9]):
+                        show_armor[armor_list[i][0]] = [ armor_list[i][1],
+                              "     Classes: {}".format(armor_list[i][8]),
+                              "Cost: {}".format(armor_list[i][4]),
+                              "Encumbrance: {}".format(armor_list[i][5]),
+                              "Bulk: {}".format(armor_list[i][7]) ]
+
+            for a in show_armor:
+                print(a, show_armor[a])
+            print("You have: ", name.char_money, " in cash.")
+            choice = input("Pick NUMBER for your Armor, or Q to quit::")
+            if str(choice).upper() == "q".upper():
+                result = True
                 return name, result
+            if str(choice).isdigit():
+                if int(choice) in range(6, 19):
+                    name.char_armor[armor_list[int(choice)][1]] = {}
+                    name.char_armor[armor_list[int(choice)][1]]["Armor Class"] = str(armor_list[int(choice)][3])
+                    name.char_armor[armor_list[int(choice)][1]]["Reduction"] = str(armor_list[int(choice)][2])
+                    name.char_armor[armor_list[int(choice)][1]]["Encumbrance"] = str(armor_list[int(choice)][5])
+                    name.char_armor[armor_list[int(choice)][1]]["Bulk"] = str(armor_list[int(choice)][7])
+                    player_gold = int(name.char_money["gp"])
+                    item_cost = str(armor_list[int(choice)][4])
+                    item_cost = item_cost.replace("gp", "")
+                    item_cost = int(item_cost)
+                    if player_gold >= item_cost:
+                        name.char_money["gp"] = player_gold - item_cost
+                        result = True
+                    else:
+                        print("Not enough gold...")
+                        choice = input("Are you done? Y or N:")
+                        if str(choice).upper() == "y".upper():
+                            result = True
+    else:
+        print("You have been provisioned Armor")
+        result = True
+
+    return name, result
 
 def buy_provisions(name):
     provisions = {}
@@ -413,6 +423,8 @@ def cavalier_start(name):
                     = str(weapons_list[int(choice)][21])
                 name.char_melee_weapons[weapons_list[int(choice)][1]]["THACDJ: {}".format(str(weapons_list[0][22]))]\
                     = str(weapons_list[int(choice)][22])
+                name.char_melee_weapons[weapons_list[int(choice)][1]]["Norm Hit"] = 0
+                name.char_melee_weapons[weapons_list[int(choice)][1]]["Norm Dmg"] = 0
                 result = True
     if name.social_class in ["UMC", "LUC", "MUC", "UUC"]:
         result = False
@@ -459,6 +471,8 @@ def cavalier_start(name):
                         = str(weapons_list[int(choice)][21])
                     name.char_melee_weapons[weapons_list[int(choice)][1]]["THACDJ: {}".format(str(weapons_list[0][22]))] \
                         = str(weapons_list[int(choice)][22])
+                    name.char_melee_weapons[weapons_list[int(choice)][1]]["Norm Hit"] = 0
+                    name.char_melee_weapons[weapons_list[int(choice)][1]]["Norm Dmg"] = 0
                     result = True
     if name.social_class in ["LUC", "MUC", "UUC"]:
         name.char_melee_weapons[weapons_list[20][1]] = {}
@@ -494,6 +508,8 @@ def cavalier_start(name):
             = str(weapons_list[20][21])
         name.char_melee_weapons[weapons_list[20][1]]["THACDJ: {}".format(str(weapons_list[0][22]))] \
             = str(weapons_list[20][22])
+        name.char_melee_weapons[weapons_list[20][1]]["Norm Hit"] = 0
+        name.char_melee_weapons[weapons_list[20][1]]["Norm Dmg"] = 0
 
         name.char_ranged_weapons[weapons_list[20][1]] = {}
         name.char_ranged_weapons[weapons_list[20][1]]["Damage S-M"] = str(
@@ -529,6 +545,8 @@ def cavalier_start(name):
         name.char_ranged_weapons[weapons_list[20][1]]["THACDJ: {}".format(str(weapons_list[0][33]))] \
             = str(weapons_list[20][33])
         name.char_ranged_weapons[weapons_list[20][1]]["Rate of Fire"] = str(weapons_list[20][5])
+        name.char_ranged_weapons[weapons_list[20][1]]["Norm Hit"] = 0
+        name.char_ranged_weapons[weapons_list[20][1]]["Norm Damage"] = 0
         if name.social_class in ["UUC"]:
             name.char_melee_weapons[weapons_list[44][1]] = {}
             name.char_melee_weapons[weapons_list[44][1]]["Damage S-M"] = str(
@@ -563,5 +581,7 @@ def cavalier_start(name):
                 = str(weapons_list[44][21])
             name.char_melee_weapons[weapons_list[44][1]]["THACDJ: {}".format(str(weapons_list[0][22]))] \
                 = str(weapons_list[44][22])
+            name.char_melee_weapons[weapons_list[44][1]]["Norm Hit"] = 0
+            name.char_melee_weapons[weapons_list[44][1]]["Norm Dmg"] = 0
 
     return name
