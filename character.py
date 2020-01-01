@@ -151,7 +151,7 @@ if decision.isalpha():
         while not result:
             name, result = item_shop.buy_provisions(name)
         print("*****LEAVE ITEM SHOP******\n")
-        #name = class_abilities.calculate_combat_bonuses(name)
+        name = class_abilities.calculate_combat_bonuses(name)
 
 print("\n")
 print("\n")

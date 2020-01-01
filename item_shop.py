@@ -104,7 +104,7 @@ def buy_weapons(name):
                     r_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][31]))] = str(weapons_list[int(i)][31])
                     r_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][32]))] = str(weapons_list[int(i)][32])
                     r_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][33]))] = str(weapons_list[int(i)][33])
-                    r_weapons[weapons_list[int(i)][1]]["Rate of Fire"] = str(weapons_list[int(i)][5])
+                    r_weapons[weapons_list[int(i)][1]]["Normal Rate of Fire"] = str(weapons_list[int(i)][5])
                     r_weapons[weapons_list[int(i)][1]]["Norm Hit"] = 0
                     r_weapons[weapons_list[int(i)][1]]["Norm Dmg"] = 0
                 else:

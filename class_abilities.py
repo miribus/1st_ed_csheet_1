@@ -636,31 +636,53 @@ def weapon_prof(name):
                     return name, result
 
 def calculate_combat_bonuses(name):
-    if fighter_check(name):
-        for w in name.char_melee_weapons:
-            for p in name.char_weapon_prof:
-                if "Bow" not in p and "Crossbow" not in p:
-                    if str(w)+"_Specialized" == str(p) and not str(w)+"_Specialized_Slot-2" == str(p):
-                        name.char_melee_weapons[w]["Norm Hit"] += 1
-                        name.char_melee_weapons[w]["Norm Dmg"] += 2
-                        name.char_melee_weapons[w]["Norm Hit"] += int(name.char_define_abilities["STR"]["HIT"])
-                        name.char_melee_weapons[w]["Norm Dmg"] += int(name.char_define_abilities["STR"]["DMG"])
-                        name.char_melee_weapons[w]["Notes"] += "SPEC: Attack 3/2 rounds."
-                    if str(w)+"_Double-Specialized" == str(p):
-                        name.char_melee_weapons[w]["Norm Hit"] += 2
-                        name.char_melee_weapons[w]["Norm Dmg"] += 1
+    plist = []
+    for p in name.char_weapon_prof:
+        p = str(p).split("_")
+        plist.append(str(p[0]))
 
-        for w in name.char_ranged_weapons:
+    for w in name.char_melee_weapons:
+        if w in name.char_weapon_prof:
             for p in name.char_weapon_prof:
-                if str(w) + "_Specialized" == str(p) and not str(w) + "_Specialized_Slot-2" == str(p):
-                    if "Bow" in w:
+                if w == p:
+                    slots = [s for s in plist if s == p]
+                    if not name.char_melee_weapons[w]["Type"] == 'Bow' and not \
+                            name.char_melee_weapons[w]["Type"] == 'Crossbow':
+                        if len(slots) == 2:
+                            name.char_melee_weapons[w]["Norm Hit"] += 1
+                            name.char_melee_weapons[w]["Norm Dmg"] += 2
+                            name.char_melee_weapons[w]["Norm Hit"] += int(name.char_define_abilities["STR"]["HIT"])
+                            name.char_melee_weapons[w]["Norm Dmg"] += int(name.char_define_abilities["STR"]["DMG"])
+                        elif len(slots) == 3:
+                            name.char_melee_weapons[w]["Norm Hit"] += 3
+                            name.char_melee_weapons[w]["Norm Dmg"] += 3
+                            name.char_melee_weapons[w]["Norm Hit"] += int(name.char_define_abilities["STR"]["HIT"])
+                            name.char_melee_weapons[w]["Norm Dmg"] += int(name.char_define_abilities["STR"]["DMG"])
+                        if len(slots) == 2 or len(slots) == 3:
+                            name.char_melee_weapons[w]["Notes"] += "SPEC: Attack 3/2 rounds."
+                        if len(slots) == 1:
+                            name.char_melee_weapons[w]["Norm Hit"] += int(name.char_define_abilities["STR"]["HIT"])
+                            name.char_melee_weapons[w]["Norm Dmg"] += int(name.char_define_abilities["STR"]["DMG"])
+        else:
+            if not name.char_melee_weapons[w]["Type"] == 'Bow' and not \
+                    name.char_melee_weapons[w]["Type"] == 'Crossbow':
+                name.char_melee_weapons[w]["Norm Hit"] += name.char_weapon_prof_penalty
+                name.char_melee_weapons[w]["Norm Hit"] += int(name.char_define_abilities["STR"]["HIT"])
+                name.char_melee_weapons[w]["Norm Dmg"] += int(name.char_define_abilities["STR"]["DMG"])
+
+    for w in name.char_ranged_weapons:
+        if w in name.char_weapon_prof:
+            for p in name.char_weapon_prof:
+                if w == p:
+                    slots = [s for s in plist if s == p]
+                    if len(slots) == 3 and name.char_ranged_weapons[w]["Type"] == "Bow":
                         name.char_ranged_weapons[w]["Norm Hit"] += 1
                         name.char_ranged_weapons[w]["Norm Dmg"] += 2
                         name.char_ranged_weapons[w]["Notes"] += "SPEC: Point Blank Range 6\'-30\', Double Damage, +2 TH/+2 DMG."
                         name.char_ranged_weapons[w]["Notes"] += "SPEC: Short Range (30\' to weapon Min(, +1 TH/+1 DMG."
                         name.char_ranged_weapons[w]["Notes"] += "SPEC: If combat ready, can attack before initiative."
                         name.char_ranged_weapons[w]["Norm Hit"] += int(name.char_define_abilities["DEX"]["Missile To Hit"])
-                    elif 'Crossbow' in w:
+                    elif len(slots) == 2 and name.char_ranged_weapons[w]["Type"] == "Crossbow":
                         name.char_ranged_weapons[w]["Norm Hit"] += 1
                         name.char_ranged_weapons[w]["Norm Dmg"] += 2
                         name.char_ranged_weapons[w]["Notes"] += "SPEC: Point Blank Range 6\'-60\', Double Damage, +2 TH/+2 DMG."
@@ -668,42 +690,25 @@ def calculate_combat_bonuses(name):
                         name.char_ranged_weapons[w]["Notes"] += "SPEC: Medium Range +1 TH."
                         name.char_ranged_weapons[w]["Notes"] += "SPEC: If combat ready, can attack before initiative."
                         name.char_ranged_weapons[w]["Norm Hit"] += int(name.char_define_abilities["DEX"]["Missile To Hit"])
-                    else:
+                    elif len(slots) == 2:
                         name.char_ranged_weapons[w]["Norm Hit"] += 1
                         name.char_ranged_weapons[w]["Norm Dmg"] += 2
                         name.char_ranged_weapons[w]["Notes"] += "SPEC: Attack 3/2 rounds."
                         name.char_ranged_weapons[w]["Norm Hit"] += int(name.char_define_abilities["DEX"]["Missile To Hit"])
                         name.char_ranged_weapons[w]["Norm Dmg"] += int(name.char_define_abilities["STR"]["DMG"])
-    for w in name.char_melee_weapons:
-        if "Bow" not in w and "Crossbow" not in w:
-            w = w.split("_")
-            w = str(w[0])
-            if not str(w) in name.char_weapon_prof and not str(w)+"_Specialized" in name.char_weapon_prof \
-                    and not str(w)+"_Specialized_Slot-2" and not "_Double-Specialized" in name.char_weapon_prof:
-                name.char_melee_weapons[w]["Norm Hit"] += name.weapon_prof_penalty
-                name.char_melee_weapons[w]["Norm Hit"] += int(name.char_define_abilities["STR"]["HIT"])
-                name.char_melee_weapons[w]["Norm Dmg"] += int(name.char_define_abilities["STR"]["DMG"])
-            else:
-                name.char_melee_weapons[w]["Norm Hit"] += int(name.char_define_abilities["STR"]["HIT"])
-                name.char_melee_weapons[w]["Norm Dmg"] += int(name.char_define_abilities["STR"]["DMG"])
+                    elif len(slots) == 1 and not name.char_ranged_weapons[w]["Type"] == "Bow" and \
+                            len(slots) == 1 and not name.char_ranged_weapons[w]["Type"] == "Crossbow":
+                        name.char_ranged_weapons[w]["Norm Hit"] += int(name.char_define_abilities["DEX"]["Missile To Hit"])
+                        name.char_ranged_weapons[w]["Norm Dmg"] += int(name.char_define_abilities["STR"]["DMG"])
+                    else:
+                        name.char_ranged_weapons[w]["Norm Hit"] += int(name.char_define_abilities["DEX"]["Missile To Hit"])
 
-    for w in name.char_ranged_weapons:
-        w = w.split("_")
-        w = str(w[0])
-
-        if not str(w) in name.char_weapon_prof and not str(w) + "_Specialized" in name.char_weapon_prof \
-                and not str(w) + "_Specialized_Slot-2" and not "_Double-Specialized" in name.char_weapon_prof:
-            if not "Bow" in str(w) and not "Crossbow" in str(w):
-                name.char_ranged_weapons[w]["Norm Hit"] += name.weapon_prof_penalty
+        else:
+            if name.char_ranged_weapons[w]["Type"] == "Crossbow" or name.char_ranged_weapons[w]["Type"] == "Bow":
+                name.char_ranged_weapons[w]["Norm Hit"] += name.char_weapon_prof_penalty
                 name.char_ranged_weapons[w]["Norm Hit"] += int(name.char_define_abilities["DEX"]["Missile To Hit"])
             else:
-                name.char_ranged_weapons[w]["Norm Hit"] += name.weapon_prof_penalty
-                name.char_ranged_weapons[w]["Norm Hit"] += int(name.char_define_abilities["DEX"]["Missile To Hit"])
-                name.char_ranged_weapons[w]["Norm Dmg"] += int(name.char_define_abilities["STR"]["DMG"])
-        elif not str(w) in name.char_weapon_prof:
-            if not "Bow" in str(w) and not "Crossbow" in str(w):
-                name.char_ranged_weapons[w]["Norm Hit"] += int(name.char_define_abilities["DEX"]["Missile To Hit"])
-            else:
+                name.char_ranged_weapons[w]["Norm Hit"] += name.char_weapon_prof_penalty
                 name.char_ranged_weapons[w]["Norm Hit"] += int(name.char_define_abilities["DEX"]["Missile To Hit"])
                 name.char_ranged_weapons[w]["Norm Dmg"] += int(name.char_define_abilities["STR"]["DMG"])
     return name
