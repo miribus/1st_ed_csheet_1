@@ -595,7 +595,8 @@ def weapon_prof(name):
                             #        indx += 1
                             #indx += 1
                             if mweapons[int(choice)]+"_Specialized" in name.char_weapon_prof:
-                                if mweapons[int(choice)] + "_Double-Specialized" not in name.char_weapon_prof:
+                                if mweapons[int(choice)] + "_Double-Specialized" not in name.char_weapon_prof and not \
+                                        "Crossbow" in mweapons[int(choice)] :
                                     name.char_weapon_prof.append(mweapons[int(choice)]+"_Double-Specialized")
                                 else:
                                     print("You already mastered Specialization.")

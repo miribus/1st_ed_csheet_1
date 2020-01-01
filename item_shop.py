@@ -82,7 +82,7 @@ def buy_weapons(name):
                 m_weapons[weapons_list[int(i)][1]]["Norm Hit"] = 0
                 m_weapons[weapons_list[int(i)][1]]["Norm Dmg"] = 0
                 if "Missile" in str(weapons_list[int(i)][2]) or "Bow" in str(weapons_list[int(i)][2]) or \
-                    "Thrown" in str(weapons_list[int(i)][2]):
+                    "Thrown" in str(weapons_list[int(i)][2]) or "Crossbow" in str(weapons_list[int(i)][2]):
 
                     r_weapons[weapons_list[int(i)][1]]["Damage S-M"] = str(weapons_list[int(i)][3])
                     r_weapons[weapons_list[int(i)][1]]["Damage L"] = str(weapons_list[int(i)][4])
