@@ -89,7 +89,7 @@ def class_details(name):
             if "Paladin" not in name.char_class_abilities:
                 name.char_class_abilities["Paladin"] = {}
                 name.char_class_abilities["Paladin"]["Special"] = {}
-                name.char_class_abilities["Paladin"]["Save Bonus"] = {}
+                name.char_class_abilities["Paladin"]["Save Bonus"] = ""
                 name.char_class_abilities["Paladin"]["Immunity"] = "Disease, Fear"
             name.char_class_abilities["Paladin"]["Save Bonus"] = "+2 all Saving Throws"
             name.char_class_abilities["Paladin"]["Special"]["Lay on Hands"] = "+2 per level/day"
@@ -258,6 +258,7 @@ def class_details(name):
             HP = dice.HP(4, 2, name, 5) + int(HPadj) + int(HPadj)
             name.char_HP += HP
         elif "Cavalier" == str(c):
+            name.char_class_abilities["Cavalier"]["Save Bonus"] = ""
             if not name.char_weapon_prof_slots > 3:
                 name.char_weapon_prof_slots = 3
             if not name.char_weapon_prof_penalty > -3:
@@ -315,7 +316,7 @@ def class_details(name):
             if "UAPaladin" not in name.char_class_abilities:
                 name.char_class_abilities["UAPaladin"] = {}
                 name.char_class_abilities["UAPaladin"]["Special"] = {}
-                name.char_class_abilities["UAPaladin"]["Save Bonus"] = {}
+                name.char_class_abilities["UAPaladin"]["Save Bonus"] = []
                 name.char_class_abilities["UAPaladin"]["Immunity"] = "Disease, Fear"
             name.char_class_abilities["UAPaladin"]["Honor"] = ["Cannot run from combat", "Must wear metal armor",
                                                               "Must adhere to code to gain XP", "Must be proficient in "
@@ -324,7 +325,7 @@ def class_details(name):
             if name.social_class in ["LUC", "MUC", "UUC"]:
                 HP = dice.HP(10, 1, name, 6) + int(HPadj) + 3
                 name.char_class_abilities["UAPaladin"]["Superior Fighting"] = "1/Level attack per creatures less than 1HD"
-                name.char_class_abilities["UAPaladin"]["Save Bonus"] = "+2 all Saving Throws"
+                name.char_class_abilities["UAPaladin"]["Save Bonus"] = ["+2 all Saving Throws"]
                 name.char_class_abilities["UAPaladin"]["Special"]["Lay on Hands"] = "+2 per level/day"
                 name.char_class_abilities["UAPaladin"]["Special"]["Cure Disease"] = "1/wk per 5 levels"
                 name.char_class_abilities["UAPaladin"]["Special"]["Protection from Evil"] = '1\" radius all 24/7'
@@ -346,7 +347,6 @@ def class_details(name):
                 name.char_class_abilities["UAPaladin"]["DEX Training"] = dice.exceptional_strength()
                 name.char_class_abilities["UAPaladin"]["CON Training"] = dice.exceptional_strength()
                 name.char_class_abilities["UAPaladin"]["CHA Training"] = dice.exceptional_strength()
-                name.char_class_abilities["UAPaladin"]["Save Bonus"] = "+2 Illusions"
             else:
                 HP = dice.HP(4, 1, name, 3) + int(HPadj) + 1
             name.char_HP += HP
@@ -361,8 +361,10 @@ def class_details(name):
             if "Barbarian" not in name.char_class_abilities:
                 name.char_class_abilities["Barbarian"] = {}
                 name.char_class_abilities["Barbarian"]["Special"] = {}
+                name.char_class_abilities["Barbarian"]["Save Bonus"] = []
             name.char_class_abilities["Barbarian"]["AC Bonus"] = ["If AC < 14: +2/pt AC Not Bulky, +1 AC if Bulky"
                                                                    " per point over 14"]
+            name.char_class_abilities["Barbarian"]["Constitution"] = ["+2 HP/lvl over 14"]
             name.char_class_abilities["Barbarian"]["Movement"] = ["Base Movement Rate of 15\" if non-bulky"]
             name.char_class_abilities["Barbarian"]["Weapons"] = ["Initial weapons must include: Hand Axe, Knife and Spear"]
             name.char_class_abilities["Barbarian"]["Superior Fighting"] = "1/Level attack per creatures less than 1HD"
@@ -372,7 +374,7 @@ def class_details(name):
             name.char_class_abilities["Barbarian"]["Special"]["Hide In Natural Surroundings"] = ["Unearthed Arcana Pg 20"]
             name.char_class_abilities["Barbarian"]["Surprise"] = "1-3/d6 Surprise or 1-4/d6 in familiar terrain." \
                                                                 "10% to be surprised, 5% if in familiar terrain"
-            name.char_class_abilities["Barbarian"]["Defense"] = "5% per level to avoid backstab, can get free attack vs." \
+            name.char_class_abilities["Barbarian"]["Defense"] = "5% per level to avoid backstab/attack, can get free attack vs." \
                                                                 "backstabbing attacker"
             name.char_class_abilities["Barbarian"]["Special"]["Leaping"] = "10\' forward or 3\' back or 3\' upward"
             name.char_class_abilities["Barbarian"]["Special"]["Detect Illusion"] = "5%/level detect illusion"
@@ -388,40 +390,49 @@ def class_details(name):
             name.char_class_abilities["Barbarian"]["Special"]["Tracking"] = "As Ranger"
             name.char_class_abilities["Barbarian"]["Special"]["Outdoor Craft"] = "Animal Detect/Predict Weather" \
                                                                                 "as 3rd Level Druid"
+            name.char_class_abilities["Barbarian"]["Save Bonus"] = ["+4 Poison", "+3 Paralysis", "+3 Death Magic",
+                                                                    "+3 Petrification and Polymorph", "+2 Rod, Staff, Wand",
+                                                                    "+2 Breath Weapon", "+1 to spells at 4th (+1/4lvl"]
+
             print("Choose One:")
             result = False
-            choice = False
             while not result:
-                if choice.isdigit() and int(choice) in range(0, 8):
-                    print("0 Animal Handling",
-                          "1 Horsemanship",
-                          "2 Long Distance Running",
-                          "3 Running",
-                          "4 Small Paddled Craft",
-                          "5 Small Rowed Craft",
-                          "6 Imitate Sound",
-                          "7 Snare Building")
-                    choice = input("Choose a Number")
-                    result = True
-                if choice == "0":
-                    name.char_class_abilities["Barbarian"]["Native"] = "Animal Handling (UA, Pg20)"
-                elif choice == "1":
-                    name.char_class_abilities["Barbarian"]["Native"] = "Horsemanship (UA, Pg20)"
-                elif choice == "2":
-                    name.char_class_abilities["Barbarian"]["Native"] = "Long Distance Running (UA, Pg20)"
-                elif choice == "3":
-                    name.char_class_abilities["Barbarian"]["Native"] = "Running (UA, Pg20)"
-                elif choice == "4":
-                    name.char_class_abilities["Barbarian"]["Native"] = "Small Paddled Craft (UA, Pg20)"
-                elif choice == "5":
-                    name.char_class_abilities["Barbarian"]["Native"] = "Small Rowed Craft (UA, Pg20)"
-                elif choice == "6":
-                    name.char_class_abilities["Barbarian"]["Native"] = "Imitate Sound (UA, Pg20)"
-                elif choice == "7":
+                print(" 0 Animal Handling\n",
+                      "1 Horsemanship\n",
+                      "2 Long Distance Running\n",
+                      "3 Running\n",
+                      "4 Small Paddled Craft\n",
+                      "5 Small Rowed Craft\n",
+                      "6 Imitate Sound\n",
+                      "7 Snare Building\n")
+                choice = input("Choose a Number:")
+                if choice.isdigit():
+                    if int(choice) in range(0, 8):
+                        result = True
+            if choice == "0":
+                name.char_class_abilities["Barbarian"]["Native"] = "Animal Handling (UA, Pg20)"
+            elif choice == "1":
+                name.char_class_abilities["Barbarian"]["Native"] = "Horsemanship (UA, Pg20)"
+            elif choice == "2":
+                name.char_class_abilities["Barbarian"]["Native"] = "Long Distance Running (UA, Pg20)"
+            elif choice == "3":
+                name.char_class_abilities["Barbarian"]["Native"] = "Running (UA, Pg20)"
+            elif choice == "4":
+                name.char_class_abilities["Barbarian"]["Native"] = "Small Paddled Craft (UA, Pg20)"
+            elif choice == "5":
+                name.char_class_abilities["Barbarian"]["Native"] = "Small Rowed Craft (UA, Pg20)"
+            elif choice == "6":
+                name.char_class_abilities["Barbarian"]["Native"] = "Imitate Sound (UA, Pg20)"
+            elif choice == "7":
                     name.char_class_abilities["Barbarian"]["Native"] = "Snare Building (UA, Pg20)"
+            if name.char_abilities["CON"] > 14:
+                bonus = name.char_abilities["CON"] - 14
+                bonus = bonus * 2
+                name.char_define_abilities["CON"]["HP Adj"] = "+"+str(bonus)
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
             HP = dice.HP(12, 1, name, 7) + int(HPadj)
             name.char_HP += HP
+
 
     name.char_HP = round(name.char_HP/len(name.char_class))
     return name
