@@ -52,78 +52,98 @@ def buy_weapons(name):
     show_weapons = {}
     for i in range(1, 75):
         char_list = class_abilities.class_equipment_checker(name)
-        for c in char_list:
-            if str(c) in str(weapons_list[int(i)][35]):
-                if weapons_list[int(i)][1] not in mweapons:
-                    mweapons.append(weapons_list[int(i)][1])
-                if weapons_list[int(i)][1] not in rweapons:
-                    rweapons.append(weapons_list[int(i)][1])
-                m_weapons[weapons_list[int(i)][1]] = {}
-                r_weapons[weapons_list[int(i)][1]] = {}
-                m_weapons[weapons_list[int(i)][1]]["Damage S-M"] = str(weapons_list[int(i)][3])
-                m_weapons[weapons_list[int(i)][1]]["Damage L"] = str(weapons_list[int(i)][4])
-                m_weapons[weapons_list[int(i)][1]]["Length"] = str(weapons_list[int(i)][9])
-                m_weapons[weapons_list[int(i)][1]]["Space"] = str(weapons_list[int(i)][10])
-                m_weapons[weapons_list[int(i)][1]]["Speed"] = str(weapons_list[int(i)][11])
-                m_weapons[weapons_list[int(i)][1]]["Notes"] = str(weapons_list[int(i)][6]).replace("\n", " ")
-                m_weapons[weapons_list[int(i)][1]]["Encumbrance"] = str(weapons_list[int(i)][8])
-                m_weapons[weapons_list[int(i)][1]]["Type"] = str(weapons_list[int(i)][2])
-                m_weapons[weapons_list[int(i)][1]]["Cost"] = str(weapons_list[int(i)][7])
-                m_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][12]))] = str(weapons_list[int(i)][12])
-                m_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][13]))] = str(weapons_list[int(i)][13])
-                m_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][14]))] = str(weapons_list[int(i)][14])
-                m_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][15]))] = str(weapons_list[int(i)][15])
-                m_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][16]))] = str(weapons_list[int(i)][16])
-                m_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][17]))] = str(weapons_list[int(i)][17])
-                m_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][18]))] = str(weapons_list[int(i)][18])
-                m_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][19]))] = str(weapons_list[int(i)][19])
-                m_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][20]))] = str(weapons_list[int(i)][20])
-                m_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][21]))] = str(weapons_list[int(i)][21])
-                m_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][22]))] = str(weapons_list[int(i)][22])
-                m_weapons[weapons_list[int(i)][1]]["Norm Hit"] = 0
-                m_weapons[weapons_list[int(i)][1]]["Norm Dmg"] = 0
-                if "Missile" in str(weapons_list[int(i)][2]) or "Bow" in str(weapons_list[int(i)][2]) or \
-                    "Thrown" in str(weapons_list[int(i)][2]) or "Crossbow" in str(weapons_list[int(i)][2]):
+        if "Fighter" in name.char_class or "Ranger" in name.char_class:
+            c = "Fighter"
+        elif "Paladin" in name.char_class and not "Paladin (UA)" in name.char_class:
+            c = "Fighter"
+        elif "Assassin" in name.char_class:
+            c = "Assassin"
+        elif "Cleric" in name.char_class:
+            c = "Cleric"
+        elif "Thief" in name.char_class:
+            c = "Thief"
+        elif "Druid" in name.char_class:
+            c = "Druid"
+        elif "MagicUser" in name.char_class or "Illusionist" in name.char_class:
+            c = "MagicUser"
+        elif "Cavalier" in name.char_class:
+            c = "Cavalier"
+        elif "Paladin (UA)" in name.char_class:
+            c = "Paladin"
+        elif "Monk" in name.char_class:
+            c = "Monk"
 
-                    r_weapons[weapons_list[int(i)][1]]["Damage S-M"] = str(weapons_list[int(i)][3])
-                    r_weapons[weapons_list[int(i)][1]]["Damage L"] = str(weapons_list[int(i)][4])
-                    r_weapons[weapons_list[int(i)][1]]["Length"] = str(weapons_list[int(i)][9])
-                    r_weapons[weapons_list[int(i)][1]]["Space"] = str(weapons_list[int(i)][10])
-                    r_weapons[weapons_list[int(i)][1]]["Speed"] = str(weapons_list[int(i)][11])
-                    r_weapons[weapons_list[int(i)][1]]["Notes"] = str(weapons_list[int(i)][6]).replace("\n", " ")
-                    r_weapons[weapons_list[int(i)][1]]["Encumbrance"] = str(weapons_list[int(i)][8])
-                    r_weapons[weapons_list[int(i)][1]]["Type"] = str(weapons_list[int(i)][2])
-                    r_weapons[weapons_list[int(i)][1]]["Cost"] = str(weapons_list[int(i)][7])
-                    r_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][23]))] = str(weapons_list[int(i)][23])
-                    r_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][24]))] = str(weapons_list[int(i)][24])
-                    r_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][25]))] = str(weapons_list[int(i)][25])
-                    r_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][26]))] = str(weapons_list[int(i)][26])
-                    r_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][27]))] = str(weapons_list[int(i)][27])
-                    r_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][28]))] = str(weapons_list[int(i)][28])
-                    r_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][29]))] = str(weapons_list[int(i)][29])
-                    r_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][30]))] = str(weapons_list[int(i)][30])
-                    r_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][31]))] = str(weapons_list[int(i)][31])
-                    r_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][32]))] = str(weapons_list[int(i)][32])
-                    r_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][33]))] = str(weapons_list[int(i)][33])
-                    r_weapons[weapons_list[int(i)][1]]["Normal Rate of Fire"] = str(weapons_list[int(i)][5])
-                    r_weapons[weapons_list[int(i)][1]]["Norm Hit"] = 0
-                    r_weapons[weapons_list[int(i)][1]]["Norm Dmg"] = 0
-                    if "Cavalier" in name.char_class and "Short Composite Bow" not in r_weapons[weapons_list[int(i)][1]]:
-                        del r_weapons[weapons_list[int(i)][1]]
-                else:
+        if str(c) in str(weapons_list[int(i)][35]):
+            if weapons_list[int(i)][1] not in mweapons:
+                mweapons.append(weapons_list[int(i)][1])
+            if weapons_list[int(i)][1] not in rweapons:
+                rweapons.append(weapons_list[int(i)][1])
+            m_weapons[weapons_list[int(i)][1]] = {}
+            r_weapons[weapons_list[int(i)][1]] = {}
+            m_weapons[weapons_list[int(i)][1]]["Damage S-M"] = str(weapons_list[int(i)][3])
+            m_weapons[weapons_list[int(i)][1]]["Damage L"] = str(weapons_list[int(i)][4])
+            m_weapons[weapons_list[int(i)][1]]["Length"] = str(weapons_list[int(i)][9])
+            m_weapons[weapons_list[int(i)][1]]["Space"] = str(weapons_list[int(i)][10])
+            m_weapons[weapons_list[int(i)][1]]["Speed"] = str(weapons_list[int(i)][11])
+            m_weapons[weapons_list[int(i)][1]]["Notes"] = str(weapons_list[int(i)][6]).replace("\n", " ")
+            m_weapons[weapons_list[int(i)][1]]["Encumbrance"] = str(weapons_list[int(i)][8])
+            m_weapons[weapons_list[int(i)][1]]["Type"] = str(weapons_list[int(i)][2])
+            m_weapons[weapons_list[int(i)][1]]["Cost"] = str(weapons_list[int(i)][7])
+            m_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][12]))] = str(weapons_list[int(i)][12])
+            m_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][13]))] = str(weapons_list[int(i)][13])
+            m_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][14]))] = str(weapons_list[int(i)][14])
+            m_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][15]))] = str(weapons_list[int(i)][15])
+            m_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][16]))] = str(weapons_list[int(i)][16])
+            m_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][17]))] = str(weapons_list[int(i)][17])
+            m_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][18]))] = str(weapons_list[int(i)][18])
+            m_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][19]))] = str(weapons_list[int(i)][19])
+            m_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][20]))] = str(weapons_list[int(i)][20])
+            m_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][21]))] = str(weapons_list[int(i)][21])
+            m_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][22]))] = str(weapons_list[int(i)][22])
+            m_weapons[weapons_list[int(i)][1]]["Norm Hit"] = 0
+            m_weapons[weapons_list[int(i)][1]]["Norm Dmg"] = 0
+            if "Missile" in str(weapons_list[int(i)][2]) or "Bow" in str(weapons_list[int(i)][2]) or \
+                "Thrown" in str(weapons_list[int(i)][2]) or "Crossbow" in str(weapons_list[int(i)][2]):
+
+                r_weapons[weapons_list[int(i)][1]]["Damage S-M"] = str(weapons_list[int(i)][3])
+                r_weapons[weapons_list[int(i)][1]]["Damage L"] = str(weapons_list[int(i)][4])
+                r_weapons[weapons_list[int(i)][1]]["Length"] = str(weapons_list[int(i)][9])
+                r_weapons[weapons_list[int(i)][1]]["Space"] = str(weapons_list[int(i)][10])
+                r_weapons[weapons_list[int(i)][1]]["Speed"] = str(weapons_list[int(i)][11])
+                r_weapons[weapons_list[int(i)][1]]["Notes"] = str(weapons_list[int(i)][6]).replace("\n", " ")
+                r_weapons[weapons_list[int(i)][1]]["Encumbrance"] = str(weapons_list[int(i)][8])
+                r_weapons[weapons_list[int(i)][1]]["Type"] = str(weapons_list[int(i)][2])
+                r_weapons[weapons_list[int(i)][1]]["Cost"] = str(weapons_list[int(i)][7])
+                r_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][23]))] = str(weapons_list[int(i)][23])
+                r_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][24]))] = str(weapons_list[int(i)][24])
+                r_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][25]))] = str(weapons_list[int(i)][25])
+                r_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][26]))] = str(weapons_list[int(i)][26])
+                r_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][27]))] = str(weapons_list[int(i)][27])
+                r_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][28]))] = str(weapons_list[int(i)][28])
+                r_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][29]))] = str(weapons_list[int(i)][29])
+                r_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][30]))] = str(weapons_list[int(i)][30])
+                r_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][31]))] = str(weapons_list[int(i)][31])
+                r_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][32]))] = str(weapons_list[int(i)][32])
+                r_weapons[weapons_list[int(i)][1]]["THACDJ {}".format(str(weapons_list[0][33]))] = str(weapons_list[int(i)][33])
+                r_weapons[weapons_list[int(i)][1]]["Normal Rate of Fire"] = str(weapons_list[int(i)][5])
+                r_weapons[weapons_list[int(i)][1]]["Norm Hit"] = 0
+                r_weapons[weapons_list[int(i)][1]]["Norm Dmg"] = 0
+                if "Cavalier" in name.char_class and "Short Composite Bow" not in r_weapons[weapons_list[int(i)][1]]:
                     del r_weapons[weapons_list[int(i)][1]]
-
-                show_weapons[i] = [ weapons_list[int(i)][1],
-                      "                 Cost: {}".format(weapons_list[int(i)][7]),
-                      "     Classes: {}".format(weapons_list[int(i)][34]),
-                      "     DMG S-M: {}".format(weapons_list[int(i)][3]),
-                      "     DMG L: {}".format(weapons_list[int(i)][4]),
-                      "     Note: {}".format(weapons_list[int(i)][6]),
-                      "     Encumbrance: {}".format(weapons_list[int(i)][8])]
             else:
-                show_weapons[i] = 0
-                mweapons.append(0)
-                rweapons.append(0)
+                del r_weapons[weapons_list[int(i)][1]]
+
+            show_weapons[i] = [ weapons_list[int(i)][1],
+                  "                 Cost: {}".format(weapons_list[int(i)][7]),
+                  "     Classes: {}".format(weapons_list[int(i)][34]),
+                  "     DMG S-M: {}".format(weapons_list[int(i)][3]),
+                  "     DMG L: {}".format(weapons_list[int(i)][4]),
+                  "     Note: {}".format(weapons_list[int(i)][6]),
+                  "     Encumbrance: {}".format(weapons_list[int(i)][8])]
+        else:
+            show_weapons[i] = 0
+            mweapons.append(0)
+            rweapons.append(0)
     ind = 1
     #for w in show_weapons:
     sw = [w for w in show_weapons if show_weapons[w]]
@@ -186,6 +206,10 @@ def buy_weapons(name):
                     if str(choice).upper() == "y".upper():
                         result = True
                     return name, result
+            else:
+                return name, False
+        else:
+            return name, False
 
 
 def buy_armor(name):
