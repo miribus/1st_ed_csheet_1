@@ -584,7 +584,7 @@ def weapon_prof(name):
         print("Select a NUMBER to gain proficiency.")
         print("You have {} choices remaining.".format(name.char_weapon_prof_slots - len(name.char_weapon_prof)))
         print("You have chosen:", name.char_weapon_prof)
-        choice = input("Choose a NUMBER to purchase an item, or Q to quit:")
+        choice = input("Choose a NUMBER to GAIN PROFICIENCY an item, or Q to quit:")
         if str(choice).upper() == "q".upper():
             result = True
             return name, result

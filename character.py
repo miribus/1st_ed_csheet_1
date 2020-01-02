@@ -2,6 +2,9 @@ import dice, char_races, char_classes, social_class, base_ability_detail, age, c
 import alignments, os, item_shop, encumbrance, armor_class
 #import re
 
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
 class playerSheet:
     def __init__(self, charname):
         global methodv, abilities, methodv_choice
@@ -97,6 +100,9 @@ if method:
     else:
         methodv_choice = False
 
+#clear screen
+clear_screen()
+
 name = playerSheet(input("Character Name?:"))
 print(name.char_abilities)
 name = social_class.social_class(name)
@@ -115,44 +121,42 @@ while not result:
         name, result = char_races.races_base("5", name)
     else:
         name, result = char_races.races_base(input("Choose Race:"), name)
-decision = input("Agreed? Y/N:")
+clear_screen()
 
-if decision.isalpha():
-    if "y".upper() == decision.upper():
-        result = False
-
-        while not result:
-            name, result = char_classes.race_classes(name)
-        name = char_classes.class_saving_throws(name)
-        name = char_races.base_bonuses(name)
-        name = age.age(name)
-        name = char_races.race_ability_updater(name)
-        name = base_ability_detail.define_abilities(name)
-        name = class_abilities.class_details(name)
-        name = alignments.choose_alignment(name)
-        name = class_abilities.starting_money(name)
-        result = False
-        while not result:
-            print("***********")
-            name, result = class_abilities.weapon_prof(name)
-            print(name.char_weapon_prof)
-            print("***********")
-        print("*****ITEM SHOP******\n")
-        print("\n")
-        if "Cavalier" in name.char_class or "UAPaladin" in name.char_class:
-            name = item_shop.cavalier_start(name)
-        result = False
-        while not result:
-            name, result = item_shop.buy_weapons(name)
-        result = False
-        while not result:
-            name, result = item_shop.buy_armor(name)
-        result = False
-        while not result:
-            name, result = item_shop.buy_provisions(name)
-        print("*****LEAVE ITEM SHOP******\n")
-        name = class_abilities.calculate_combat_bonuses(name)
-        name = armor_class.calculate_armor_class(name)
+if result:
+    result = False
+    while not result:
+        name, result = char_classes.race_classes(name)
+    name = char_classes.class_saving_throws(name)
+    name = char_races.base_bonuses(name)
+    name = age.age(name)
+    name = char_races.race_ability_updater(name)
+    name = base_ability_detail.define_abilities(name)
+    name = class_abilities.class_details(name)
+    name = alignments.choose_alignment(name)
+    name = class_abilities.starting_money(name)
+    result = False
+    while not result:
+        print("***********")
+        name, result = class_abilities.weapon_prof(name)
+        print(name.char_weapon_prof)
+        print("***********")
+    print("*****ITEM SHOP******\n")
+    print("\n")
+    if "Cavalier" in name.char_class or "UAPaladin" in name.char_class:
+        name = item_shop.cavalier_start(name)
+    result = False
+    while not result:
+        name, result = item_shop.buy_weapons(name)
+    result = False
+    while not result:
+        name, result = item_shop.buy_armor(name)
+    result = False
+    while not result:
+        name, result = item_shop.buy_provisions(name)
+    print("*****LEAVE ITEM SHOP******\n")
+    name = class_abilities.calculate_combat_bonuses(name)
+    name = armor_class.calculate_armor_class(name)
 
 print("\n")
 print("\n")

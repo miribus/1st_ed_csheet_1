@@ -34,6 +34,12 @@ def races_base(race, name):
                         result, rolls = halfling(name.char_abilities, gender)
                     name.char_gender = gender
                     name.char_race = race
+                    decision = input("Agreed? Y/N:")
+                    if str(decision).upper() == "Y".upper():
+                        result = True
+                    else:
+                        result = False
+
     gender = "M"
     return name, result
 
