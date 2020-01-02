@@ -127,6 +127,7 @@ if result:
     result = False
     while not result:
         name, result = char_classes.race_classes(name)
+
     name = char_classes.class_saving_throws(name)
     name = char_races.base_bonuses(name)
     name = age.age(name)
@@ -137,7 +138,8 @@ if result:
     name = class_abilities.starting_money(name)
     result = False
     while not result:
-        print("***********")
+        clear_screen()
+        print("****PROFICIENCIES*******")
         name, result = class_abilities.weapon_prof(name)
         print(name.char_weapon_prof)
         print("***********")
@@ -147,25 +149,21 @@ if result:
         name = item_shop.cavalier_start(name)
     result = False
     while not result:
+        clear_screen()
         name, result = item_shop.buy_weapons(name)
     result = False
     while not result:
+        clear_screen()
         name, result = item_shop.buy_armor(name)
     result = False
     while not result:
+        clear_screen()
         name, result = item_shop.buy_provisions(name)
     print("*****LEAVE ITEM SHOP******\n")
     name = class_abilities.calculate_combat_bonuses(name)
     name = armor_class.calculate_armor_class(name)
-
-print("\n")
-print("\n")
-print("\n")
-print("\n")
-print("\n")
-print("\n")
-print("\n")
-print("*********************************")
+clear_screen()
+print("******CHARACTER SHEET*********")
 print("\n")
 print("Character Name: ", name.char_name)
 print("Class(es): ", name.char_class, name.char_class_name)

@@ -1,4 +1,7 @@
-import dice
+import dice, os
+
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 soclasslimit = {"LLC": ["Monk", "Thief", "Assassin", "Barbarian"],
                 "MLC": ["Monk", "Thief", "Assassin", "Barbarian", "Fighter", "FighterThief", "FighterAssassin"],
@@ -78,6 +81,7 @@ def social_class(name):
     global soclasslimit
     print("Roll social class or ignore it?")
     choice = input("Y to roll, N to ignore.")
+    clear_screen()
     if str(choice).upper() != "Y".upper():
         print("You've chosen no")
         name.social_class = "MUC"

@@ -1,5 +1,8 @@
 from enum import Enum
-import re
+import re, os
+
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 class race_class_choices(Enum):
     Cleric = 1
@@ -96,6 +99,7 @@ def race_classes(name):
             choices = name.methodv_choice
         else:
             choices = input("Choose a Class NUMBER:")
+            clear_screen()
 
         if choices.isdigit():
             if int(choices) in range(1, 37):
@@ -107,6 +111,7 @@ def race_classes(name):
                 stop = False
                 name.classlist = []
                 old_choices = choices
+                clear_screen()
                 while len(choices) > 0 and not stop:
                     stop = False
                     for c in name.classlist:
@@ -402,6 +407,7 @@ def race_classes(name):
                             name.char_class.append("Monk")
                 if stop:
                     print("This choice isn't valid, try again.")
+                    print("...press enter...")
                     name.char_class = []
                     result = False
                 else:

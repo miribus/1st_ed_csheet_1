@@ -1,3 +1,8 @@
+import os
+
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
 def character_alignment(name):
     if "Paladin" in name.char_class or "UAPaladin" in name.char_class:
         align_choices = ["Lawful Good"]
@@ -142,15 +147,18 @@ alignments["Notes"] = "These are only one interpretation based on the PHB Alignm
 
 
 def choose_alignment(name):
+    clear_screen()
     align_choices = character_alignment(name)
     print("Would you like to see some potential context and motivations for these Alignments?")
     choice = input("Y or N?")
     if choice.upper() == "Y".upper():
+        clear_screen()
         print(alignments["Notes"])
         for a in alignments:
             if a != "Notes":
                 print(alignments[a])
-                choice = input("Enter for mor...")
+                choice = input("Enter for more...")
+                clear_screen()
     result = False
     while not result:
         iter = 1
@@ -162,7 +170,9 @@ def choose_alignment(name):
         if choice.isdigit():
             if int(choice) in range(1, len(align_choices)+1):
                 it = int(choice)-1
+                clear_screen()
                 print(align_choices[it])
+                input("\npress enter\n")
                 name.char_alignment = align_choices[it]
                 return name
 

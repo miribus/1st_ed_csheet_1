@@ -15,11 +15,9 @@ def calculate_armor_class(name):
                 defense = name.char_abilities["DEX"] - 14
                 defense = defense * 2
                 name.char_AC["AC"] -= defense
-                name.char_AC["Rear"] -= defense
                 name.char_AC["Shieldless"] -= defense
         else:
             name.char_AC["AC"] += int(name.char_define_abilities["DEX"]["Defensive"])
-            name.char_AC["Rear"] += int(name.char_define_abilities["DEX"]["Defensive"])
             name.char_AC["Shieldless"] += int(name.char_define_abilities["DEX"]["Defensive"])
 
         for a in name.char_armor:
