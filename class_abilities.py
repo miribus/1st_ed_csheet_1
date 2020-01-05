@@ -320,7 +320,7 @@ def class_details(name):
                 name.char_class_abilities["UAPaladin"] = {}
                 name.char_class_abilities["UAPaladin"]["Special"] = {}
                 name.char_class_abilities["UAPaladin"]["Save Bonus"] = []
-                name.char_class_abilities["UAPaladin"]["Immunity"] = "Disease, Fear"
+
             name.char_class_abilities["UAPaladin"]["Honor"] = ["Cannot run from combat", "Must wear metal armor",
                                                               "Must adhere to code to gain XP", "Must be proficient in "
                                                                "lance, favors close range swords"]
@@ -337,7 +337,6 @@ def class_details(name):
                                "+1 DMG when dismounted. +1 ToHit while Mounted."
                 name.char_class_abilities["UAPaladin"][
                     "Parry"] = "Unearthed Arcana Pg 15, reduce Attacker To hit by your bonus"
-                name.char_class_abilities["UAPaladin"]["Immununity"] = "Fear"
                 name.char_class_abilities["UAPaladin"]["Horsemanship"] = "Attacks from Horseback as +1 Level (UA Pg 15)"
                 name.char_class_abilities["UAPaladin"][
                     "Horsemanship2"] = "-85% thrown from saddle, or injured +1% per level"
@@ -346,6 +345,7 @@ def class_details(name):
                 name.char_class_abilities["UAPaladin"]["Resistances"] = "Mind Affecting spells 90% failure"
                 name.char_class_abilities["UAPaladin"]["Special"][
                     "Protection from Fear"] = "Radiate Protection from Fear 1\" radius"
+                name.char_class_abilities["UAPaladin"]["Immunity"] = "Disease, Fear"
                 name.char_class_abilities["UAPaladin"]["STR Training"] = dice.exceptional_strength()
                 name.char_class_abilities["UAPaladin"]["DEX Training"] = dice.exceptional_strength()
                 name.char_class_abilities["UAPaladin"]["CON Training"] = dice.exceptional_strength()
@@ -359,7 +359,7 @@ def class_details(name):
             if not name.char_weapon_prof_penalty > -1:
                 name.char_weapon_prof_penalty = -1
             name.char_class_levels.append("1")
-            name.char_class_nextXP.append("3000")
+            name.char_class_nextXP.append("6000")
             name.char_class_name = "Barbarian"
             if "Barbarian" not in name.char_class_abilities:
                 name.char_class_abilities["Barbarian"] = {}
