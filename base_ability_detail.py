@@ -91,6 +91,9 @@ def define_abilities(name):
         name.char_define_abilities["STR"]["OPEN_DOOR"] = "1-5 (Locked/Barred: 2)"
         name.char_define_abilities["STR"]["BEND_BARS"] = "40%"
 
+    name.char_define_abilities["INT"]["Know Spell"] = ""
+    name.char_define_abilities["INT"]["Min Spells/Level"] = ""
+    name.char_define_abilities["INT"]["Max Spells/Level"] = ""
     if name.char_abilities["INT"] in range(3, 8):
         name.char_define_abilities["INT"]["LANG"] = "No extras."
     elif name.char_abilities["INT"] == 8:
@@ -320,66 +323,107 @@ def define_abilities(name):
         name.char_define_abilities["CHA"]["Henchmen"] = "1"
         name.char_define_abilities["CHA"]["Loyalty"] = "-30%"
         name.char_define_abilities["CHA"]["Reaction"] = "-25%"
+        name.char_abilities["CMS"] -= 5
     elif name.char_abilities["CHA"] == 4:
         name.char_define_abilities["CHA"]["Henchmen"] = "1"
         name.char_define_abilities["CHA"]["Loyalty"] = "-25%"
         name.char_define_abilities["CHA"]["Reaction"] = "-20%"
+        name.char_abilities["CMS"] -= 3
     elif name.char_abilities["CHA"] == 5:
         name.char_define_abilities["CHA"]["Henchmen"] = "2"
         name.char_define_abilities["CHA"]["Loyalty"] = "-20%"
         name.char_define_abilities["CHA"]["Reaction"] = "-15%"
+        name.char_abilities["CMS"] -= 3
     elif name.char_abilities["CHA"] == 6:
         name.char_define_abilities["CHA"]["Henchmen"] = "2"
         name.char_define_abilities["CHA"]["Loyalty"] = "-15%"
         name.char_define_abilities["CHA"]["Reaction"] = "-10%"
+        name.char_abilities["CMS"] -= 1
     elif name.char_abilities["CHA"] == 7:
         name.char_define_abilities["CHA"]["Henchmen"] = "3"
         name.char_define_abilities["CHA"]["Loyalty"] = "-10%"
         name.char_define_abilities["CHA"]["Reaction"] = "-5%"
+        name.char_abilities["CMS"] -= 1
     elif name.char_abilities["CHA"] == 8:
         name.char_define_abilities["CHA"]["Henchmen"] = "3"
         name.char_define_abilities["CHA"]["Loyalty"] = "-5%"
         name.char_define_abilities["CHA"]["Reaction"] = "0%"
+        name.char_abilities["CMS"] -= 1
     elif name.char_abilities["CHA"] in range(9, 12):
         name.char_define_abilities["CHA"]["Henchmen"] = "4"
         name.char_define_abilities["CHA"]["Loyalty"] = "0%"
         name.char_define_abilities["CHA"]["Reaction"] = "0%"
+        #name.char_abilities["CMS"] -= 0
     elif name.char_abilities["CHA"] == 12:
         name.char_define_abilities["CHA"]["Henchmen"] = "5"
         name.char_define_abilities["CHA"]["Loyalty"] = "0%"
         name.char_define_abilities["CHA"]["Reaction"] = "0%"
+        #name.char_abilities["CMS"] -= 0
     elif name.char_abilities["CHA"] == 13:
         name.char_define_abilities["CHA"]["Henchmen"] = "5"
         name.char_define_abilities["CHA"]["Loyalty"] = "0%"
         name.char_define_abilities["CHA"]["Reaction"] = "+5%"
+        name.char_abilities["CMS"] += 1
     elif name.char_abilities["CHA"] == 14:
         name.char_define_abilities["CHA"]["Henchmen"] = "6"
         name.char_define_abilities["CHA"]["Loyalty"] = "+5%"
         name.char_define_abilities["CHA"]["Reaction"] = "+10%"
+        name.char_abilities["CMS"] += 1
     elif name.char_abilities["CHA"] == 15:
         name.char_define_abilities["CHA"]["Henchmen"] = "7"
         name.char_define_abilities["CHA"]["Loyalty"] = "+15%"
         name.char_define_abilities["CHA"]["Reaction"] = "+15%"
+        name.char_abilities["CMS"] += 1
     elif name.char_abilities["CHA"] == 16:
         name.char_define_abilities["CHA"]["Henchmen"] = "8"
         name.char_define_abilities["CHA"]["Loyalty"] = "+20%"
         name.char_define_abilities["CHA"]["Reaction"] = "+25%"
+        name.char_abilities["CMS"] += 2
     elif name.char_abilities["CHA"] == 17:
         name.char_define_abilities["CHA"]["Henchmen"] = "10"
         name.char_define_abilities["CHA"]["Loyalty"] = "+30%"
         name.char_define_abilities["CHA"]["Reaction"] = "+30%"
+        name.char_abilities["CMS"] += 2
     elif name.char_abilities["CHA"] == 18:
         name.char_define_abilities["CHA"]["Henchmen"] = "15"
         name.char_define_abilities["CHA"]["Loyalty"] = "+40%"
         name.char_define_abilities["CHA"]["Reaction"] = "+35%"
-
+        name.char_abilities["CMS"] += 3
+    if name.char_race == "Elf":
+        name.char_abilities["CMS"] += 2
+    elif name.char_race == "Half-Orc":
+        name.char_abilities["CMS"] -= 3
+    elif name.char_race == "Dwarf":
+        name.char_abilities["CMS"] -= 1
+    elif name.char_race == "Gnome":
+        name.char_abilities["CMS"] -= 1
+    elif name.char_race == "Human":
+        name.char_abilities["CMS"] -= 0
+    elif name.char_race == "Halfling":
+        name.char_abilities["CMS"] -= 0
+    elif name.char_race == "Half-Elf":
+        name.char_abilities["CMS"] += 1
     if name.char_abilities["CMS"] in range(14, 18):
         fasc = round(name.char_abilities["CMS"] / 2)
-        name.char_define_abilities["CMS"]["Fascinate"] = "Fascinate if Opponent's WIS < {}".format(str(fasc))
+        name.char_define_abilities["CMS"]["Fascinate"] = "Attractive, fascinate the opposite sex if their WIS < {}".format(str(fasc))
     elif name.char_abilities["CMS"] in range(18, 22):
         fasc = round(name.char_abilities["CMS"] / 3)
         fasc = name.char_abilities["CMS"] - fasc
-        name.char_define_abilities["CMS"]["Fascinate"] = "Fascinate if Opponent's WIS < {}".format(str(fasc))
+        name.char_define_abilities["CMS"]["Fascinate"] = "Beautiful, fascinate the opposite sex if their WIS < {}".format(str(fasc))
+    elif name.char_abilities["CMS"] in range(22, 26):
+        fasc = round(name.char_abilities["CMS"] / 3)
+        fasc = name.char_abilities["CMS"] - fasc
+        name.char_define_abilities["CMS"]["Fascinate"] = "Stunning, fascinate the opposite sex if their WIS < {}".format(str(fasc))
+        name.char_abilities["CMS"] = name.char_abilities["CMS"] * 2
+        name.char_define_abilities["CHA"]["Reaction"] = "+"+str(name.char_abilities["CMS"])+"%"
+    elif name.char_abilities["CMS"] in range(-8, 1):
+        name.char_define_abilities["CMS"]["Fascinate"] = "Most will immediately leave your company if not openly attack you."
+    elif name.char_abilities["CMS"] in range(1, 7):
+        name.char_define_abilities["CMS"]["Fascinate"] = "You are very ugly, people don't want to be around you."
+    elif name.char_abilities["CMS"] in range(7, 10):
+        name.char_define_abilities["CMS"]["Fascinate"] = "You are hard on the eyes and not likely shunned."
+    elif name.char_abilities["CMS"] in range(10, 14):
+        name.char_define_abilities["CMS"]["Fascinate"] = "You are average looking."
 
     if "Thief" in name.char_class or "Assassin" in name.char_class or "Monk" in name.char_class or "Barbarian" in\
             name.char_class:
@@ -437,4 +481,10 @@ def define_abilities(name):
             name.char_define_abilities["DEX"]["Find/Remove Traps"] = "+10%"
             name.char_define_abilities["DEX"]["Move Silent"] = "+12%"
             name.char_define_abilities["DEX"]["Hide In Shadows"] = "+12%"
+        else:
+            name.char_define_abilities["DEX"]["Pick Pockets"] = "+0%"
+            name.char_define_abilities["DEX"]["Open Locks"] = "+0%"
+            name.char_define_abilities["DEX"]["Find/Remove Traps"] = "+0%"
+            name.char_define_abilities["DEX"]["Move Silent"] = "+0%"
+            name.char_define_abilities["DEX"]["Hide In Shadows"] = "+0%"
     return name

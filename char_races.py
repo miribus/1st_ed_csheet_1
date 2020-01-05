@@ -354,7 +354,7 @@ def base_bonuses(name):
         name.char_race_abilities["Combat Bonus"] = "Short/Long Swords +1 To Hit, Bows +1 To Hit"
         name.char_race_abilities["Infravision"] = "60'"
         name.char_race_abilities["Racial Languages"] = ["Elvish", "Gnome", "Halfling", "Goblin", "Hobgoblin", "Orcish",
-                                              "Gnoll", "Common", elflang]
+                                              "Gnoll", "Common", elflang, "Alignment"]
         name.char_race_abilities["Elven Surprise"] = ["d4, 1-4 in Non-Metal Armor and Alone or w/ Elves/Halflings, Score 1-2 if opening door "]
         name.char_race_abilities["Detect Secret Doors"] = ["Concealed: d6, Score 1 (Detect: 1-2)", "Secret: d6, Score 1-2 (Detect: 1-3)"]
     elif name.char_race == "Dwarf":
@@ -369,14 +369,14 @@ def base_bonuses(name):
         name.char_race_abilities["Detect Stone Trapwork"] = "d4, score 1-2"
         name.char_race_abilities["Detect Depth Underground"] = "d4, score 1-2"
         name.char_race_abilities["Infravision"] = "60'"
-        name.char_race_abilities["Racial Languages"] = ["Dwarven", "Gnome", "Goblin", "Kobold", "Orcish", "Common"]
+        name.char_race_abilities["Racial Languages"] = ["Dwarven", "Gnome", "Goblin", "Kobold", "Orcish", "Common", "Alignment"]
         name.char_race_abilities["Combat Bonus"] = ["+1 To hit: Half-Orc, Goblin, Hobgoblin, Orc",
                                           "-4 Penalty to be hit by Enemy Giants, Titans, Ogres or, Trolls"]
     elif name.char_race == "Half-Orc":
         name.char_abilities["STR"] += 1
         name.char_abilities["CON"] += 1
         name.char_abilities["CHA"] -= 2
-        name.char_race_abilities["Racial Languages"] = ["Orcish", "Common"]
+        name.char_race_abilities["Racial Languages"] = ["Orcish", "Common", "Alignment"]
         name.char_race_abilities["Infravision"] = "60'"
     elif name.char_race == "Halfling":
         name.char_abilities["STR"] -= 1
@@ -386,7 +386,7 @@ def base_bonuses(name):
         name.char_race_abilities["Save Bonus"]["Rods, Staves, Wands"] = str('+')+str(int(str(round(name.char_abilities["CON"] / 3.5))[0]))
         name.char_race_abilities["Infravision"] = "30' (Or 60' if Stoutish)"
         name.char_race_abilities["Racial Languages"] = ["Elvish", "Gnome", "Halfling", "Goblin", "Dwarven", "Orcish",
-                                              "Common", "+{} more".format(name.char_abilities["INT"]-16)]
+                                              "Common", "Alignment", "+{} more".format(name.char_abilities["INT"]-16)]
         name.char_race_abilities["Halfling Surprise"] = ["d4, 1-4 in Non-Metal Armor and Alone or w/ Elves/Halflings, Score 1-2 if opening door "]
         name.char_race_abilities["Detect Grade Underground"] = "d4, score 1-3"
         name.char_race_abilities["Determine Direction Underground"] = "d10, score 1-5"
@@ -394,7 +394,7 @@ def base_bonuses(name):
         name.char_race_abilities["Save Bonus"]["Rods, Staves, Wands:"] = str('+')+str(int(str(round(name.char_abilities["CON"] / 3.5))[0]))
         name.char_race_abilities["Save Bonus"]["Spells:"] = str('+')+str(int(str(round(name.char_abilities["CON"] / 3.5))[0]))
         name.char_race_abilities["Racial Languages"] = ["Dwarven", "Gnome", "Goblin", "Kobold", "Orcish", "Common",
-                                              "Burrowing Mammal"]
+                                              "Burrowing Mammal", "Alignment"]
         name.char_race_abilities["Infravision"] = "60'"
         name.char_race_abilities["Detect Grade Underground"] = "d10, score 1-8"
         name.char_race_abilities["Detect Unsafe Walls/Ceilings/Floors"] = "d10, score 1-7"
@@ -405,10 +405,12 @@ def base_bonuses(name):
     elif name.char_race == "Half-Elf":
         name.char_race_abilities["Sleep/Charm Resistance"] = "30%"
         name.char_race_abilities["Racial Languages"] = ["Elvish", "Gnome", "Halfling", "Goblin", "Hobgoblin", "Orcish",
-                                              "Gnoll", "Common", "+{} more".format(name.char_abilities["INT"] - 16)]
+                                              "Gnoll", "Common", "Alignment", "+{} more".format(name.char_abilities["INT"] - 16)]
         name.char_race_abilities["Infravision"] = "60'"
         name.char_race_abilities["Detect Secret Doors"] = ["Concealed: d6, Score 1 (Detect: 1-2)",
                                                  "Secret: d6, Score 1-2 (Detect: 1-3)"]
+    else:
+        name.char_race_abilities["Racial Languages"] = ["Common", "Alignment"]
     fighters = ["Fighter", "Barbarian", "Cavalier", "Paladin", "UAPaladin", "Ranger"]
     if name.char_abilities["STR"] == 18:
         for c in name.char_class:

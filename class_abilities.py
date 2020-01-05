@@ -40,6 +40,7 @@ def class_details(name):
             name.char_HP += HP
 
         elif "Druid" == str(c):
+            name.char_race_abilities["Racial Languages"].append("Druidic")
             if not name.char_weapon_prof_slots > 2:
                 name.char_weapon_prof_slots = 2
             if not name.char_weapon_prof_penalty > -4:
@@ -156,6 +157,7 @@ def class_details(name):
             HP = dice.HP(4, 1, name, 3) + int(HPadj)
             name.char_HP += HP
         elif "Thief" == str(c):
+            name.char_race_abilities["Racial Languages"].append("Thief Cant")
             if not name.char_weapon_prof_slots > 2:
                 name.char_weapon_prof_slots = 2
             if not name.char_weapon_prof_penalty > -3:

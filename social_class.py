@@ -96,15 +96,15 @@ def social_class(name):
             name.social_class = "MLC"
         elif int(classroll) in range(11, 21):
             name.social_class = "ULC"
-        elif int(classroll) in range(22, 36):
+        elif int(classroll) in range(21, 36):
             name.social_class = "LMC"
-        elif int(classroll) in range(36, 57):
+        elif int(classroll) in range(36, 56):
             name.social_class = "MMC"
-        elif int(classroll) in range(57, 88):
+        elif int(classroll) in range(56, 88):
             name.social_class = "UMC"
         elif int(classroll) in range(88, 97):
             name.social_class = "LUC"
-        elif int(classroll) in range(98, 100):
+        elif int(classroll) in range(97, 100):
             name.social_class = "MUC"
         elif int(classroll) in range(100, 101):
             name.social_class = "UUC"

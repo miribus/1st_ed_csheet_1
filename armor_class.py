@@ -16,10 +16,11 @@ def calculate_armor_class(name):
                 defense = defense * 2
                 name.char_AC["AC"] -= defense
                 name.char_AC["Shieldless"] -= defense
+                name.char_AC["Naked"] -= defense
         else:
             name.char_AC["AC"] += int(name.char_define_abilities["DEX"]["Defensive"])
             name.char_AC["Shieldless"] += int(name.char_define_abilities["DEX"]["Defensive"])
-
+            name.char_AC["Naked"] += int(name.char_define_abilities["DEX"]["Defensive"])
         for a in name.char_armor:
             name.char_AC["AC"] += int(name.char_armor[a]["Reduction"])
             name.char_AC["Surprised"] += int(name.char_armor[a]["Reduction"])

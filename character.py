@@ -1,5 +1,6 @@
 import dice, char_races, char_classes, social_class, base_ability_detail, age, class_abilities
 import alignments, os, item_shop, encumbrance, armor_class
+import char_to_xls
 #import re
 
 def clear_screen():
@@ -57,7 +58,7 @@ class playerSheet:
         self.char_define_abilities["CHA"] = {}
         self.char_define_abilities["CMS"] = {}
         self.char_HP = 0
-        self.char_AC = {"AC":10, "Shieldless":10, "Rear":10, "Surprised":10}
+        self.char_AC = {"AC":10, "Shieldless":10, "Rear":10, "Surprised":10, "Naked":10}
         self.char_saves = {}
         self.char_saves["Poison"] = 21
         self.char_saves["Petrification"] = 21
@@ -76,9 +77,9 @@ class playerSheet:
         self.soclass_limit = []
         self.social_class = ""
         self.char_money = {}
-        self.char_money["gp"] = 0
-        self.char_money["sp"] = 0
         self.char_money["pp"] = 0
+        self.char_money["gp"] = 0
+        self.char_money["ep"] = 0
         self.char_money["sp"] = 0
         self.char_money["cp"] = 0
 
@@ -224,6 +225,8 @@ print(name.char_movement_rate)
 print(name.char_encumbrance)
 print(name.char_weapon_prof)
 print(name.char_AC)
+
+char_to_xls.character_print(name)
 
 quitout = input("Enter to quit")
 
