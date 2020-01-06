@@ -75,6 +75,8 @@ def character_print(name):
                 chatr = "/" + str(name.char_class_abilities[name.char_class[0]]["CHA Training"])
             else:
                 chatr = ""
+        else:
+            chatr = ""
     tp['B6'] = str(name.char_abilities["STR"])+str(extr)
     tp['D6'] = str(name.char_define_abilities["STR"]["HIT"])
     tp['F6'] = str(name.char_define_abilities["STR"]["DMG"])

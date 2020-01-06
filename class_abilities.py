@@ -502,7 +502,7 @@ def weapon_prof(name):
     for i in range(1, 75):
 
         mweapons.append(weapons_list[int(i)][1])
-        if "Fighter" in name.char_class or "Ranger" in name.char_class:
+        if "Fighter" in name.char_class or "Ranger" in name.char_class or "Barbarian" in name.char_class:
             c = "Fighter"
         elif "Paladin" in name.char_class and not "Paladin (UA)" in name.char_class:
             c = "Fighter"
@@ -611,7 +611,10 @@ def weapon_prof(name):
             if int(choice) in range(1, 75):
                 if name.char_weapon_prof_slots - len(name.char_weapon_prof) > 0:
                     if "Bow" in str(mweapons[int(choice)]):
-                        if mweapons[int(choice)] in name.char_weapon_prof:
+                        if "Cavalier" in name.char_class and not name.char_race == "Elf":
+                            print("Only High Elves can choose this.")
+                            return name, result
+                        elif mweapons[int(choice)] in name.char_weapon_prof:
                             if name.char_weapon_prof_slots - len(name.char_weapon_prof) - 1 <= 0:
                                 print("Not enough slots")
                                 choice = input("Are you done? Y or N:")
