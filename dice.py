@@ -11,7 +11,7 @@ def ability_roller(sides, qty):
     bests.sort()
     result = bests[-1]+bests[-2]+bests[-3]
 
-    print(result)
+    #print(result)
     return result
 
 def soclass():
@@ -22,9 +22,11 @@ def exceptional_strength(name):
     if len(name.self_roll) > 0:
         possible = [str(n) for n in range(1, 101)]
         possible.append("00")
+        print(possible)
         excep = "9999"
         while excep not in possible:
             excep = input("What is your Exceptional/Trained roll:")
+            return excep
     else:
         result = random.randrange(1, 101)
     return result

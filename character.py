@@ -92,7 +92,7 @@ while not method:
           "3 Enter Your own\n"
           )
     choice = input("Choose a Number>")
-    if choice != "1" and choice != "2" or choice != "3":
+    if choice != "1" and choice != "2" and choice != "3":
         method = False
     else:
         method = True
@@ -113,7 +113,9 @@ if int(choice) == 3:
     for a in name.char_abilities:
         abil = "00"
         while str(abil) not in possible:
-            abil = input("Type your () roll:".format(a))
+            if abil == "EX_STR":
+                break
+            abil = input("Type your {} roll:".format(a))
         name.char_abilities[a] = str(abil)
 
 print(name.char_abilities)

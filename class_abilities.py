@@ -438,6 +438,11 @@ def class_details(name):
 
 
     name.char_HP = round(name.char_HP/len(name.char_class))
+    if len(name.self_roll) > 0:
+        possible = [str(n) for n in range(1, 30)]
+        while str(HP) not in possible:
+            HP = input("What is your HP?:")
+        name.char_HP = HP
     return name
 
 def class_equipment_checker(name):
@@ -489,6 +494,12 @@ def starting_money(name):
         else:
             gold = dice.normal(4, 2)
         gold = gold*10
+
+    if len(name.self_roll) > 0:
+        possible = [str(n) for n in range(1, 300)]
+        while str(gold) not in possible:
+            gold = input("What is your HP?:")
+
     name.char_money["gp"] = gold
     return name
 
