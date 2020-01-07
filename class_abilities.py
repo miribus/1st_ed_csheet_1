@@ -296,9 +296,9 @@ def class_details(name):
                 name.char_class_abilities["Cavalier"]["Resistances"] = "Mind Affecting spells 90% failure"
                 name.char_class_abilities["Cavalier"]["Good Aligned"] = "Radiate Protection from Fear 1\" radius"
                 name.char_class_abilities["Cavalier"]["Save Bonus"] = "+2 Illusions"
-                name.char_class_abilities["Cavalier"]["STR Training"] = dice.exceptional_strength()
-                name.char_class_abilities["Cavalier"]["DEX Training"] = dice.exceptional_strength()
-                name.char_class_abilities["Cavalier"]["CON Training"] = dice.exceptional_strength()
+                name.char_class_abilities["Cavalier"]["STR Training"] = dice.exceptional_strength(name)
+                name.char_class_abilities["Cavalier"]["DEX Training"] = dice.exceptional_strength(name)
+                name.char_class_abilities["Cavalier"]["CON Training"] = dice.exceptional_strength(name)
                 HP = dice.HP(10, 1, name, 6) + int(HPadj) + 3
             else:
                 HP = dice.HP(4, 1, name, 3) + int(HPadj) + 1
@@ -346,10 +346,10 @@ def class_details(name):
                 name.char_class_abilities["UAPaladin"]["Special"][
                     "Protection from Fear"] = "Radiate Protection from Fear 1\" radius"
                 name.char_class_abilities["UAPaladin"]["Immunity"] = "Disease, Fear"
-                name.char_class_abilities["UAPaladin"]["STR Training"] = dice.exceptional_strength()
-                name.char_class_abilities["UAPaladin"]["DEX Training"] = dice.exceptional_strength()
-                name.char_class_abilities["UAPaladin"]["CON Training"] = dice.exceptional_strength()
-                name.char_class_abilities["UAPaladin"]["CHA Training"] = dice.exceptional_strength()
+                name.char_class_abilities["UAPaladin"]["STR Training"] = dice.exceptional_strength(name)
+                name.char_class_abilities["UAPaladin"]["DEX Training"] = dice.exceptional_strength(name)
+                name.char_class_abilities["UAPaladin"]["CON Training"] = dice.exceptional_strength(name)
+                name.char_class_abilities["UAPaladin"]["CHA Training"] = dice.exceptional_strength(name)
             else:
                 HP = dice.HP(4, 1, name, 3) + int(HPadj) + 1
             name.char_HP += HP
@@ -497,32 +497,32 @@ def weapon_prof(name):
     m_weapons = {}
     mweapons = []
     mweapons.append("")
-    char_list = class_equipment_checker(name)
-
+    classlist = name.char_class
     for i in range(1, 75):
-
         mweapons.append(weapons_list[int(i)][1])
         if "Fighter" in name.char_class or "Ranger" in name.char_class or "Barbarian" in name.char_class:
             c = "Fighter"
+            classlist.append(c)
         elif "Paladin" in name.char_class and not "Paladin (UA)" in name.char_class:
             c = "Fighter"
+            classlist.append(c)
         elif "Assassin" in name.char_class:
             c = "Assassin"
-        elif "Cleric" in name.char_class:
-            c = "Cleric"
-        elif "Thief" in name.char_class:
-            c = "Thief"
-        elif "Druid" in name.char_class:
-            c = "Druid"
-        elif "MagicUser" in name.char_class or "Illusionist" in name.char_class:
-            c = "MagicUser"
+            classlist.append(c)
         elif "Cavalier" in name.char_class:
             c = "Cavalier"
+            classlist.append(c)
         elif "Paladin (UA)" in name.char_class:
             c = "Paladin"
+            classlist.append(c)
         elif "Monk" in name.char_class:
             c = "Monk"
-        if str(c) in str(weapons_list[int(i)][35]):
+            classlist.append(c)
+        match = False
+        for c in name.char_class:
+            if c in str(weapons_list[int(i)][35]):
+                match = True
+        if match:
             m_weapons[weapons_list[int(i)][1]] = {}
             m_weapons[weapons_list[int(i)][1]]["Damage S-M"] = str(weapons_list[int(i)][3])
             m_weapons[weapons_list[int(i)][1]]["Damage L"] = str(weapons_list[int(i)][4])

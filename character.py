@@ -9,6 +9,7 @@ def clear_screen():
 class playerSheet:
     def __init__(self, charname):
         global methodv, abilities, methodv_choice
+        self.self_roll = []
         if methodv:
             self.char_abilities = abilities
         else:
@@ -88,9 +89,10 @@ method = False
 while not method:
     print(" 1 *Human-Only* Choose Class: Method V\n",
           "2 Random: DMG Method III\n",
+          "3 Enter Your own\n"
           )
     choice = input("Choose a Number>")
-    if choice != "1" and choice != "2":
+    if choice != "1" and choice != "2" or choice != "3":
         method = False
     else:
         method = True
@@ -105,6 +107,15 @@ if method:
 clear_screen()
 
 name = playerSheet(input("Character Name?:"))
+if int(choice) == 3:
+    possible = [str(n) for n in range(3, 19)]
+
+    for a in name.char_abilities:
+        abil = "00"
+        while str(abil) not in possible:
+            abil = input("Type your () roll:".format(a))
+        name.char_abilities[a] = str(abil)
+
 print(name.char_abilities)
 name = social_class.social_class(name)
 result = False

@@ -57,26 +57,20 @@ def character_print(name):
         extr = "/"+str(name.char_abilities["EX_STR"])
     else:
         extr = ""
+    strtr = ""
+    dextr = ""
+    contr = ""
+    chatr = ""
     if "Cavalier" in name.char_class_abilities or "UAPaladin" in name.char_class_abilities:
         if "STR Training" in name.char_class_abilities[name.char_class[0]]:
             strtr = "/" + str(name.char_class_abilities[name.char_class[0]]["STR Training"])
-        else:
-            strtr = ""
         if "DEX Training" in name.char_class_abilities[name.char_class[0]]:
             dextr = "/" + str(name.char_class_abilities[name.char_class[0]]["DEX Training"])
-        else:
-            dextr = ""
         if "CON Training" in name.char_class_abilities[name.char_class[0]]:
             contr = "/" + str(name.char_class_abilities[name.char_class[0]]["CON Training"])
-        else:
-            contr = ""
         if "UAPaladin" in name.char_class:
             if "CHA Training" in name.char_class_abilities[name.char_class[0]]:
                 chatr = "/" + str(name.char_class_abilities[name.char_class[0]]["CHA Training"])
-            else:
-                chatr = ""
-        else:
-            chatr = ""
     tp['B6'] = str(name.char_abilities["STR"])+str(extr)
     tp['D6'] = str(name.char_define_abilities["STR"]["HIT"])
     tp['F6'] = str(name.char_define_abilities["STR"]["DMG"])

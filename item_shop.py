@@ -50,30 +50,29 @@ def buy_weapons(name):
     rweapons = []
     rweapons.append("")
     show_weapons = {}
+    classlist = name.char_class
     for i in range(1, 75):
         char_list = class_abilities.class_equipment_checker(name)
-        if "Fighter" in name.char_class or "Ranger" in name.char_class:
+        if "Fighter" in name.char_class or "Ranger" in name.char_class or "Barbarian" in name.char_class:
             c = "Fighter"
+            classlist.append(c)
         elif "Paladin" in name.char_class and not "Paladin (UA)" in name.char_class:
             c = "Fighter"
+            classlist.append(c)
         elif "Assassin" in name.char_class:
             c = "Assassin"
-        elif "Cleric" in name.char_class:
-            c = "Cleric"
-        elif "Thief" in name.char_class:
-            c = "Thief"
-        elif "Druid" in name.char_class:
-            c = "Druid"
-        elif "MagicUser" in name.char_class or "Illusionist" in name.char_class:
-            c = "MagicUser"
+            classlist.append(c)
         elif "Cavalier" in name.char_class:
             c = "Cavalier"
+            classlist.append(c)
         elif "Paladin (UA)" in name.char_class:
             c = "Paladin"
-        elif "Monk" in name.char_class:
-            c = "Monk"
-
-        if str(c) in str(weapons_list[int(i)][35]):
+            classlist.append(c)
+        match= False
+        for c in name.char_class:
+            if c in str(weapons_list[int(i)][35]):
+                match = True
+        if match:
             if weapons_list[int(i)][1] not in mweapons:
                 mweapons.append(weapons_list[int(i)][1])
             if weapons_list[int(i)][1] not in rweapons:

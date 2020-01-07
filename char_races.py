@@ -415,6 +415,6 @@ def base_bonuses(name):
     if name.char_abilities["STR"] == 18:
         for c in name.char_class:
             if str(c) in fighters:
-                name.char_abilities["EX_STR"] = dice.exceptional_strength()
+                name.char_abilities["EX_STR"] = dice.exceptional_strength(name)
 
     return name

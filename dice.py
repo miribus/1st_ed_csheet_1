@@ -18,8 +18,15 @@ def soclass():
     result = random.randrange(1, 101)
     return result
 
-def exceptional_strength():
-    result = random.randrange(1, 101)
+def exceptional_strength(name):
+    if len(name.self_roll) > 0:
+        possible = [str(n) for n in range(1, 101)]
+        possible.append("00")
+        excep = "9999"
+        while excep not in possible:
+            excep = input("What is your Exceptional/Trained roll:")
+    else:
+        result = random.randrange(1, 101)
     return result
 
 def normal(sides, qty):
