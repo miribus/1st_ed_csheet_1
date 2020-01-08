@@ -8,7 +8,7 @@ def calculate_move(name, fairly, bulky, encumbered):
     elif fairly:
         name.char_movement_rate["Base"] = "9\""
         return name
-    elif "Barbarian" in name.char_class:
+    elif "Barbarian" in name.char_class or "Monk" in name.char_class:
         name.char_movement_rate["Base"] = "15\""
         return name
     else:
