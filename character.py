@@ -9,7 +9,7 @@ def clear_screen():
 class playerSheet:
     def __init__(self, charname):
         global methodv, abilities, methodv_choice
-        self.self_roll = []
+        self.self_roll = False
         if methodv:
             self.char_abilities = abilities
         else:
@@ -108,15 +108,17 @@ clear_screen()
 
 name = playerSheet(input("Character Name?:"))
 if int(choice) == 3:
+    name.self_roll = True
     possible = [str(n) for n in range(3, 19)]
-
+    possible.append("False")
     for a in name.char_abilities:
         abil = "00"
         while str(abil) not in possible:
-            if abil == "EX_STR":
-                break
-            abil = input("Type your {} roll:".format(a))
-        name.char_abilities[a] = str(abil)
+            if str(a) == "EX_STR":
+                abil = False
+            else:
+                abil = input("Type your {} roll:".format(a))
+        name.char_abilities[a] = int(abil)
 
 print(name.char_abilities)
 name = social_class.social_class(name)

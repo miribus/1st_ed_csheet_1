@@ -89,6 +89,12 @@ def social_class(name):
         classroll = dice.soclass()
         if name.char_name == "Wreck":
             classroll = 100
+        if name.self_roll:
+            possible = [str(n) for n in range(1, 101)]
+            possible.append("00")
+            classroll = 9999
+            while str(classroll) not in possible:
+                classroll = input("What is your social class roll?")
         print("You rolled: ", str(classroll), "for social class")
         if int(classroll) in range(1, 5):
             name.social_class = "LLC"

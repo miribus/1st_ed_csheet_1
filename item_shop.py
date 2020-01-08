@@ -53,23 +53,8 @@ def buy_weapons(name):
     classlist = name.char_class
     for i in range(1, 75):
         char_list = class_abilities.class_equipment_checker(name)
-        if "Fighter" in name.char_class or "Ranger" in name.char_class or "Barbarian" in name.char_class:
-            c = "Fighter"
-            classlist.append(c)
-        elif "Paladin" in name.char_class and not "Paladin (UA)" in name.char_class:
-            c = "Fighter"
-            classlist.append(c)
-        elif "Assassin" in name.char_class:
-            c = "Assassin"
-            classlist.append(c)
-        elif "Cavalier" in name.char_class:
-            c = "Cavalier"
-            classlist.append(c)
-        elif "Paladin (UA)" in name.char_class:
-            c = "Paladin"
-            classlist.append(c)
-        match= False
-        for c in name.char_class:
+
+        for c in char_list:
             if c in str(weapons_list[int(i)][35]):
                 match = True
         if match:

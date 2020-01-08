@@ -27,6 +27,8 @@ def class_details(name):
             name.char_class_name = "Acolyte"
             if name.char_abilities["WIS"] > 15:
                 name.char_class_xpBonus.append("+10%")
+            else:
+                name.char_class_xpBonus.append("0%")
             if "Cleric" not in name.char_class_abilities:
                 name.char_class_abilities["Cleric"] = {}
                 name.char_class_abilities["Cleric"]["Turn Undead"] = {}
@@ -50,6 +52,8 @@ def class_details(name):
             name.char_class_name = "Aspirant"
             if name.char_abilities["WIS"] > 15 and name.char_abilities["CHA"] > 15:
                 name.char_class_xpBonus.append("+10%")
+            else:
+                name.char_class_xpBonus.append("0%")
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
             HP = dice.HP(8, 1, name, 5)+int(HPadj)
             name.char_HP += HP
@@ -64,6 +68,8 @@ def class_details(name):
             name.char_class_name = "Veteran"
             if name.char_abilities["STR"] > 15:
                 name.char_class_xpBonus.append("+10%")
+            else:
+                name.char_class_xpBonus.append("0%")
             if "Fighter" not in name.char_class_abilities:
                 name.char_class_abilities["Fighter"] = {}
                 if len(name.char_class) == 1:
@@ -87,6 +93,8 @@ def class_details(name):
             name.char_class_name = "Gallant"
             if name.char_abilities["STR"] > 15 and name.char_abilities["WIS"] > 15:
                 name.char_class_xpBonus.append("+10%")
+            else:
+                name.char_class_xpBonus.append("0%")
             if "Paladin" not in name.char_class_abilities:
                 name.char_class_abilities["Paladin"] = {}
                 name.char_class_abilities["Paladin"]["Special"] = {}
@@ -110,6 +118,8 @@ def class_details(name):
             name.char_class_name = "Runner"
             if name.char_abilities["STR"] > 15 and name.char_abilities["WIS"] > 15 and name.char_abilities["INT"] > 15:
                 name.char_class_xpBonus.append("+10%")
+            else:
+                name.char_class_xpBonus.append("0%")
             if "Ranger" not in name.char_class_abilities:
                 name.char_class_abilities["Ranger"] = {}
                 name.char_class_abilities["Ranger"]["Special"] = {}
@@ -142,6 +152,8 @@ def class_details(name):
             name.char_class_name = "Prestidigitator"
             if name.char_abilities["INT"] > 15:
                 name.char_class_xpBonus.append("+10%")
+            else:
+                name.char_class_xpBonus.append("0%")
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
             HP = dice.HP(4, 1, name, 3) + int(HPadj)
             name.char_HP += HP
@@ -153,6 +165,7 @@ def class_details(name):
             name.char_class_levels.append("1")
             name.char_class_nextXP.append("2250")
             name.char_class_name = "Prestidigitator"
+            name.char_class_xpBonus.append("0%")
             HPadj = name.char_define_abilities["CON"]["HP Adj"]
             HP = dice.HP(4, 1, name, 3) + int(HPadj)
             name.char_HP += HP
@@ -165,6 +178,10 @@ def class_details(name):
             name.char_class_levels.append("1")
             name.char_class_nextXP.append("1250")
             name.char_class_name = "Rogue"
+            if name.char_abilities["DEX"] > 15:
+                name.char_class_xpBonus.append("+10%")
+            else:
+                name.char_class_xpBonus.append("0%")
             if "Thief" not in name.char_class_abilities:
                 name.char_class_abilities["Thief"] = {}
             pick_pockets = ["30%", name.char_race_abilities["Thief"]["Pick Pockets"], name.char_define_abilities["DEX"]["Pick Pockets"]]
@@ -221,6 +238,7 @@ def class_details(name):
             name.char_class_levels.append("1")
             name.char_class_nextXP.append("1500")
             name.char_class_name = "Apprentice"
+            name.char_class_xpBonus.append("0%")
             if "Assassin" not in name.char_class_abilities:
                 name.char_class_abilities["Assassin"] = {}
             name.char_class_abilities["Assassin"]["Assassinate"] = ["~50% to Assassinate: Victim 0L: 50gp, Victim 1-2L: "
@@ -237,6 +255,7 @@ def class_details(name):
             name.char_class_levels.append("1")
             name.char_class_nextXP.append("2250")
             name.char_class_name = "Novice"
+            name.char_class_xpBonus.append("0%")
             if "Monk" not in name.char_class_abilities:
                 name.char_class_abilities["Monk"] = {}
                 name.char_class_abilities["Monk"]["Thief"] = {}
@@ -272,6 +291,8 @@ def class_details(name):
                 name.char_class_levels.append("1")
                 name.char_class_nextXP.append("2750")
                 name.char_class_name = "Armiger"
+            name.char_class_xpBonus.append("0%")
+
             if "Cavalier" not in name.char_class_abilities:
                 name.char_class_abilities["Cavalier"] = {}
                 name.char_class_abilities["Cavalier"]["Save Bonus"] = ""
@@ -308,6 +329,10 @@ def class_details(name):
                 name.char_weapon_prof_slots = 3
             if not name.char_weapon_prof_penalty > -3:
                 name.char_weapon_prof_penalty = -3
+            if name.char_abilities["STR"] > 15 and name.char_abilities["WIS"] > 15:
+                name.char_class_xpBonus.append("+10%")
+            else:
+                name.char_class_xpBonus.append("0%")
             if name.social_class not in ["LUC", "UUC", "MUC"]:
                 name.char_class_levels.append("0")
                 name.char_class_nextXP.append("-501")
@@ -361,6 +386,7 @@ def class_details(name):
             name.char_class_levels.append("1")
             name.char_class_nextXP.append("6000")
             name.char_class_name = "Barbarian"
+            name.char_class_xpBonus.append("0%")
             if "Barbarian" not in name.char_class_abilities:
                 name.char_class_abilities["Barbarian"] = {}
                 name.char_class_abilities["Barbarian"]["Special"] = {}
@@ -438,10 +464,12 @@ def class_details(name):
 
 
     name.char_HP = round(name.char_HP/len(name.char_class))
-    if len(name.self_roll) > 0:
+    if name.self_roll:
         possible = [str(n) for n in range(1, 30)]
+        HP = 9999
         while str(HP) not in possible:
             HP = input("What is your HP?:")
+        HP = int(HP)
         name.char_HP = HP
     return name
 
@@ -495,10 +523,12 @@ def starting_money(name):
             gold = dice.normal(4, 2)
         gold = gold*10
 
-    if len(name.self_roll) > 0:
+    if name.self_roll:
         possible = [str(n) for n in range(1, 300)]
+        gold = 9999
         while str(gold) not in possible:
-            gold = input("What is your HP?:")
+            gold = input("What is your gold?")
+            gold = int(gold)
 
     name.char_money["gp"] = gold
     return name
@@ -511,26 +541,9 @@ def weapon_prof(name):
     classlist = name.char_class
     for i in range(1, 75):
         mweapons.append(weapons_list[int(i)][1])
-        if "Fighter" in name.char_class or "Ranger" in name.char_class or "Barbarian" in name.char_class:
-            c = "Fighter"
-            classlist.append(c)
-        elif "Paladin" in name.char_class and not "Paladin (UA)" in name.char_class:
-            c = "Fighter"
-            classlist.append(c)
-        elif "Assassin" in name.char_class:
-            c = "Assassin"
-            classlist.append(c)
-        elif "Cavalier" in name.char_class:
-            c = "Cavalier"
-            classlist.append(c)
-        elif "Paladin (UA)" in name.char_class:
-            c = "Paladin"
-            classlist.append(c)
-        elif "Monk" in name.char_class:
-            c = "Monk"
-            classlist.append(c)
+        char_list = class_equipment_checker(name)
         match = False
-        for c in name.char_class:
+        for c in char_list:
             if c in str(weapons_list[int(i)][35]):
                 match = True
         if match:
@@ -707,6 +720,9 @@ def calculate_combat_bonuses(name):
                         if len(slots) == 2 or len(slots) == 3:
                             name.char_melee_weapons[w]["Notes"] += "SPEC: Attack 3/2 rounds."
                         if len(slots) == 1 and not "Monk" in name.char_class:
+                            name.char_melee_weapons[w]["Norm Hit"] += int(name.char_define_abilities["STR"]["HIT"])
+                            name.char_melee_weapons[w]["Norm Dmg"] += int(name.char_define_abilities["STR"]["DMG"])
+                        else:
                             name.char_melee_weapons[w]["Norm Hit"] += int(name.char_define_abilities["STR"]["HIT"])
                             name.char_melee_weapons[w]["Norm Dmg"] += int(name.char_define_abilities["STR"]["DMG"])
         else:
