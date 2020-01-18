@@ -1,4 +1,7 @@
-import dice
+import dice, os
+
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 def calculate_jewelry(jewels):
     dividers = [8, 4, 4, 2 ,2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1]
@@ -514,3 +517,4 @@ while not done:
     #gems_loot = calculate_gems(gems)
     done = input("Enter to go again...")
     done = False
+    clear_screen()

@@ -32,6 +32,7 @@ class playerSheet:
                                    "CHA": 18,
                                    "CMS": 18,
                                    "EX_STR": False}
+        self.psionic = False
         self.methodv = methodv
         self.methodv_choice = methodv_choice
         self.char_alignment = ""
@@ -242,6 +243,10 @@ print(name.char_weapon_prof)
 print(name.char_AC)
 
 char_to_xls.character_print(name)
+if name.psionic:
+    print("###############################")
+    print("#Holy shit... you're psionic!#")
+    print("###############################")
 
 quitout = input("Enter to quit")
 
