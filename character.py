@@ -1,5 +1,5 @@
 import dice, char_races, char_classes, social_class, base_ability_detail, age, class_abilities
-import alignments, os, item_shop, encumbrance, armor_class
+import alignments, os, item_shop, encumbrance, armor_class, psionic_check
 import char_to_xls
 #import re
 
@@ -243,10 +243,7 @@ print(name.char_weapon_prof)
 print(name.char_AC)
 
 char_to_xls.character_print(name)
-if name.psionic:
-    print("###############################")
-    print("#Holy shit... you're psionic!#")
-    print("###############################")
+name = psionic_check.psionic_check(name)
 
 quitout = input("Enter to quit")
 
