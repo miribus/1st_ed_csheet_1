@@ -635,7 +635,7 @@ def weapon_prof(name):
             if int(choice) in range(1, 75):
                 if name.char_weapon_prof_slots - len(name.char_weapon_prof) > 0:
                     if "Bow" in str(mweapons[int(choice)]):
-                        if "Cavalier" in name.char_class and not name.char_race == "Elf":
+                        if "Cavalier" in name.char_class and not "Elf" in name.char_race:
                             print("Only High Elves can choose this.")
                             return name, result
                         elif mweapons[int(choice)] in name.char_weapon_prof:

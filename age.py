@@ -7,7 +7,7 @@ def age(name):
         while str(age) not in possible:
             age = input("What is your age roll?")
         age = int(age)
-    if name.char_race == "Dwarf":
+    if "Dwarf" in name.char_race:
         if name.self_roll:
             name.char_age = age
         else:
@@ -75,7 +75,7 @@ def age(name):
             name.char_abilities["INT"] += 1
             name.char_abilities["WIS"] += 1
 
-    elif name.char_race == "Elf":
+    elif "Elf" in name.char_race:
         if name.self_roll:
             name.char_age = age
         else:
@@ -144,7 +144,7 @@ def age(name):
             name.char_abilities["CON"] -= 1
             name.char_abilities["INT"] += 1
             name.char_abilities["WIS"] += 1
-    elif name.char_race == "Gnome":
+    elif "Gnome" in name.char_race:
         if name.self_roll:
             name.char_age = age
         else:

@@ -113,7 +113,7 @@ def buy_weapons(name):
                 r_weapons[weapons_list[int(i)][1]]["Norm Hit"] = 0
                 r_weapons[weapons_list[int(i)][1]]["Norm Dmg"] = 0
                 if "Cavalier" in name.char_class and "Short Composite Bow" != str(r_weapons[weapons_list[int(i)][1]]):
-                    if str(name.char_race) != "Elf":
+                    if "Elf" not in str(name.char_race):
                         del r_weapons[weapons_list[int(i)][1]]
                     else:
                         del r_weapons[weapons_list[int(i)][1]]

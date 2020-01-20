@@ -389,13 +389,16 @@ def define_abilities(name):
         name.char_define_abilities["CHA"]["Loyalty"] = "+40%"
         name.char_define_abilities["CHA"]["Reaction"] = "+35%"
         name.char_abilities["CMS"] += 3
-    if name.char_race == "Elf":
+    #if name.char_race == "Elf":
+    if "Elf" in name.char_race:
         name.char_abilities["CMS"] += 2
     elif name.char_race == "Half-Orc":
         name.char_abilities["CMS"] -= 3
-    elif name.char_race == "Dwarf":
+    #elif name.char_race == "Dwarf":
+    elif "Dwarf" in name.char_race:
         name.char_abilities["CMS"] -= 1
-    elif name.char_race == "Gnome":
+    #elif name.char_race == "Gnome":
+    elif "Gnome" in name.char_race:
         name.char_abilities["CMS"] -= 1
     elif name.char_race == "Human":
         name.char_abilities["CMS"] -= 0

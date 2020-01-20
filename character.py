@@ -127,15 +127,22 @@ result = False
 while not result:
     print("Choose a race:\n",
           "0 Dwarf\n",
-          "1 Elf\n",
-          "2 Gnome\n",
-          "3 Half-Elf\n",
-          "4 Half-Orc\n",
-          "5 Human\n",
-          "6 Halfling\n")
+          "1 GrayDwarf\n",
+          "2 Elf\n",
+          "3 GrayElf\n",
+          "4 WoodElf\n",
+          "5 WildElf\n",
+          "6 ValleyElf\n",
+          "7 DarkElf\n",
+          "8 Gnome\n",
+          "9 Deep Gnome\n",
+          "10 Half-Elf\n",
+          "11 Half-Orc\n",
+          "12 Human\n",
+          "13 Halfling\n")
     if name.methodv:
         print("You chose method V, you must be human.")
-        name, result = char_races.races_base("5", name)
+        name, result = char_races.races_base("12", name)
     else:
         name, result = char_races.races_base(input("Choose Race:"), name)
 clear_screen()

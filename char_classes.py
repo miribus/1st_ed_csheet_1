@@ -53,8 +53,32 @@ def race_classes(name):
                          "Fighter/Illusionist (UA)", "Fighter/Thief", "Fighter/Assassin (UA)",
                          "Fighter/Magic-User/Thief", "Illusionist/Thief (UA)", "Magic-User/Thief",
                          "Ranger/Magic-User (UA)", "Magic-User/Assassin (UA)", "Cleric/Fighter/Thief (UA)",
-                         "Cleric/Magic-User/Thief (UA)", "Cavalier (UA)", "Druid/Ranger (UA)"]
+                         "Cleric/Magic-User/Thief (UA)", "Cavalier (UA)", "Druid/Ranger (UA)",
+                         "Druid/Fighter (UA)", "Druid/Thief (UA)", "Druid/MagicUser (UA)",]
+    elif name.char_race == "DarkElf":
+        class_choices = ["Cleric (UA)", "Druid", "Fighter", "Magic-User", "Thief", "Assassin", "Ranger", "Illusionist",
+                         "Cleric/Fighter (UA)", "Cleric/Fighter/Magic-User", "Cleric/Ranger (UA)",
+                         "Cleric/Magic-User (UA)", "Cleric/Thief (UA)", "Cleric/Assassin (UA)", "Fighter/Magic-User",
+                         "Fighter/Illusionist (UA)", "Fighter/Thief", "Fighter/Assassin (UA)",
+                         "Fighter/Magic-User/Thief", "Illusionist/Thief (UA)", "Magic-User/Thief",
+                         "Ranger/Magic-User (UA)", "Magic-User/Assassin (UA)", "Cleric/Fighter/Thief (UA)",
+                         "Cleric/Magic-User/Thief (UA)"]
+    elif name.char_race == "GrayElf" or name.char_race == "WoodElf" or name.char_race == "ValleyElf":
+        class_choices = ["Cleric (UA)", "Druid", "Fighter", "Magic-User", "Thief", "Assassin", "Ranger", "Illusionist",
+                         "Cleric/Fighter (UA)", "Cleric/Fighter/Magic-User", "Cleric/Ranger (UA)",
+                         "Cleric/Magic-User (UA)", "Cleric/Thief (UA)", "Cleric/Assassin (UA)", "Fighter/Magic-User",
+                         "Fighter/Illusionist (UA)", "Fighter/Thief", "Fighter/Assassin (UA)",
+                         "Fighter/Magic-User/Thief", "Illusionist/Thief (UA)", "Magic-User/Thief",
+                         "Ranger/Magic-User (UA)", "Magic-User/Assassin (UA)", "Cleric/Fighter/Thief (UA)",
+                         "Cleric/Magic-User/Thief (UA)", "Druid/Ranger (UA)",
+                         "Druid/Fighter (UA)", "Druid/Thief (UA)", "Druid/MagicUser (UA)",]
+    elif name.char_race == "WildElf":
+        class_choices = ["Fighter", "Thief", "Assassin", "Fighter/Thief"]
     elif name.char_race == "Dwarf":
+        class_choices = ["Cleric (UA)", "Fighter", "Thief", "Assassin", "Cleric/Fighter (UA)",
+                         "Cleric/Thief (UA)", "Cleric/Assassin (UA)",
+                         "Fighter/Thief", "Fighter/Assassin (UA)"]
+    elif name.char_race == "GrayDwarf":
         class_choices = ["Cleric (UA)", "Fighter", "Thief", "Assassin", "Cleric/Fighter (UA)",
                          "Cleric/Thief (UA)", "Cleric/Assassin (UA)",
                          "Fighter/Thief", "Fighter/Assassin (UA)"]
@@ -65,6 +89,11 @@ def race_classes(name):
         class_choices = ["Cleric (UA)", "Druid (UA)", "Fighter", "Thief",  "Cleric/Fighter (UA)",
                          "Cleric/Thief (UA)", "Fighter/Thief", "Cavalier (UA)"]
     elif name.char_race == "Gnome":
+        class_choices = ["Cleric (UA)", "Druid", "Fighter", "Magic-User", "Thief", "Assassin", "Ranger", "Illusionist",
+                         "Cleric/Fighter (UA)", "Cleric/Thief (UA)", "Fighter/Illusionist",
+                         "Fighter/Thief", "Fighter/Assassin (UA)", "Illusionist/Thief", "Cleric/Illusionist (UA)",
+                         "Illusionist/Assassin"]
+    elif name.char_race == "DeepGnome":
         class_choices = ["Cleric (UA)", "Druid", "Fighter", "Magic-User", "Thief", "Assassin", "Ranger", "Illusionist",
                          "Cleric/Fighter (UA)", "Cleric/Thief (UA)", "Cleric/Assassin (UA)", "Fighter/Illusionist",
                          "Fighter/Thief", "Fighter/Assassin (UA)", "Illusionist/Thief", "Cleric/Illusionist (UA)",
@@ -474,7 +503,7 @@ def class_saving_throws(name):
 
 
 def thief_adjustment(name):
-    if name.char_race == "Dwarf":
+    if "Dwarf" in name.char_race:
         name.char_race_abilities["Thief"]["Pick Pockets"] = "0%"
         name.char_race_abilities["Thief"]["Open Locks"] = "+10%"
         name.char_race_abilities["Thief"]["Find/Remove Traps"] = "+15%"
@@ -483,7 +512,7 @@ def thief_adjustment(name):
         name.char_race_abilities["Thief"]["Hear Noise"] = "0%"
         name.char_race_abilities["Thief"]["Climb Walls"] = "-10%"
         name.char_race_abilities["Thief"]["Read Languages"] = "-5%"
-    elif name.char_race == "Elf":
+    elif "Elf" in name.char_race:
         name.char_race_abilities["Thief"]["Pick Pockets"] = "+5%"
         name.char_race_abilities["Thief"]["Open Locks"] = "-5%"
         name.char_race_abilities["Thief"]["Find/Remove Traps"] = "0%"
@@ -492,7 +521,7 @@ def thief_adjustment(name):
         name.char_race_abilities["Thief"]["Hear Noise"] = "+5%"
         name.char_race_abilities["Thief"]["Climb Walls"] = "0%"
         name.char_race_abilities["Thief"]["Read Languages"] = "0%"
-    elif name.char_race == "Gnome":
+    elif "Gnome" in name.char_race:
         name.char_race_abilities["Thief"]["Pick Pockets"] = "0%"
         name.char_race_abilities["Thief"]["Open Locks"] = "+5%"
         name.char_race_abilities["Thief"]["Find/Remove Traps"] = "+10%"
