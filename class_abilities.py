@@ -701,6 +701,9 @@ def calculate_combat_bonuses(name):
         plist.append(str(p[0]))
 
     for w in name.char_melee_weapons:
+        if "_" in w:
+            splitit = w.split("_")
+            w = splitit[0]
         if w in name.char_weapon_prof:
             for p in name.char_weapon_prof:
                 if w == p:
@@ -717,9 +720,9 @@ def calculate_combat_bonuses(name):
                             name.char_melee_weapons[w]["Norm Dmg"] += 3
                             name.char_melee_weapons[w]["Norm Hit"] += int(name.char_define_abilities["STR"]["HIT"])
                             name.char_melee_weapons[w]["Norm Dmg"] += int(name.char_define_abilities["STR"]["DMG"])
-                        if len(slots) == 2 or len(slots) == 3:
+                        elif len(slots) == 2 or len(slots) == 3:
                             name.char_melee_weapons[w]["Notes"] += "SPEC: Attack 3/2 rounds."
-                        if len(slots) == 1 and not "Monk" in name.char_class:
+                        elif len(slots) == 1 and not "Monk" in name.char_class:
                             name.char_melee_weapons[w]["Norm Hit"] += int(name.char_define_abilities["STR"]["HIT"])
                             name.char_melee_weapons[w]["Norm Dmg"] += int(name.char_define_abilities["STR"]["DMG"])
                         else:
@@ -733,6 +736,9 @@ def calculate_combat_bonuses(name):
                 name.char_melee_weapons[w]["Norm Dmg"] += int(name.char_define_abilities["STR"]["DMG"])
 
     for w in name.char_ranged_weapons:
+        if "_" in w:
+            splitit = w.split("_")
+            w = splitit[0]
         if w in name.char_weapon_prof:
             for p in name.char_weapon_prof:
                 if w == p:

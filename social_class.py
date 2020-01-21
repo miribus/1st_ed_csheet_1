@@ -95,6 +95,8 @@ def social_class(name):
             classroll = 9999
             while str(classroll) not in possible:
                 classroll = input("What is your social class roll?")
+            if classroll == "00":
+                classroll = 100
         print("You rolled: ", str(classroll), "for social class")
         if int(classroll) in range(1, 5):
             name.social_class = "LLC"

@@ -84,7 +84,7 @@ def define_abilities(name):
         name.char_define_abilities["STR"]["WEIGHT"] = "+2000"
         name.char_define_abilities["STR"]["OPEN_DOOR"] = "1-4 (Locked/Barred: 1)"
         name.char_define_abilities["STR"]["BEND_BARS"] = "35%"
-    elif name.char_abilities["STR"] in range(18, 19) and name.char_abilities['EX_STR'] in range(91, 100):
+    elif name.char_abilities["STR"] in range(18, 19) and name.char_abilities['EX_STR'] in range(100, 101):
         name.char_define_abilities["STR"]["HIT"] = "+3"
         name.char_define_abilities["STR"]["DMG"] = "+6"
         name.char_define_abilities["STR"]["WEIGHT"] = "+3000"

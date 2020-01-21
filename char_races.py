@@ -649,14 +649,14 @@ def base_bonuses(name):
         name.char_abilities["DEX"] += 1
         name.char_abilities["CON"] -= 1
         name.char_race_abilities["Sleep/Charm Resistance"] = "90%"
-        name.char_race_abilities["DE Save Bonus"] = "+2 vs. Magical Saves"
+        name.char_race_abilities["Save Bonus"]["All Magical Saves"] = "+2"
         name.char_race_abilities["Combat Bonus"] = "Can dual-wield 1h weapons without penalty."
         name.char_race_abilities["Infravision"] = "12\""
         name.char_race_abilities["Racial Languages"] = ["Undercommon", "Gnome", "Alignment", "Common", "Elvish"]
         name.char_race_abilities["Detect New Construction Underground"] = "d4, score 1-3"
         name.char_race_abilities["Detect Sliding/Shifting Construction Underground"] = "d6, score 1-4"
         name.char_race_abilities["Detect Stone Trapwork"] = "d4, score 1-2"
-        name.char_race_abilities["Elven Surprise"] = ["d4, 1-4 in Non-Metal Armor and Alone or w/ Elves/Halflings, Score 1-2 if opening door "]
+        name.char_race_abilities["Elven Surprise"] = ["d4, 1-4 in Non-Metal Armor and Alone or w/ Elves/Halflings, Score 1-2 if opening door.  Surpised 1 in d8 chance"]
         name.char_race_abilities["Detect Secret Doors"] = ["Concealed: d6, Score 1 (Detect: 1-2)", "Secret: d6, Score 1-2 (Detect: 1-3)"]
         name.char_race_abilities["Spell Ability"] = "Once per day: Dancing Lights, Faerie Fire, Darkness 5\' Radius"
         name.char_race_abilities["Racial Light Penalties"] = "Avoid light or suffer -2 Dex, -2 To hit and +2 to be hit penalties, and loss of surprise"
@@ -770,7 +770,7 @@ def base_bonuses(name):
     elif name.char_race == "DeepGnome":
         name.char_race_abilities["Save Bonus"]["Rods, Staves, Wands:"] = str('+')+str(int(str(round(name.char_abilities["CON"] / 3.5))[0]))
         name.char_race_abilities["Save Bonus"]["Spells:"] = str('+')+str(int(str(round(name.char_abilities["CON"] / 3.5))[0]))
-        name.char_race_abilities["DG Save Bonus"] = "+2 vs. Poison, +3 vs. all other Saves"
+        name.char_race_abilities["Save Bonus"]["Svirfneblin Heartiness"] = "+2 vs. Poison, +3 vs. all other Saves"
         name.char_race_abilities["Immunity"] = "Immune to Illusions and Phantasms"
         name.char_race_abilities["Racial Languages"] = ["Deep Gnome"]
         name.char_race_abilities["Infravision"] = "12\""

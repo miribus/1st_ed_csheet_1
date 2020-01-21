@@ -61,7 +61,7 @@ def character_print(name):
     dextr = ""
     contr = ""
     chatr = ""
-    if "Cavalier" in name.char_class_abilities or "UAPaladin" in name.char_class_abilities:
+    if "Cavalier" in name.char_class_abilities or "UAPaladin" in name.char_class_abilities and not name.self_roll:
         if "STR Training" in name.char_class_abilities[name.char_class[0]]:
             strtr = "/" + str(name.char_class_abilities[name.char_class[0]]["STR Training"])
         if "DEX Training" in name.char_class_abilities[name.char_class[0]]:
@@ -71,7 +71,15 @@ def character_print(name):
         if "UAPaladin" in name.char_class:
             if "CHA Training" in name.char_class_abilities[name.char_class[0]]:
                 chatr = "/" + str(name.char_class_abilities[name.char_class[0]]["CHA Training"])
-    tp['B6'] = str(name.char_abilities["STR"])+str(extr)
+    elif "Cavalier" in name.char_class_abilities or "UAPaladin" in name.char_class_abilities and name.self_roll:
+        strtr = "/"
+        dextr = "/"
+        contr = "/"
+        chatr = "/"
+    if extr != "":
+        tp['B6'] = str(name.char_abilities["STR"])+str(extr)
+    else:
+        tp['B6'] = str(name.char_abilities["STR"]) + str(strtr)
     tp['D6'] = str(name.char_define_abilities["STR"]["HIT"])
     tp['F6'] = str(name.char_define_abilities["STR"]["DMG"])
     tp['H6'] = str(name.char_define_abilities["STR"]["WEIGHT"])
@@ -112,7 +120,7 @@ def character_print(name):
     tp['N12'] = str(name.char_saves["Breath Weapon"])
     tp['N13'] = str(name.char_saves["Spells"])
     tp['B14'] = str(name.char_AC["AC"])
-    tp['D14'] = str(name.char_movement_rate)
+    tp['D14'] = re.sub(r'\[|]|\'', '', str(name.char_movement_rate))
     tp['B15'] = str(name.char_AC["Surprised"])
     tp['B16'] = str(name.char_AC["Shieldless"])
     tp['B17'] = str(name.char_AC["Rear"])
@@ -162,8 +170,8 @@ def character_print(name):
             tp["O{}".format(weapon_slots[idx][0])] = all_weapons[a]["THACADJ 10"]
             tp["P{}".format(weapon_slots[idx][0])] = all_weapons[a]["Type"]
             tp["B{}".format(weapon_slots[idx][1])] = all_weapons[a]["Speed"]
-            tp["D{}".format(weapon_slots[idx][1])] = "LT: " + all_weapons[a]["Length"] + \
-                                                     " \ SPC: " + all_weapons[a]["Space"]
+            tp["D{}".format(weapon_slots[idx][1])] = all_weapons[a]["Length"] + \
+                                                     " / " + all_weapons[a]["Space"]
             tp["F{}".format(weapon_slots[idx][1])] = all_weapons[a]["Norm Hit"]
             tp["H{}".format(weapon_slots[idx][1])] = all_weapons[a]["Norm Dmg"]
             tp["J{}".format(weapon_slots[idx][1])] = all_weapons[a]["Notes"]
@@ -175,20 +183,18 @@ def character_print(name):
         more_inventory.append(iv)
 
     idx = 0
-    prof_slots = ["61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73"]
+    prof_slots = ["62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73"]
+    tp["N61"] = "Non Proficient Penalty: {}".format(str(name.char_weapon_prof_penalty))
     for p in name.char_weapon_prof:
         tp["N{}".format(prof_slots[idx])] = p
         idx += 1
-    tp['A44'] = re.sub(r'\[ | ] | \' ]', '', str(name.char_race_abilities["Racial Languages"]))
+    tp['A44'] = re.sub(r'\[|]|\']', '', str(name.char_race_abilities["Racial Languages"]))
 
     idx = 0
-    skills_slots = ["E44", "E46", "E48", "E50", "E52", "E54", "E56", "E58", "E60", "E62", "E64", "E66", "E68", "E70",
-                    "E72",
-                    "H44", "H46", "H48", "H50", "H52", "H54", "H56", "H58", "H60", "H62", "H64", "H66", "H68", "H70",
-                    "H72",
-                    "K44", "K46", "K48", "K50", "K52", "K54", "K56", "K58", "K60", "K62", "K64", "K66", "K68", "K70",
-                    "K72",
-                    "N44", "N46", "N48", "N50", "N52", "N54", "N56", "N58"]
+    skills_slots = ["E44", "E47", "E50", "E53", "E56", "E59", "E62", "E65", "E68", "E71",
+                    "H44", "H47", "H50", "H53", "H56", "H59", "H62", "H65", "H68", "H71",
+                    "K44", "K47", "K50", "K53", "K56", "K59", "K62", "K65", "K68", "K71",
+                    "N44", "N47", "N50", "N53", "N56"]
 
     class_skills = {}
     for a in name.char_class_abilities:
@@ -201,7 +207,7 @@ def character_print(name):
     for c in class_skills:
         tp[skills_slots[idx]] = class_skills[c]
         idx += 1
-        if idx > 52:
+        if idx > 35:
             break
 
     inventory_slots = ["49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67",

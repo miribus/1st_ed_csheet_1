@@ -1,10 +1,12 @@
 import movement_rate
 
 def calculate_encumbrance(name):
+    coin_encumbrance = 0
     equip_encumbrance = 0
     bulky = False
     fairly = False
     encumbered = False
+    equip_encumbrance += name.char_money["gp"]
     for n in name.char_melee_weapons:
         enc = name.char_melee_weapons[n]["Encumbrance"]
         enc = str(enc).replace("w", "")
