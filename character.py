@@ -89,8 +89,11 @@ methodv = False
 method = False
 while not method:
     print(" 1 *Human-Only* Choose Class: Method V\n",
+          "    This will guarantee minimum human rolls for a specific class.\n",
           "2 Random: DMG Method III\n",
+          "    This will roll 3d6, 6x for each ability and pick the best, in order.\n",
           "3 Enter Your own\n"
+          "    If you rolled your own dice, you can use this method.\n",
           )
     choice = input("Choose a Number>")
     if choice != "1" and choice != "2" and choice != "3":

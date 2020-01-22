@@ -317,8 +317,11 @@ def class_details(name):
                 name.char_class_abilities["Cavalier"]["Resistances"] = "Mind Affecting spells 90% failure"
                 name.char_class_abilities["Cavalier"]["Good Aligned"] = "Radiate Protection from Fear 1\" radius"
                 name.char_class_abilities["Cavalier"]["Save Bonus"] = "+2 Illusions"
+                print("Enter your score for Strength Training (this will be overwritten if you have exception strength.)")
                 name.char_class_abilities["Cavalier"]["STR Training"] = dice.exceptional_strength(name)
+                print("Enter your score for Dexterity Training")
                 name.char_class_abilities["Cavalier"]["DEX Training"] = dice.exceptional_strength(name)
+                print("Enter your score for Constitution Training")
                 name.char_class_abilities["Cavalier"]["CON Training"] = dice.exceptional_strength(name)
                 HP = dice.HP(10, 1, name, 6) + int(HPadj) + 3
             else:
@@ -371,9 +374,14 @@ def class_details(name):
                 name.char_class_abilities["UAPaladin"]["Special"][
                     "Protection from Fear"] = "Radiate Protection from Fear 1\" radius"
                 name.char_class_abilities["UAPaladin"]["Immunity"] = "Disease, Fear"
+                print(
+                    "Enter your score for Strength Training (this will be overwritten if you have exception strength.)")
                 name.char_class_abilities["UAPaladin"]["STR Training"] = dice.exceptional_strength(name)
+                print("Enter your score for Dexterity Training")
                 name.char_class_abilities["UAPaladin"]["DEX Training"] = dice.exceptional_strength(name)
+                print("Enter your score for Constitution Training")
                 name.char_class_abilities["UAPaladin"]["CON Training"] = dice.exceptional_strength(name)
+                print("Enter your score for Charisma Training")
                 name.char_class_abilities["UAPaladin"]["CHA Training"] = dice.exceptional_strength(name)
             else:
                 HP = dice.HP(4, 1, name, 3) + int(HPadj) + 1
@@ -701,12 +709,13 @@ def calculate_combat_bonuses(name):
         plist.append(str(p[0]))
 
     for w in name.char_melee_weapons:
+        ws = w
         if "_" in w:
             splitit = w.split("_")
-            w = splitit[0]
-        if w in name.char_weapon_prof:
+            ws = splitit[0]
+        if ws in name.char_weapon_prof:
             for p in name.char_weapon_prof:
-                if w == p:
+                if ws == p:
                     slots = [s for s in plist if s == p]
                     if not name.char_melee_weapons[w]["Type"] == 'Bow' and not \
                             name.char_melee_weapons[w]["Type"] == 'Crossbow':
@@ -736,12 +745,13 @@ def calculate_combat_bonuses(name):
                 name.char_melee_weapons[w]["Norm Dmg"] += int(name.char_define_abilities["STR"]["DMG"])
 
     for w in name.char_ranged_weapons:
+        ws = w
         if "_" in w:
             splitit = w.split("_")
-            w = splitit[0]
-        if w in name.char_weapon_prof:
+            ws = splitit[0]
+        if ws in name.char_weapon_prof:
             for p in name.char_weapon_prof:
-                if w == p:
+                if ws == p:
                     slots = [s for s in plist if s == p]
                     if len(slots) == 3 and name.char_ranged_weapons[w]["Type"] == "Bow":
                         name.char_ranged_weapons[w]["Norm Hit"] += 1
