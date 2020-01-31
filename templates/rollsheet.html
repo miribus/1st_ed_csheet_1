@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<title>1st Edition AD&D Character Generator 1985</title>
+	</head>
+    <style>
+            hlR {
+                color: red;
+                }
+            hlG {
+                color: green;
+                }
+            hlB {
+                color: blue;
+                }
+            body {
+                background-color:#c2adeb;
+                }
+            fixed {
+                font-family: "Courier New", Monospace, monospace;
+                }
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+                }
+            th, td {
+              padding: 5px;
+              text-align: left;
+              font-weight: bold;
+}
+    </style>
+	<body>
+		<h1>1st Edition AD&D Character Generator 1985 Edition</h1>
+        <form action="/race_choices" method="POST">
+            <p>
+                {% for c in choices %}
+                    <input type="radio" name="choices" id={{c}} value={{c}}> {{choices[c]}} <br>
+                {% endfor %}
+            </p>
+            <p><input type="submit" value="Next"></p>
+        </form>
+    </body>
+</html>
+
+
