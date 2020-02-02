@@ -1,11 +1,92 @@
 import dice, dice_gui
 
+race_choices = {
+              "0": "Dwarf",
+              "1": "GrayDwarf",
+              "2": "Elf",
+              "3": "GrayElf",
+              "4": "WoodElf",
+              "5": "WildElf",
+              "6": "ValleyElf",
+              "7": "DarkElf",
+              "8": "Gnome",
+              "9": "DeepGnome",
+              "10": "Half-Elf",
+              "11": "Half-Orc",
+              "12": "Human",
+              "13": "Halfling"}
+
+def check_display_mins(name, gender):
+    global race_choices
+    race_class_limit = []
+    for race in race_choices:
+        if gender.upper() == "M".upper() or gender.upper() == "F".upper():
+            print(gender)
+            # name.gender = gender
+            if race.upper() == "Dwarf".upper() or "0" == race:
+                race = "Dwarf"
+                result, rolls = dwarf(name.char_abilities, gender)
+            elif race.upper() == "GrayDwarf".upper() or "1" == race:
+                race = "GrayDwarf"
+                result, rolls = graydwarf(name.char_abilities, gender)
+            elif race.upper() == "Elf".upper() or "2" == race:
+                race = "Elf"
+                result, rolls = elf(name.char_abilities, gender)
+            elif race.upper() == "GrayElf".upper() or "3" == race:
+                race = "GrayElf"
+                result, rolls = grayelf(name.char_abilities, gender)
+            elif race.upper() == "WoodElf".upper() or "4" == race:
+                race = "WoodElf"
+                result, rolls = woodelf(name.char_abilities, gender)
+            elif race.upper() == "WildElf".upper() or "5" == race:
+                race = "WildElf"
+                result, rolls = wildelf(name.char_abilities, gender)
+            elif race.upper() == "ValleyElf".upper() or "6" == race:
+                race = "ValleyElf"
+                result, rolls = valleyelf(name.char_abilities, gender)
+            elif race.upper() == "DarkElf".upper() or "7" == race:
+                race = "DarkElf"
+                result, rolls = darkelf(name.char_abilities, gender)
+            elif race.upper() == "Gnome".upper() or "8" == race:
+                race = "Gnome"
+                result, rolls = gnome(name.char_abilities, gender)
+            elif race.upper() == "DeepGnome".upper() or "9" == race:
+                race = "DeepGnome"
+                print("Warning!:  You chose Deep Gnome, you must be Male, changing to Male.")
+                gender = "M"
+                result, rolls = deepgnome(name.char_abilities, gender)
+            elif race.upper() == "Half-Elf".upper() or "10" == race:
+                race = "Half-Elf"
+                result, rolls = half_elf(name.char_abilities, gender)
+            elif race.upper() == "Half-Orc".upper() or "11" == race:
+                race = "Half-Orc"
+                result, rolls = half_orc(name.char_abilities, gender)
+            elif race.upper() == "Human".upper() or "12" == race:
+                race = "Human"
+                result, rolls = human(name.char_abilities, gender)
+            elif race.upper() == "Halfling".upper() or "13" == race:
+                race = "Halfling"
+                result, rolls = halfling(name.char_abilities, gender)
+            name.char_gender = gender
+            name.char_race = race
+            if result:
+                race_class_limit.append(race)
+            else:
+                result = False
+    print(name.methodv, 'mv')
+    if name.methodv:
+
+        race_class_limit = ["Human"]
+    #gender = "M"
+    return name, race_class_limit
+
 def races_base(race, name):
     print("What GENDER are you playing?")
     result = False
     if str(race).isdigit():
         if int(race) in range(0, 14):
-            gender = input("M or F?")
+            #gender = input("M or F?")
+            gender = name.char_gender
             if gender.isalpha():
                 if gender.upper() == "M".upper() or gender.upper() == "F".upper():
                     print(gender)
@@ -57,7 +138,7 @@ def races_base(race, name):
                     name.char_gender = gender
                     name.char_race = race
                     if result:
-                        decision = input("Agreed? Y/N:")
+                        decision = "Y"
                         if str(decision).upper() == "Y".upper():
                             result = True
                         else:
@@ -66,7 +147,8 @@ def races_base(race, name):
                         result = False
 
     gender = "M"
-    return name, result
+    #return name, result
+    return name
 
 def minimums(rolls, strength, dexterity, constitution, intelligence, wisdom, charisma):
     result = False

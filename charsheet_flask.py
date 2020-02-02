@@ -2,6 +2,7 @@ import sys, os
 import character_gui
 import social_class_gui
 import dice_gui
+import char_races_gui
 from flask import Flask, request, render_template, redirect, url_for, Response
 from werkzeug.utils import secure_filename
 
@@ -20,6 +21,8 @@ if __name__ == '__main__':
 
 @app.route('/', methods=["POST", "GET"])
 def mainpage():
+    global name
+    name = ""
     choices = character_gui.rollchoices
     return render_template('rollsheet.html', choices=choices)
 
@@ -34,7 +37,12 @@ def racepage():
         return render_template('selfrolls.html')
     elif choice == "1":
         methodv_choices = dice_gui.methodv_choices
-        name = character_gui.playerSheet("NewChar", methodv, abilities, methodv_choice)
+        #name = character_gui.playerSheet("NewChar", methodv, abilities, methodv_choice)
+        name.methodv = True
+        name.methodv_choice = True
+        methodv = True
+        methodv_choice = True
+        print(name.methodv)
         return render_template('methodv_classes.html', methodv_choices=methodv_choices)
     return render_template('base_abilities.html',
                            STR=name.char_abilities["STR"],
@@ -44,6 +52,7 @@ def racepage():
                            CON=name.char_abilities["CON"],
                            CHA=name.char_abilities["CHA"],
                            CMS=name.char_abilities["CMS"])
+
 
 
 @app.route("/self_rolls", methods=["POST", "GET"])
@@ -132,7 +141,21 @@ def selfrolls():
 def methodv_chosen():
     global name, abilities, choice, methodv_choice, methodv
     choice = request.form['choices']
+    print("140")
     abilities, choice = dice_gui.unearthed(choice)
+    name.methodv = True
+    name.methodv_choice = True
+    methodv = True
+    methodv_choice = True
+    print("146", name.methodv)
+    return render_template('base_abilities.html',
+                           STR=name.char_abilities["STR"],
+                           INT=name.char_abilities["INT"],
+                           WIS=name.char_abilities["WIS"],
+                           DEX=name.char_abilities["DEX"],
+                           CON=name.char_abilities["CON"],
+                           CHA=name.char_abilities["CHA"],
+                           CMS=name.char_abilities["CMS"])
 
 
 @app.route("/social_class", methods=["POST", "GET"])
@@ -161,4 +184,19 @@ def soclass_choice():
     return render_template("/roll_soclass_choice.html")
 
 
-@a
+@app.route("/choose_race", methods=["POST", "GET"])
+def choose_race():
+    global name, choice
+    gender = request.form['choices']
+    name, class_limit = char_races_gui.check_display_mins(name, gender)
+    name.char_gender = gender
+    print(name.methodv, "181")
+    #class_limit = str(class_limit)
+    return render_template("show_race_choices.html", class_limit=class_limit)
+
+
+@app.route("/race_chosen_choose_class", methods=["POST", "GET"])
+def race_chosen():
+    global name
+    name.char_race = request.form['choices']
+    return name.char_race

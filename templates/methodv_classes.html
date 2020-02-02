@@ -32,7 +32,7 @@
 		<h1>1st Edition AD&D Character Generator 1985 Edition</h1>
 
         <p>
-        <form action="/race_choices" method="POST">
+        <form action="/methodv_chosen" method="POST">
             <p>
                 {% for c in methodv_choices %}
                     <input type="radio" name="choices" id={{c}} value={{c}}> {{methodv_choices[c]}} <br>
@@ -41,6 +41,9 @@
             <p><input type="submit" value="Next"></p>
         </form>
         </p>
+        <form action="/" method="POST">
+                <p><input type="submit" value="Start Over"></p>
+        </form>
     </body>
 </html>
 

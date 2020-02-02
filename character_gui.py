@@ -125,11 +125,15 @@ def selfrolls(choice, name):
         possible = [str(n) for n in range(3, 19)]
         possible.append("False")
         for a in name.char_abilities:
-            print(a, possible)
-            if str(name.char_abilities[a]) in possible:
-                pass
+            if not a == "EX_STR":
+                print(a, possible)
+                if str(name.char_abilities[a]) in possible:
+                    pass
+                else:
+                    valid = False
             else:
-                valid = False
+                pass
+
     return name, valid
 
 #print(name.char_abilities)
@@ -153,7 +157,7 @@ race_choices = {
               "11": "Half-Orc",
               "12": "Human",
               "13": "Halfling"}
-
+'''
 def races(name):
     result = False
     while not result:
@@ -166,6 +170,7 @@ def races(name):
     return name
 
 #clear_screen()
+'''
 
 def chooseclass(name):
     name, result = char_classes.race_classes(name)
