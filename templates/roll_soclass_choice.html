@@ -30,21 +30,18 @@
     </style>
 	<body>
 		<h1>1st Edition AD&D Character Generator 1985 Edition</h1>
+        <form action="/social_class" method="POST">
+            <p>
+                    <input type="radio" name="choices" id="rollit" value="Y"> Roll Social Class <br>
+                    <input type="radio" name="choices" id="ignore" value="N"> Ignore Social Class <br>
+            </p>
+            <p><input type="submit" value="Next"></p>
+            <br>
+            Rolling social class may limit your class choices unless you chose method V at the beginning.<br>
+            Ignoring social class forces you to MUC: Middle Upper Class, allowing any class choice your abilities/race allow.<br>
 
-        <p>
-             <form action="/self_rolls" method="POST">
-                <br><input type="text" name="str"> Strength<br>
-                <br><input type="text" name="int"> Intelligence<br>
-                <br><input type="text" name="wis"> Wisdom<br>
-                <br><input type="text" name="dex"> Dexterity<br>
-                <br><input type="text" name="con"> Constitution<br>
-                <br><input type="text" name="cha"> Charisma<br>
-                <br><input type="text" name="cms"> Comeliness<br>
-                <br><input type="text" name="ex_str"> Social Class<br>
-                <br><input type="text" name="social"> Social Class<br>
-                <input type="submit" value="Send">
-            </form>
-        </p>
+            You should only see this if you chose not to enter your own rolls.<br>
+        </form>
     </body>
 </html>
 

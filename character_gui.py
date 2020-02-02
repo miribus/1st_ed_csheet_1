@@ -1,5 +1,6 @@
 import dice, char_races, char_classes, social_class, base_ability_detail, age, class_abilities
 import alignments, os, item_shop, encumbrance, armor_class, psionic_check
+import dice_gui
 import char_to_xls
 #import gui2
 #from PyQt5.QtWidgets import *
@@ -17,12 +18,12 @@ class playerSheet:
         if methodv:
             self.char_abilities = abilities
         else:
-            self.char_abilities = {"STR": dice.ability_roller(6, 5),
-                                   "INT": dice.ability_roller(6, 5),
-                                   "WIS": dice.ability_roller(6, 5),
-                                   "DEX": dice.ability_roller(6, 5),
-                                   "CON": dice.ability_roller(6, 5),
-                                   "CHA": dice.ability_roller(6, 5),
+            self.char_abilities = {"STR": dice.ability_roller(6, 6),
+                                   "INT": dice.ability_roller(6, 6),
+                                   "WIS": dice.ability_roller(6, 6),
+                                   "DEX": dice.ability_roller(6, 6),
+                                   "CON": dice.ability_roller(6, 6),
+                                   "CHA": dice.ability_roller(6, 6),
                                    "CMS": dice.ability_roller(6, 3),
                                    "EX_STR": False}
         if len(charname) == 0:
@@ -91,8 +92,8 @@ class playerSheet:
 
 
 rollchoices = {"1": 'Human-Only, Method V (Unearthed)',
-                   "2": 'Random: DMG Method III (3d6x6 In Order)',
-                   "3": 'Enter Own Dice Rolls'}
+               "2": 'Random: DMG Method III (3d6x6 In Order)',
+               "3": 'Enter Own Dice Rolls'}
 
 def roll_method(choice, method):
     if choice:
@@ -104,7 +105,7 @@ def roll_method(choice, method):
             method = True
         if method:
             if int(choice) == 1:
-                abilities, methodv_choice = dice.unearthed()
+                abilities, methodv_choice = dice_gui.unearthed(choice)
                 methodv = True
                 methodv_choice = True
             else:

@@ -32,16 +32,14 @@
 		<h1>1st Edition AD&D Character Generator 1985 Edition</h1>
 
         <p>
-             <form action="/self_rolls" method="POST">
-                <br><input type="text" name="str"> Strength<br>
-                <br><input type="text" name="int"> Intelligence<br>
-                <br><input type="text" name="wis"> Wisdom<br>
-                <br><input type="text" name="dex"> Dexterity<br>
-                <br><input type="text" name="con"> Constitution<br>
-                <br><input type="text" name="cha"> Charisma<br>
-                <br><input type="text" name="cms"> Comeliness<br>
-                <br><input type="text" name="ex_str"> Social Class<br>
-                <br><input type="text" name="social"> Social Class<br>
+             <form action="/roll_soclass_choice" method="POST">
+                <pre><br>Strength:&#9;{{STR}} <br></pre>
+                <pre><br>Intelligence:&#9;{{INT}} <br></pre>
+                <pre><br>Wisdom:&#9;&#9;{{WIS}} <br></pre>
+                <pre><br>Dexterity:&#9;{{DEX}} <br></pre>
+                <pre><br>Constitution:&#9;{{CON}} <br></pre>
+                <pre><br>Charisma:&#9;{{CHA}} <br></pre>
+                <pre><br>Comeliness:&#9;{{CMS}} <br></pre>
                 <input type="submit" value="Send">
             </form>
         </p>
