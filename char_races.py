@@ -1,4 +1,4 @@
-import dice
+import dice, dice_gui
 
 def races_base(race, name):
     print("What GENDER are you playing?")

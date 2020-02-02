@@ -1,6 +1,6 @@
 import sys, os
 import character_gui
-import  social_class_gui
+import social_class_gui
 import dice_gui
 from flask import Flask, request, render_template, redirect, url_for, Response
 from werkzeug.utils import secure_filename
@@ -127,13 +127,15 @@ def selfrolls():
                                CHA=name.char_abilities["CHA"],
                                CMS=name.char_abilities["CMS"])
 
+
 @app.route("/methodv_chosen", methods=["POST", "GET"])
 def methodv_chosen():
     global name, abilities, choice, methodv_choice, methodv
     choice = request.form['choices']
     abilities, choice = dice_gui.unearthed(choice)
 
-@app.route("/social_class_choose", methods=["POST", "GET"])
+
+@app.route("/social_class", methods=["POST", "GET"])
 def social_class():
     global name, choice, soclass
     if not soclass:
@@ -151,3 +153,12 @@ def social_class():
                            SOCIALCLASS=name.social_class,
                            SOCIALCLASSDEF=soclassdef
                            )
+
+
+@app.route("/roll_soclass_choice", methods=["POST", "GET"])
+def soclass_choice():
+    global name, choice, soclass
+    return render_template("/roll_soclass_choice.html")
+
+
+@a

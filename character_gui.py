@@ -138,24 +138,26 @@ def rollsocial(name):
     name = social_class.social_class(name)
     return name
 
+race_choices = {
+              "0": "Dwarf (Hill, Mountain, Generic)",
+              "1": "GrayDwarf (UA)",
+              "2": "Elf",
+              "3": "GrayElf (UA)",
+              "4": "WoodElf (UA)",
+              "5": "WildElf (UA)",
+              "6": "ValleyElf (UA)",
+              "7": "DarkElf (UA)",
+              "8": "Gnome (Surface, Generic)",
+              "9": "Deep Gnome (UA)",
+              "10": "Half-Elf",
+              "11": "Half-Orc",
+              "12": "Human",
+              "13": "Halfling"}
+
 def races(name):
     result = False
     while not result:
-        print("Choose a race:\n",
-              "0 Dwarf (Hill, Mountain, Generic)\n",
-              "1 GrayDwarf (UA)\n",
-              "2 Elf\n",
-              "3 GrayElf (UA)\n",
-              "4 WoodElf (UA)\n",
-              "5 WildElf (UA)\n",
-              "6 ValleyElf (UA)\n",
-              "7 DarkElf (UA)\n",
-              "8 Gnome (Surface, Generic)\n",
-              "9 Deep Gnome (UA)\n",
-              "10 Half-Elf\n",
-              "11 Half-Orc\n",
-              "12 Human\n",
-              "13 Halfling\n")
+
         if name.methodv:
             print("You chose method V, you must be human.")
             name, result = char_races.races_base("12", name)
