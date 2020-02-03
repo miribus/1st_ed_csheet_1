@@ -1,9 +1,9 @@
-import dice, os, char_classes
+import dice, os, char_classes, char_classes_gui
 
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
-soclasslimit = char_classes.soclasslimit
+soclasslimit = char_classes_gui.soclasslimit
 soclass_definition = {"LLC": "Lower Lower Class:\n"
                              "You can be: Monk, Thief, Assassin, Barbarian, UAPaladin (0L), Cavalier (0L)",
                       "MLC": "Middle Lower Class:\n"

@@ -3,9 +3,11 @@ import character_gui
 import social_class_gui
 import dice_gui
 import char_races_gui
+import char_classes_gui
 from flask import Flask, request, render_template, redirect, url_for, Response
 from werkzeug.utils import secure_filename
 
+info = ""
 name = ""
 choice = ""
 method = False
@@ -13,6 +15,7 @@ methodv = False
 methodv_choice = False
 soclass = False
 abilities = ""
+result = False
 
 app = Flask(__name__)
 if __name__ == '__main__':
@@ -21,8 +24,16 @@ if __name__ == '__main__':
 
 @app.route('/', methods=["POST", "GET"])
 def mainpage():
-    global name
+    global name, choice, method, methodv, methodv_choice, soclass, abilities, result, info
     name = ""
+    choice = ""
+    method = False
+    methodv = False
+    methodv_choice = False
+    soclass = False
+    abilities = ""
+    result = False
+    info = ""
     choices = character_gui.rollchoices
     return render_template('rollsheet.html', choices=choices)
 
@@ -198,5 +209,76 @@ def choose_race():
 @app.route("/race_chosen_choose_class", methods=["POST", "GET"])
 def race_chosen():
     global name
+    global result
+    global info
+    ninfo = ""
     name.char_race = request.form['choices']
-    return name.char_race
+    #return name.char_race
+    name.char_class = []
+    classes, name = char_classes_gui.race_classes(name)
+    if len(info) > 0:
+        ninfo = info
+    if len(classes) > 0 and len(ninfo) > 0:
+        return render_template('show_class_choices.html', classes=classes, info=ninfo)
+    elif len(classes) > 0:
+        return render_template('show_class_choices.html', classes=classes, info=ninfo)
+    else:
+        classes = ["None"]
+        return render_template('show_class_choices.html', classes=classes, info=ninfo)
+
+@app.route("/class_chosen", methods=["POST", "GET"])
+def choose_class():
+    global name, choices, info
+    choices = request.form["choices"]
+    name, result = char_classes_gui.choose_classes(name, choices)
+    if not result:
+        info = "This choice isn't valid, rolls are too low, try again."
+        race_chosen()
+    else:
+        return '''
+               <html>
+                    <head>
+                        <title>1st Edition AD&D Character Generator 1985</title>
+                    </head>
+                    <style>
+                            hlR {
+                                color: red;
+                                }
+                            hlG {
+                                color: green;
+                                }
+                            hlB {
+                                color: blue;
+                                }
+                            body {
+                                background-color:#c2adeb;
+                                }
+                            fixed {
+                                font-family: "Courier New", Monospace, monospace;
+                                }
+                            table, th, td {
+                                border: 1px solid black;
+                                border-collapse: collapse;
+                                }
+                            th, td {
+                              padding: 5px;
+                              text-align: left;
+                              font-weight: bold;
+                                    }
+                    </style>
+                    <body>
+                        <h1>1st Edition AD&D Character Generator 1985 Edition</h1>
+                        <form action="/" method="POST">
+                            <p>
+                                    This selection is valid, do you choose it?
+                            </p>
+                            <p><input type="submit" value="Yes"></p>
+                            <br>
+                        </form>
+                        <form action="/race_chosen_choose_class" method="POST">
+                            <p><input type="submit" value="No"></p>
+                            <br>
+                        </form>
+                    </body>
+                </html>
+                '''

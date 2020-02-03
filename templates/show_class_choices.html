@@ -32,20 +32,18 @@
 		<h1>1st Edition AD&D Character Generator 1985 Edition</h1>
 
         <p>
-             <form action="/roll_soclass_choice" method="POST">
-                <pre><br>Strength:&#9;{{STR}} <br></pre>
-                <pre><br>Intelligence:&#9;{{INT}} <br></pre>
-                <pre><br>Wisdom:&#9;&#9;{{WIS}} <br></pre>
-                <pre><br>Dexterity:&#9;{{DEX}} <br></pre>
-                <pre><br>Constitution:&#9;{{CON}} <br></pre>
-                <pre><br>Charisma:&#9;{{CHA}} <br></pre>
-                <pre><br>Comeliness:&#9;{{CMS}} <br></pre>
-                <input type="submit" value="Next">
-            </form>
+        <form action="/class_chosen" method="POST">
+            <p>
+                {% for c in classes %}
+                    <input type="radio" name="choices" id={{c}} value={{c}}> {{c}} <br>
+                {% endfor %}
+            </p>
+            <p><input type="submit" value="Next"></p>
+        </form>
+        </p>
         <form action="/" method="POST">
                 <p><input type="submit" value="Start Over"></p>
         </form>
-        </p>
     </body>
 </html>
 
