@@ -203,8 +203,12 @@ def choose_race():
     name.char_gender = gender
     print(name.methodv, "181")
     #class_limit = str(class_limit)
-    return render_template("show_race_choices.html", class_limit=class_limit)
-
+    if not name.methodv:
+        return render_template("show_race_choices.html", class_limit=class_limit)
+    else:
+        name.char_race = "Human"
+        #choose_class()
+        return redirect(url_for('choose_class'))
 
 @app.route("/race_chosen_choose_class", methods=["POST", "GET"])
 def race_chosen():
@@ -229,11 +233,17 @@ def race_chosen():
 @app.route("/class_chosen", methods=["POST", "GET"])
 def choose_class():
     global name, choices, info
-    choices = request.form["choices"]
+    if name.methodv:
+        print(name.methodv, "methodv")
+        print(name.char_race, "race")
+        choices = name.char_race
+    else:
+        choices = request.form["choices"]
+    print(choice, "CHOICES")
     name, result = char_classes_gui.choose_classes(name, choices)
     if not result:
         info = "This choice isn't valid, rolls are too low, try again."
-        race_chosen()
+        return redirect(url_for('choose_class'))
     else:
         return '''
                <html>
@@ -268,14 +278,14 @@ def choose_class():
                     </style>
                     <body>
                         <h1>1st Edition AD&D Character Generator 1985 Edition</h1>
+                        <form action="/race_chosen_choose_class" method="POST">
+                            <p><input type="submit" value="Yes"></p>
+                            <br>
+                        </form>
                         <form action="/" method="POST">
                             <p>
                                     This selection is valid, do you choose it?
                             </p>
-                            <p><input type="submit" value="Yes"></p>
-                            <br>
-                        </form>
-                        <form action="/race_chosen_choose_class" method="POST">
                             <p><input type="submit" value="No"></p>
                             <br>
                         </form>

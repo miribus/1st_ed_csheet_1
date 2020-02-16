@@ -1,19 +1,19 @@
 import dice, dice_gui
 
 race_choices = {
-              "Dwarf":     "Dwarf: CON +1, CHA -1",
-              "GreyDwarf": "GrayDwarf: CON +1, CHA -1",
-              "Elf":       "Elf: DEX +1, CON -1",
+              "Dwarf":     "Dwarf",
+              "GreyDwarf": "GrayDwarf",
+              "Elf":       "Elf",
               "GrayElf":   "GrayElf: INT +1, DEX +1, CON -1",
               "WoodElf":   "WoodElf: STR +1, INT +1, DEX +1, CON -1",
               "WildElf":   "WildElf: STR +2, DEX +1, CON -1",
               "ValleyElf": "ValleyElf: INT +1, DEX +1, CON -1",
               "DarkElf":   "DarkElf: DEX +1, CON -1",
-              "Gnome":     "Gnome",
-              "DeepGnome": "DeepGnome",
-              "Half-Elf":  "Half-Elf",
+              "Gnome":     "Gnome: No Adjustments",
+              "DeepGnome": "DeepGnome: No Adjustments",
+              "Half-Elf":  "Half-Elf: No Adjustments",
               "Half-Orc":  "Half-Orc: STR +1, CON +1, CHA -2",
-              "Human":     "Human",
+              "Human":     "Human: No Adjustments",
               "Halfling":  "Halfling: STR -1, DEX +1"}
 
 def check_display_mins(name, gender):
@@ -71,7 +71,7 @@ def check_display_mins(name, gender):
             name.char_race = race
             if result:
                 print(race_class_limit)
-                race_class_limit.append(race_choices[race])
+                race_class_limit.append(race)
             else:
                 print("wrong", race)
                 result = False
