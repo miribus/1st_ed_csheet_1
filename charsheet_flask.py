@@ -14,8 +14,11 @@ method = False
 methodv = False
 methodv_choice = False
 soclass = False
+soclassdef = ""
 abilities = ""
 result = False
+retry = False
+classes = []
 
 app = Flask(__name__)
 if __name__ == '__main__':
@@ -24,7 +27,7 @@ if __name__ == '__main__':
 
 @app.route('/', methods=["POST", "GET"])
 def mainpage():
-    global name, choice, method, methodv, methodv_choice, soclass, abilities, result, info
+    global name, choice, method, methodv, methodv_choice, soclass, abilities, result, info, soclassdef
     name = ""
     choice = ""
     method = False
@@ -33,6 +36,7 @@ def mainpage():
     soclass = False
     abilities = ""
     result = False
+    soclassdef = ""
     info = ""
     choices = character_gui.rollchoices
     return render_template('rollsheet.html', choices=choices)
@@ -171,7 +175,7 @@ def methodv_chosen():
 
 @app.route("/social_class", methods=["POST", "GET"])
 def social_class():
-    global name, choice, soclass
+    global name, choice, soclass, soclassdef
     if not soclass:
         choice = str(request.form['choices'])
     name = social_class_gui.social_class(name, choice, soclass)
@@ -212,38 +216,91 @@ def choose_race():
 
 @app.route("/race_chosen_choose_class", methods=["POST", "GET"])
 def race_chosen():
+    global retry
     global name
     global result
     global info
+    global classes
+    global soclassdef
     ninfo = ""
-    name.char_race = request.form['choices']
+    if not retry:
+        name.char_race = request.form['choices']
     #return name.char_race
-    name.char_class = []
-    classes, name = char_classes_gui.race_classes(name)
+    if not retry:
+        name.char_class = []
+        classes, name = char_classes_gui.race_classes(name)
     if len(info) > 0:
         ninfo = info
     if len(classes) > 0 and len(ninfo) > 0:
-        return render_template('show_class_choices.html', classes=classes, info=ninfo)
+        return render_template('show_class_choices.html', classes=classes, info=ninfo,
+                               STR=name.char_abilities["STR"],
+                               INT=name.char_abilities["INT"],
+                               WIS=name.char_abilities["WIS"],
+                               DEX=name.char_abilities["DEX"],
+                               CON=name.char_abilities["CON"],
+                               CHA=name.char_abilities["CHA"],
+                               CMS=name.char_abilities["CMS"],
+                               SOCIALCLASS=name.social_class,
+                               SOCIALCLASSDEF=soclassdef
+                               )
+    elif retry:
+        return render_template('show_class_choices.html', classes=classes, info=ninfo,
+                               STR=name.char_abilities["STR"],
+                               INT=name.char_abilities["INT"],
+                               WIS=name.char_abilities["WIS"],
+                               DEX=name.char_abilities["DEX"],
+                               CON=name.char_abilities["CON"],
+                               CHA=name.char_abilities["CHA"],
+                               CMS=name.char_abilities["CMS"],
+                               SOCIALCLASS=name.social_class,
+                               SOCIALCLASSDEF=soclassdef
+                               )
     elif len(classes) > 0:
-        return render_template('show_class_choices.html', classes=classes, info=ninfo)
+        return render_template('show_class_choices.html', classes=classes, info=ninfo,
+                               STR=name.char_abilities["STR"],
+                               INT=name.char_abilities["INT"],
+                               WIS=name.char_abilities["WIS"],
+                               DEX=name.char_abilities["DEX"],
+                               CON=name.char_abilities["CON"],
+                               CHA=name.char_abilities["CHA"],
+                               CMS=name.char_abilities["CMS"],
+                               SOCIALCLASS=name.social_class,
+                               SOCIALCLASSDEF=soclassdef
+                               )
     else:
         classes = ["None"]
-        return render_template('show_class_choices.html', classes=classes, info=ninfo)
+        return render_template('show_class_choices.html', classes=classes, info=ninfo,
+                               STR=name.char_abilities["STR"],
+                               INT=name.char_abilities["INT"],
+                               WIS=name.char_abilities["WIS"],
+                               DEX=name.char_abilities["DEX"],
+                               CON=name.char_abilities["CON"],
+                               CHA=name.char_abilities["CHA"],
+                               CMS=name.char_abilities["CMS"],
+                               SOCIALCLASS=name.social_class,
+                               SOCIALCLASSDEF=soclassdef
+                               )
 
 @app.route("/class_chosen", methods=["POST", "GET"])
 def choose_class():
-    global name, choices, info
+    global name, choice, info, retry
+    print(choice, name.methodv, "CHOICES")
+
     if name.methodv:
         print(name.methodv, "methodv")
         print(name.char_race, "race")
-        choices = name.char_race
+        choice = name.char_race
     else:
-        choices = request.form["choices"]
-    print(choice, "CHOICES")
-    name, result = char_classes_gui.choose_classes(name, choices)
+        choice = request.form["choices"]
+        print(choice, "???/")
+
+    name, result = char_classes_gui.choose_classes(name, choice)
+    print(result, "result? line 247")
     if not result:
         info = "This choice isn't valid, rolls are too low, try again."
-        return redirect(url_for('choose_class'))
+        print(info)
+        retry = True
+        return redirect(url_for('race_chosen'))
     else:
         return '''
                <html>
@@ -278,11 +335,11 @@ def choose_class():
                     </style>
                     <body>
                         <h1>1st Edition AD&D Character Generator 1985 Edition</h1>
-                        <form action="/race_chosen_choose_class" method="POST">
+                        <form action="/" method="POST">
                             <p><input type="submit" value="Yes"></p>
                             <br>
                         </form>
-                        <form action="/" method="POST">
+                        <form action="/race_chosen_choose_class" method="POST">
                             <p>
                                     This selection is valid, do you choose it?
                             </p>
