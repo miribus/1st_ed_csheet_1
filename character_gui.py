@@ -172,9 +172,9 @@ def races(name):
 #clear_screen()
 '''
 
-def chooseclass(name):
-    name, result = char_classes.race_classes(name)
-    return name
+#def chooseclass(name):
+#    name, result = char_classes.race_classes(name)
+#    return name
 
 def savingthrows(name):
     name = char_classes.class_saving_throws(name)

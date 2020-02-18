@@ -335,13 +335,14 @@ def choose_class():
                     </style>
                     <body>
                         <h1>1st Edition AD&D Character Generator 1985 Edition</h1>
-                        <form action="/" method="POST">
+                        <form action="/char_builder" method="POST">
                             <p><input type="submit" value="Yes"></p>
                             <br>
                         </form>
                         <form action="/race_chosen_choose_class" method="POST">
                             <p>
-                                    This selection is valid, do you choose it?
+                                    This selection is valid, do you choose it?<br>
+                                    If you chose Method V, any abilities below minimum, will be adjusted to class minimums.
                             </p>
                             <p><input type="submit" value="No"></p>
                             <br>
@@ -349,3 +350,12 @@ def choose_class():
                     </body>
                 </html>
                 '''
+
+
+@app.route("/char_builder", methods=["POST", "GET"])
+def character_builder_1():
+    global name
+    name = character_gui.savingthrows(name)
+    print(name.char_saves)
+    name = character_gui.racebonuses(name)
+    return render_template('/char_builder.html', name=name)
