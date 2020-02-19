@@ -2,7 +2,7 @@ import dice, dice_gui
 
 race_choices = {
               "Dwarf":     "Dwarf",
-              "GreyDwarf": "GrayDwarf",
+              "GrayDwarf": "GrayDwarf",
               "Elf":       "Elf",
               "GrayElf":   "GrayElf: INT +1, DEX +1, CON -1",
               "WoodElf":   "WoodElf: STR +1, INT +1, DEX +1, CON -1",

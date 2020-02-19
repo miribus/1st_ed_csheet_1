@@ -1,0 +1,80 @@
+<html>
+	<head>
+		<title>1st Edition AD&D Character Generator 1985</title>
+	</head>
+    <style>
+            hlR {
+                color: red;
+                }
+            hlG {
+                color: green;
+                }
+            hlB {
+                color: blue;
+                }
+            body {
+                background-color:#c2adeb;
+                }
+            fixed {
+                font-family: "Courier New", Monospace, monospace;
+                }
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+                }
+            th, td {
+              padding: 5px;
+              text-align: left;
+              font-weight: bold;
+}
+    </style>
+	<body>
+		<h1>1st Edition AD&D Character Generator 1985 Edition</h1>
+
+        <p>
+            {% for class in name.char_class %}
+                 <pre><br>Class:&#9;{{class}}<br></pre>
+                 {% endfor %}
+                 <pre><br>Race:&#9;{{name.char_race}}&#9;Gender:&#9;{{name.char_gender}}<br></pre>
+                 {% for key, val in name.char_abilities.items() %}
+                        <pre><br>{{key}}:&#9;{{val}} <br></pre>
+                    {% endfor %}
+                    {% for key, val in name.char_saves.items() %}
+                        <pre><br>{{key}}:&#9;{{val}} <br></pre>
+                    {% endfor %}
+                 {% for class in name.char_class %}
+                    <pre><br>Class:&#9;{{class}}<br></pre>
+                 {% endfor %}
+                 <pre><br>Race:&#9;{{name.char_race}}&#9;Gender:&#9;{{name.char_gender}}<br></pre>
+                 <pre><br>Age:&#9;{{name.char_age}}&#9;{{name.char_age_desc}}<br></pre>
+                 <br>
+                 -------------  Proficiency  -------------
+                 <br>
+                 <pre><br>Weapon Proficiencies:<br></pre>
+                 {% for w in name.char_weapon_prof %}
+                    <pre><br>Proficiency:&#9;{{w}}<br></pre>
+                 {% endfor %}
+                 <br>
+                 -------------  Inventory  -------------
+                 <br>
+
+                 <br>
+             ------------  CHOOSE AGE TYPE ------------
+             <br>
+             <form action="/age_entered" method="POST">
+                Leave 'Random' below to randomly roll age, otherwise inter it in that box.
+                <p>
+                    <input type="text" name="age" value="Random"> *Consult DM's guide for correct ages. <br>
+                    <input type="submit" value="Next">
+                </p>
+             </form>
+             <form action="/" method="POST">
+                <p>
+                    <input type="submit" value="Start Over">
+                </p>
+            </form>
+        </p>
+    </body>
+</html>
+
+

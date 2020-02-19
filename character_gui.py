@@ -1,4 +1,5 @@
 import dice, char_races, char_classes, social_class, base_ability_detail, age, class_abilities
+import char_classes_gui, char_races_gui
 import alignments, os, item_shop, encumbrance, armor_class, psionic_check
 import dice_gui
 import char_to_xls
@@ -175,13 +176,13 @@ def races(name):
 #def chooseclass(name):
 #    name, result = char_classes.race_classes(name)
 #    return name
-
+#
 def savingthrows(name):
-    name = char_classes.class_saving_throws(name)
+    name = char_classes_gui.class_saving_throws(name)
     return name
-
+##
 def racebonuses(name):
-    name = char_races.base_bonuses(name)
+    name = char_races_gui.base_bonuses(name)
     return name
 
 def rollage(name):

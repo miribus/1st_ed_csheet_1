@@ -359,3 +359,17 @@ def character_builder_1():
     print(name.char_saves)
     name = character_gui.racebonuses(name)
     return render_template('/char_builder.html', name=name)
+
+@app.route("/age_entered", methods=["POST", "GET"])
+def age_entered():
+    global name
+    age = request.form['age']
+    if str(age).isdigit():
+        if int(age) < 14 or int(age) > 1600:
+            name.char_age = "Random"
+            name = character_gui.rollage(name)
+        else:
+            name = character_gui.rollage(name)
+    else:
+        name = character_gui.rollage(name)
+    return render_template('/char_builder_age.html', name=name)
