@@ -190,7 +190,7 @@ def rollage(name):
     return name
 
 def raceabilityupdate(name):
-    name = char_races.race_ability_updater(name)
+    name = char_races_gui.race_ability_updater(name)
     return name
 
 def defineabilitie(name):

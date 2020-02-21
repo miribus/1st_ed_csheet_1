@@ -3,7 +3,10 @@
 		<title>1st Edition AD&D Character Generator 1985</title>
 	</head>
     <style>
-            hlR {
+h2{font-size: calc(14px + 1.3vw);}
+h3{line-height : 0px;}
+
+hlR {
                 color: red;
                 }
             hlG {
@@ -12,26 +15,45 @@
             hlB {
                 color: blue;
                 }
-            body {
-                background-color:#c2adeb;
-                }
-            fixed {
-                font-family: "Courier New", Monospace, monospace;
-                }
-            table, th, td {
-                border: 1px solid black;
-                border-collapse: collapse;
-                }
-            th, td {
-              padding: 5px;
-              text-align: left;
-              font-weight: bold;
+* {
+    box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+    float: left;
+    #width: 20%;
+    #padding: 38px;
+    #height: 350px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+body {
+    background-color:#c2adeb;
+}
+fixed {
+    font-family: "Courier New", sans-serif, sans-serif;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 5px;
+  text-align: left;
+  font-weight: bold;
 }
     </style>
 	<body>
 		<h1>1st Edition AD&D Character Generator 1985 Edition</h1>
 
         <p>
+            <div class="column" style="width:30%">
             {% for class in name.char_class %}
                  <pre><br>Class:&#9;{{class}}<br></pre>
                  {% endfor %}
@@ -73,6 +95,11 @@
                     <input type="submit" value="Start Over">
                 </p>
             </form>
+            </div>
+
+            <div class="column" style="width:30%">
+            </div>
+
         </p>
     </body>
 </html>

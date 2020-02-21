@@ -364,6 +364,30 @@ def character_builder_1():
 def age_entered():
     global name
     age = request.form['age']
+    hp = request.form['hp']
+    if "Cavalier" in name.char_class:
+        strtr = request.form['strtr']
+        if str(strtr).isdigit():
+            name.char_class_abilities["UAPaladin"]["STR Training"] = strtr
+        dextr = request.form['dextr']
+        if str(dextr).isdigit():
+            name.char_class_abilities["UAPaladin"]["DEX Training"] = dextr
+        contr = request.form['contr']
+        if str(contr).isdigit():
+            name.char_class_abilities["UAPaladin"]["CON Training"] = contr
+        chatr = request.form['chatr']
+        if str(chatr).isdigit():
+            name.char_class_abilities["UAPaladin"]["CHA Training"] = chatr
+    elif "UAPaladin" in name.char_class:
+        strtr = request.form['strtr']
+        if str(strtr).isdigit():
+            name.char_class_abilities["Cavalier"]["STR Training"] = strtr
+        dextr = request.form['dextr']
+        if str(dextr).isdigit():
+            name.char_class_abilities["Cavalier"]["DEX Training"] = dextr
+        contr = request.form['contr']
+        if str(contr).isdigit():
+            name.char_class_abilities["Cavalier"]["CON Training"] = contr
     if str(age).isdigit():
         if int(age) < 14 or int(age) > 1600:
             name.char_age = "Random"
@@ -372,4 +396,10 @@ def age_entered():
             name = character_gui.rollage(name)
     else:
         name = character_gui.rollage(name)
+
+    name = character_gui.raceabilityupdate(name)
+    name = character_gui.defineabilitie(name)
+    if str(hp).isdigit():
+        name.char_HP = hp
+
     return render_template('/char_builder_age.html', name=name)

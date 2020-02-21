@@ -1,4 +1,4 @@
-import dice, csv, os
+import dice, csv, os, dice_gui
 
 tables = str(os.getcwd()+"\\tables\\")
 weapons_csv = tables+"weapons_csv.csv"
@@ -318,11 +318,9 @@ def class_details(name):
                 name.char_class_abilities["Cavalier"]["Good Aligned"] = "Radiate Protection from Fear 1\" radius"
                 name.char_class_abilities["Cavalier"]["Save Bonus"] = "+2 Illusions"
                 print("Enter your score for Strength Training (this will be overwritten if you have exception strength.)")
-                name.char_class_abilities["Cavalier"]["STR Training"] = dice.exceptional_strength(name)
-                print("Enter your score for Dexterity Training")
-                name.char_class_abilities["Cavalier"]["DEX Training"] = dice.exceptional_strength(name)
-                print("Enter your score for Constitution Training")
-                name.char_class_abilities["Cavalier"]["CON Training"] = dice.exceptional_strength(name)
+                name.char_class_abilities["Cavalier"]["STR Training"] = dice_gui.exceptional_strength(name)
+                name.char_class_abilities["Cavalier"]["DEX Training"] = dice_gui.exceptional_strength(name)
+                name.char_class_abilities["Cavalier"]["CON Training"] = dice_gui.exceptional_strength(name)
                 HP = dice.HP(10, 1, name, 6) + int(HPadj) + 3
             else:
                 HP = dice.HP(4, 1, name, 3) + int(HPadj) + 1
@@ -376,11 +374,11 @@ def class_details(name):
                 name.char_class_abilities["UAPaladin"]["Immunity"] = "Disease, Fear"
                 print(
                     "Enter your score for Strength Training (this will be overwritten if you have exception strength.)")
-                if not name.self_roll:
-                    name.char_class_abilities["UAPaladin"]["STR Training"] = dice.exceptional_strength(name)
-                    name.char_class_abilities["UAPaladin"]["DEX Training"] = dice.exceptional_strength(name)
-                    name.char_class_abilities["UAPaladin"]["CON Training"] = dice.exceptional_strength(name)
-                    name.char_class_abilities["UAPaladin"]["CHA Training"] = dice.exceptional_strength(name)
+                if name.self_roll:
+                    name.char_class_abilities["UAPaladin"]["STR Training"] = dice_gui.exceptional_strength(name)
+                    name.char_class_abilities["UAPaladin"]["DEX Training"] = dice_gui.exceptional_strength(name)
+                    name.char_class_abilities["UAPaladin"]["CON Training"] = dice_gui.exceptional_strength(name)
+                    name.char_class_abilities["UAPaladin"]["CHA Training"] = dice_gui.exceptional_strength(name)
             else:
                 HP = dice.HP(4, 1, name, 3) + int(HPadj) + 1
             name.char_HP += HP
