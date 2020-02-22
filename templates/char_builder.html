@@ -67,16 +67,17 @@
                     <input type="text" name="age" value="Random"> *Consult DM's guide for correct ages. <br>
                     <input type="text" name="hp" value="Random"> *Consult PHB/UA guides for correct HP. <br>
                     {% for class in name.char_class %}
-                    {% if "Cavalier" == {{class}} %}
-                        <input type="text" name="strtr" value="Random"> *You're a Cavlier, enter Training roll if Level 1. <br>
-                        <input type="text" name="dextr" value="Random"> *You're a Cavlier, enter Training roll if Level 1. <br>
-                        <input type="text" name="contr" value="Random"> *You're a Cavlier, enter Training roll if Level 1. <br>
-                    {% elif "UAPaladin" == {{class}} %}
-                        <input type="text" name="strtr" value="Random"> *You're a UA Paladin, enter Training roll if Level 1. <br>
-                        <input type="text" name="dextr" value="Random"> *You're a UA Paladin, enter Training roll if Level 1. <br>
-                        <input type="text" name="contr" value="Random"> *You're a UA Paladin, enter Training roll if Level 1. <br>
-                        <input type="text" name="chatr" value="Random"> *You're a UA Paladin, enter Training roll if Level 1. <br>
-                    {% endif %}
+                        {% if "Cavalier" == class %}
+                            <input type="text" name="strtr" value="Random"> *You're a Cavlier, enter Training roll if Level 1. <br>
+                            <input type="text" name="dextr" value="Random"> *You're a Cavlier, enter Training roll if Level 1. <br>
+                            <input type="text" name="contr" value="Random"> *You're a Cavlier, enter Training roll if Level 1. <br>
+                        {% elif "UAPaladin" == class %}
+                            <input type="text" name="strtr" value="Random"> *You're a UA Paladin, enter Training roll if Level 1. <br>
+                            <input type="text" name="dextr" value="Random"> *You're a UA Paladin, enter Training roll if Level 1. <br>
+                            <input type="text" name="contr" value="Random"> *You're a UA Paladin, enter Training roll if Level 1. <br>
+                            <input type="text" name="chatr" value="Random"> *You're a UA Paladin, enter Training roll if Level 1. <br>
+                        {% endif %}
+                    (% endfor %}
 
                     <input type="submit" value="Next">
                 </p>
