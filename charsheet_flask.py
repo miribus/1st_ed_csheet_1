@@ -355,6 +355,7 @@ def choose_class():
 @app.route("/char_builder", methods=["POST", "GET"])
 def character_builder_1():
     global name
+    print(name.char_class, "charclass")
     name = character_gui.savingthrows(name)
     print(name.char_saves)
     name = character_gui.racebonuses(name)
